@@ -38,16 +38,25 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ObjectHolder;
 
 @Mod.EventBusSubscriber(modid= ProgressiveTechnicalities.MOD_ID, bus= Bus.MOD)
 @ObjectHolder(ProgressiveTechnicalities.MOD_ID)
 public class ItemInit 
 {
+	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS,
+			ProgressiveTechnicalities.MOD_ID);
+
+	public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("chromium_rod",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
 	public static final Item example_item = null;
-	public static final Item chromium_rod = null;
+	// public static final Item chromium_rod = null;
 	public static final Item chromium_ingot = null;
 	public static final Item carbide_ingot = null;
 	public static final Item titanium_ingot = null;
@@ -87,7 +96,7 @@ public class ItemInit
 	
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
-		event.getRegistry().register(new Item(new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("chromium_rod"));
+		// event.getRegistry().register(new Item(new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("chromium_rod"));
 		event.getRegistry().register(new Item(new Item.Properties().group(ProgtechItemGroup.instance).food(new Food.Builder().hunger(2).saturation(0f).setAlwaysEdible().fastToEat().effect(new EffectInstance(Effects.SPEED, 100, 2), 1).effect(new EffectInstance(Effects.HUNGER, 100, 1), 1).build())).setRegistryName("example_item"));
 		event.getRegistry().register(new Item(new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("chromium_ingot"));
 		event.getRegistry().register(new Item(new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("carbide_ingot"));

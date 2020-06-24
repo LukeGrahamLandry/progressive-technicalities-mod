@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.ChromiumOreGen;
 
 import net.minecraft.item.ItemGroup;
@@ -33,6 +34,8 @@ public class ProgressiveTechnicalities
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	modEventBus.addListener(this::setup);
     	modEventBus.addListener(this::doClientStuff);
+    	
+    	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
         
         instance = this;
         
