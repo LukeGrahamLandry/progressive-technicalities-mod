@@ -22,7 +22,7 @@ public class BlockQuarry extends Block{
 	
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-		ModTileEntityTypes.QUARRY.get.create();
+		ModTileEntityTypes.QUARRY.get().create();
 		return super.createTileEntity(state, world);
 	}
 

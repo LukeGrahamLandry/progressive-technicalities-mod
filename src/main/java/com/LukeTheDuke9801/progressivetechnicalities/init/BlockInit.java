@@ -2,6 +2,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockQuarry;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.LightningRod;
 
 import net.minecraft.block.Block;
@@ -27,7 +28,7 @@ public class BlockInit
 	public static final Block carbide_block = null;
 	
 	public static final Block lightning_rod = null;
-	public static final Block quarry = null;
+	public static final Block QUARRY = null;
 
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
@@ -38,7 +39,7 @@ public class BlockInit
 		event.getRegistry().register(new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 2f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)).setRegistryName("carbide_block"));
 		
 		event.getRegistry().register(new LightningRod(Block.Properties.create(Material.IRON).hardnessAndResistance(0.5f, 10.0f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)).setRegistryName("lightning_rod"));
-		event.getRegistry().register(new BlockQuarry(Block.Properties.create(Material.IRON).hardnessAndResistance(0.5f, 10.0f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)).setRegistryName("quarry"));
+		event.getRegistry().register(new BlockQuarry(Block.Properties.create(Material.IRON).hardnessAndResistance(0.5f, 10.0f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)).setRegistryName("QUARRY"));
 	}
 	
 	@SubscribeEvent
@@ -50,6 +51,6 @@ public class BlockInit
 		event.getRegistry().register(new BlockItem(carbide_block, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("carbide_block"));
 		
 		event.getRegistry().register(new BlockItem(lightning_rod, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("lightning_rod"));
-		event.getRegistry().register(new BlockItem(quarry, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("lightning_rod"));
+		event.getRegistry().register(new BlockItem(QUARRY, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("QUARRY"));
 		}
 }
