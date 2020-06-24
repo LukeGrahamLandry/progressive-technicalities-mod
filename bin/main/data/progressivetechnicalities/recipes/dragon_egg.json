@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:wealth_ingot"
+    },
+    {
+    	"item": "minecraft:end_stone"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dragon_egg"
+  }
+}

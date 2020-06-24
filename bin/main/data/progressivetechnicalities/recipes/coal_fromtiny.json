@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "i i",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:tiny_coal"
+    }
+  },
+  "result": {
+    "item": "minecraft:coal"
+  }
+}
