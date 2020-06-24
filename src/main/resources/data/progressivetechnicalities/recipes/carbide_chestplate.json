@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i i",
+    "iii",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:carbide_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:carbide_chestplate"
+  }
+}

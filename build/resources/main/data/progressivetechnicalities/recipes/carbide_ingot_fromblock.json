@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:carbide_block"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:carbide_ingot",
+    "count": 9
+  }
+}

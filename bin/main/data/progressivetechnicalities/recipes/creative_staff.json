@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:staff"
+    },
+    {
+      "item": "progressivetechnicalities:battle_chestplate"
+    },
+    {
+    	"item": "minecraft:dragon_egg"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:creative_staff"
+  }
+}

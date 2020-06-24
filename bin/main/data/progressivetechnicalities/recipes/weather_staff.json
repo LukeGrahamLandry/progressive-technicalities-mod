@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:staff"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+    ,
+    {
+    	"item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:weather_staff"
+  }
+}

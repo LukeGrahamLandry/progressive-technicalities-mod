@@ -1,0 +1,48 @@
+{
+	"item.progressivetechnicalities.example_item": "Example Item",
+	"item.progressivetechnicalities.chromium_rod": "Chromium Rod",
+	"item.progressivetechnicalities.chromium_ingot": "Chromium Ingot",
+	"item.progressivetechnicalities.carbide_ingot": "Carbide Ingot",
+	"item.progressivetechnicalities.titanium_ingot": "Titanium Ingot",
+	"item.progressivetechnicalities.wealth_ingot": "Rainbow Ingot of the Extremely Wealthy and Dedicated Player",
+	"item.progressivetechnicalities.tiny_coal": "Tiny Coal",
+	
+	"item.progressivetechnicalities.staff": "Staff",
+	"item.progressivetechnicalities.weather_staff": "Nimbus Staff",
+	"item.progressivetechnicalities.time_staff": "Circadian Staff",
+	"item.progressivetechnicalities.ender_staff": "Staff of Teleportation",
+	"item.progressivetechnicalities.snow_staff": "Staff of Winter",
+	"item.progressivetechnicalities.recall_staff": "Staff of Recall",
+	"item.progressivetechnicalities.nether_staff": "Staff of the Inferno",
+	"item.progressivetechnicalities.xp_staff": "Staff of Knowledge",
+	"item.progressivetechnicalities.blaze_staff": "Staff of the Blaze Master",
+	"item.progressivetechnicalities.tnt_staff": "Staff of Entropy",
+	"item.progressivetechnicalities.creative_staff": "Staff of Creativity",
+	
+	"item.progressivetechnicalities.carbide_sword": "Carbide Sword",
+	"item.progressivetechnicalities.carbide_pickaxe": "Carbide Pickaxe",
+	"item.progressivetechnicalities.carbide_axe": "Carbide Axe",
+	"item.progressivetechnicalities.carbide_shovel": "Carbide Shovel",
+	"item.progressivetechnicalities.carbide_hoe": "Carbide Hoe",
+	"item.progressivetechnicalities.titanium_sword": "Katana of the God Slayer",
+	
+	
+	"item.progressivetechnicalities.carbide_helmet": "Carbide Helmet",
+	"item.progressivetechnicalities.carbide_chestplate": "Carbide Chestplate",
+	"item.progressivetechnicalities.carbide_leggings": "Carbide Leggings",
+	"item.progressivetechnicalities.carbide_boots": "Carbide Boots",
+	"item.progressivetechnicalities.titanium_helmet": "Helmet of Stealth",
+	"item.progressivetechnicalities.titanium_chestplate": "Chestplate of the Battle Master",
+	"item.progressivetechnicalities.titanium_leggings": "Leggings of Momentum",
+	"item.progressivetechnicalities.titanium_boots": "Boots of Lava Walking",
+
+	"block.progressivetechnicalities.chromium_block": "Chromium Block",
+	"block.progressivetechnicalities.chromium_ore": "Chromium Ore",
+	"block.progressivetechnicalities.titanium_block": "Titanium Block",
+	"block.progressivetechnicalities.titanium_ore": "Titanium Ore",
+	"block.progressivetechnicalities.carbide_block": "Carbide Block",
+	
+	"block.progressivetechnicalities.lightning_rod": "Flat Lighting Rod",
+	
+	"itemGroup.progtechtab": "Progressive Technicalities"
+}

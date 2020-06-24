@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:staff"
+    },
+    {
+      "item": "progressivetechnicalities:wealth_ingot"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:creative_staff"
+  }
+}

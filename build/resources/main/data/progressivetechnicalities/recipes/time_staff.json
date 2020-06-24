@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:staff"
+    },
+    {
+    	"item": "minecraft:clock"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:time_staff"
+  }
+}
