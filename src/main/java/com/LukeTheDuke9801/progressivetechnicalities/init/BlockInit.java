@@ -1,56 +1,58 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockMultiTNT;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockQuarry;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.LightningRod;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.FenceBlock;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-@Mod.EventBusSubscriber(modid= ProgressiveTechnicalities.MOD_ID, bus= Bus.MOD)
-@ObjectHolder(ProgressiveTechnicalities.MOD_ID)
-public class BlockInit 
-{
-	public static final Block chromium_block = null;
-	public static final Block chromium_ore = null;
-	public static final Block titanium_block = null;
-	public static final Block titanium_ore = null;
-	public static final Block carbide_block = null;
+public class BlockInit {
+	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, ProgressiveTechnicalities.MOD_ID);
 	
-	public static final Block lightning_rod = null;
-	public static final Block QUARRY = null;
-
-	@SubscribeEvent
-	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-		event.getRegistry().register(new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 36000000f).sound(SoundType.METAL).harvestLevel(1).harvestTool(ToolType.PICKAXE)).setRegistryName("chromium_block"));
-		event.getRegistry().register(new Block(Block.Properties.create(Material.EARTH).hardnessAndResistance(3f, 2f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)).setRegistryName("chromium_ore"));
-		event.getRegistry().register(new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 3f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)).setRegistryName("titanium_block"));
-		event.getRegistry().register(new Block(Block.Properties.create(Material.EARTH).hardnessAndResistance(3f, 2f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)).setRegistryName("titanium_ore"));
-		event.getRegistry().register(new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 2f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)).setRegistryName("carbide_block"));
-		
-		event.getRegistry().register(new LightningRod(Block.Properties.create(Material.IRON).hardnessAndResistance(0.5f, 10.0f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)).setRegistryName("lightning_rod"));
-		event.getRegistry().register(new BlockQuarry(Block.Properties.create(Material.IRON).hardnessAndResistance(0.5f, 10.0f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)).setRegistryName("QUARRY"));
-	}
+	public static final RegistryObject<Block> CHROMIUM_BLOCK = BLOCKS.register("chromium_block",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 36000000f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
-	@SubscribeEvent
-	public static void registerBlockItems(final RegistryEvent.Register<Item> event) {
-		event.getRegistry().register(new BlockItem(chromium_block, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("chromium_block"));
-		event.getRegistry().register(new BlockItem(chromium_ore, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("chromium_ore"));
-		event.getRegistry().register(new BlockItem(titanium_block, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("titanium_block"));
-		event.getRegistry().register(new BlockItem(titanium_ore, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("titanium_ore"));
-		event.getRegistry().register(new BlockItem(carbide_block, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("carbide_block"));
-		
-		event.getRegistry().register(new BlockItem(lightning_rod, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("lightning_rod"));
-		event.getRegistry().register(new BlockItem(QUARRY, new Item.Properties().group(ProgtechItemGroup.instance)).setRegistryName("QUARRY"));
-		}
+	public static final RegistryObject<Block> CARBIE_BLOCK = BLOCKS.register("carbide_block",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> TITANIUM_BLOCK = BLOCKS.register("titanium_block",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> CHROMIUM_ORE = BLOCKS.register("chromium_ore",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> TITANIUM_ORE = BLOCKS.register("titanium_ore",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+	
+	// Blood wood
+	public static final RegistryObject<Block> BLOODWOOD_PLANKS = BLOCKS.register("bloodwood_planks",
+			() -> new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(5f, 20f).sound(SoundType.WOOD).harvestLevel(4).harvestTool(ToolType.AXE)));
+	
+	public static final RegistryObject<Block> BLOODWOOD_STAIRS = BLOCKS.register("bloodwood_stairs",
+			() -> new StairsBlock(() -> BlockInit.BLOODWOOD_PLANKS.get().getDefaultState(), Block.Properties.create(Material.WOOD)));
+	
+	public static final RegistryObject<Block> BLOODWOOD_FENCE = BLOCKS.register("bloodwood_fence",
+			() -> new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.RED)));
+	
+	// Advanced / Tile Entities
+	
+	static final RegistryObject<Block> LIGHTNING_ROD = BLOCKS.register("lightning_rod",
+			() -> new LightningRod(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 10f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> QUARRY = BLOCKS.register("quarry",
+			() -> new BlockQuarry(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> MULTI_TNT = BLOCKS.register("multi_tnt",
+			() -> new BlockMultiTNT(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1f).sound(SoundType.SAND).harvestLevel(0)));
+	
 }

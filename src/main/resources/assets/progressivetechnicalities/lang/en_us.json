@@ -43,6 +43,8 @@
 	"block.progressivetechnicalities.carbide_block": "Carbide Block",
 	
 	"block.progressivetechnicalities.lightning_rod": "Flat Lighting Rod",
+	"block.progressivetechnicalities.quarry": "Basic Quarry",
+	"block.progressivetechnicalities.multi_tnt": "Multi-TNT (NO FUSE!)",
 	
 	"itemGroup.progtechtab": "Progressive Technicalities"
 }

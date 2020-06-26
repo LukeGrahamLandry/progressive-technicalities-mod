@@ -3,7 +3,6 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs;
 import java.util.List;
 
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
-import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;

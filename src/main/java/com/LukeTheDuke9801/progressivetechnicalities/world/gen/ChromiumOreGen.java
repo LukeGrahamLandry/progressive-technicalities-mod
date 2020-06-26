@@ -19,7 +19,7 @@ public class ChromiumOreGen {
 			ConfiguredPlacement customConfig = Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 20, 0, 60));
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, 
 					Feature.ORE.withConfiguration(new OreFeatureConfig                               // max vain size
-							(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.chromium_ore.getDefaultState(), 15))
+							(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.CHROMIUM_ORE.get().getDefaultState(), 15))
 					.withPlacement(customConfig));
 		}
 	}
