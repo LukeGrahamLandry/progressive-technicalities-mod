@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i i",
+    "ici",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:obsidian"
+    },
+    "c": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:obsidian_chestplate"
+  }
+}

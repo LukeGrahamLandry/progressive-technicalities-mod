@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "scf",
+    "i i",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "s": {
+      "item": "minecraft:sugar"
+    },
+    "c": {
+      "item": "progressivetechnicalities:potion_core"
+    },
+    "f": {
+      "item": "minecraft:rabbit_foot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:boost_leggings"
+  }
+}

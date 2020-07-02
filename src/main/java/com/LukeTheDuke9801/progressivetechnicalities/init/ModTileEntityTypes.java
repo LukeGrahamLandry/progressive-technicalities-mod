@@ -1,6 +1,8 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.tileentity.FeywildPortalTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.tileentity.LargeChestTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.MultiTNTTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.QuarryTileEntity;
 
@@ -19,4 +21,11 @@ public class ModTileEntityTypes {
 	
 	public static final RegistryObject<TileEntityType<MultiTNTTileEntity>> MULTI_TNT = TILE_ENTITY_TYPES.register("multi_tnt", 
 			() -> TileEntityType.Builder.create(MultiTNTTileEntity::new, BlockInit.MULTI_TNT.get()).build(null));
+	
+	public static final RegistryObject<TileEntityType<LargeChestTileEntity>> LARGE_CHEST = TILE_ENTITY_TYPES.register("large_chest", 
+			() -> TileEntityType.Builder.create(LargeChestTileEntity::new, BlockInit.LARGE_CHEST.get()).build(null));
+
+	public static final RegistryObject<TileEntityType<FeywildPortalTileEntity>> FEYWILD_PORTAL = TILE_ENTITY_TYPES.register("feywild_portal", 
+			() -> TileEntityType.Builder.create(FeywildPortalTileEntity::new, BlockInit.FEYWILD_PORTAL.get()).build(null));
+	
 } 

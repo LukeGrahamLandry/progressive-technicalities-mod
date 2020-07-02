@@ -22,6 +22,9 @@
 		},
 		{
 			"path": "src/main/resources/data/progressivetechnicalities/loot_tables/blocks"
+		},
+		{
+			"path": "src/main/resources/assets/progressivetechnicalities/textures/blocks"
 		}
 	],
 	"settings": {}

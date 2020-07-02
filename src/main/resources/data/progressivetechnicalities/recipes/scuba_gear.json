@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "pcg",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "c": {
+      "item": "progressivetechnicalities:potion_core"
+    },
+    "p": {
+      "item": "minecraft:pufferfish"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:scuba_gear"
+  }
+}

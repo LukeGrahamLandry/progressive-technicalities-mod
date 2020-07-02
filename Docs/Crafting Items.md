@@ -1,0 +1,13 @@
+- Chromium Rod (used as sticks for carbide tools)
+- Chromium Ingot (ore as common as coal)
+- Chromium Block (explosion proof)
+- Carbide Ingot (compressed diamond ore)
+- Carbide Block
+- Titanium Ingot (ore found in [[Oil Dimension]])
+- Titanium Block
+- Staff (used to make [[Staffs]])
+- Potion Core (used to make some special [[Armour]])
+- Machine Base (used to make some special [[Blocks]])
+- Sky Gem (ore spawns above sea level)
+- Diastima Alloy (carbide + titanium + sky gems)
+- Tiny Coal (smelts one item)

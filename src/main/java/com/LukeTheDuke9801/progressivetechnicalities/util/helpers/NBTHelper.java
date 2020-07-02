@@ -3,6 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.util.helpers;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.LukeTheDuke9801.progressivetechnicalities.tileentity.FeywildPortalTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.QuarryTileEntity;
 
 import net.minecraft.item.Item;
@@ -22,6 +23,10 @@ public class NBTHelper {
 			return writeQuarry((QuarryTileEntity)o);
 		}
 		
+		if(o instanceof FeywildPortalTileEntity) {
+			return writeFeyPortal((FeywildPortalTileEntity)o);
+		}
+		
 		return null;
 	}
 	
@@ -30,6 +35,12 @@ public class NBTHelper {
 		compound.putInt("x", o.x);
 		compound.putInt("y", o.y);
 		compound.putInt("z", o.z);
+		return compound;
+	}
+	
+	private static CompoundNBT writeFeyPortal(FeywildPortalTileEntity o) {
+		CompoundNBT compound = new CompoundNBT();
+		compound.putInt("tick", o.tick);
 		return compound;
 	}
 	

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "c p",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "c": {
+      "item": "progressivetechnicalities:potion_core"
+    },
+    "p": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:slowfall_boots"
+  }
+}

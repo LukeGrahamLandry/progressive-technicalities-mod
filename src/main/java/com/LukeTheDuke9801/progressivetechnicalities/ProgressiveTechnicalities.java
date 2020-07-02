@@ -3,15 +3,28 @@ package com.LukeTheDuke9801.progressivetechnicalities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.LukeTheDuke9801.progressivetechnicalities.events.ModPlayerEvent;
+import com.LukeTheDuke9801.progressivetechnicalities.init.BiomeInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInitNew;
+import com.LukeTheDuke9801.progressivetechnicalities.init.DimensionInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.ModContainerTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ModIceBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.ChromiumOreGen;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.FeysteelOreGen;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.SkyGemOreGen;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.TitaniumOreGen;
 
+import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -35,15 +48,24 @@ public class ProgressiveTechnicalities
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "progressivetechnicalities";
     public static ProgressiveTechnicalities instance;
+    public static final ResourceLocation OIL_DIM_TYPE = new ResourceLocation(MOD_ID, "blood");
+    public static final ResourceLocation FEY_DIM_TYPE = new ResourceLocation(MOD_ID, "feywild");
 
     public ProgressiveTechnicalities() {
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
     	modEventBus.addListener(this::setup);
     	modEventBus.addListener(this::doClientStuff);
     	
-    	ItemInitNew.ITEMS.register(modEventBus);
+    	EnchantmentInit.ENCHANTMENTS.register(modEventBus);
+    	ItemInit.ITEMS.register(modEventBus);
+    	FluidInit.FLUIDS.register(modEventBus);
     	BlockInit.BLOCKS.register(modEventBus);
     	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
+    	ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
+    	BiomeInit.BIOMES.register(modEventBus);
+    	DimensionInit.MOD_DIMENSIONS.register(modEventBus);
+    	
+    	MinecraftForge.EVENT_BUS.register(ModPlayerEvent.class);
         
         instance = this;
         
@@ -54,7 +76,7 @@ public class ProgressiveTechnicalities
     @SubscribeEvent
     public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
     	final IForgeRegistry<Item> registry = event.getRegistry();
-    	BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+    	BlockInit.BLOCKS.getEntries().stream().filter(block -> !(block.get() instanceof FlowingFluidBlock || block.get() instanceof ModIceBlock)).map(RegistryObject::get).forEach(block -> {
     		final Item.Properties properties = new Item.Properties().group(ProgtechItemGroup.instance);
     		final BlockItem blockItem = new BlockItem(block, properties);
     		blockItem.setRegistryName(block.getRegistryName());
@@ -62,7 +84,12 @@ public class ProgressiveTechnicalities
     	});
     	LOGGER.debug("Registered BlockItems");
     }
-
+    
+    @SubscribeEvent
+    public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event) {
+    	BiomeInit.registerBiomes();
+    }
+    
     private void setup(final FMLCommonSetupEvent event){
     	
     }
@@ -79,6 +106,9 @@ public class ProgressiveTechnicalities
     @SubscribeEvent
     public static void loadCompleteEvent(FMLLoadCompleteEvent event) {
     	ChromiumOreGen.generateOre();
+    	SkyGemOreGen.generateOre();
+    	TitaniumOreGen.generateOre();
+    	FeysteelOreGen.generateOre();
     }
     
     public static class ProgtechItemGroup extends ItemGroup {

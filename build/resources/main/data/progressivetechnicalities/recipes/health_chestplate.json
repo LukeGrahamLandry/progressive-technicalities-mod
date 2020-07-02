@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i i",
+    "iii",
+    "gca"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:titanium_ingot"
+    },
+    "a": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "g": {
+      "item": "minecraft:ghast_tear"
+    },
+    "c": {
+      "item": "progressivetechnicalities:potion_core"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:health_chestplate"
+  }
+}

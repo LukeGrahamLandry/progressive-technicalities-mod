@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"progressivetechnicalities:oil_flowing",
+		"progressivetechnicalities:oil_fluid",
+		"progressivetechnicalities:silver_flowing",
+		"progressivetechnicalities:silver_fluid"
+	]
+}

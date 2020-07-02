@@ -1,0 +1,2 @@
+Breaks a 3x3 tunnel down to y level 2 at a rate of two blocks a second. 
+Drops the items two blocks above it which can be collected by a hopper placed on top of the quarry block. Once it reaches bedrock it breaks itself (dropped above like other blocks).

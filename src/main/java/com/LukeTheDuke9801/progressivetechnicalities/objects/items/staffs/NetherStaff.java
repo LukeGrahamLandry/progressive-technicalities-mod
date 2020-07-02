@@ -50,6 +50,7 @@ public class NetherStaff extends Item{
 			} else {
 				playerIn.changeDimension(DimensionType.OVERWORLD);
 			}
+			playerIn.setPositionAndUpdate(playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ());  // load the chunk
 		} else {
 			return placeLava(worldIn, playerIn, handIn);
 		}

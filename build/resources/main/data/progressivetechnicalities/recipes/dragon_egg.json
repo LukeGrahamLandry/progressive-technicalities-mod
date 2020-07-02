@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-    	"item": "progressivetechnicalities:wealth_ingot"
+    	"item": "progressivetechnicalities:titanium_block"
     },
     {
-    	"item": "minecraft:end_stone"
+    	"item": "minecraft:dragon_head"
     }
   ],
   "result": {

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "c f",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "c": {
+      "item": "progressivetechnicalities:potion_core"
+    },
+    "f": {
+      "item": "minecraft:cod"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:flippers"
+  }
+}

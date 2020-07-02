@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rir",
+    "gbg",
+    "rir"
+  ],
+  "key": {
+    "b": {
+      "item": "progressivetechnicalities:chromium_block"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:machine_base"
+  }
+}

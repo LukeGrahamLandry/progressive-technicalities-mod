@@ -25,7 +25,7 @@ public class TNTStaff extends Item{
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Throws tnt balls. Shift right click to spawn a TNT"));
+			tooltip.add(new StringTextComponent("Throws tnt balls that spawn a TNT where they land"));
 		} 
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -33,15 +33,10 @@ public class TNTStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
-		if (KeyboardHelper.isHoldingShift()) {
-			TNTEntity tnt = new TNTEntity(worldIn, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), playerIn);
-			worldIn.addEntity(tnt);
-		} else {
-			TNTBallEntity ball = new TNTBallEntity(worldIn, playerIn);
-			ball.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
-			worldIn.addEntity(ball);
-		}
-		
+		TNTBallEntity ball = new TNTBallEntity(worldIn, playerIn);
+		ball.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
+		worldIn.addEntity(ball);
+	
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 		
 	}

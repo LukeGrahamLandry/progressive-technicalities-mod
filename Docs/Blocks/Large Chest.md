@@ -1,0 +1,1 @@
+Same amount of slots as a double chest (54) but takes only one block and doesnt need an air block above to open.

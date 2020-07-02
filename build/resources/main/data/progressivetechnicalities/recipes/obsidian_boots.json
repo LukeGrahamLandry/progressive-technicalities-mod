@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "c i",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:obsidian"
+    },
+    "c": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:obsidian_boots"
+  }
+}

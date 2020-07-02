@@ -1,6 +1,6 @@
 import json
 
-path = "/Users/luke/Documents/progressive_technicalities/src/main/resources/assets/progressivetechnicalities/models/item/"
+path = "/Users/luke/Desktop/Code/progressive_technicalities/src/main/resources/assets/progressivetechnicalities/models/item/"
 
 while True:
 	name = input("name? ")

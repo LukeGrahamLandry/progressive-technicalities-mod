@@ -44,6 +44,7 @@ public class RecallStaff extends Item{
 			}
 			
 			playerIn.setPositionAndUpdate(pos.getX(), pos.getY(), pos.getZ());
+		
 			
 		}
 		
