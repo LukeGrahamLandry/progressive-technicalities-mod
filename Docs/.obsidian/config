@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Oil Dimension.md",
+            "file": "Index.md",
             "mode": "preview"
           }
         }
@@ -83,11 +83,11 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Oil Dimension.md",
     "Index.md",
-    "Staffs/Staff of Momentum.md",
-    "Staffs/Staffs.md",
-    "Tools/Obsidian Tools.md"
+    "Crafting Items.md",
+    "Blocks/Blocks.md",
+    "Armour/Obsidian Armour.md",
+    "Armour/Armour.md"
   ],
   "alwaysUpdateLinks": true,
   "promptDelete": false

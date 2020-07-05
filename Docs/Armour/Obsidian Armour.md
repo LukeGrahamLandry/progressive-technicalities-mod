@@ -1,2 +1,2 @@
 A full set of armour that grants the same protection as iron, the touchness of diamond, enchantability of gold, and nearly unlimited durability.
-Crafted from obsidian.
+Crafted from *obsidian ingots* which are made by combining an obsidian block and a *carbide ingot* in a crafting table.

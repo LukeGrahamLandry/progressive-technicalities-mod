@@ -5,8 +5,9 @@
 - Carbide Block
 - Titanium Ingot (ore found in [[Oil Dimension]])
 - Titanium Block
-- Staff (used to make [[Staffs]])
-- Potion Core (used to make some special [[Armour]])
+- Staff (requires titanium, makes [[Staffs]])
+- Feysteel Ingot (ore found in [[Feywild]])
+- Potion Core (requires feysteel, makes special [[Armour]])
 - Machine Base (used to make some special [[Blocks]])
 - Sky Gem (ore spawns above sea level)
 - Diastima Alloy (carbide + titanium + sky gems)

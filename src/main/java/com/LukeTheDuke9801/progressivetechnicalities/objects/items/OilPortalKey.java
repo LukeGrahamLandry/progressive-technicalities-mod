@@ -45,7 +45,7 @@ public class OilPortalKey extends Item {
    @Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Rightclick a group of chromium blocks in a plus shape to open a portal to the Feywild"));
+			tooltip.add(new StringTextComponent("Rightclick a group of obsidian in a plus shape to open a portal to the Feywild"));
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);

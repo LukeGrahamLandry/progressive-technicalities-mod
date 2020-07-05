@@ -14,6 +14,9 @@ public enum ModItemTier implements IItemTier{
 	CARBIDE(4, 2500, 15.0f, 4.0f, 30, () -> {
 		return Ingredient.fromItems(ItemInit.CARBIDE_INGOT.get()); 
 	}),
+	TITANIUM(4, 2500, 15.0f, 4.0f, 30, () -> {
+		return Ingredient.fromItems(ItemInit.TITANIUM_INGOT.get()); 
+	}),
 	OBSIDIAN(2, 1000000, 6.0F, 2.0F, 25, () -> {
 		return Ingredient.fromItems(Blocks.OBSIDIAN); 
 	});

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ifi",
+    "fmf",
+    "ifi"
+  ],
+  "key": {
+    "f": {
+      "item": "progressivetechnicalities:furnace"
+    },
+    "m": {
+      "item": "progressivetechnicalities:machine_base"
+    },
+    "i": {
+      "item": "progressivetechnicalities:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:electric_furnace"
+  }
+}

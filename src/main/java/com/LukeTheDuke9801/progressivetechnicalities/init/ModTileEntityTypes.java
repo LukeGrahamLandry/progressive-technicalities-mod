@@ -1,6 +1,8 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.oil_generator.OilGeneratorTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.FeywildPortalTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.LargeChestTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.MultiTNTTileEntity;
@@ -28,4 +30,10 @@ public class ModTileEntityTypes {
 	public static final RegistryObject<TileEntityType<FeywildPortalTileEntity>> FEYWILD_PORTAL = TILE_ENTITY_TYPES.register("feywild_portal", 
 			() -> TileEntityType.Builder.create(FeywildPortalTileEntity::new, BlockInit.FEYWILD_PORTAL.get()).build(null));
 	
+	public static final RegistryObject<TileEntityType<ElectricFurnaceTileEntity>> ELECTRIC_FURNACE = TILE_ENTITY_TYPES.register("electric_furnace", 
+			() -> TileEntityType.Builder.create(ElectricFurnaceTileEntity::new, BlockInit.ELECTRIC_FURNACE.get()).build(null));
+
+	public static final RegistryObject<TileEntityType<OilGeneratorTileEntity>> OIL_GENERATOR = TILE_ENTITY_TYPES.register("oil_generator", 
+			() -> TileEntityType.Builder.create(OilGeneratorTileEntity::new, BlockInit.OIL_GENERATOR.get()).build(null));
+
 } 

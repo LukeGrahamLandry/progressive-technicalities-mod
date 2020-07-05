@@ -2,6 +2,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.Battery;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeywildPortalKey;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MagicEggShell;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MobEgg;
@@ -13,13 +14,14 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.Flipper
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.HealthChestplate;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack1;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack2;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.NightVisionGoggles;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ScubaGear;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SlowFallBoots;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.BoostCharm;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.FireResCharm;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.BlazeStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.BloodDimensionStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.CreativeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.EnderStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.MomentumStaff;
@@ -30,6 +32,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TNTSta
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TimeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.WeatherStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.XPStaff;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.TitaniumAIOT;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModArmorMaterial;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModItemTier;
 
@@ -41,6 +44,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.TridentItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -95,6 +99,21 @@ public class ItemInit {
 			() -> new FeywildPortalKey(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> FEYSTEEL_INGOT = ITEMS.register("feysteel_ingot",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> OBSIDIAN_INGOT = ITEMS.register("obsidian_ingot",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> SILVER_INGOT = ITEMS.register("silver_ingot",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> ELECTRUM_INGOT = ITEMS.register("electrum_ingot",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> ALUMINUM = ITEMS.register("aluminum",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	// Staffs
@@ -173,6 +192,13 @@ public class ItemInit {
 	public static final RegistryObject<Item> OBSIDIAN_HOE = ITEMS.register("obsidian_hoe",
 			() -> new HoeItem(ModItemTier.OBSIDIAN, -1.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
 
+	public static final RegistryObject<Item> TITANIUM_AIOT = ITEMS.register("titanium_aiot",
+			() -> new TitaniumAIOT(ModItemTier.TITANIUM, 2, -3.1f, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	// TODO: make it not look like shit
+	public static final RegistryObject<Item> TITANIUM_TRIDENT = ITEMS.register("titanium_trident",
+			() -> new TridentItem(new Item.Properties().maxDamage(250).group(ProgtechItemGroup.instance)));
+	 
 	// Armour
 	public static final RegistryObject<Item> NIGHTVISION_GOGGLES = ITEMS.register("nightvision_goggles",
 			() -> new NightVisionGoggles(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -197,6 +223,12 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> JETPACK_TWO = ITEMS.register("jetpack_2",
 			() -> new JetPack2(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> SPACE_HELMET = ITEMS.register("space_helmet",
+			() -> new SpaceHelmet(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> LONGFALL_BOOTS = ITEMS.register("longfall_boots",
+			() -> new LongFallBoots(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> CARBIDE_HELMET = ITEMS.register("carbide_helmet",
 			() -> new ArmorItem(ModArmorMaterial.CARBIDE, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));

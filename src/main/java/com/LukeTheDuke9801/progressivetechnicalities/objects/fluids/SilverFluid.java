@@ -23,6 +23,7 @@ import net.minecraft.potion.Effects;
 import net.minecraft.state.StateContainer;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
@@ -61,7 +62,7 @@ public abstract class SilverFluid extends FlowingFluid {
    
    public static void applyFluidPotionEffects(PlayerEntity player) {
 	   player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 4));
-	   player.addPotionEffect(new EffectInstance(Effects.WITHER, 20, 2));
+	   player.attackEntityFrom(DamageSource.LAVA, 8);
    }
 
    

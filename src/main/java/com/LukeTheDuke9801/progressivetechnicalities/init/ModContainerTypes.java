@@ -2,6 +2,8 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.container.LargeChestContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.alloy_table.AlloyTableContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceContainer;
 
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraftforge.common.extensions.IForgeContainerType;
@@ -14,5 +16,11 @@ public class ModContainerTypes {
 	
 	public static final RegistryObject<ContainerType<LargeChestContainer>> LARGE_CHEST = CONTAINER_TYPES.register("large_chest",
 			() -> IForgeContainerType.create(LargeChestContainer::new));
+	
+	public static final RegistryObject<ContainerType<ElectricFurnaceContainer>> ELECTRIC_FURNACE = CONTAINER_TYPES.register("electric_furnace",
+			() -> IForgeContainerType.create(ElectricFurnaceContainer::new));
+	
+	public static final RegistryObject<ContainerType<AlloyTableContainer>> ALLOY_TABLE = CONTAINER_TYPES.register("alloy_table",
+			() -> IForgeContainerType.create(AlloyTableContainer::new));
 	
 }

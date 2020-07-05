@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bbb",
+    " i ",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "b": {
+      "item": "progressivetechnicalities:chromium_block"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:alloy_table"
+  }
+}

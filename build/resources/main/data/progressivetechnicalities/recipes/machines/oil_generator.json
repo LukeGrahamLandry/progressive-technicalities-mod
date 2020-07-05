@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ibi",
+    "bmb",
+    "ibi"
+  ],
+  "key": {
+    "b": {
+      "item": "progressivetechnicalities:oil_bucket"
+    },
+    "m": {
+      "item": "progressivetechnicalities:machine_base"
+    },
+    "i": {
+      "item": "progressivetechnicalities:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:oil_generator"
+  }
+}

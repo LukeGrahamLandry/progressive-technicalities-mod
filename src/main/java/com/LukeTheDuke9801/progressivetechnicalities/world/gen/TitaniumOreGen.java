@@ -18,9 +18,9 @@ public class TitaniumOreGen {
 	
 	public static void generateOre() {
 		for (Biome biome : ForgeRegistries.BIOMES) {
-			if (biome == BiomeInit.BLOOD_SPIKES.get()) {
+			if (biome == BiomeInit.OIL_SPIKES.get()) {
 				//              commonness, min level, max offset, max level
-				ConfiguredPlacement customConfig = Placement.COUNT_RANGE.configure(new CountRangeConfig(50, 2, 0, 200));
+				ConfiguredPlacement customConfig = Placement.COUNT_RANGE.configure(new CountRangeConfig(100, 2, 0, 200));
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, 
 				Feature.ORE.withConfiguration(new OreFeatureConfig                               // max vain size
 				(DARKSTONE_FILLER, BlockInit.TITANIUM_ORE.get().getDefaultState(), 3))

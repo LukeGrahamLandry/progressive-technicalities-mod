@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ii",
+    " s ",
+    " s "
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:obsidian_ingot"
+    },
+    "s": {
+      "item":"progressivetechnicalities:chromium_rod"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:obsidian_hoe"
+  }
+}

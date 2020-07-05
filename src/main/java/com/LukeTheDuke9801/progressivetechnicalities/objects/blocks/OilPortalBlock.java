@@ -31,10 +31,10 @@ public class OilPortalBlock extends Block {
 			double movementFactor;
 			if (isInFeywild) {
 				destination = DimensionType.OVERWORLD;
-				movementFactor = 0.01;
+				movementFactor = 1;
 			} else {
 				destination = feyDimType;
-				movementFactor = 100;
+				movementFactor = 1;
 			}
 			MinecraftServer minecraftserver = entityIn.getServer();
 			ServerWorld serverworld = minecraftserver.getWorld(destination);

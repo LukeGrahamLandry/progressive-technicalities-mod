@@ -64,10 +64,10 @@ public class FeyPortalBlock extends Block {
 	   
 	private boolean validPortalSpawnLocation(World world, BlockPos pos) {
 		boolean valid = ( world.getBlockState(pos.down()).isAir(null, null) || world.getBlockState(pos.down()).getBlock() instanceof FeyPortalBlock || world.getBlockState(pos.down()).getBlock() == Blocks.MYCELIUM);
-		valid = valid && ( world.getBlockState(pos.down().north()).isAir(null, null) ||  world.getBlockState(pos.down().north()).getBlock() == Blocks.MYCELIUM);
-		valid = valid && ( world.getBlockState(pos.down().south()).isAir(null, null) ||  world.getBlockState(pos.down().south()).getBlock() == Blocks.MYCELIUM);
-		valid = valid && ( world.getBlockState(pos.down().east()).isAir(null, null) ||  world.getBlockState(pos.down().east()).getBlock() == Blocks.MYCELIUM);
-		valid = valid && ( world.getBlockState(pos.down().west()).isAir(null, null) ||  world.getBlockState(pos.down().west()).getBlock() == Blocks.MYCELIUM);
+		valid = valid && ( world.getBlockState(pos.down().north()).isAir(null, null) ||  world.getBlockState(pos.down().north()).getBlock() == Blocks.GRASS_BLOCK || world.getBlockState(pos.down().north()).getBlock() == Blocks.MYCELIUM);
+		valid = valid && ( world.getBlockState(pos.down().south()).isAir(null, null) ||  world.getBlockState(pos.down().south()).getBlock() == Blocks.GRASS_BLOCK ||  world.getBlockState(pos.down().south()).getBlock() == Blocks.MYCELIUM);
+		valid = valid && ( world.getBlockState(pos.down().east()).isAir(null, null) ||  world.getBlockState(pos.down().east()).getBlock() == Blocks.GRASS_BLOCK ||  world.getBlockState(pos.down().east()).getBlock() == Blocks.MYCELIUM);
+		valid = valid && ( world.getBlockState(pos.down().west()).isAir(null, null) ||  world.getBlockState(pos.down().west()).getBlock() == Blocks.GRASS_BLOCK ||  world.getBlockState(pos.down().west()).getBlock() == Blocks.MYCELIUM);
 		valid = valid && ( world.getBlockState(pos.north()).isAir(null, null) ||  world.getBlockState(pos.north()).getBlock() == Blocks.BROWN_MUSHROOM);
 		valid = valid && ( world.getBlockState(pos.south()).isAir(null, null) ||  world.getBlockState(pos.south()).getBlock() == Blocks.BROWN_MUSHROOM);
 		valid = valid && ( world.getBlockState(pos.east()).isAir(null, null) ||  world.getBlockState(pos.east()).getBlock() == Blocks.RED_MUSHROOM);

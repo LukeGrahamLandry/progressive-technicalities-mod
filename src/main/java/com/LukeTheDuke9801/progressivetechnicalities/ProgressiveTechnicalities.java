@@ -15,6 +15,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ModIceBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.ChromiumOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.FeysteelOreGen;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.MelangeOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.SkyGemOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.TitaniumOreGen;
 
@@ -50,6 +51,7 @@ public class ProgressiveTechnicalities
     public static ProgressiveTechnicalities instance;
     public static final ResourceLocation OIL_DIM_TYPE = new ResourceLocation(MOD_ID, "blood");
     public static final ResourceLocation FEY_DIM_TYPE = new ResourceLocation(MOD_ID, "feywild");
+    public static final ResourceLocation ARRAKIS_DIM_TYPE = new ResourceLocation(MOD_ID, "arrakis");
 
     public ProgressiveTechnicalities() {
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -109,6 +111,7 @@ public class ProgressiveTechnicalities
     	SkyGemOreGen.generateOre();
     	TitaniumOreGen.generateOre();
     	FeysteelOreGen.generateOre();
+    	MelangeOreGen.generateOre();
     }
     
     public static class ProgtechItemGroup extends ItemGroup {

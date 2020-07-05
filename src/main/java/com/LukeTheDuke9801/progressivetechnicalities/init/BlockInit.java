@@ -3,10 +3,14 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockMultiTNT;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockQuarry;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.CastingTableBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.FeyPortalBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.LargeChestBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.LightningRod;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.OilPortalBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.alloy_table.AlloyTableBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.oil_generator.OilGeneratorBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -46,6 +50,9 @@ public class BlockInit {
 	public static final RegistryObject<Block> FEYSTEEL_ORE = BLOCKS.register("feysteel_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 50f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	
+	public static final RegistryObject<Block> MELANGE_DEPOSIT = BLOCKS.register("melange_deposit",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 0.001f).sound(SoundType.SAND).harvestLevel(4).harvestTool(ToolType.SHOVEL)));
+	
 	// Advanced / Tile Entities
 	
 	static final RegistryObject<Block> LIGHTNING_ROD = BLOCKS.register("lightning_rod",
@@ -65,5 +72,19 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> OIL_PORTAL = BLOCKS.register("oil_portal",
 			() -> new OilPortalBlock(Block.Properties.create(Material.PORTAL).hardnessAndResistance(2f, 1).sound(SoundType.SAND).harvestLevel(0)));
+	
+	// Machines
+	
+	public static final RegistryObject<Block> ELECTRIC_FURNACE = BLOCKS.register("electric_furnace",
+			() -> new ElectricFurnaceBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> OIL_GENERATOR = BLOCKS.register("oil_generator",
+			() -> new OilGeneratorBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> ALLOY_TABLE = BLOCKS.register("alloy_table",
+			() -> new AlloyTableBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> CASTING_TABLE = BLOCKS.register("casting_table",
+			() -> new CastingTableBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
 }

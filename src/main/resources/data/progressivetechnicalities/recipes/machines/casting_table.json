@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ooo",
+    " i ",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "o": {
+      "item": "progressivetechnicalities:obsidian"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:casting_table"
+  }
+}

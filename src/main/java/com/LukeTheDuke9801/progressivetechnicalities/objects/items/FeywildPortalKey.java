@@ -77,14 +77,12 @@ public class FeywildPortalKey extends Item {
    }
    
    private boolean validPortalSpawnLocation(World world, BlockPos pos) {
-		boolean valid = world.getBlockState(pos).getBlock() == Blocks.MYCELIUM;
-		valid = valid && world.getBlockState(pos.north()).getBlock() == Blocks.MYCELIUM;
-		valid = valid && world.getBlockState(pos.south()).getBlock() == Blocks.MYCELIUM;
-		valid = valid && world.getBlockState(pos.east()).getBlock() == Blocks.MYCELIUM;
-		valid = valid && world.getBlockState(pos.west()).getBlock() == Blocks.MYCELIUM;
+		boolean valid = world.getBlockState(pos).getBlock() == Blocks.GRASS_BLOCK;
+		valid = valid && world.getBlockState(pos.north()).getBlock() == Blocks.GRASS_BLOCK;
+		valid = valid && world.getBlockState(pos.south()).getBlock() == Blocks.GRASS_BLOCK;
+		valid = valid && world.getBlockState(pos.east()).getBlock() == Blocks.GRASS_BLOCK;
+		valid = valid && world.getBlockState(pos.west()).getBlock() == Blocks.GRASS_BLOCK;
 		
-		valid = valid || ( world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.FEY_DIM_TYPE) );
-				
 		return valid;
 	}
 	

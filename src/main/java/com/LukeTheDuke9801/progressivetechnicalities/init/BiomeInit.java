@@ -1,8 +1,9 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.BloodBiome;
+import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.ArrakisBiome;
 import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.FeyBiome;
+import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.OilBiome;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
@@ -20,8 +21,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BiomeInit {
 	public static final DeferredRegister<Biome> BIOMES = new DeferredRegister<>(ForgeRegistries.BIOMES, ProgressiveTechnicalities.MOD_ID);
 	
-	public static final RegistryObject<Biome> BLOOD_SPIKES = BIOMES.register("blood_biome",
-			() -> new BloodBiome(new Biome.Builder().waterColor(16711680).waterFogColor(0).surfaceBuilder(SurfaceBuilder.DEFAULT,
+	public static final RegistryObject<Biome> OIL_SPIKES = BIOMES.register("blood_biome",
+			() -> new OilBiome(new Biome.Builder().waterColor(16711680).waterFogColor(0).surfaceBuilder(SurfaceBuilder.DEFAULT,
 					new SurfaceBuilderConfig(Blocks.OBSIDIAN.getDefaultState(), Blocks.OBSIDIAN.getDefaultState(), BlockInit.CHROMIUM_ORE.get().getDefaultState()))
 					.category(Category.PLAINS)
 					.precipitation(RainType.SNOW)
@@ -46,9 +47,22 @@ public class BiomeInit {
 					.scale(0.05f)
 					.temperature(0.8F)));
 	
+	public static final RegistryObject<Biome> SAND_DUNES = BIOMES.register("sand_dunes",
+			() -> new ArrakisBiome(new Biome.Builder().surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
+					.category(Category.DESERT)
+					.precipitation(RainType.NONE)
+					.downfall(0.0f)
+					.depth(0.45f)
+					.parent(null)
+					.waterColor(16711935)
+					.waterFogColor(16711935)
+					.scale(0.3f)
+					.temperature(2F)));
+	
 	public static void registerBiomes() {
-		registerBiome(BLOOD_SPIKES.get(), Type.PLAINS, Type.OVERWORLD);
+		registerBiome(OIL_SPIKES.get(), Type.PLAINS, Type.OVERWORLD);
 		registerBiome(FEY_PLAINS.get(), Type.PLAINS, Type.OVERWORLD);
+		registerBiome(SAND_DUNES.get(), Type.HILLS, Type.OVERWORLD);
 	}
 	
 	private static void registerBiome(Biome biome, Type... types) {

@@ -1,6 +1,7 @@
 ### Full Sets
 - [[Carbide Armour]]
 - [[Obsidian Armour]]
+- [[Feysteel Armour]]
 
 ### Special Pieces
 - [[Night Vision Goggles]]
@@ -9,3 +10,5 @@
 - [[SCUBA Gear]]
 - [[Chestplate of Health]]
 - [[Leggings of Striding]]
+- [[Long Fall Boots]]
+- [[Space Helmet]]

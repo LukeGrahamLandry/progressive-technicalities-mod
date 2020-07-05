@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "e",
+    "i",
+    "n"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "e": {
+      "item":"minecraft:end_stone"
+    },
+    "n": {
+      "item":"minecraft:netherrack"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:portal_key"
+  }
+}

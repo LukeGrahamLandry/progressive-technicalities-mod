@@ -20,7 +20,7 @@ public enum ModArmorMaterial implements IArmorMaterial {
 		   return Ingredient.fromItems(ItemInit.CARBIDE_INGOT.get());}), 
 	   OBSIDIAN(ProgressiveTechnicalities.MOD_ID + ":obsidian", 100000, new int[]{2, 6, 5, 2}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F, () -> {
 		   return Ingredient.fromItems(Blocks.OBSIDIAN);}),
-	   FEYSTEEL(ProgressiveTechnicalities.MOD_ID + ":feysteel", 100, new int[]{3, 6, 8, 3}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F, () -> {
+	   FEYSTEEL(ProgressiveTechnicalities.MOD_ID + ":feysteel", 33, new int[]{3, 6, 8, 3}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F, () -> {
 		   return Ingredient.fromItems(ItemInit.FEYSTEEL_INGOT.get());});
 	
 	   private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
