@@ -1,6 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ArmorDisassembler;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockMultiTNT;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockQuarry;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.CastingTableBlock;
@@ -86,5 +87,8 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> CASTING_TABLE = BLOCKS.register("casting_table",
 			() -> new CastingTableBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+
+	public static final RegistryObject<Block> ARMOR_DISASSEMBLER = BLOCKS.register("armor_disassembler",
+			() -> new ArmorDisassembler(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
 }

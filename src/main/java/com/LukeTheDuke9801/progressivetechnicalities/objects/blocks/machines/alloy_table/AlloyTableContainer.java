@@ -1,6 +1,5 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.alloy_table;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,7 +19,6 @@ import net.minecraft.item.Items;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.IntReferenceHolder;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -131,22 +129,22 @@ public class AlloyTableContainer extends Container {
               this.maximumCost.set(0);
     	  }
     	  
-    	  if (item1.equals(Items.GOLD_INGOT) && item2.equals(ItemInit.SILVER_INGOT.get())){
+    	  else if (item1.equals(Items.GOLD_INGOT) && item2.equals(ItemInit.SILVER_INGOT.get())){
     		  this.outputSlot.setInventorySlotContents(0, new ItemStack(ItemInit.ELECTRUM_INGOT.get()));
               this.maximumCost.set(5);
     	  }
     	  
-    	  if (item1.equals(ItemInit.CARBIDE_INGOT.get()) && item2.equals(ItemInit.TITANIUM_INGOT.get())){
+    	  else if (item1.equals(ItemInit.CARBIDE_INGOT.get()) && item2.equals(ItemInit.TITANIUM_INGOT.get())){
     		  this.outputSlot.setInventorySlotContents(0, new ItemStack(ItemInit.STEEL_INGOT.get()));
               this.maximumCost.set(5);
     	  }
     	  
-    	  if (item1.equals(ItemInit.ELECTRUM_INGOT.get()) && item2.equals(ItemInit.SKY_GEM.get())){
+    	  else if (item1.equals(ItemInit.ELECTRUM_INGOT.get()) && item2.equals(ItemInit.SKY_GEM.get())){
     		  this.outputSlot.setInventorySlotContents(0, new ItemStack(ItemInit.ALUMINUM.get()));
               this.maximumCost.set(5);
     	  }
     	  
-    	  if (item1.equals(ItemInit.STEEL_INGOT.get()) && item2.equals(ItemInit.ALUMINUM.get())){
+    	  else if (item1.equals(ItemInit.STEEL_INGOT.get()) && item2.equals(ItemInit.ALUMINUM.get())){
     		  this.outputSlot.setInventorySlotContents(0, new ItemStack(ItemInit.SPACE_INGOT.get()));
               this.maximumCost.set(20);
     	  }
@@ -220,6 +218,7 @@ public class AlloyTableContainer extends Container {
     * used by the Anvil GUI to update the Item Name being typed by the player
     */
    public void updateItemName(String newName) {
+	   /*
       this.repairedItemName = newName;
       if (this.getSlot(2).getHasStack()) {
          ItemStack itemstack = this.getSlot(2).getStack();
@@ -231,6 +230,7 @@ public class AlloyTableContainer extends Container {
       }
 
       this.updateRepairOutput();
+      */
    }
 
    /**

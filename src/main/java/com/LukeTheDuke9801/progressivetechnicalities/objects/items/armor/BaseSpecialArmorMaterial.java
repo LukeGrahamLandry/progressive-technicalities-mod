@@ -1,6 +1,9 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+
+import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
+
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
@@ -29,6 +32,6 @@ public abstract class BaseSpecialArmorMaterial implements IArmorMaterial {
 
     @Override
     public Ingredient getRepairMaterial() {
-        return Ingredient.EMPTY;
+        return Ingredient.fromItems(ItemInit.FEYSTEEL_INGOT.get());
     }
 }

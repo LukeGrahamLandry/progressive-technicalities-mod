@@ -2,10 +2,12 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs;
 
 import java.util.List;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ILiquidContainer;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,6 +16,7 @@ import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
@@ -26,6 +29,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.server.ServerWorld;
 
 public class NetherStaff extends Item{
 	public NetherStaff(Properties properties) {
@@ -35,8 +39,8 @@ public class NetherStaff extends Item{
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Summons lava"));
-			tooltip.add(new StringTextComponent("Shift rightclick toggles between nether and overworld (spawns a portal)"));
+			tooltip.add(new StringTextComponent("Rightclick summons lava"));
+			tooltip.add(new StringTextComponent("Shift rightclick toggles between nether and overworld"));
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -44,13 +48,40 @@ public class NetherStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
-		if (KeyboardHelper.isHoldingShift()) {
+		if (KeyboardHelper.isHoldingShift() && !worldIn.isRemote) {
+			DimensionType destination = DimensionType.OVERWORLD;
+			double movementFactor;
 			if (worldIn.dimension.getType() == DimensionType.OVERWORLD) {
-				playerIn.changeDimension(DimensionType.THE_NETHER);
+				destination = DimensionType.THE_NETHER;
+				movementFactor = 0.125D;
+			} else if (worldIn.dimension.getType() == DimensionType.THE_NETHER) {
+				destination = DimensionType.OVERWORLD;
+				movementFactor = 8.0D;
 			} else {
-				playerIn.changeDimension(DimensionType.OVERWORLD);
+				movementFactor = 0;
 			}
-			playerIn.setPositionAndUpdate(playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ());  // load the chunk
+			
+			if (movementFactor != 0) {
+				MinecraftServer minecraftserver = playerIn.getServer();
+				ServerWorld serverworld = minecraftserver.getWorld(destination);
+
+				double x = playerIn.getPosX() * movementFactor;
+				double z = playerIn.getPosZ() * movementFactor;
+				double y;
+				// make you spawn on a glass in the lowest air space
+		         for (y=2; y<256; y++) {
+		        	 BlockPos pos = new BlockPos(x, y, z);
+		        	 if (serverworld.getBlockState(pos).isAir(null, null) && serverworld.getBlockState(pos.up()).isAir(null, null) && serverworld.getBlockState(pos.down()).isAir(null, null)) {
+		        		 serverworld.setBlockState(pos.down(), Blocks.GLASS.getDefaultState());
+		        		 break;
+	            	 } else {
+	            		 
+	            	 }
+	             }
+				((ServerPlayerEntity)playerIn).teleport(serverworld, x, y, z, playerIn.getYaw(0), playerIn.getPitch(0));
+				playerIn.teleportKeepLoaded(x, y, z);
+			}
+
 		} else {
 			return placeLava(worldIn, playerIn, handIn);
 		}

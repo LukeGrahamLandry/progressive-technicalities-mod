@@ -7,13 +7,13 @@
   ],
   "key": {
     "f": {
-      "item": "progressivetechnicalities:furnace"
+      "item": "minecraft:furnace"
     },
     "m": {
       "item": "progressivetechnicalities:machine_base"
     },
     "i": {
-      "item": "progressivetechnicalities:iron_ingot"
+      "item": "minecraft:iron_ingot"
     }
   },
   "result": {

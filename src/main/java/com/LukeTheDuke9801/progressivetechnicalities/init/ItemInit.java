@@ -116,6 +116,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> ALUMINUM = ITEMS.register("aluminum",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
+	public static final RegistryObject<Item> MELANGE_CLUMP = ITEMS.register("melange_clump",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
 	// Staffs
 
 	public static final RegistryObject<Item> STAFF = ITEMS.register("staff",

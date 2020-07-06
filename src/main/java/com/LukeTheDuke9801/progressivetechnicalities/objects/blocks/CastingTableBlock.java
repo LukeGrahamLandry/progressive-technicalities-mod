@@ -25,12 +25,6 @@ public class CastingTableBlock extends Block{
 	public CastingTableBlock(Block.Properties builder) {
 	      super(builder);
 	   }
-	
-
-	   /**
-	    * Interface for handling interaction with blocks that impliment AbstractFurnaceBlock. Called in onBlockActivated
-	    * inside AbstractFurnaceBlock.
-	    */
 	   
 	   
 	   public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {

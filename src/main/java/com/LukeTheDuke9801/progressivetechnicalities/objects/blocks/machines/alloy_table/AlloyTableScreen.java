@@ -32,7 +32,7 @@ public class AlloyTableScreen extends ContainerScreen<AlloyTableContainer> imple
       this.minecraft.keyboardListener.enableRepeatEvents(true);
       int i = (this.width - this.xSize) / 2;
       int j = (this.height - this.ySize) / 2;
-      this.nameField = new TextFieldWidget(this.font, i + 62, j + 24, 103, 12, I18n.format("container.repair"));
+      this.nameField = new TextFieldWidget(this.font, i + 62, j + 24, 103, 12, I18n.format("container.alloy_table"));
       this.nameField.setCanLoseFocus(false);
       this.nameField.changeFocus(true);
       this.nameField.setTextColor(-1);
@@ -85,7 +85,7 @@ public class AlloyTableScreen extends ContainerScreen<AlloyTableContainer> imple
             j = 16736352;
          }
 
-         if (flag) {
+         if (flag && false) {
             int k = this.xSize - 8 - this.font.getStringWidth(s) - 2;
             int l = 69;
             fill(k - 2, 67, this.xSize - 8, 79, 1325400064);

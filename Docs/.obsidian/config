@@ -21,8 +21,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Index.md",
-            "mode": "preview"
+            "file": "Staffs/Staff of the Inferno.md",
+            "mode": "source"
           }
         }
       }
@@ -83,11 +83,11 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "Staffs/Staff of the Inferno.md",
+    "Staffs/Staffs.md",
     "Index.md",
-    "Crafting Items.md",
-    "Blocks/Blocks.md",
-    "Armour/Obsidian Armour.md",
-    "Armour/Armour.md"
+    "Staffs/Staff of Knowledge.md",
+    "Staffs/Staff of Entropy.md"
   ],
   "alwaysUpdateLinks": true,
   "promptDelete": false

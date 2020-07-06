@@ -8,6 +8,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
@@ -15,23 +16,22 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 public class XPStaff extends Item{
-	private int xp;
-	
 	public XPStaff(Properties properties) {
 		super(properties);
-		this.xp = 0;
 	}
 	
 	@Override
 	public boolean hasEffect(ItemStack stack) {
-		return this.xp != 0;
+		int xp = getXP(stack);
+		return xp != 0;
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
+			int xp = getXP(stack);
 			tooltip.add(new StringTextComponent("Shift rightclick to store xp, rightclick to retrive. All staffs share a xp pool"));
-			tooltip.add(new StringTextComponent("Currently holding " + Integer.toString(this.xp/2) + " xp"));
+			tooltip.add(new StringTextComponent("Currently holding " + Integer.toString(xp/2) + " xp"));
 		} 
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -39,27 +39,49 @@ public class XPStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
+		ItemStack stack = playerIn.getHeldItem(handIn);
+		int xp = getXP(stack);
+		
 		int e = playerIn.xpBarCap();
 		if (KeyboardHelper.isHoldingShift()) {
 			if (playerIn.experienceTotal >= e) {
-				this.xp += e;
+				xp += e;
 				playerIn.giveExperiencePoints(-e);
 			} else {
-				this.xp += playerIn.experienceTotal;
+				xp += playerIn.experienceTotal;
 				playerIn.giveExperiencePoints(-playerIn.experienceTotal);
 			}
 			
 		} else {
-			if (this.xp >= e) {
-				this.xp -= e;
+			if (xp >= e) {
+				xp -= e;
 				playerIn.giveExperiencePoints(e);
 			} else {
-				playerIn.giveExperiencePoints(this.xp);
-				this.xp = 0;
+				playerIn.giveExperiencePoints(xp);
+				xp = 0;
 			}
 		}
 		
+		setXP(stack, xp);
+		
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 		
+	}
+	
+	private int getXP(ItemStack stack) {
+		CompoundNBT nbtTagCompound = stack.getTag();
+		
+		if (nbtTagCompound == null || !nbtTagCompound.contains("xp")) {
+			return 0;
+		}
+		
+		int xp = nbtTagCompound.getInt("xp");
+		return xp;
+	}
+	
+	private void setXP(ItemStack stack, int xp) {
+		CompoundNBT nbtTagCompound = new CompoundNBT();
+		nbtTagCompound.putInt("xp", xp);
+		stack.setTag(nbtTagCompound);
 	}
 }
