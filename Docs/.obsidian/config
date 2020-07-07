@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Staffs/Staff of the Inferno.md",
+            "file": "Armour/Carbide Armour.md",
             "mode": "source"
           }
         }
@@ -83,11 +83,11 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Staffs/Staff of the Inferno.md",
-    "Staffs/Staffs.md",
+    "Armour/Carbide Armour.md",
+    "Tools/Carbide Tools.md",
+    "Tools/Tools.md",
     "Index.md",
-    "Staffs/Staff of Knowledge.md",
-    "Staffs/Staff of Entropy.md"
+    "Staffs/Staff of the Inferno.md"
   ],
   "alwaysUpdateLinks": true,
   "promptDelete": false

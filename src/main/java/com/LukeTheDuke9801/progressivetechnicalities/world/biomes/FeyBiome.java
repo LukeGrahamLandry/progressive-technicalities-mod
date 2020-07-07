@@ -8,6 +8,8 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
+import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biome.RainType;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -17,11 +19,22 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class FeyBiome extends Biome{
-	public FeyBiome(Builder biomeBuilder) {
-		super(biomeBuilder);
-		
+	public FeyBiome() {
+		super(new Biome.Builder().waterColor(16711680).waterFogColor(0).surfaceBuilder(SurfaceBuilder.DEFAULT,
+				new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.CLAY.getDefaultState()))
+				.category(Category.PLAINS)
+				.precipitation(RainType.NONE)
+				.downfall(0.0f)
+				.depth(0.125f)
+				.parent(null)
+				.waterColor(16711935)
+				.waterFogColor(16711935)
+				.scale(0.05f)
+				.temperature(0.8F));
 		
 	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.VEX, 10, 1, 3));
 	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.PHANTOM, 10, 1, 3));

@@ -1,4 +1,16 @@
 {
+  "minecraft:recipes/redstone/lever": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_stairs_from_cobblestone_stonecutting": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/magenta_concrete_powder": {
     "criteria": {
       "has_sand": "2020-07-04 22:03:13 -0400"
@@ -101,6 +113,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/decorations/torch": {
+    "criteria": {
+      "has_stone_pickaxe": "2020-07-06 19:07:02 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/combat/diamond_sword": {
     "criteria": {
       "has_diamond": "2020-07-06 03:07:02 -0400"
@@ -134,6 +152,12 @@
   "minecraft:recipes/tools/flint_and_steel": {
     "criteria": {
       "has_obsidian": "2020-07-04 21:02:35 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_shovel": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
     },
     "done": true
   },
@@ -203,6 +227,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/cobblestone_slab": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/cut_sandstone_slab_from_sandstone_stonecutting": {
     "criteria": {
       "has_sandstone": "2020-07-04 22:03:13 -0400"
@@ -218,6 +248,12 @@
   "minecraft:recipes/combat/iron_boots": {
     "criteria": {
       "has_iron_ingot": "2020-07-06 12:19:53 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/cobblestone_stairs": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
     },
     "done": true
   },
@@ -389,9 +425,27 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/stone": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
+    },
+    "done": true
+  },
+  "minecraft:story/mine_stone": {
+    "criteria": {
+      "get_stone": "2020-07-06 19:07:15 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/transportation/minecart": {
     "criteria": {
       "has_iron_ingot": "2020-07-06 12:19:53 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/furnace": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
     },
     "done": true
   },
@@ -436,6 +490,18 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/cobblestone_slab_from_cobblestone_stonecutting": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
+    },
+    "done": true
+  },
+  "minecraft:husbandry/root": {
+    "criteria": {
+      "consumed_item": "2020-07-06 21:24:56 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/transportation/birch_boat": {
     "criteria": {
       "in_water": "2020-07-05 14:42:11 -0400"
@@ -445,6 +511,18 @@
   "minecraft:recipes/food/golden_apple": {
     "criteria": {
       "has_gold_ingot": "2020-07-05 14:10:25 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/stone_sword": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/cobblestone_wall": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
     },
     "done": true
   },
@@ -469,6 +547,12 @@
   "minecraft:recipes/tools/iron_shovel": {
     "criteria": {
       "has_iron_ingot": "2020-07-06 12:19:53 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_pickaxe": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
     },
     "done": true
   },
@@ -502,6 +586,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/decorations/cobblestone_wall_from_cobblestone_stonecutting": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/white_concrete_powder": {
     "criteria": {
       "has_sand": "2020-07-04 22:03:13 -0400"
@@ -517,6 +607,12 @@
   "minecraft:recipes/redstone/heavy_weighted_pressure_plate": {
     "criteria": {
       "has_iron_ingot": "2020-07-06 12:19:53 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_hoe": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
     },
     "done": true
   },
@@ -541,9 +637,11 @@
   "minecraft:adventure/kill_all_mobs": {
     "criteria": {
       "minecraft:skeleton": "2020-07-06 00:45:09 -0400",
+      "minecraft:spider": "2020-07-06 19:34:46 -0400",
       "minecraft:creeper": "2020-07-04 22:04:51 -0400",
       "minecraft:husk": "2020-07-04 22:04:26 -0400",
-      "minecraft:zombie": "2020-07-04 21:54:35 -0400"
+      "minecraft:zombie": "2020-07-04 21:54:35 -0400",
+      "minecraft:zombie_villager": "2020-07-06 18:28:19 -0400"
     },
     "done": false
   },
@@ -595,6 +693,12 @@
     },
     "done": true
   },
+  "minecraft:story/upgrade_tools": {
+    "criteria": {
+      "stone_pickaxe": "2020-07-06 19:07:02 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/combat/diamond_helmet": {
     "criteria": {
       "has_diamond": "2020-07-06 03:07:02 -0400"
@@ -610,6 +714,12 @@
   "minecraft:story/smelt_iron": {
     "criteria": {
       "iron": "2020-07-06 12:19:53 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/stone_axe": {
+    "criteria": {
+      "has_cobblestone": "2020-07-06 19:07:15 -0400"
     },
     "done": true
   },

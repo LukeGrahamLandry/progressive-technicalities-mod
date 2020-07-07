@@ -4,6 +4,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biome.RainType;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.ColumnBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -11,11 +13,20 @@ import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 
 public class ArrakisBiome extends Biome{
-	public ArrakisBiome(Builder biomeBuilder) {
-		super(biomeBuilder);
-		
+	public ArrakisBiome() {
+		super(new Biome.Builder().surfaceBuilder(SurfaceBuilder.DEFAULT, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
+				.category(Category.DESERT)
+				.precipitation(RainType.NONE)
+				.downfall(0.0f)
+				.depth(0.45f)
+				.parent(null)
+				.waterColor(16711935)
+				.waterFogColor(16711935)
+				.scale(0.3f)
+				.temperature(2F));
 		
 	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.HUSK, 100, 1, 3));
 	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.CREEPER, 10, 1, 3));

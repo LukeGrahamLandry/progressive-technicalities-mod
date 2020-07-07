@@ -1,19 +1,35 @@
 package com.LukeTheDuke9801.progressivetechnicalities.world.biomes;
 
+import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
+
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biome.RainType;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class OilBiome extends Biome{
-	public OilBiome(Builder biomeBuilder) {
-		super(biomeBuilder);
-		
+	public OilBiome() {
+		super(new Biome.Builder().surfaceBuilder(SurfaceBuilder.DEFAULT,
+				new SurfaceBuilderConfig(Blocks.OBSIDIAN.getDefaultState(), Blocks.OBSIDIAN.getDefaultState(), BlockInit.CHROMIUM_ORE.get().getDefaultState()))
+				.category(Category.PLAINS)
+				.precipitation(RainType.SNOW)
+				.downfall(0.8f)
+				.depth(0.125f)
+				.waterColor(0)
+				.waterFogColor(0)
+				.parent(null)
+				.scale(2f)
+				.temperature(0f));
 		
 		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIE, 100, 5, 10));
 		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SKELETON, 100, 5, 10));

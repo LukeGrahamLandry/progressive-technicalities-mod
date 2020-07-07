@@ -12,6 +12,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.OilPortalBlo
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.alloy_table.AlloyTableBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.oil_generator.OilGeneratorBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.tinker_table.TinkerTableBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -27,10 +28,13 @@ public class BlockInit {
 	public static final RegistryObject<Block> CHROMIUM_BLOCK = BLOCKS.register("chromium_block",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
-	public static final RegistryObject<Block> CARBIE_BLOCK = BLOCKS.register("carbide_block",
+	public static final RegistryObject<Block> CARBIDE_BLOCK = BLOCKS.register("carbide_block",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> TITANIUM_BLOCK = BLOCKS.register("titanium_block",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> FEYSTEEL_BLOCK = BLOCKS.register("feysteel_block",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> CHROMIUM_ORE = BLOCKS.register("chromium_ore",
@@ -91,4 +95,6 @@ public class BlockInit {
 	public static final RegistryObject<Block> ARMOR_DISASSEMBLER = BLOCKS.register("armor_disassembler",
 			() -> new ArmorDisassembler(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
+	public static final RegistryObject<Block> TINKER_TABLE = BLOCKS.register("tinker_table",
+			() -> new TinkerTableBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 }

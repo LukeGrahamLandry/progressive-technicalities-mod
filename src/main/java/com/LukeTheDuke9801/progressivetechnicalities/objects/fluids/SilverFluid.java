@@ -62,7 +62,7 @@ public abstract class SilverFluid extends FlowingFluid {
    
    public static void applyFluidPotionEffects(PlayerEntity player) {
 	   player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 4));
-	   player.attackEntityFrom(DamageSource.LAVA, 8);
+	   player.attackEntityFrom(DamageSource.LAVA, 4);
    }
 
    

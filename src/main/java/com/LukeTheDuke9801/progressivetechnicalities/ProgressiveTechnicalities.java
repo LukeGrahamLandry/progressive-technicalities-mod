@@ -49,9 +49,10 @@ public class ProgressiveTechnicalities
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "progressivetechnicalities";
     public static ProgressiveTechnicalities instance;
-    public static final ResourceLocation OIL_DIM_TYPE = new ResourceLocation(MOD_ID, "blood");
+    public static final ResourceLocation OIL_DIM_TYPE = new ResourceLocation(MOD_ID, "oil");
     public static final ResourceLocation FEY_DIM_TYPE = new ResourceLocation(MOD_ID, "feywild");
     public static final ResourceLocation ARRAKIS_DIM_TYPE = new ResourceLocation(MOD_ID, "arrakis");
+    public static final ResourceLocation PANDORA_DIM_TYPE = new ResourceLocation(MOD_ID, "pandora");
 
     public ProgressiveTechnicalities() {
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

@@ -5,7 +5,6 @@ import java.util.function.Supplier;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
@@ -16,10 +15,10 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public enum ModArmorMaterial implements IArmorMaterial {
-	   CARBIDE(ProgressiveTechnicalities.MOD_ID + ":carbide", 100, new int[]{4, 7, 9, 4}, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 4.0F, () -> {
+	   CARBIDE(ProgressiveTechnicalities.MOD_ID + ":carbide", 66, new int[]{4, 7, 9, 4}, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 4.0F, () -> {
 		   return Ingredient.fromItems(ItemInit.CARBIDE_INGOT.get());}), 
 	   OBSIDIAN(ProgressiveTechnicalities.MOD_ID + ":obsidian", 100000, new int[]{2, 6, 5, 2}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F, () -> {
-		   return Ingredient.fromItems(Blocks.OBSIDIAN);}),
+		   return Ingredient.fromItems(ItemInit.OBSIDIAN_INGOT.get());}),
 	   FEYSTEEL(ProgressiveTechnicalities.MOD_ID + ":feysteel", 33, new int[]{3, 6, 8, 3}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F, () -> {
 		   return Ingredient.fromItems(ItemInit.FEYSTEEL_INGOT.get());});
 	

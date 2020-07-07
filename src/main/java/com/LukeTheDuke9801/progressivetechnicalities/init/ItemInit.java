@@ -2,7 +2,6 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.Battery;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeywildPortalKey;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MagicEggShell;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MobEgg;
@@ -16,6 +15,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack2;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.NightVisionGoggles;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.PowerArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ScubaGear;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SlowFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
@@ -268,5 +268,17 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> FEYSTEEL_BOOTS = ITEMS.register("feysteel_boots",
 			() -> new FeySteelArmorItem(ModArmorMaterial.FEYSTEEL, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> POWERARMOR_HELMET = ITEMS.register("powerarmor_helmet",
+			() -> new ArmorItem(new PowerArmor.Material(), EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> POWERARMOR_CHESTPLATE = ITEMS.register("powerarmor_chestplate",
+			() -> new PowerArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> POWERARMOR_LEGGINGS = ITEMS.register("powerarmor_leggings",
+			() -> new ArmorItem(new PowerArmor.Material(), EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> FPOWERARMOR_BOOTS = ITEMS.register("powerarmor_boots",
+			() -> new ArmorItem(new PowerArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 }

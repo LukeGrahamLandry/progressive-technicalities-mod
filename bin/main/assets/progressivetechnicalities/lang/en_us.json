@@ -10,11 +10,19 @@
 	"item.progressivetechnicalities.tiny_coal": "Tiny Coal",
 	"item.progressivetechnicalities.magic_eggshell": "Magic Eggshell",
 	"item.progressivetechnicalities.mob_egg": "Monster Egg",
+	"item.progressivetechnicalities.portal_key": "Portal Key",
 	"item.progressivetechnicalities.oil_portal_key": "Oil Dimension Portal Key",
 	"item.progressivetechnicalities.feywild_portal_key": "Feywild Portal Key",
 	"item.progressivetechnicalities.feysteel_ingot": "Feysteel Ingot",
+	"item.progressivetechnicalities.electrum_ingot": "Electrum Ingot",
+	"item.progressivetechnicalities.steel_ingot": "Steel Ingot",
+	"item.progressivetechnicalities.silver_ingot": "Silver Ingot",
+	"item.progressivetechnicalities.aluminium": "Aluminium",
+	"item.progressivetechnicalities.melange_clump": "Melange Clump",
+	
 	
 	"item.progressivetechnicalities.potion_core": "Potion Core",
+	"item.progressivetechnicalities.machine_base": "Machine Frame",
 	
 	"item.progressivetechnicalities.staff": "Staff",
 	"item.progressivetechnicalities.weather_staff": "Nimbus Staff",
@@ -33,7 +41,7 @@
 	"item.progressivetechnicalities.fireres_charm": "Charm of Obsidian Skin",
 	
 	"item.progressivetechnicalities.oil_bucket": "Bucket of Oil",
-	"item.progressivetechnicalities.sliver_fluid_bucket": "Bucket of Silver",
+	"item.progressivetechnicalities.sliver_fluid_bucket": "Bucket of Molten Silver",
 	"item.progressivetechnicalities.obsidian_sword": "Obsidian Sword",
 	"item.progressivetechnicalities.obsidian_pickaxe": "Obsidian Pickaxe",
 	"item.progressivetechnicalities.obsidian_axe": "Obsidian Axe",
@@ -65,6 +73,8 @@
 	"item.progressivetechnicalities.scuba_gear": "SCUBA Gear",
 	"item.progressivetechnicalities.slowfalling_boots": "Boots of Slowfalling",
 	"item.progressivetechnicalities.boost_leggings": "Leggings of Striding",
+	"item.progressivetechnicalities.longfall_boots": "Long Fall Boots",
+	"item.progressivetechnicalities.space_helmet": "Astronaut Helmet",
  
 	"block.progressivetechnicalities.chromium_block": "Chromium Block",
 	"block.progressivetechnicalities.chromium_ore": "Chromium Ore",
@@ -75,13 +85,20 @@
 	"block.progressivetechnicalities.dark_stone": "Igneous Rock",
 	"block.progressivetechnicalities.fey_stone": "Solid Fairy Dust",
 	"block.progressivetechnicalities.feysteel_ore": "Feysteel Ore",
+	"block.progressivetechnicalities.melange_deposit": "Melange Deposit",
 	
 	"block.progressivetechnicalities.lightning_rod": "Flat Lighting Rod",
 	"block.progressivetechnicalities.quarry": "Basic Quarry",
 	"block.progressivetechnicalities.multi_tnt": "Multi-TNT (NO FUSE!)",
 	"block.progressivetechnicalities.large_chest": "Large Chest",
 
+	"block.progressivetechnicalities.electric_furnace": "Electric Furnace",
+	"block.progressivetechnicalities.oil_generator": "Oil Generator",
+	"block.progressivetechnicalities.alloy_table": "Alloy Table",
+	"block.progressivetechnicalities.casting_table": "Casting Table",
+
 	"container.large_chest": "Large Chest",
+	"container.alloy_table": "Alloy Table",
 	
 	"itemGroup.progtechtab": "Progressive Technicalities"
 }

@@ -1,9 +1,10 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.OilModDimension;
 import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.ArrakisModDimension;
 import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.FeyModDimension;
+import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.OilModDimension;
+import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.PandoraModDimension;
 
 import net.minecraftforge.common.ModDimension;
 import net.minecraftforge.fml.RegistryObject;
@@ -19,6 +20,11 @@ public class DimensionInit {
 	public static final RegistryObject<ModDimension> FEYWILD_DIM = MOD_DIMENSIONS.register("feywild_dim",
 			() -> new FeyModDimension());
 	
+	// Planets
+	
 	public static final RegistryObject<ModDimension> ARRAKIS_DIM = MOD_DIMENSIONS.register("arrakis_dim",
 			() -> new ArrakisModDimension());
+	
+	public static final RegistryObject<ModDimension> PANDORA_DIM = MOD_DIMENSIONS.register("pandora_dim",
+			() -> new PandoraModDimension());
 }
