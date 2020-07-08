@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "iai",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "a": {
+      "item": "minecraft:anvil"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:armor_disassembler"
+  }
+}

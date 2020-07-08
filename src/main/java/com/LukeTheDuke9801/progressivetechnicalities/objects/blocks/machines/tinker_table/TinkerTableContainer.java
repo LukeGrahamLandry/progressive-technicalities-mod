@@ -3,6 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.ti
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModContainerTypes;
@@ -18,6 +19,7 @@ import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.IntReferenceHolder;
@@ -52,7 +54,7 @@ public class TinkerTableContainer extends Container {
    }
 
    public TinkerTableContainer(int p_i50102_1_, PlayerInventory p_i50102_2_, final IWorldPosCallable p_i50102_3_) {
-      super(ModContainerTypes.ALLOY_TABLE.get(), p_i50102_1_);
+      super(ModContainerTypes.TINKER_TABLE.get(), p_i50102_1_);
       this.field_216980_g = p_i50102_3_;
       this.player = p_i50102_2_.player;
       this.trackInt(this.maximumCost);
@@ -129,6 +131,19 @@ public class TinkerTableContainer extends Container {
     	  
     	  String moduleKey = "";
     	  
+    	  if (itemstack1.isRepairable() && item2.equals(ItemInit.STEEL_INGOT.get())) {
+    		  ItemStack result = itemstack1.copy();
+    		  
+    		  int newDamage = result.getDamage() - 200;
+    		  result.setDamage(newDamage);
+    		  
+    		  this.outputSlot.setInventorySlotContents(0, result);
+        	  this.maximumCost.set(10);
+        	  
+        	  this.detectAndSendChanges();
+        	  return;
+    	  }
+    	  
     	  if (!(item1 instanceof PowerArmor)){
     		  this.outputSlot.setInventorySlotContents(0, ItemStack.EMPTY);
     		  return;
@@ -194,13 +209,17 @@ public class TinkerTableContainer extends Container {
     		  moduleKey = "jetpack";
     	  }
     	  
-    	  
+    	  if (item2.equals(ItemInit.BEDROCKIUM_INGOT.get().asItem())){
+    		  moduleKey = "unbreakable";
+    	  }
     	  
     	  if (PowerArmor.canIncreaseModuleLevel(itemstack1, moduleKey)) {
     		  ItemStack result = itemstack1.copy();
+    		  
     		  PowerArmor.increaseModuleLevel(result, moduleKey);
+    		  
     		  this.outputSlot.setInventorySlotContents(0, result);
-        	  this.maximumCost.set(15);
+        	  this.maximumCost.set(20);
     	  } else {
     		  this.outputSlot.setInventorySlotContents(0, ItemStack.EMPTY);
     	  }

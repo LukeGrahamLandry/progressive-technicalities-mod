@@ -1,6 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
@@ -12,6 +13,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
@@ -30,9 +32,10 @@ public class PowerArmor extends ArmorItem {
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Protection of diamond. Many modules can be added in the Tinker Table"));
+			CompoundNBT nbtTagCompound = stack.getTag();
+			tooltip.add(new StringTextComponent("Protection of diamond. Many modules can be added in the Tinker Table. " + nbtTagCompound.toString()));
 		}
-		
+
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 	
@@ -42,7 +45,7 @@ public class PowerArmor extends ArmorItem {
 		if (this.tick == 300) {
 			this.tick = 0;
 			
-			if (hasPowerArmor(player)) {
+			if (!hasPowerArmor(player)) {
 				return;
 			}
 			
@@ -94,6 +97,18 @@ public class PowerArmor extends ArmorItem {
 		super.onArmorTick(stack, world, player);
 	}
 	
+	@Override
+	public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
+		if (hasPowerArmor(entity) && getModuleLevel(stack, "unbreakable") == 1) {
+			entity.getItemStackFromSlot(EquipmentSlotType.HEAD).setDamage(0);
+			entity.getItemStackFromSlot(EquipmentSlotType.CHEST).setDamage(0);
+			entity.getItemStackFromSlot(EquipmentSlotType.LEGS).setDamage(0);
+			entity.getItemStackFromSlot(EquipmentSlotType.FEET).setDamage(0);
+			return 0;
+		}
+		return super.damageItem(stack, amount, entity, onBroken);
+	}
+	
 	public static boolean hasPowerArmor(LivingEntity entity) {
 		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.POWERARMOR_HELMET.get())
 				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.POWERARMOR_CHESTPLATE.get())
@@ -107,7 +122,7 @@ public class PowerArmor extends ArmorItem {
 	}
 	
 	public static void setModuleLevel(ItemStack stack, String key, int level) {
-		CompoundNBT nbtTagCompound = new CompoundNBT();
+		CompoundNBT nbtTagCompound = stack.getTag();
 		nbtTagCompound.putInt(key,level);
 		stack.setTag(nbtTagCompound);
 	}
@@ -137,7 +152,7 @@ public class PowerArmor extends ArmorItem {
 	
 	public static int getMaxModuleLevel(String key) {
 		if (key == "saturation" || key == "nightvision" || key == "fireres" || key == "waterbreathing"
-				|| key == "dolphin" || key == "longfall" || key == "spacehelmet") {
+				|| key == "dolphin" || key == "longfall" || key == "spacehelmet" || key == "unbreakable") {
 			return 1;
 		}
 		switch (key) {
@@ -146,16 +161,16 @@ public class PowerArmor extends ArmorItem {
 			case "speed": // + 20% / level
 				return 5;
 			case "jumpboost": // + 50% height / level
-				return 5;
+				return 10;
 			case "strength": // + 3 * level damage
 				return 5; 
 			case "haste":  // 20% increase / level
-				return 5;
+				return 10;
 			case "resistance": // 20% damage reduction / level
 				return 4;
 			case "jetpack":
 				return 2;
-			case "thorns":
+			case "thorns": // 1 heart / level
 				return 5;
 			default:
 				return 0;
@@ -165,10 +180,7 @@ public class PowerArmor extends ArmorItem {
 	public static class Material extends BaseSpecialArmorMaterial {
         @Override
         public int getDamageReductionAmount(EquipmentSlotType slotType) {
-        	if (slotType == EquipmentSlotType.CHEST) {
-        		return 20;
-        	}
-            return 0;
+            return 5;
         }
 
         @Override

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "uuu",
+    " i ",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:steel_ingot"
+    },
+    "u": {
+      "item": "progressivetechnicalities:unobtanium_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:tinker_table"
+  }
+}

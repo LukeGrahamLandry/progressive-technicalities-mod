@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntityType;
 
 public abstract class AbstractGenoratorTileEntity extends TileEntity implements ITickableTileEntity{
 	private int fluidAmount;
-	private String fluidType;
+	private String fluidType = "";
 	public static final int maxFluidAmount = 2000;
 	public static final int energyPerMilibucket = 20;
 	
@@ -40,10 +40,7 @@ public abstract class AbstractGenoratorTileEntity extends TileEntity implements 
 		boolean fluidIsValid = fluidIn.isEquivalentTo(FluidInit.OIL_FLUID.get());
 		boolean validFluidType = (this.fluidAmount == 0) || fluidIn.getRegistryName().toString() == this.fluidType;
 		boolean spaceForFluid = this.fluidAmount + amount <= this.maxFluidAmount;
-		ProgressiveTechnicalities.LOGGER.debug(fluidIsValid);
-		ProgressiveTechnicalities.LOGGER.debug(spaceForFluid);
-		ProgressiveTechnicalities.LOGGER.debug(validFluidType);
-		ProgressiveTechnicalities.LOGGER.debug("~");
+		
 		if (fluidIsValid && spaceForFluid && validFluidType) {
 			this.fluidType = fluidIn.getRegistryName().toString();
 			this.fluidAmount += amount;

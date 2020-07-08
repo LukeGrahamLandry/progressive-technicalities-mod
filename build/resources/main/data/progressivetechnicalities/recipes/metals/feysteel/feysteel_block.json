@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "iii",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:feysteel_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:feysteel_block"
+  }
+}

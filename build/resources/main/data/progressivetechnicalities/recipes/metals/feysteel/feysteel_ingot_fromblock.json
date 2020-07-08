@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:feysteel_block"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:feysteel_ingot",
+    "count": 9
+  }
+}

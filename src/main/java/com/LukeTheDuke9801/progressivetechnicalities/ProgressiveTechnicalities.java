@@ -18,6 +18,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.world.gen.FeysteelOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.MelangeOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.SkyGemOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.TitaniumOreGen;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.UnobtaniumOreGen;
 
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.item.BlockItem;
@@ -113,6 +114,7 @@ public class ProgressiveTechnicalities
     	TitaniumOreGen.generateOre();
     	FeysteelOreGen.generateOre();
     	MelangeOreGen.generateOre();
+    	UnobtaniumOreGen.generateOre();
     }
     
     public static class ProgtechItemGroup extends ItemGroup {

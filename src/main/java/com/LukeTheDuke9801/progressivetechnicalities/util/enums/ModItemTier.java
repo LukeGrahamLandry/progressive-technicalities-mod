@@ -19,6 +19,9 @@ public enum ModItemTier implements IItemTier{
 	}),
 	OBSIDIAN(2, 1000000, 6.0F, 2.0F, 25, () -> {
 		return Ingredient.fromItems(ItemInit.OBSIDIAN_INGOT.get()); 
+	}),
+	UNOBTANIUM(4, 3000, 300.0f, 0f, 0, () -> {
+		return Ingredient.fromItems(ItemInit.UNOBTANIUM_INGOT.get()); 
 	});
 	
 	private final int harvestLevel;

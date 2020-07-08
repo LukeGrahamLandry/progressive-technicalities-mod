@@ -1,10 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.world.dimension;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.BiomeInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
 
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
@@ -12,7 +9,6 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.provider.BiomeProviderType;
 import net.minecraft.world.biome.provider.SingleBiomeProvider;
 import net.minecraft.world.biome.provider.SingleBiomeProviderSettings;
 import net.minecraft.world.dimension.Dimension;
@@ -31,6 +27,7 @@ public class PandoraDimension extends Dimension{
 		OverworldGenSettings settings = new OverworldGenSettings();
 		SingleBiomeProviderSettings biomeProviderSettings = new SingleBiomeProviderSettings(world.getWorldInfo());
 	    biomeProviderSettings.setBiome(BiomeInit.JUNGLE_PLAINS.get());
+	    settings.setDefaultBlock(Blocks.INFESTED_STONE.getDefaultState());
 		return new OverworldChunkGenerator(world, new SingleBiomeProvider(biomeProviderSettings), settings);
 	}
 

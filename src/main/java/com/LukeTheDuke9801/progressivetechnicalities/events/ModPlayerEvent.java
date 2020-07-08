@@ -98,6 +98,7 @@ public class ModPlayerEvent {
     
     @SubscribeEvent
     public static void onLivingSpawn(LivingSpawnEvent event) {
+    	// long time = ((World) event.getWorld()).getGameTime(); // net.minecraft.world.gen.WorldGenRegion cannot be cast to net.minecraft.world.World
     	EntityType entityType = event.getEntityLiving().getType();
     	if (entityType == EntityType.ZOMBIE) {
     		event.getEntityLiving().setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(ItemInit.CARBIDE_AXE.get()));

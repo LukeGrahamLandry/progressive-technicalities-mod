@@ -33,24 +33,11 @@ import net.minecraft.world.World;
 
 public class TinkerTableBlock extends FallingBlock {
 	   public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-	   private static final VoxelShape PART_BASE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
-	   private static final VoxelShape PART_LOWER_X = Block.makeCuboidShape(3.0D, 4.0D, 4.0D, 13.0D, 5.0D, 12.0D);
-	   private static final VoxelShape PART_MID_X = Block.makeCuboidShape(4.0D, 5.0D, 6.0D, 12.0D, 10.0D, 10.0D);
-	   private static final VoxelShape PART_UPPER_X = Block.makeCuboidShape(0.0D, 10.0D, 3.0D, 16.0D, 16.0D, 13.0D);
-	   private static final VoxelShape PART_LOWER_Z = Block.makeCuboidShape(4.0D, 4.0D, 3.0D, 12.0D, 5.0D, 13.0D);
-	   private static final VoxelShape PART_MID_Z = Block.makeCuboidShape(6.0D, 5.0D, 4.0D, 10.0D, 10.0D, 12.0D);
-	   private static final VoxelShape PART_UPPER_Z = Block.makeCuboidShape(3.0D, 10.0D, 0.0D, 13.0D, 16.0D, 16.0D);
-	   private static final VoxelShape X_AXIS_AABB = VoxelShapes.or(PART_BASE, PART_LOWER_X, PART_MID_X, PART_UPPER_X);
-	   private static final VoxelShape Z_AXIS_AABB = VoxelShapes.or(PART_BASE, PART_LOWER_Z, PART_MID_Z, PART_UPPER_Z);
-	   private static final TranslationTextComponent field_220273_k = new TranslationTextComponent("container.repair");
+	   private static final TranslationTextComponent field_220273_k = new TranslationTextComponent("container.tinker_table");
 
 	   public TinkerTableBlock(Block.Properties properties) {
 	      super(properties);
-	      this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
-	   }
-
-	   public BlockState getStateForPlacement(BlockItemUseContext context) {
-	      return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().rotateY());
+	      this.setDefaultState(this.stateContainer.getBaseState());
 	   }
 
 	   public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
@@ -70,31 +57,12 @@ public class TinkerTableBlock extends FallingBlock {
 	      }, field_220273_k);
 	   }
 
-	   public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-	      Direction direction = state.get(FACING);
-	      return direction.getAxis() == Direction.Axis.X ? X_AXIS_AABB : Z_AXIS_AABB;
-	   }
-
 	   protected void onStartFalling(FallingBlockEntity fallingEntity) {
 	      fallingEntity.setHurtEntities(true);
 	   }
 
 	   public void onEndFalling(World worldIn, BlockPos pos, BlockState fallingState, BlockState hitState) {
 	      worldIn.playEvent(1031, pos, 0);
-	   }
-
-	   /**
-	    * Returns the blockstate with the given rotation from the passed blockstate. If inapplicable, returns the passed
-	    * blockstate.
-	    * @deprecated call via {@link IBlockState#withRotation(Rotation)} whenever possible. Implementing/overriding is
-	    * fine.
-	    */
-	   public BlockState rotate(BlockState state, Rotation rot) {
-	      return state.with(FACING, rot.rotate(state.get(FACING)));
-	   }
-
-	   protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-	      builder.add(FACING);
 	   }
 
 	   public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {

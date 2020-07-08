@@ -33,6 +33,8 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TimeSt
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.WeatherStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.XPStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.TitaniumAIOT;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.UnobtaniumDrill;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.UnobtaniumSword;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModArmorMaterial;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModItemTier;
 
@@ -119,6 +121,18 @@ public class ItemInit {
 	public static final RegistryObject<Item> MELANGE_CLUMP = ITEMS.register("melange_clump",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
+	public static final RegistryObject<Item> UNOBTANIUM_INGOT = ITEMS.register("unobtanium_ingot",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> UNOBTANIUM_SHARD = ITEMS.register("unobtanium_shard",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> BEDROCKIUM_SHARD = ITEMS.register("bedrockium_shard",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> BEDROCKIUM_INGOT = ITEMS.register("bedrockium_ingot",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
 	// Staffs
 
 	public static final RegistryObject<Item> STAFF = ITEMS.register("staff",
@@ -197,10 +211,16 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> TITANIUM_AIOT = ITEMS.register("titanium_aiot",
 			() -> new TitaniumAIOT(ModItemTier.TITANIUM, 2, -3.1f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
 	// TODO: make it not look like shit
 	public static final RegistryObject<Item> TITANIUM_TRIDENT = ITEMS.register("titanium_trident",
 			() -> new TridentItem(new Item.Properties().maxDamage(250).group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> UNOBTANIUM_DRILL = ITEMS.register("unobtanium_drill",
+			() -> new UnobtaniumDrill(ModItemTier.UNOBTANIUM, 7, -3f, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> UNOBTANIUM_SWORD = ITEMS.register("unobtanium_sword",
+			() -> new UnobtaniumSword(ModItemTier.UNOBTANIUM, Integer.MAX_VALUE, -2.4f, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
 	 
 	// Armour
 	public static final RegistryObject<Item> NIGHTVISION_GOGGLES = ITEMS.register("nightvision_goggles",
