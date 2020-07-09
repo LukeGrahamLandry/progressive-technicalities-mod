@@ -1,0 +1,1 @@
+Rightclick with a bucket of silver to get a silver ingot 

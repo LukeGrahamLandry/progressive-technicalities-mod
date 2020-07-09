@@ -315,8 +315,8 @@ public abstract class AbstractMachineTileEntity extends LockableTileEntity
 			return true;
 		} else {
 			ItemStack itemstack = getStackInNamedSlot("fuel");
-			return BatterySlot.isItemValidBattery(itemstack); // isFuel(stack) || stack.getItem() == Items.BUCKET &&
-																// itemstack.getItem() != Items.BUCKET;
+			return isFuel(stack) || stack.getItem() == Items.BUCKET &&
+																itemstack.getItem() != Items.BUCKET;
 		}
 	}
 

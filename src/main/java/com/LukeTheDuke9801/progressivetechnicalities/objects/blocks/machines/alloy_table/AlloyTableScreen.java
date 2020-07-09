@@ -85,7 +85,7 @@ public class AlloyTableScreen extends ContainerScreen<AlloyTableContainer> imple
             j = 16736352;
          }
 
-         if (flag && false) {
+         if (flag) {
             int k = this.xSize - 8 - this.font.getStringWidth(s) - 2;
             int l = 69;
             fill(k - 2, 67, this.xSize - 8, 79, 1325400064);

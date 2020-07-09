@@ -30,6 +30,18 @@ public class LavaWalkerEnchantment extends Enchantment{
 		return 1;
 	}
 	
+	public boolean isTreasureEnchantment() {
+      return true;
+	}
+	
+	public boolean isAllowedOnBooks() {
+      return false;
+	}
+	
+	public int getMinEnchantability(int enchantmentLevel) {
+	      return 999;
+	   }
+	
 	public static void solidifyNearby(LivingEntity living, World worldIn, BlockPos pos, int level) {
 	      if (living.onGround || true) {
 	         BlockState blockstate = FluidInit.LAVA_ICE.get().getDefaultState();

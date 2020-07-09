@@ -1,0 +1,1 @@
+The same an an ordinary trident.

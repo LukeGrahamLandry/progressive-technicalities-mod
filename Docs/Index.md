@@ -3,5 +3,5 @@
 - [[Staffs]]
 - [[Magic]]
 - [[Blocks]]
-- [[Crafting Items]]
 - [[Dimensions]]
+- [[Machines]]

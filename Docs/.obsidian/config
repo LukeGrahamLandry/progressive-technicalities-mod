@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Armour/Carbide Armour.md",
+            "file": "Progression.md",
             "mode": "source"
           }
         }
@@ -83,11 +83,11 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Armour/Carbide Armour.md",
-    "Tools/Carbide Tools.md",
-    "Tools/Tools.md",
+    "Untitled.md",
     "Index.md",
-    "Staffs/Staff of the Inferno.md"
+    "Machines/Machines.md",
+    "Blocks/Basic Quarry.md",
+    "Blocks/Blocks.md"
   ],
   "alwaysUpdateLinks": true,
   "promptDelete": false

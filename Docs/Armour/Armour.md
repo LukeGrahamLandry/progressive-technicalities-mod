@@ -2,6 +2,7 @@
 - [[Carbide Armour]]
 - [[Obsidian Armour]]
 - [[Feysteel Armour]]
+- [[Power Armor]]
 
 ### Special Pieces
 - [[Night Vision Goggles]]
@@ -9,6 +10,5 @@
 - [[Flippers]]
 - [[SCUBA Gear]]
 - [[Chestplate of Health]]
-- [[Leggings of Striding]]
 - [[Long Fall Boots]]
 - [[Space Helmet]]

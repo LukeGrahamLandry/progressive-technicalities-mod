@@ -7,7 +7,6 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MagicEggShell
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MobEgg;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.OilPortalKey;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.TinyCoal;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.BoostLeggings;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FeySteelArmorItem;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.Flippers;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.HealthChestplate;
@@ -24,6 +23,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.FireRe
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.BlazeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.CreativeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.EnderStaff;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.LightningStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.MomentumStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.NetherStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.RecallStaff;
@@ -171,6 +171,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> MOMENTUM_STAFF = ITEMS.register("momentum_staff",
 			() -> new MomentumStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
+	public static final RegistryObject<Item> LIGHTNING_STAFF = ITEMS.register("lightning_staff",
+			() -> new LightningStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",
 			() -> new BoostCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
@@ -235,9 +238,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> SLOWFALL_BOOTS = ITEMS.register("slowfall_boots",
 			() -> new SlowFallBoots(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> BOOST_LEGGINGS = ITEMS.register("boost_leggings",
-			() -> new BoostLeggings(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
 	public static final RegistryObject<Item> HEALTH_CHESTPLATE = ITEMS.register("health_chestplate",
 			() -> new HealthChestplate(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
@@ -298,7 +298,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> POWERARMOR_LEGGINGS = ITEMS.register("powerarmor_leggings",
 			() -> new ArmorItem(new PowerArmor.Material(), EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> FPOWERARMOR_BOOTS = ITEMS.register("powerarmor_boots",
+	public static final RegistryObject<Item> POWERARMOR_BOOTS = ITEMS.register("powerarmor_boots",
 			() -> new ArmorItem(new PowerArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 }

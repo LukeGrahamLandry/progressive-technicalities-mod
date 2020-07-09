@@ -5,12 +5,13 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ArmorDisasse
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockMultiTNT;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockQuarry;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.CastingTableBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.DisenchanterBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.FeyPortalBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.LargeChestBlock;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.LightningRod;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.OilPortalBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.alloy_table.AlloyTableBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.enchantment_forge.EnchantmentForgeBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.oil_generator.OilGeneratorBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.rocket.RocketBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.tinker_table.TinkerTableBlock;
@@ -63,10 +64,6 @@ public class BlockInit {
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	
 	// Advanced / Tile Entities
-	
-	static final RegistryObject<Block> LIGHTNING_ROD = BLOCKS.register("lightning_rod",
-			() -> new LightningRod(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 10f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
-	
 	public static final RegistryObject<Block> QUARRY = BLOCKS.register("quarry",
 			() -> new BlockQuarry(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
 	
@@ -105,4 +102,10 @@ public class BlockInit {
 	public static final RegistryObject<Block> ROCKET = BLOCKS.register("rocket",
 			() -> new RocketBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 
+	public static final RegistryObject<Block> ENCHANTMENT_FORGE = BLOCKS.register("enchantment_forge",
+			() -> new EnchantmentForgeBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+
+	public static final RegistryObject<Block> DISENCHANTER = BLOCKS.register("disenchanter",
+			() -> new DisenchanterBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
 }

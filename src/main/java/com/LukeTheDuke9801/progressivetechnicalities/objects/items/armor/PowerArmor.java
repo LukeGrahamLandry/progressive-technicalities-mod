@@ -8,6 +8,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -113,7 +114,7 @@ public class PowerArmor extends ArmorItem {
 		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.POWERARMOR_HELMET.get())
 				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.POWERARMOR_CHESTPLATE.get())
 				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.POWERARMOR_LEGGINGS.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.FPOWERARMOR_BOOTS.get());
+				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.POWERARMOR_BOOTS.get());
 	}
 	
 	public static int getModuleLevel(ItemStack stack, String key) {

@@ -1,4 +1,9 @@
 ### Full Sets
 - [[Carbide Tools]]
 - [[Obsidian Tools]]
-- [[Titanium Tools]]
+
+### Special Tools
+- [[Titanium AIOT]]
+- [[Titanium Trident]]
+- [[Unobtanium Drill]]
+- [[Unobtanium Sword]]

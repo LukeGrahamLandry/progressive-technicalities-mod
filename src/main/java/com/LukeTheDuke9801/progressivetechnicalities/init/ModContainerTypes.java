@@ -4,6 +4,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.container.LargeChestContainer;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.alloy_table.AlloyTableContainer;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.enchantment_forge.EnchantmentForgeContainer;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.rocket.RocketContainer;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.tinker_table.TinkerTableContainer;
 
@@ -30,5 +31,8 @@ public class ModContainerTypes {
 	
 	public static final RegistryObject<ContainerType<RocketContainer>> ROCKET = CONTAINER_TYPES.register("rocket",
 			() -> IForgeContainerType.create(RocketContainer::new));
+	
+	public static final RegistryObject<ContainerType<EnchantmentForgeContainer>> ENCHANTMENT_FORGE = CONTAINER_TYPES.register("enchantment_forge",
+			() -> IForgeContainerType.create(EnchantmentForgeContainer::new));
 	
 }

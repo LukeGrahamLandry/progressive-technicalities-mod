@@ -1,5 +1,6 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.tinker_table;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
@@ -85,7 +86,7 @@ public class TinkerTableScreen extends ContainerScreen<TinkerTableContainer> imp
             j = 16736352;
          }
 
-         if (flag && false) {
+         if (flag) {
             int k = this.xSize - 8 - this.font.getStringWidth(s) - 2;
             int l = 69;
             fill(k - 2, 67, this.xSize - 8, 79, 1325400064);
