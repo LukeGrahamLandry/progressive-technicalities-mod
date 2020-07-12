@@ -1,19 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "i i",
-    "iii",
-    "gca"
+    "igi",
+    "ici",
+    "iii"
   ],
   "key": {
     "i": {
-      "item": "progressivetechnicalities:titanium_ingot"
-    },
-    "a": {
-      "item": "minecraft:enchanted_golden_apple"
+      "item": "progressivetechnicalities:feysteel_ingot"
     },
     "g": {
-      "item": "minecraft:ghast_tear"
+      "item": "minecraft:enchanted_golden_apple"
     },
     "c": {
       "item": "progressivetechnicalities:potion_core"

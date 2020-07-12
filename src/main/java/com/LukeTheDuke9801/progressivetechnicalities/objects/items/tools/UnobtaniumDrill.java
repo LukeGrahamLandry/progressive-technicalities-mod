@@ -67,6 +67,9 @@ public class UnobtaniumDrill extends ToolItem {
 			   
 		   return super.onItemUse(context);
 	   }
-
 	   
+	@Override
+	public boolean isEnchantable(ItemStack stack) {
+		return false;
+	}
 }

@@ -21,10 +21,10 @@ public class UnobtaniumOreGen {
 		for (Biome biome : ForgeRegistries.BIOMES) {
 			if (biome == BiomeInit.JUNGLE_PLAINS.get()) {
 				//              commonness, min level, max offset, max level
-				ConfiguredPlacement customConfig = Placement.COUNT_RANGE.configure(new CountRangeConfig(100, 2, 0, 20));
+				ConfiguredPlacement customConfig = Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 0, 0, 16));
 				biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, 
-				Feature.ORE.withConfiguration(new OreFeatureConfig                               // max vain size
-				(INFESTEDSTONE_FILLER, BlockInit.UNOBTANIUM_ORE.get().getDefaultState(), 2))
+				Feature.ORE.withConfiguration(new OreFeatureConfig                // max vain size
+				(INFESTEDSTONE_FILLER, BlockInit.UNOBTANIUM_ORE.get().getDefaultState(), 6))
 				.withPlacement(customConfig));
 			} 
 			

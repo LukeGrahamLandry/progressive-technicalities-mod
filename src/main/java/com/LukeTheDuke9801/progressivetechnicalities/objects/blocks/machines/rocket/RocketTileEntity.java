@@ -3,6 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.ro
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
+import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;

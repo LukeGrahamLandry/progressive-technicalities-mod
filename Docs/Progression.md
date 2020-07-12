@@ -1,5 +1,0 @@
-- Nether / Carbide / End
-- Oil Dimension (titanium)
-- Fey Dimension (silver, feysteel)
-- Pandora (unobtanium, bedrockium)
-- Power Armor

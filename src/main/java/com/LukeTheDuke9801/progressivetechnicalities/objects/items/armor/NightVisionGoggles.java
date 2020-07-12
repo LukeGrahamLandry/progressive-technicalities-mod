@@ -47,7 +47,7 @@ public class NightVisionGoggles extends ArmorItem{
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":nightvision_goggles";
+            return ProgressiveTechnicalities.MOD_ID + ":special";
         }
 
         @Override

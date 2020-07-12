@@ -35,7 +35,7 @@ public class LongFallBoots extends ArmorItem{
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":long_fall_boots";
+            return ProgressiveTechnicalities.MOD_ID + ":special";
         }
 
         @Override

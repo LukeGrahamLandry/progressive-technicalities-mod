@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.LukeTheDuke9801.progressivetechnicalities.events.ModPlayerEvent;
+import com.LukeTheDuke9801.progressivetechnicalities.events.ScalingMobs;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BiomeInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.DimensionInit;
@@ -70,6 +71,7 @@ public class ProgressiveTechnicalities
     	DimensionInit.MOD_DIMENSIONS.register(modEventBus);
     	
     	MinecraftForge.EVENT_BUS.register(ModPlayerEvent.class);
+    	MinecraftForge.EVENT_BUS.register(ScalingMobs.class);
         
         instance = this;
         

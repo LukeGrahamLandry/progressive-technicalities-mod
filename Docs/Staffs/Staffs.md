@@ -10,3 +10,4 @@ Staffs are used to trigger instantanious effects by right clicking or shift righ
 - [[Staff of Recall]]
 - [[Staff of Knowledge]]
 - [[Staff of Momentum]]
+- [[Staff of Lightning]]

@@ -48,7 +48,7 @@ public class SlowFallBoots extends ArmorItem{
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":slow_fall_boots";
+            return ProgressiveTechnicalities.MOD_ID + ":special";
         }
 
         @Override

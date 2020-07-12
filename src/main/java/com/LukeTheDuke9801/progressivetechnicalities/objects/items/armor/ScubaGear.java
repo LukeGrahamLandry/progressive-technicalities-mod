@@ -49,7 +49,7 @@ public class ScubaGear extends ArmorItem{
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":scuba_gear";
+            return ProgressiveTechnicalities.MOD_ID + ":special";
         }
 
         @Override

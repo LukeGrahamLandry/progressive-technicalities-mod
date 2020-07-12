@@ -38,4 +38,9 @@ public class UnobtaniumSword extends SwordItem {
 			
 	      return true;
 	}
+	
+	@Override
+	public boolean isEnchantable(ItemStack stack) {
+		return false;
+	}
 }

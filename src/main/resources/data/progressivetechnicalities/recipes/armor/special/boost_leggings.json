@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "scf",
-    "i i",
-    "i i"
+    "ici",
+    "ifi",
+    "isi"
   ],
   "key": {
     "i": {
-      "item": "progressivetechnicalities:chromium_ingot"
+      "item": "progressivetechnicalities:feysteel_ingot"
     },
     "s": {
       "item": "minecraft:sugar"

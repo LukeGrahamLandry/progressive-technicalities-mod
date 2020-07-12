@@ -1,13 +1,9 @@
 package com.LukeTheDuke9801.progressivetechnicalities.world.biomes;
 
-import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.Biome.RainType;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.carver.WorldCarver;
 import net.minecraft.world.gen.feature.Feature;
@@ -20,7 +16,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 public class OilBiome extends Biome{
 	public OilBiome() {
 		super(new Biome.Builder().surfaceBuilder(SurfaceBuilder.DEFAULT,
-				new SurfaceBuilderConfig(Blocks.OBSIDIAN.getDefaultState(), Blocks.OBSIDIAN.getDefaultState(), BlockInit.CHROMIUM_ORE.get().getDefaultState()))
+				new SurfaceBuilderConfig(Blocks.OBSIDIAN.getDefaultState(), Blocks.OBSIDIAN.getDefaultState(), Blocks.OBSIDIAN.getDefaultState()))
 				.category(Category.PLAINS)
 				.precipitation(RainType.SNOW)
 				.downfall(0.8f)

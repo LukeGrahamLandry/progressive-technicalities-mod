@@ -48,7 +48,7 @@ public class JetPack2 extends ArmorItem{
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":health_chestplate";
+            return ProgressiveTechnicalities.MOD_ID + ":special";
         }
 
         @Override

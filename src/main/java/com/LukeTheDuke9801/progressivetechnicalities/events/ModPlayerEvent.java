@@ -3,29 +3,28 @@ package com.LukeTheDuke9801.progressivetechnicalities.events;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.enchantments.LavaWalkerEnchantment;
 import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.SilverFluid;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeyFood;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FeySteelArmorItem;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.PowerArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.VoidStriderLeggings;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -77,6 +76,14 @@ public class ModPlayerEvent {
     		event.setCanceled(true);
     	}
     	
+    	// Handle void strider
+    	boolean belowBedrock = entity.getPosY() <= 0;
+    	boolean wearingVoidStrider = entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem() instanceof VoidStriderLeggings;
+    	boolean isVoidDamage = event.getSource() == DamageSource.OUT_OF_WORLD; 
+    	if (belowBedrock && wearingVoidStrider && isVoidDamage) {
+    		event.setCanceled(true);
+    	}
+    	
     	// deal thorns damage from feysteel armour
     	Iterable<ItemStack> armor = entity.getArmorInventoryList();
     	int numFeysteel = 0;
@@ -96,17 +103,53 @@ public class ModPlayerEvent {
     	}
     }
     
+    // Makes vanilla food give no saturation
     @SubscribeEvent
-    public static void onLivingSpawn(LivingSpawnEvent event) {
-    	// long time = ((World) event.getWorld()).getGameTime(); // net.minecraft.world.gen.WorldGenRegion cannot be cast to net.minecraft.world.World
-    	EntityType entityType = event.getEntityLiving().getType();
-    	if (entityType == EntityType.ZOMBIE) {
-    		event.getEntityLiving().setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(ItemInit.CARBIDE_AXE.get()));
-    		event.getEntityLiving().setItemStackToSlot(EquipmentSlotType.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
-    		event.getEntityLiving().setItemStackToSlot(EquipmentSlotType.LEGS, new ItemStack(Items.IRON_LEGGINGS));
-    		event.getEntityLiving().setItemStackToSlot(EquipmentSlotType.FEET, new ItemStack(Items.IRON_BOOTS));
+    public static void onPlayerEatFood(LivingEntityUseItemEvent.Finish event) {
+    	if (event.getItem().getItem().isFood() && event.getEntityLiving() instanceof PlayerEntity) {
+    		PlayerEntity player = (PlayerEntity) event.getEntityLiving();
+    		boolean isFeyFood = event.getItem().getItem() instanceof FeyFood;
+    		if (!isFeyFood) {
+    			player.getFoodStats().setFoodSaturationLevel(0);
+    			/* supposed to make it give two thirds of the food they're meant to 
+    			 * but doesnt work properly doesnt let you get to full hunger cause it 
+    			 * removes hunger after the hunger cap is applied
+    			int itemFoodAmount = event.getItem().getItem().getFood().getHealing();
+    			int foodToRemove = (itemFoodAmount / 3);
+    			int newFoodLevel = player.getFoodStats().getFoodLevel() - foodToRemove;
+    			player.getFoodStats().setFoodLevel(newFoodLevel);
+    			*/
+    		}
     	}
     }
     
+    /*
+     * supposed to make soulbound enchant work but doesnt work cause inventory is cleared before event fired
+    @SubscribeEvent
+    public static void onPlayerDeath(PlayerEvent.Clone event) {
+    	if (event.isWasDeath()) {
+    		NonNullList<ItemStack> mainInventory = event.getOriginal().inventory.mainInventory;
+    		for (ItemStack stack : mainInventory) {
+    			ProgressiveTechnicalities.LOGGER.debug(stack.toString());
+    			if (SoulBoundEnchantment.hasSoulBound(stack)) {
+    				event.getPlayer().addItemStackToInventory(stack);
+    			}
+    		}
+    	}
+    }
     
+    @SubscribeEvent
+    public static void onPlayerBreakBlock(PlayerEvent.HarvestCheck event) {
+    	if (event.getTargetBlock().getBlock().equals(Blocks.STONE)) {
+    		ItemStack held = event.getPlayer().getHeldItemMainhand();
+    		if (held.getToolTypes().contains(ToolType.PICKAXE)) {
+    			int harvestLevel = held.getHarvestLevel(ToolType.PICKAXE,  event.getPlayer(), event.getTargetBlock());
+        		if (harvestLevel <= 3) {
+        			// not carbide / titanium / etc.
+        			held.damageItem(25, event.getPlayer(), null);
+        		}
+    		}
+    	}
+    }
+    */
 }

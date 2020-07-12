@@ -17,6 +17,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.roc
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.tinker_table.TinkerTableBlock;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
@@ -28,7 +29,7 @@ public class BlockInit {
 	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, ProgressiveTechnicalities.MOD_ID);
 	
 	public static final RegistryObject<Block> CHROMIUM_BLOCK = BLOCKS.register("chromium_block",
-			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 6f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> CARBIDE_BLOCK = BLOCKS.register("carbide_block",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
@@ -62,6 +63,10 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> UNOBTANIUM_ORE = BLOCKS.register("unobtanium_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+	
+	// Fey Food
+	//public static final RegistryObject<Block> COFFEE_CROP = BLOCKS.register("coffee_crop",
+	//		() -> new CoffeeCrop(Block.Properties.from(Blocks.WHEAT)));
 	
 	// Advanced / Tile Entities
 	public static final RegistryObject<Block> QUARRY = BLOCKS.register("quarry",

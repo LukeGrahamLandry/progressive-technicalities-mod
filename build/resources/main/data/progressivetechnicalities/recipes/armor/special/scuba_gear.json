@@ -1,21 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "pcg",
-    "i i"
+    "ici",
+    "ipi"
   ],
   "key": {
     "i": {
-      "item": "progressivetechnicalities:chromium_ingot"
+      "item": "progressivetechnicalities:feysteel_ingot"
     },
     "c": {
       "item": "progressivetechnicalities:potion_core"
     },
     "p": {
       "item": "minecraft:pufferfish"
-    },
-    "g": {
-      "item": "minecraft:glass"
     }
   },
   "result": {

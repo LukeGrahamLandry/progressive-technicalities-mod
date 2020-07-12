@@ -4,7 +4,6 @@
 	"item.progressivetechnicalities.chromium_ingot": "Chromium Ingot",
 	"item.progressivetechnicalities.carbide_ingot": "Carbide Ingot",
 	"item.progressivetechnicalities.titanium_ingot": "Titanium Ingot",
-	"item.progressivetechnicalities.wealth_ingot": "Rainbow Ingot of the Extremely Wealthy and Dedicated Player",
 	"item.progressivetechnicalities.sky_gem": "Sky Gem",
 	"item.progressivetechnicalities.space_ingot": "Diastima Alloy",
 	"item.progressivetechnicalities.tiny_coal": "Tiny Coal",
@@ -17,9 +16,13 @@
 	"item.progressivetechnicalities.electrum_ingot": "Electrum Ingot",
 	"item.progressivetechnicalities.steel_ingot": "Steel Ingot",
 	"item.progressivetechnicalities.silver_ingot": "Silver Ingot",
-	"item.progressivetechnicalities.aluminium": "Aluminium",
+	"item.progressivetechnicalities.aluminum": "Aluminum",
 	"item.progressivetechnicalities.melange_clump": "Melange Clump",
-	
+	"item.progressivetechnicalities.obsidian_ingot": "Obsidian Ingot",
+	"item.progressivetechnicalities.unobtanium_ingot": "Unobtanium Ingot",
+	"item.progressivetechnicalities.unobtanium_shard": "Unobtanium Shard",
+	"item.progressivetechnicalities.bedrockium_shard": "Bedrockium Shard",
+	"item.progressivetechnicalities.bedrockium_ingot": "Bedrockium Ingot",
 	
 	"item.progressivetechnicalities.potion_core": "Potion Core",
 	"item.progressivetechnicalities.machine_base": "Machine Frame",
@@ -36,6 +39,7 @@
 	"item.progressivetechnicalities.tnt_staff": "Staff of Entropy",
 	"item.progressivetechnicalities.creative_staff": "Staff of Creativity",
 	"item.progressivetechnicalities.momentum_staff": "Staff of Velocity Manipulation",
+	"item.progressivetechnicalities.lightning_staff": "Lightning Staff",
 
 	"item.progressivetechnicalities.boost_charm": "Boost Charm",
 	"item.progressivetechnicalities.fireres_charm": "Charm of Obsidian Skin",
@@ -54,6 +58,8 @@
 	"item.progressivetechnicalities.carbide_hoe": "Carbide Hoe",
 	"item.progressivetechnicalities.titanium_aiot": "Titanium AIOT",
 	"item.progressivetechnicalities.titanium_trident": "Titanium Trident",
+	"item.progressivetechnicalities.unobtanium_drill": "Unobtanium Drill",
+	"item.progressivetechnicalities.unobtanium_sword": "Unobtanium Sword",
 	
 	"item.progressivetechnicalities.obsidian_helmet": "Obsidian Helmet",
 	"item.progressivetechnicalities.obsidian_chestplate": "Obsidian Chestplate",
@@ -73,8 +79,15 @@
 	"item.progressivetechnicalities.scuba_gear": "SCUBA Gear",
 	"item.progressivetechnicalities.slowfalling_boots": "Boots of Slowfalling",
 	"item.progressivetechnicalities.boost_leggings": "Leggings of Striding",
+	"item.progressivetechnicalities.slowfall_boots": "Slow Fall Boots",
 	"item.progressivetechnicalities.longfall_boots": "Long Fall Boots",
 	"item.progressivetechnicalities.space_helmet": "Astronaut Helmet",
+	"item.progressivetechnicalities.powerarmor_helmet": "Power Armor Helmet",
+	"item.progressivetechnicalities.powerarmor_chestplate": "Power Armor Chestplate",
+	"item.progressivetechnicalities.powerarmor_leggings": "Power Armor Leggings",
+	"item.progressivetechnicalities.powerarmor_boots": "Power Armor Boots",
+	"item.progressivetechnicalities.jetpack_1": "Sluggish Jetpack",
+	"item.progressivetechnicalities.jetpack_2": "Jetpack",
  
 	"block.progressivetechnicalities.chromium_block": "Chromium Block",
 	"block.progressivetechnicalities.chromium_ore": "Chromium Ore",
@@ -86,8 +99,9 @@
 	"block.progressivetechnicalities.fey_stone": "Solid Fairy Dust",
 	"block.progressivetechnicalities.feysteel_ore": "Feysteel Ore",
 	"block.progressivetechnicalities.melange_deposit": "Melange Deposit",
+	"block.progressivetechnicalities.unobtanium_ore": "Unobtanium Ore",
+	"block.progressivetechnicalities.feysteel_block": "Feysteel Block",
 	
-	"block.progressivetechnicalities.lightning_rod": "Flat Lighting Rod",
 	"block.progressivetechnicalities.quarry": "Basic Quarry",
 	"block.progressivetechnicalities.multi_tnt": "Multi-TNT (NO FUSE!)",
 	"block.progressivetechnicalities.large_chest": "Large Chest",
@@ -96,10 +110,17 @@
 	"block.progressivetechnicalities.oil_generator": "Oil Generator",
 	"block.progressivetechnicalities.alloy_table": "Alloy Table",
 	"block.progressivetechnicalities.casting_table": "Casting Table",
-
+	"block.progressivetechnicalities.armor_disassembler": "Armor Disassembler",
+	"block.progressivetechnicalities.tinker_table": "Tinker Table",
+	"block.progressivetechnicalities.enchantment_forge": "Enchantment Forge",
+	"block.progressivetechnicalities.disenchanter": "Disenchanter",
+	
 	"container.large_chest": "Large Chest",
 	"container.alloy_table": "Alloy Table",
 	"container.tinker_table": "Tinker Table",
+	"container.enchantment_forge": "Enchantment Forge",
+
+	"enchantment.progressivetechnicalities.lava_walker_enchant": "Lava Walker",
 	
 	"itemGroup.progtechtab": "Progressive Technicalities"
 }

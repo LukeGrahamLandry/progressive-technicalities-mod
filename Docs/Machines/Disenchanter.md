@@ -1,0 +1,1 @@
+Rightclick with an enchanted item to remove the enchantments. Each enchantment will be placed on a book and dropped at your feet.

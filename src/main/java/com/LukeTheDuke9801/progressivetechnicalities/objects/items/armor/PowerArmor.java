@@ -186,7 +186,7 @@ public class PowerArmor extends ArmorItem {
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":power_armor";
+            return ProgressiveTechnicalities.MOD_ID + ":powerarmor";
         }
 
         @Override
@@ -201,7 +201,7 @@ public class PowerArmor extends ArmorItem {
 
         @Override
         public int getEnchantability() {
-            return 25;
+            return 5;
         }
 
         @Override

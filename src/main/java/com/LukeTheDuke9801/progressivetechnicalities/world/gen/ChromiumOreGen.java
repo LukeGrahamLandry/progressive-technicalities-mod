@@ -16,7 +16,7 @@ public class ChromiumOreGen {
 		for (Biome biome : ForgeRegistries.BIOMES) {
 			// if (biome == Biomes.PLAINS) {} only generate in certain biomes
 			//                                                            commonness, min level, max offset, max level
-			ConfiguredPlacement customConfig = Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 20, 0, 60));
+			ConfiguredPlacement customConfig = Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 40, 0, 60));
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, 
 					Feature.ORE.withConfiguration(new OreFeatureConfig                               // max vain size
 							(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.CHROMIUM_ORE.get().getDefaultState(), 17))

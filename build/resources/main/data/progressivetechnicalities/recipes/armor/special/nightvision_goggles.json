@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "gcg",
-    "i i"
+    "ici",
+    "igi"
   ],
   "key": {
     "i": {
-      "item": "progressivetechnicalities:chromium_ingot"
+      "item": "progressivetechnicalities:feysteel_ingot"
     },
     "c": {
       "item": "progressivetechnicalities:potion_core"

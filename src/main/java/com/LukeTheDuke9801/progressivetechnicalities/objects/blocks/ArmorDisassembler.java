@@ -57,20 +57,13 @@ public class ArmorDisassembler extends Block{
 				   return ActionResultType.FAIL;
 			   }
 			   
-			   if (((ArmorItem) handHeld.getItem()).getArmorMaterial() instanceof BaseSpecialArmorMaterial) {
-				   isSpecialArmour = true;
-			   }
-			   
 			   double maxDurability = handHeld.getItem().getMaxDamage(handHeld);
 			   double durability = maxDurability - handHeld.getItem().getDamage(handHeld);
 			   double multiplier = durability / maxDurability;
 			   
 			   Item resultItem;
 			   int number = (int)(baseMaterialAmount * multiplier);
-			   if (isSpecialArmour) {
-				   resultItem = ItemInit.CHROMIUM_INGOT.get();
-				   number -= 1;
-			   } else if (((ArmorItem) handHeld.getItem()).getArmorMaterial() == ArmorMaterial.CHAIN) {
+			   if (((ArmorItem) handHeld.getItem()).getArmorMaterial() == ArmorMaterial.CHAIN) {
 				   resultItem = ItemInit.CHROMIUM_INGOT.get();
 			   } else {
 				   resultItem = ((ArmorItem) handHeld.getItem()).getArmorMaterial().getRepairMaterial().getMatchingStacks()[0].getItem();

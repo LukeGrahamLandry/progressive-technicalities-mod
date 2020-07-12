@@ -6,8 +6,6 @@ import java.util.Map.Entry;
 
 import javax.annotation.Nullable;
 
-import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.Battery;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 

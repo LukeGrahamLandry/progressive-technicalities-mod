@@ -50,7 +50,7 @@ public class Flippers extends ArmorItem{
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":flippers";
+            return ProgressiveTechnicalities.MOD_ID + ":special";
         }
 
         @Override

@@ -39,7 +39,7 @@
 	"item.progressivetechnicalities.tnt_staff": "Staff of Entropy",
 	"item.progressivetechnicalities.creative_staff": "Staff of Creativity",
 	"item.progressivetechnicalities.momentum_staff": "Staff of Velocity Manipulation",
-	"item.progressivetechnicalities.lightning": "Lightning Staff",
+	"item.progressivetechnicalities.lightning_staff": "Lightning Staff",
 
 	"item.progressivetechnicalities.boost_charm": "Boost Charm",
 	"item.progressivetechnicalities.fireres_charm": "Charm of Obsidian Skin",
@@ -88,6 +88,10 @@
 	"item.progressivetechnicalities.powerarmor_boots": "Power Armor Boots",
 	"item.progressivetechnicalities.jetpack_1": "Sluggish Jetpack",
 	"item.progressivetechnicalities.jetpack_2": "Jetpack",
+	"item.progressivetechnicalities.bedrockium_helmet": "Bedrockium Helmet",
+	"item.progressivetechnicalities.bedrockium_chestplate": "Bedrockium Chestplate",
+	"item.progressivetechnicalities.bedrockium_leggings": "Bedrockium Leggings",
+	"item.progressivetechnicalities.bedrockium_boots": "Bedrockium Boots",
  
 	"block.progressivetechnicalities.chromium_block": "Chromium Block",
 	"block.progressivetechnicalities.chromium_ore": "Chromium Ore",
@@ -118,6 +122,7 @@
 	"container.large_chest": "Large Chest",
 	"container.alloy_table": "Alloy Table",
 	"container.tinker_table": "Tinker Table",
+	"container.enchantment_forge": "Enchantment Forge",
 
 	"enchantment.progressivetechnicalities.lava_walker_enchant": "Lava Walker",
 	
