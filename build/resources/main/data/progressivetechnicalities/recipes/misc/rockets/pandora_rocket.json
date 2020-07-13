@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+          "item": "progressivetechnicalities:advanced_rocket_casting"
+      },
+      {
+        "item": "minecraft:vine"
+    }
+    ],
+    "result": {
+      "item": "progressivetechnicalities:pandora_rocket"
+    }
+  }

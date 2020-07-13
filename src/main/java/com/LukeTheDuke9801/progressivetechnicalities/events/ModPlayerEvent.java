@@ -19,7 +19,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
@@ -49,7 +51,6 @@ public class ModPlayerEvent {
     	int lavaWalkerLevel = EnchantmentHelper.getMaxEnchantmentLevel(EnchantmentInit.LAVA_WALKER.get(), player);
         if (lavaWalkerLevel > 0) {
         	LavaWalkerEnchantment.solidifyNearby(player, world, player.getPosition(), lavaWalkerLevel);
-        	SilverFluid.solidifyNearby(player, world, player.getPosition(), lavaWalkerLevel);
         }
         
         int frostWalkerLevel = EnchantmentHelper.getMaxEnchantmentLevel(Enchantments.FROST_WALKER, player);
@@ -57,11 +58,24 @@ public class ModPlayerEvent {
         	OilFluid.solidifyNearby(player, world, player.getPosition(), frostWalkerLevel);
         }
         
-        if (world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.ARRAKIS_DIM_TYPE)
-        		|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.PANDORA_DIM_TYPE)){
+        /* How air works:
+         * Full bar is 300, each tick while under water it deceases by one
+         * if its -20, you get damages and set to 0 (so damage once a second)
+         * regain 4 each tick while in air
+         * because reasons if you want it to go down while in air you have to reduce by 3 per tick
+         */
+        
+        boolean isInSpace = player.getPosY() >= 300
+        		|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.PANDORA_DIM_TYPE)
+        		|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.ARRAKIS_DIM_TYPE);
+        if (isInSpace){
         	boolean wearingSpaceHelmet = player.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() instanceof SpaceHelmet || (PowerArmor.getModuleLevel(player, "spacehelmet") == 1);
         	if (!wearingSpaceHelmet && !player.isCreative()) {
-        		player.attackEntityFrom(DamageSource.DROWN, 6);
+        		player.setAir(player.getAir() - 3);
+        		if (player.getAir() <= -20) {
+    	        	player.setAir(0);
+    	        	player.attackEntityFrom(DamageSource.DROWN, 4);
+    	        } 
         	}
         }
     }

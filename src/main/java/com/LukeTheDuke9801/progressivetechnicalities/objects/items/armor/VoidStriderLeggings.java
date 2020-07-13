@@ -70,20 +70,10 @@ public class VoidStriderLeggings extends ArmorItem{
 		stack.setTag(nbtTagCompound);
 	}
 	
-	public static class Material extends BaseSpecialArmorMaterial {
-        @Override
-        public int getDamageReductionAmount(EquipmentSlotType slotType) {
-            return 6;
-        }
-
+	public static class Material extends AdvancedSpecialArmorMaterial {
         @Override
         public String getName() {
             return ProgressiveTechnicalities.MOD_ID + ":special";
-        }
-
-        @Override
-        public float getToughness() {
-            return 0;
         }
     }
 }

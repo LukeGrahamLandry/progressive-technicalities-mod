@@ -71,12 +71,9 @@ public class XPStaff extends Item{
 	private int getXP(ItemStack stack) {
 		CompoundNBT nbtTagCompound = stack.getTag();
 		
-		if (nbtTagCompound == null || !nbtTagCompound.contains("xp")) {
-			return 0;
-		}
+		if (nbtTagCompound == null) return 0;
 		
-		int xp = nbtTagCompound.getInt("xp");
-		return xp;
+		return nbtTagCompound.getInt("xp");
 	}
 	
 	private void setXP(ItemStack stack, int xp) {

@@ -1,7 +1,7 @@
 import json
 
 path = "/Users/luke/Desktop/Code/progressive_technicalities/src/main/resources/assets/progressivetechnicalities/"
-path2 = "/Users/luke/Desktop/Code/progressive_technicalities/src/main/resources/data/progressivetechnicalities/loot_tables/blocks"
+path2 = "/Users/luke/Desktop/Code/progressive_technicalities/src/main/resources/data/progressivetechnicalities/loot_tables/blocks/"
 while True:
 	name = input("name? ")
 

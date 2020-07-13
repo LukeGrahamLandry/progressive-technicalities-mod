@@ -12,3 +12,5 @@ Many mobs spawn naturally in large groups
 
 BTW, swimming in oil gives blindness and slowness V
 frost walker works on oil (oil ice is extra slippery)
+
+All monsters have resistance II

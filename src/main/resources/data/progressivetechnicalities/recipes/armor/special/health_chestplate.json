@@ -2,18 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "igi",
-    "ici",
+    "iii",
     "iii"
   ],
   "key": {
     "i": {
-      "item": "progressivetechnicalities:feysteel_ingot"
+      "item": "progressivetechnicalities:potion_core"
     },
     "g": {
       "item": "minecraft:enchanted_golden_apple"
-    },
-    "c": {
-      "item": "progressivetechnicalities:potion_core"
     }
   },
   "result": {

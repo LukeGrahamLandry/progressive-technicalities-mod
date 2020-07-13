@@ -34,13 +34,13 @@ public class JetPack2 extends ArmorItem{
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Allows slow upwards flight"));
+			tooltip.add(new StringTextComponent("Allows upward flight"));
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 	
-	public static class Material extends BaseSpecialArmorMaterial {
+	public static class Material extends BasicSpecialArmorMaterial {
         @Override
         public int getDamageReductionAmount(EquipmentSlotType slotType) {
             return 0;

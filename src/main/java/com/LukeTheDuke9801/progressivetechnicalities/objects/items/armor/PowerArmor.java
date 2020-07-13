@@ -13,12 +13,15 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -160,11 +163,11 @@ public class PowerArmor extends ArmorItem {
 			case "regen":
 				return 3;
 			case "speed": // + 20% / level
-				return 5;
+				return 10;
 			case "jumpboost": // + 50% height / level
 				return 10;
 			case "strength": // + 3 * level damage
-				return 5; 
+				return 20; 
 			case "haste":  // 20% increase / level
 				return 10;
 			case "resistance": // 20% damage reduction / level
@@ -172,13 +175,18 @@ public class PowerArmor extends ArmorItem {
 			case "jetpack":
 				return 2;
 			case "thorns": // 1 heart / level
-				return 5;
+				return 10;
 			default:
 				return 0;
 		}
 	}
 	
-	public static class Material extends BaseSpecialArmorMaterial {
+	public static class Material implements IArmorMaterial {
+		@Override
+	    public SoundEvent getSoundEvent() {
+	        return SoundEvents.ITEM_ARMOR_EQUIP_GENERIC;
+	    }
+		 
         @Override
         public int getDamageReductionAmount(EquipmentSlotType slotType) {
             return 5;
@@ -201,7 +209,7 @@ public class PowerArmor extends ArmorItem {
 
         @Override
         public int getEnchantability() {
-            return 5;
+            return 1;
         }
 
         @Override

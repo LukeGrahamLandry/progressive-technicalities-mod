@@ -13,11 +13,9 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.all
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.enchantment_forge.EnchantmentForgeBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.oil_generator.OilGeneratorBlock;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.rocket.RocketBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.tinker_table.TinkerTableBlock;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
@@ -44,6 +42,9 @@ public class BlockInit {
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> SKY_GEM_ORE = BLOCKS.register("sky_gem_ore",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+
+	public static final RegistryObject<Block> SKY_GEM_BLOCK = BLOCKS.register("sky_gem_block",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 
 	public static final RegistryObject<Block> DARK_STONE = BLOCKS.register("dark_stone",
@@ -103,9 +104,6 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> TINKER_TABLE = BLOCKS.register("tinker_table",
 			() -> new TinkerTableBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
-
-	public static final RegistryObject<Block> ROCKET = BLOCKS.register("rocket",
-			() -> new RocketBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 
 	public static final RegistryObject<Block> ENCHANTMENT_FORGE = BLOCKS.register("enchantment_forge",
 			() -> new EnchantmentForgeBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));

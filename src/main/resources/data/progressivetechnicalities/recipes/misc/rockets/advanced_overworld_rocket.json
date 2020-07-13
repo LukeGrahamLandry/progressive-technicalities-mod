@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+          "item": "progressivetechnicalities:advanced_rocket_casting"
+      },
+      {
+        "item": "minecraft:dirt"
+    }
+    ],
+    "result": {
+      "item": "progressivetechnicalities:advanced_overworld_rocket"
+    }
+  }

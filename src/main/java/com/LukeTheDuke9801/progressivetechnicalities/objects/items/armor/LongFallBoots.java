@@ -27,20 +27,10 @@ public class LongFallBoots extends ArmorItem{
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 	
-	public static class Material extends BaseSpecialArmorMaterial {
-        @Override
-        public int getDamageReductionAmount(EquipmentSlotType slotType) {
-            return 2;
-        }
-
+	public static class Material extends AdvancedSpecialArmorMaterial {
         @Override
         public String getName() {
             return ProgressiveTechnicalities.MOD_ID + ":special";
         }
-
-        @Override
-        public float getToughness() {
-            return 0;
-        }
-    }
+	}
 }

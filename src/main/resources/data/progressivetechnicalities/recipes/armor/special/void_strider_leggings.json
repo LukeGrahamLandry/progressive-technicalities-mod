@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "iei",
+    "i i"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:potion_core"
+    },
+    "e": {
+      "item": "minecraft:end_stone"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:void_strider_leggings"
+  }
+}

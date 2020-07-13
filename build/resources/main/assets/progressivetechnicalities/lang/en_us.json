@@ -23,9 +23,19 @@
 	"item.progressivetechnicalities.unobtanium_shard": "Unobtanium Shard",
 	"item.progressivetechnicalities.bedrockium_shard": "Bedrockium Shard",
 	"item.progressivetechnicalities.bedrockium_ingot": "Bedrockium Ingot",
+	"item.progressivetechnicalities.xp_charge": "Small XP Charge",
+	"item.progressivetechnicalities.greater_xp_charge": "Large XP Charge",
+
+	"item.progressivetechnicalities.coffee": "Coffee",
+	"item.progressivetechnicalities.coffee_beans": "Coffee Beans",
+
+	"item.progressivetechnicalities.overworld_rocket": "Rocket To Earth",
+	"item.progressivetechnicalities.arrakis_rocket": "Rocket To Arrakis",
+	"item.progressivetechnicalities.pandora_rocket": "Rocket To Pandora",
 	
-	"item.progressivetechnicalities.potion_core": "Potion Core",
+	"item.progressivetechnicalities.potion_core": "Advanced Potion Core",
 	"item.progressivetechnicalities.machine_base": "Machine Frame",
+	"item.progressivetechnicalities.basic_potion_core": "Basic Potion Core",
 	
 	"item.progressivetechnicalities.staff": "Staff",
 	"item.progressivetechnicalities.weather_staff": "Nimbus Staff",
@@ -78,7 +88,7 @@
 	"item.progressivetechnicalities.flippers": "Flippers",
 	"item.progressivetechnicalities.scuba_gear": "SCUBA Gear",
 	"item.progressivetechnicalities.slowfalling_boots": "Boots of Slowfalling",
-	"item.progressivetechnicalities.boost_leggings": "Leggings of Striding",
+	"item.progressivetechnicalities.void_strider_leggings": "Leggings of the Void Runner",
 	"item.progressivetechnicalities.slowfall_boots": "Slow Fall Boots",
 	"item.progressivetechnicalities.longfall_boots": "Long Fall Boots",
 	"item.progressivetechnicalities.space_helmet": "Astronaut Helmet",
@@ -92,6 +102,10 @@
 	"item.progressivetechnicalities.bedrockium_chestplate": "Bedrockium Chestplate",
 	"item.progressivetechnicalities.bedrockium_leggings": "Bedrockium Leggings",
 	"item.progressivetechnicalities.bedrockium_boots": "Bedrockium Boots",
+	"item.progressivetechnicalities.unobtanium_helmet": "Unobtanium Helmet",
+	"item.progressivetechnicalities.unobtanium_chestplate": "Unobtanium Chestplate",
+	"item.progressivetechnicalities.unobtanium_leggings": "Unobtanium Leggings",
+	"item.progressivetechnicalities.unobtanium_boots": "Unobtanium Boots",
  
 	"block.progressivetechnicalities.chromium_block": "Chromium Block",
 	"block.progressivetechnicalities.chromium_ore": "Chromium Ore",

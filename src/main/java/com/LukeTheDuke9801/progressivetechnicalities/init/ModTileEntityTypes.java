@@ -3,7 +3,6 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.oil_generator.OilGeneratorTileEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.rocket.RocketTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.FeywildPortalTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.LargeChestTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.MultiTNTTileEntity;
@@ -36,8 +35,4 @@ public class ModTileEntityTypes {
 
 	public static final RegistryObject<TileEntityType<OilGeneratorTileEntity>> OIL_GENERATOR = TILE_ENTITY_TYPES.register("oil_generator", 
 			() -> TileEntityType.Builder.create(OilGeneratorTileEntity::new, BlockInit.OIL_GENERATOR.get()).build(null));
-
-	public static final RegistryObject<TileEntityType<RocketTileEntity>> ROCKET = TILE_ENTITY_TYPES.register("rocket", 
-			() -> TileEntityType.Builder.create(RocketTileEntity::new, BlockInit.ROCKET.get()).build(null));
-
 } 

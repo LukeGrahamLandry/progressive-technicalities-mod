@@ -9,7 +9,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,6 +20,7 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraft.potion.Potions;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,8 +33,8 @@ public class ScalingMobs {
 	@SubscribeEvent
     public static void onMobDeath(LivingDeathEvent event) {
 		LivingEntity mob = event.getEntityLiving();
-		boolean isMonster = mob instanceof MonsterEntity;
-		if (!isMonster) {
+		boolean killedByPlayer = event.getSource().getTrueSource() instanceof PlayerEntity;
+		if (!isBuffedMonster(mob) || !killedByPlayer) {
 			return;
 		}
 		long ticks = mob.getEntityWorld().getGameTime(); 
@@ -71,6 +72,14 @@ public class ScalingMobs {
     	dropItem(result, mob);
 	}
 	
+	private static boolean isBuffedMonster(LivingEntity mob) {
+		EntityType entityType = mob.getType();
+		return entityType == EntityType.ZOMBIE || entityType == EntityType.HUSK || 
+				entityType == EntityType.DROWNED || entityType == EntityType.WITHER_SKELETON ||
+				entityType == EntityType.SKELETON || entityType == EntityType.SPIDER || entityType == EntityType.CAVE_SPIDER
+	        			|| entityType == EntityType.MAGMA_CUBE || entityType == EntityType.SLIME;
+	}
+	
 	public static void dropItem(Item item, LivingEntity mob) {
 		World world = mob.getEntityWorld();
 		ItemEntity itementity = new ItemEntity(world, mob.getPosX(), mob.getPosY(), mob.getPosZ(), new ItemStack(item));
@@ -91,14 +100,12 @@ public class ScalingMobs {
     	if (entity instanceof MobEntity) {
     		MobEntity mob = (MobEntity) entity;
     		EntityType entityType = mob.getType();
-    		boolean alreadyHasPotions = false;
     		
     		if (entityType == EntityType.ZOMBIE || entityType == EntityType.HUSK || entityType == EntityType.DROWNED || entityType == EntityType.WITHER_SKELETON) {
     			applyArmor(hours, mob);
     			applySword(hours, mob);
     			
     			applyPotionEffects(hours-10, mob);
-    			alreadyHasPotions = true;
     			
         		zeroAllDropChances(mob);
         	} else if (entityType == EntityType.SKELETON) {
@@ -106,32 +113,51 @@ public class ScalingMobs {
         		applyBow(hours, mob);
         		
         		applyPotionEffects(hours-10, mob);
-        		alreadyHasPotions = true;
         		
         		zeroAllDropChances(mob);
         	} else if (entityType == EntityType.CREEPER && hours >= 25) {
         		mob.addPotionEffect(new EffectInstance(Effects.INVISIBILITY, 1*60*20, 1));
+        		if (hours >= 40) {
+        			mob.addPotionEffect(new EffectInstance(Effects.SPEED, 2*60*20, 2));
+        		}
         		
         	} else if (entityType == EntityType.SPIDER || entityType == EntityType.CAVE_SPIDER
         			|| entityType == EntityType.MAGMA_CUBE || entityType == EntityType.SLIME) {
         		applyStrength(hours, mob);
         		
         		applyPotionEffects(hours-10, mob);
-        		alreadyHasPotions = true;
         	} else if (entityType == EntityType.IRON_GOLEM || entityType == EntityType.WOLF) {
         		applyStrength(hours, mob);
         		
         		applyPotionEffects(hours-10, mob);
-        		alreadyHasPotions = true;
         	} else if (entityType == EntityType.SNOW_GOLEM && hours >= 25) {
         		mob.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 60*60*20, 1));
+        	} else if (entityType == EntityType.BLAZE || entityType == EntityType.GHAST) {
+        		applyPotionEffects(hours-15, mob);
         	}
     		
-    		if (mob instanceof MonsterEntity && !alreadyHasPotions && entityType != EntityType.CREEPER) {
-    			applyPotionEffects(hours, mob);
+    		if (entityType == EntityType.SILVERFISH && isOnPandora(mob)) {
+    			applyStrength(hours, mob);
+    			applyPotionEffects(hours-10, mob);
+    		}
+    		
+    		if (isInOilDim(mob)) {
+    			mob.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 30*60*20, 1));
     		}
     	}
     }
+	
+	private static boolean isOnPandora(MobEntity mob) {
+		DimensionType pandoraDim = DimensionType.byName(ProgressiveTechnicalities.PANDORA_DIM_TYPE);
+		DimensionType currentDim = mob.getEntityWorld().getDimension().getType();
+		return currentDim == pandoraDim;
+	}
+	
+	private static boolean isInOilDim(MobEntity mob) {
+		DimensionType oilDim = DimensionType.byName(ProgressiveTechnicalities.OIL_DIM_TYPE);
+		DimensionType currentDim = mob.getEntityWorld().getDimension().getType();
+		return currentDim == oilDim;
+	}
 	
 	private static void applyArmor(int hours, MobEntity mob) {
 		Item chest = Items.AIR;
@@ -279,7 +305,8 @@ public class ScalingMobs {
 	}
 	
 	private static void applyStrength(int level, MobEntity mob) {
-		level = Math.min(level, 10);
+		level /= 2;
+		level = Math.min(level, 5);
 		mob.addPotionEffect(new EffectInstance(Effects.STRENGTH, 30*60*20, level));
 	}
     

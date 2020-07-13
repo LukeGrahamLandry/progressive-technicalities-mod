@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ibs",
+    "igp",
+    "ibo"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:sky_gem"
+    },
+    "s": {
+      "item": "minecraft:slime_block"
+    },
+    "o": {
+      "item": "minecraft:observer"
+    },
+    "p": {
+      "item": "minecraft:piston"
+    },
+    "b": {
+      "item": "minecraft:blaze_rod"
+    },
+    "g": {
+      "item": "minecraft:ghast_tear"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:flight_component"
+  }
+}

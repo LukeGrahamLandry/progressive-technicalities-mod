@@ -27,7 +27,6 @@ public class PandoraDimension extends Dimension{
 		OverworldGenSettings settings = new OverworldGenSettings();
 		SingleBiomeProviderSettings biomeProviderSettings = new SingleBiomeProviderSettings(world.getWorldInfo());
 	    biomeProviderSettings.setBiome(BiomeInit.JUNGLE_PLAINS.get());
-	    settings.setDefaultBlock(Blocks.INFESTED_STONE.getDefaultState());
 		return new OverworldChunkGenerator(world, new SingleBiomeProvider(biomeProviderSettings), settings);
 	}
 

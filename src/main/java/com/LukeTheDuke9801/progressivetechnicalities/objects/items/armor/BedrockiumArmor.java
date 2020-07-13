@@ -12,11 +12,13 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -76,7 +78,17 @@ public class BedrockiumArmor extends ArmorItem {
 				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.BEDROCKIUM_BOOTS.get());
 	}
 	
-	public static class Material extends BaseSpecialArmorMaterial {
+	@Override
+	public boolean isEnchantable(ItemStack stack) {
+		return false;
+	}
+	
+	public static class Material implements IArmorMaterial {
+		@Override
+	    public SoundEvent getSoundEvent() {
+	        return SoundEvents.ITEM_ARMOR_EQUIP_GENERIC;
+	    }
+		 
         @Override
         public int getDamageReductionAmount(EquipmentSlotType slotType) {
             return 10;

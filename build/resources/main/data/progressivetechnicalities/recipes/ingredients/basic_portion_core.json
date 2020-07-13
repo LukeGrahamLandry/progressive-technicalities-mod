@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " b ",
+    "gig",
+    " n "
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_block"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "n": {
+      "item": "minecraft:nether_wart"
+    },
+    "b": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:basic_potion_core"
+  }
+}

@@ -1,15 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ici",
+    "iii",
     "ipi"
   ],
   "key": {
     "i": {
-      "item": "progressivetechnicalities:feysteel_ingot"
-    },
-    "c": {
-      "item": "progressivetechnicalities:potion_core"
+      "item": "progressivetechnicalities:basic_potion_core"
     },
     "p": {
       "item": "minecraft:pufferfish"

@@ -40,7 +40,7 @@ public class JetPack1 extends ArmorItem{
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 	
-	public static class Material extends BaseSpecialArmorMaterial {
+	public static class Material extends BasicSpecialArmorMaterial {
         @Override
         public int getDamageReductionAmount(EquipmentSlotType slotType) {
             return 0;

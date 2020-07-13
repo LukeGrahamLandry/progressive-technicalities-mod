@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ioi",
+    "ioi",
+    "fjf"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:space_ingot"
+    },
+    "f": {
+      "item": "progressivetechnicalities:flight_component"
+    },
+    "o": {
+      "item": "progressivetechnicalities:oil_bucket"
+    },
+    "j": {
+      "item": "progressivetechnicalities:jetpack_2"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:basic_rocket_casting"
+  }
+}

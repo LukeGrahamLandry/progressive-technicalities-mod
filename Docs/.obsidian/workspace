@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Index.md",
+            "file": "Change Log.md",
             "mode": "preview"
           }
         }
@@ -72,10 +72,10 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Index.md",
-    "Armour/Unobtanium Armor.md",
-    "Armour/Armour.md",
+    "Change Log.md",
     "Info/Scaling Monsters.md",
-    "Armour/Void Strider Leggings.md"
+    "Index.md",
+    "Untitled.md",
+    "Dimensions/Oil Dimension.md"
   ]
 }

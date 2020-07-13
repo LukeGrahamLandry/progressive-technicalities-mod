@@ -3,10 +3,10 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeywildPortalKey;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.HandHeldRocket;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MagicEggShell;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MobEgg;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.OilPortalKey;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.HandHeldRocket;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.TinyCoal;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.XPCharge;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.BedrockiumArmor;
@@ -15,6 +15,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.Flipper
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.HealthChestplate;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack1;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack2;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPackArmored;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.NightVisionGoggles;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.PowerArmor;
@@ -34,6 +35,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.Nether
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.RecallStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.SnowStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TNTStaff;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TestStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TimeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.WeatherStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.XPStaff;
@@ -52,7 +54,6 @@ import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.TridentItem;
-import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -73,9 +74,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> WEALTH_INGOT = ITEMS.register("wealth_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
 	public static final RegistryObject<Item> SKY_GEM = ITEMS.register("sky_gem",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
@@ -83,6 +81,9 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> POTION_CORE = ITEMS.register("potion_core",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> BASIC_POTION_CORE = ITEMS.register("basic_potion_core",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> MACHINE_BASE = ITEMS.register("machine_base",
@@ -151,13 +152,32 @@ public class ItemInit {
 	public static final RegistryObject<Item> GREATER_XP_CHARGE = ITEMS.register("greater_xp_charge",
 			() -> new XPCharge(1400, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
+	public static final RegistryObject<Item> OVERWORLD_ROCKET = ITEMS.register("overworld_rocket",
+			() -> new HandHeldRocket("overworld", false, new Item.Properties().group(ProgtechItemGroup.instance)));;
+			
+	public static final RegistryObject<Item> MOON_ROCKET = ITEMS.register("moon_rocket",
+			() -> new HandHeldRocket("moon", false, new Item.Properties().group(ProgtechItemGroup.instance)));;
+			
+	public static final RegistryObject<Item> ADVANCED_OVERWORLD_ROCKET = ITEMS.register("advanced_overworld_rocket",
+			() -> new HandHeldRocket("overworld", true, new Item.Properties().group(ProgtechItemGroup.instance)));;
+
 	public static final RegistryObject<Item> ARRAKIS_ROCKET = ITEMS.register("arrakis_rocket",
-			() -> new HandHeldRocket(DimensionType.byName(ProgressiveTechnicalities.ARRAKIS_DIM_TYPE),
-					new Item.Properties().group(ProgtechItemGroup.instance)));
+			() -> new HandHeldRocket("arrakis", true, new Item.Properties().group(ProgtechItemGroup.instance)));;
 	
 	public static final RegistryObject<Item> PANDORA_ROCKET = ITEMS.register("pandora_rocket",
-			() -> new HandHeldRocket(DimensionType.byName(ProgressiveTechnicalities.PANDORA_DIM_TYPE),
-					new Item.Properties().group(ProgtechItemGroup.instance)));
+			() -> new HandHeldRocket("pandora", true, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> DILITHIUM_CRYSTAL = ITEMS.register("dilithium_crystal",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> FLIGHT_COMPONENT = ITEMS.register("flight_component",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> BASIC_ROCKET_CASING = ITEMS.register("basic_rocket_casting",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> ADVANCED_ROCKET_CASING = ITEMS.register("advanced_rocket_casting",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	// Staffs
 
@@ -199,6 +219,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> LIGHTNING_STAFF = ITEMS.register("lightning_staff",
 			() -> new LightningStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> TEST_STAFF = ITEMS.register("test_staff",
+			() -> new TestStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",
@@ -272,6 +295,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> JETPACK_TWO = ITEMS.register("jetpack_2",
 			() -> new JetPack2(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> JETPACK_ARMORED = ITEMS.register("jetpack_armored",
+			() -> new JetPackArmored(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> SPACE_HELMET = ITEMS.register("space_helmet",
 			() -> new SpaceHelmet(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));

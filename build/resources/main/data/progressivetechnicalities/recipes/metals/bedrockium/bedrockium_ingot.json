@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "uiu",
+    "iui",
+    "uiu"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:steel_ingot"
+    },
+    "u": {
+      "item": "progressivetechnicalities:bedrockium_shard"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:bedrockium_ingot"
+  }
+}

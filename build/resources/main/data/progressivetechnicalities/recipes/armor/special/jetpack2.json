@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "fwf",
+    "ttt",
+    "sjs"
+  ],
+  "key": {
+    "t": {
+      "item": "progressivetechnicalities:titanium_ingot"
+    },
+    "f": {
+      "item": "progressivetechnicalities:flight_component"
+    },
+    "w": {
+      "item": "minecraft:nether_star"
+    },
+    "s": {
+      "item": "progressivetechnicalities:sky_gem_block"
+    },
+    "j": {
+      "item": "progressivetechnicalities:jetpack_1"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:jetpack_2"
+  }
+}

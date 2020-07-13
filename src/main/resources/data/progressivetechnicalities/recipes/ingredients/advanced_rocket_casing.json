@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "idi",
+    "idi",
+    "frf"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:space_ingot"
+    },
+    "f": {
+      "item": "progressivetechnicalities:flight_component"
+    },
+    "d": {
+      "item": "progressivetechnicalities:dilithium_crystal"
+    },
+    "r": {
+      "item": "progressivetechnicalities:basic_rocket_casting"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:advanced_rocket_casting"
+  }
+}

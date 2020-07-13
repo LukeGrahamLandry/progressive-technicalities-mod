@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "isi"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:potion_core"
+    },
+    "s": {
+      "item": "progressivetechnicalities:scuba_gear"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:space_helmet"
+  }
+}

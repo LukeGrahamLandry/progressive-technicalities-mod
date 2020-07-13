@@ -1,15 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "cfi",
+    "ifi",
     "i i"
   ],
   "key": {
     "i": {
-      "item": "progressivetechnicalities:feysteel_ingot"
-    },
-    "c": {
-      "item": "progressivetechnicalities:potion_core"
+      "item": "progressivetechnicalities:basic_potion_core"
     },
     "f": {
       "item": "minecraft:cod"

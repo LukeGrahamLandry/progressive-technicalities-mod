@@ -1,7 +1,8 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.BaseSpecialArmorMaterial;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack1;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack2;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.TitaniumAIOT;
 
 import net.minecraft.block.Block;
@@ -19,7 +20,6 @@ import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.TieredItem;
-import net.minecraft.item.ToolItem;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -54,6 +54,10 @@ public class ArmorDisassembler extends Block{
 			   }
 			   
 			   if (!handHeld.isRepairable()) {
+				   return ActionResultType.FAIL;
+			   }
+			   
+			   if (handHeld.getItem() instanceof JetPack1 || handHeld.getItem() instanceof JetPack2){
 				   return ActionResultType.FAIL;
 			   }
 			   
