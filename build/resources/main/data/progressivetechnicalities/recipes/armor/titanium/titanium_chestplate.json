@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "i i",
+        "iii",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "progressivetechnicalities:titanium_ingot"
+        }
+    },
+    "result": {
+        "item": "progressivetechnicalities:titanium_chestplate"
+    }
+}

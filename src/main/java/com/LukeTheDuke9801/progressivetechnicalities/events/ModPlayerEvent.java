@@ -8,7 +8,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.SilverFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeyFood;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FeySteelArmorItem;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.PowerArmor;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.VoidStriderLeggings;
 
@@ -69,7 +69,7 @@ public class ModPlayerEvent {
         		|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.PANDORA_DIM_TYPE)
         		|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.ARRAKIS_DIM_TYPE);
         if (isInSpace){
-        	boolean wearingSpaceHelmet = player.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() instanceof SpaceHelmet || (PowerArmor.getModuleLevel(player, "spacehelmet") == 1);
+        	boolean wearingSpaceHelmet = player.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() instanceof SpaceHelmet || (ModularArmor.getModuleLevel(player, "spacehelmet") == 1);
         	if (!wearingSpaceHelmet && !player.isCreative()) {
         		player.setAir(player.getAir() - 3);
         		if (player.getAir() <= -20) {
@@ -85,7 +85,7 @@ public class ModPlayerEvent {
     	LivingEntity entity = event.getEntityLiving();
     	// Handle long fall boots
     	boolean isFallDamage = event.getSource() == DamageSource.FALL;
-    	boolean wearingLongFallBoots = entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem() instanceof LongFallBoots || (PowerArmor.getModuleLevel(entity, "longfall") == 1);
+    	boolean wearingLongFallBoots = entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem() instanceof LongFallBoots || (ModularArmor.getModuleLevel(entity, "longfall") == 1);
     	if (isFallDamage && wearingLongFallBoots) {
     		event.setCanceled(true);
     	}
@@ -107,8 +107,8 @@ public class ModPlayerEvent {
     		}
     	}
     	
-    	if (PowerArmor.hasPowerArmor(entity)) {
-    		numFeysteel = PowerArmor.getModuleLevel(entity, "thorns");
+    	if (ModularArmor.hasFullSet(entity)) {
+    		numFeysteel = ModularArmor.getModuleLevel(entity, "thorns");
     	}
     	
     	Entity trueSource = event.getSource().getTrueSource();

@@ -7,7 +7,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModContainerTypes;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.PowerArmor;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -129,94 +129,17 @@ public class TinkerTableContainer extends Container {
     	  Item item1 = itemstack1.getItem();
     	  Item item2 = itemstack2.getItem();
     	  
-    	  String moduleKey = "";
-    	  
-    	  if (itemstack1.isRepairable() && item2.equals(ItemInit.STEEL_INGOT.get())) {
-    		  ItemStack result = itemstack1.copy();
-    		  
-    		  int newDamage = result.getDamage() - 200;
-    		  result.setDamage(newDamage);
-    		  
-    		  this.outputSlot.setInventorySlotContents(0, result);
-        	  this.maximumCost.set(10);
-        	  
-        	  this.detectAndSendChanges();
-        	  return;
-    	  }
-    	  
-    	  if (!(item1 instanceof PowerArmor)){
+    	  if (!(item1 instanceof ModularArmor)){
     		  this.outputSlot.setInventorySlotContents(0, ItemStack.EMPTY);
     		  return;
     	  }
     	  
-    	  if (item2.equals(Items.RABBIT_STEW)){
-    		  moduleKey = "saturation";
-    	  }
+    	  String moduleKey = ModularArmor.getModuleKeyFromItem(item2);
     	  
-    	  if (item2.equals(ItemInit.NIGHTVISION_GOGGLES.get())){
-    		  moduleKey = "nightvision";
-    	  }
-    	  
-    	  if (item2.equals(ItemInit.FIRERES_CHARM.get())){
-    		  moduleKey = "fireres";
-    	  }
-    	  
-    	  if (item2.equals(ItemInit.SCUBA_GEAR.get())){
-    		  moduleKey = "waterbreathing";
-    	  }
-    	  
-    	  if (item2.equals(ItemInit.SPACE_HELMET.get())){
-    		  moduleKey = "spacehelmet";
-    	  }
-    	  
-    	  if (item2.equals(ItemInit.FLIPPERS.get())){
-    		  moduleKey = "dolphin";
-    	  }
-    	  
-    	  if (item2.equals(ItemInit.LONGFALL_BOOTS.get())){
-    		  moduleKey = "longfall";
-    	  }
-    	  
-    	  if (item2.equals(Items.ENCHANTED_GOLDEN_APPLE)){
-    		  moduleKey = "regen";
-    	  }
-    	  
-    	  if (item2.equals(ItemInit.ALUMINUM.get())){
-    		  moduleKey = "speed";
-    	  }
-    	  
-    	  if (item2.equals(Items.RABBIT_FOOT)){
-    		  moduleKey = "jumpboost";
-    	  }
-    	  
-    	  if (item2.equals(BlockInit.CARBIDE_BLOCK.get().asItem())){
-    		  moduleKey = "strength";
-    	  }
-    	  
-    	  if (item2.equals(ItemInit.CARBIDE_PICKAXE.get())){
-    		  moduleKey = "haste";
-    	  }
-    	  
-    	  if (item2.equals(BlockInit.TITANIUM_BLOCK.get().asItem())){
-    		  moduleKey = "resistance";
-    	  }
-    	  
-    	  if (item2.equals(BlockInit.FEYSTEEL_BLOCK.get().asItem())){
-    		  moduleKey = "thorns";
-    	  }
-    	  
-    	  if (item2.equals(ItemInit.JETPACK_TWO.get().asItem())){
-    		  moduleKey = "jetpack";
-    	  }
-    	  
-    	  if (item2.equals(ItemInit.BEDROCKIUM_INGOT.get().asItem())){
-    		  moduleKey = "unbreakable";
-    	  }
-    	  
-    	  if (PowerArmor.canIncreaseModuleLevel(itemstack1, moduleKey)) {
+    	  if (ModularArmor.canIncreaseModuleLevel(itemstack1, moduleKey)) {
     		  ItemStack result = itemstack1.copy();
     		  
-    		  PowerArmor.increaseModuleLevel(result, moduleKey);
+    		  ModularArmor.increaseModuleLevel(result, moduleKey);
     		  
     		  this.outputSlot.setInventorySlotContents(0, result);
         	  this.maximumCost.set(20);

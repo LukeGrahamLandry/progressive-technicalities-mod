@@ -31,7 +31,7 @@ public class TestStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
-		playerIn.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(40.0D);
+		playerIn.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1.0D);
 		
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 		

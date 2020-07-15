@@ -4,8 +4,10 @@ import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeywildPortalKey;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.HandHeldRocket;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.LookingGlass;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MagicEggShell;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MobEgg;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MonsterousLookingGlass;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.OilPortalKey;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.TinyCoal;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.XPCharge;
@@ -18,11 +20,11 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPackArmored;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.NightVisionGoggles;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.PowerArmor;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ScubaGear;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SlowFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.UnobtaniumArmor;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.TitaniumArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.VoidStriderLeggings;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.BoostCharm;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.FireResCharm;
@@ -223,6 +225,12 @@ public class ItemInit {
 	public static final RegistryObject<Item> TEST_STAFF = ITEMS.register("test_staff",
 			() -> new TestStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
+	public static final RegistryObject<Item> LOOKING_GLASS = ITEMS.register("looking_glass",
+			() -> new LookingGlass(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> MONSTEROUS_LOOKING_GLASS = ITEMS.register("monsterous_looking_glass",
+			() -> new MonsterousLookingGlass(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",
 			() -> new BoostCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
@@ -344,17 +352,17 @@ public class ItemInit {
 	public static final RegistryObject<Item> FEYSTEEL_BOOTS = ITEMS.register("feysteel_boots",
 			() -> new FeySteelArmorItem(ModArmorMaterial.FEYSTEEL, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> POWERARMOR_HELMET = ITEMS.register("powerarmor_helmet",
-			() -> new ArmorItem(new PowerArmor.Material(), EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> MODULAR_HELMET = ITEMS.register("modular_helmet",
+			() -> new ArmorItem(new ModularArmor.Material(), EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> POWERARMOR_CHESTPLATE = ITEMS.register("powerarmor_chestplate",
-			() -> new PowerArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> MODULAR_CHESTPLATE = ITEMS.register("modular_chestplate",
+			() -> new ModularArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> POWERARMOR_LEGGINGS = ITEMS.register("powerarmor_leggings",
-			() -> new ArmorItem(new PowerArmor.Material(), EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> MODULAR_LEGGINGS = ITEMS.register("modular_leggings",
+			() -> new ArmorItem(new ModularArmor.Material(), EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> POWERARMOR_BOOTS = ITEMS.register("powerarmor_boots",
-			() -> new ArmorItem(new PowerArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> MODULAR_BOOTS = ITEMS.register("modular_boots",
+			() -> new ArmorItem(new ModularArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> BEDROCKIUM_HELMET = ITEMS.register("bedrockium_helmet",
 			() -> new ArmorItem(new BedrockiumArmor.Material(), EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -368,16 +376,28 @@ public class ItemInit {
 	public static final RegistryObject<Item> BEDROCKIUM_BOOTS = ITEMS.register("bedrockium_boots",
 			() -> new ArmorItem(new BedrockiumArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> UNOBTANIUM_HELMET = ITEMS.register("unobtanium_helmet",
-			() -> new ArmorItem(new UnobtaniumArmor.Material(), EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet",
+			() -> new ArmorItem(new TitaniumArmor.Material(), EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> UNOBTANIUM_CHESTPLATE = ITEMS.register("unobtanium_chestplate",
-			() -> new UnobtaniumArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> TITANIUM_CHESTPLATE = ITEMS.register("titanium_chestplate",
+			() -> new TitaniumArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> UNOBTANIUM_LEGGINGS = ITEMS.register("unobtanium_leggings",
-			() -> new ArmorItem(new UnobtaniumArmor.Material(), EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> TITANIUM_LEGGINGS = ITEMS.register("titanium_leggings",
+			() -> new ArmorItem(new TitaniumArmor.Material(), EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> UNOBTANIUM_BOOTS = ITEMS.register("unobtanium_boots",
-			() -> new ArmorItem(new UnobtaniumArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
+			() -> new ArmorItem(new TitaniumArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> STEEL_HELMET = ITEMS.register("steel_helmet",
+			() -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> STEEL_CHESTPLATE = ITEMS.register("steel_chestplate",
+			() -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> STEEL_LEGGINGS = ITEMS.register("steel_leggings",
+			() -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> STEEL_BOOTS = ITEMS.register("steel_boots",
+			() -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 }

@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iii",
+        "i i"
+    ],
+    "key": {
+        "i": {
+            "item": "progressivetechnicalities:unobtanium_ingot"
+        }
+    },
+    "result": {
+        "item": "progressivetechnicalities:modular_helmet"
+    }
+}

@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    	"item": "progressivetechnicalities:unobtanium_ore"
-   },
-  "result": "progressivetechnicalities:unobtanium_shard",
-  "experience": 1.0,
-  "cookingtime": 100
-}

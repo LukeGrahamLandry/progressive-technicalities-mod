@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Change Log.md",
+            "file": "Index.md",
             "mode": "preview"
           }
         }
@@ -72,10 +72,10 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Change Log.md",
-    "Info/Scaling Monsters.md",
     "Index.md",
-    "Untitled.md",
-    "Dimensions/Oil Dimension.md"
+    "Change Log.md",
+    "Carbide Ingots 1.md",
+    "Carbide Ingots.md",
+    "Armour/Carbide Armour.md"
   ]
 }

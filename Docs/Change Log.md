@@ -1,3 +1,19 @@
+### Refactor
+- make scaling mobs use attribute modifiers instead of items/potions
+- moved modual adding logic to modular armor class
+- added steel armor (best prot)
+- changed modular armor to unobtanium
+- changed unobtanium armor to titanium
+- changed unobtanium & bedrockium ingot recipies to use alloy table
+- added textures
+
+### The Space Update
+- make suffacating on other planets work like drowning
+- split special armor into two tiers
+- stronger monsters on pandora and oil dim
+- added recipies for rockets & jetpacks
+- make you run out of air past y=300
+
 ### The Hard Mode Update
 - added bedrockium armor
 - nerf vanilla food

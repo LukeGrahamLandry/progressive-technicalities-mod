@@ -149,6 +149,16 @@ public class AlloyTableContainer extends Container {
               this.maximumCost.set(20);
     	  }
     	  
+    	  else if (item1.equals(ItemInit.STEEL_INGOT.get()) && item2.equals(ItemInit.UNOBTANIUM_SHARD.get())){
+    		  this.outputSlot.setInventorySlotContents(0, new ItemStack(ItemInit.UNOBTANIUM_SHARD.get()));
+              this.maximumCost.set(20);
+    	  }
+    	  
+    	  else if (item1.equals(ItemInit.STEEL_INGOT.get()) && item2.equals(ItemInit.BEDROCKIUM_SHARD.get())){
+    		  this.outputSlot.setInventorySlotContents(0, new ItemStack(ItemInit.BEDROCKIUM_SHARD.get()));
+              this.maximumCost.set(20);
+    	  }
+    	  
     	  this.detectAndSendChanges();
       }
    }

@@ -44,7 +44,7 @@ public class ScubaGear extends ArmorItem{
 	public static class Material extends BasicSpecialArmorMaterial {
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":special";
+            return ProgressiveTechnicalities.MOD_ID + ":scuba";
         }
     }
 }

@@ -2,9 +2,10 @@
 - [[Carbide Armour]]
 - [[Obsidian Armour]]
 - [[Feysteel Armour]]
-- [[Power Armor]]
 - [[Unobtanium Armor]]
+- [[Titanium Armor]]
 - [[Bedrockium Armor]]
+- [[Steel Armour]]
 
 ### Special Pieces
 - [[Night Vision Goggles]]
