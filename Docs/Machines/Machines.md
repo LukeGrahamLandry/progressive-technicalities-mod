@@ -1,8 +1,14 @@
 ### In-World Interaction
-- [[Basic Quarry]]
 - [[Casting Table]]
 - [[Armor Disassembler]]
 - [[Disenchanter]]
+- [[Item Repairer]]
+
+
+### Tile Entities
+- [[Basic Quarry]]
+- [[Mob Slayer]]
+- [[Auto Spawner]]
 
 ### Anvil GUI
 - [[Alloy Table]]

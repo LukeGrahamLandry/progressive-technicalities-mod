@@ -26,8 +26,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
-public class ItemRepairer extends Block{
-	public ItemRepairer(Block.Properties builder) {
+public class ItemRepairerBlock extends Block{
+	public static final String description = "Item Repairer: Right click with an item to repair it. Costs twice durability restored in xp";
+	
+	public ItemRepairerBlock(Block.Properties builder) {
 	      super(builder);
 	   }
 	   
@@ -40,11 +42,12 @@ public class ItemRepairer extends Block{
 			   int damage = handHeld.getDamage();
 			   
 			   if (canRepair > damage) {
-				   player.giveExperiencePoints(-(damage * 2));
+				   int cost = damage * 2;
+				   player.giveExperiencePoints(-cost);
 				   handHeld.setDamage(0);
 				   return ActionResultType.SUCCESS;
 			   } else {
-				   player.giveExperiencePoints(-canRepair);
+				   player.giveExperiencePoints(-xp);
 				   handHeld.setDamage(damage - canRepair);
 				   return ActionResultType.SUCCESS;
 			   }

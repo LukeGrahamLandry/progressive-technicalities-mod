@@ -1,0 +1,1 @@
+Rightclick with an item to repair it. Costs twice the durability restored in experience points

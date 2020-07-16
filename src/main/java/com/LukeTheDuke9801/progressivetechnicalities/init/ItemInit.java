@@ -6,7 +6,6 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeywildPortal
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.HandHeldRocket;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.LookingGlass;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MagicEggShell;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MobEgg;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MonsterousLookingGlass;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.OilPortalKey;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.TinyCoal;
@@ -19,8 +18,8 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack2;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPackArmored;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.NightVisionGoggles;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.NightVisionGoggles;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ScubaGear;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SlowFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
@@ -96,9 +95,6 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> MAGIC_EGGSHELL = ITEMS.register("magic_eggshell",
 			() -> new MagicEggShell(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> MOB_EGG = ITEMS.register("mob_egg",
-			() -> new MobEgg(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> PORTAL_KEY = ITEMS.register("portal_key",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));

@@ -9,6 +9,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
@@ -34,6 +35,15 @@ public class CastingTableBlock extends Block{
 			   Item result = null;
 			   if (fluid.isEquivalentTo(FluidInit.SILVER_FLUID.get())) {
 				   result = ItemInit.SILVER_INGOT.get();
+			   }
+			   if (fluid.isEquivalentTo(FluidInit.OIL_FLUID.get())) {
+				   result = ItemInit.TINY_COAL.get();
+			   }
+			   if (fluid.isEquivalentTo(Fluids.LAVA)) {
+				   result = Items.OBSIDIAN;
+			   }
+			   if (fluid.isEquivalentTo(Fluids.WATER)) {
+				   result = Items.ICE;
 			   }
 			   
 			   if (result != null) {

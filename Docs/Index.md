@@ -2,7 +2,7 @@
 - [[Tools]]
 - [[Armour]]
 - [[Staffs]]
-- [[Magic]] 
+- [[Misc]] 
 - [[Dimensions]]
 - [[Machines]]
 

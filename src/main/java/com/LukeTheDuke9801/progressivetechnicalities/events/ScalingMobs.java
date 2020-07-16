@@ -109,7 +109,7 @@ public class ScalingMobs {
         				"ProgTechScalingMobs_health", val, AttributeModifier.Operation.ADDITION);
         		mob.getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(modifier);
         		
-        		val = Math.min(hours/10, 5); // 10% faster each hour caped at 5x 
+        		val = Math.min(hours/5, 5); // 5% faster each hour caped at 5x 
         		modifier = new AttributeModifier(UUID.fromString("131fa735-ff9a-45c8-8197-fa8e561829e2"), 
         				"ProgTechScalingMobs_speed", val, AttributeModifier.Operation.MULTIPLY_BASE);
         		mob.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(modifier);

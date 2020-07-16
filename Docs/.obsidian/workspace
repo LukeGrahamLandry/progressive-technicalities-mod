@@ -10,8 +10,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Index.md",
-            "mode": "preview"
+            "file": "Misc/Soulbound.md",
+            "mode": "source"
           }
         }
       }
@@ -72,10 +72,10 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Index.md",
-    "Change Log.md",
-    "Carbide Ingots 1.md",
-    "Carbide Ingots.md",
-    "Armour/Carbide Armour.md"
+    "Misc/Soulbound.md",
+    "Misc/Lava Walker.md",
+    "Soulbound.md",
+    "Misc/Misc.md",
+    "Index.md"
   ]
 }

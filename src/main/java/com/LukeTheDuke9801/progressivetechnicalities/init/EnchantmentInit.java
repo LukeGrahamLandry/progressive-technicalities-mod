@@ -19,7 +19,7 @@ public class EnchantmentInit {
 	public static final RegistryObject<Enchantment> LAVA_WALKER = ENCHANTMENTS.register("lava_walker_enchant",
 			() -> new LavaWalkerEnchantment(Rarity.VERY_RARE, EnchantmentType.ARMOR_FEET, new EquipmentSlotType[] {EquipmentSlotType.FEET}));
 		
-	public static final RegistryObject<Enchantment> BRIDGING_ENCHANT = ENCHANTMENTS.register("soul_bound_enchant",
+	public static final RegistryObject<Enchantment> SOULBOUND = ENCHANTMENTS.register("soul_bound_enchant",
 			() -> new SoulBoundEnchantment(Rarity.VERY_RARE, EnchantmentType.ALL, new EquipmentSlotType[] {}));
 		
 }

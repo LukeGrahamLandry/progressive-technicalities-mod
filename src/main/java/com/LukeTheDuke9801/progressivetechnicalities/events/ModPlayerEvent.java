@@ -1,7 +1,10 @@
 package com.LukeTheDuke9801.progressivetechnicalities.events;
 
+import java.util.List;
+
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.enchantments.LavaWalkerEnchantment;
+import com.LukeTheDuke9801.progressivetechnicalities.enchantments.SoulBoundEnchantment;
 import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.SilverFluid;
@@ -19,12 +22,13 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -137,21 +141,51 @@ public class ModPlayerEvent {
     	}
     }
     
-    /*
-     * supposed to make soulbound enchant work but doesnt work cause inventory is cleared before event fired
+    
+    // holds items for soulbound // TODO: make it player specific
+    private static NonNullList<ItemStack> soulboundItems = NonNullList.create();
+    
     @SubscribeEvent
-    public static void onPlayerDeath(PlayerEvent.Clone event) {
-    	if (event.isWasDeath()) {
-    		NonNullList<ItemStack> mainInventory = event.getOriginal().inventory.mainInventory;
+    public static void onPlayerDeath(LivingDeathEvent event) {
+    	if (event.getEntityLiving() instanceof PlayerEntity) {
+    		PlayerEntity player = (PlayerEntity)event.getEntityLiving();
+    		NonNullList<ItemStack> mainInventory = player.inventory.mainInventory;
+    		int i = 0;
     		for (ItemStack stack : mainInventory) {
     			ProgressiveTechnicalities.LOGGER.debug(stack.toString());
     			if (SoulBoundEnchantment.hasSoulBound(stack)) {
-    				event.getPlayer().addItemStackToInventory(stack);
+    				soulboundItems.add(stack);
+    				player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
     			}
+    			i++;
+    		}
+    		
+    		NonNullList<ItemStack> armorInventory = player.inventory.armorInventory;
+    		i = 0;
+    		for (ItemStack stack : armorInventory) {
+    			ProgressiveTechnicalities.LOGGER.debug(stack.toString());
+    			if (SoulBoundEnchantment.hasSoulBound(stack)) {
+    				soulboundItems.add(stack);
+    				player.inventory.armorInventory.set(i, ItemStack.EMPTY);
+    			}
+    			i++;
     		}
     	}
     }
     
+    @SubscribeEvent
+    public static void onPlayerSpawn(EntityJoinWorldEvent event) {
+    	if (soulboundItems.size() == 0) return;
+    	
+    	if (event.getEntity() instanceof PlayerEntity) {
+    		for (ItemStack stack : soulboundItems) {
+    			((PlayerEntity) event.getEntity()).addItemStackToInventory(stack);
+    		}
+    		soulboundItems = NonNullList.create();
+    	}
+    }
+    
+    /*
     @SubscribeEvent
     public static void onPlayerBreakBlock(PlayerEvent.HarvestCheck event) {
     	if (event.getTargetBlock().getBlock().equals(Blocks.STONE)) {

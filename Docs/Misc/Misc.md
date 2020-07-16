@@ -3,7 +3,8 @@
 - [[Charm of Obsidian Skin]]
 
 ### Enchantments
-- [[Lava Walker Enchant]]
+- [[Lava Walker]]
+- [[Soulbound]]
 
 ### Misc Items
 - [[Magic Eggshell]]

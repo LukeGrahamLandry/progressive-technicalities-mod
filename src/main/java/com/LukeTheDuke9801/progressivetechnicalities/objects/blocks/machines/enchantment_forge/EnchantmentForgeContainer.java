@@ -305,7 +305,12 @@ public class EnchantmentForgeContainer extends Container {
     	  
     	  if (item2.equals(Items.LAVA_BUCKET)){
     		  enchant = EnchantmentInit.LAVA_WALKER.get();
-    		  cost = 39;
+    		  cost = 30;
+    	  }
+    	  
+    	  if (item2.equals(Items.NETHER_STAR)){
+    		  enchant = EnchantmentInit.SOULBOUND.get();
+    		  cost = 30;
     	  }
     	  
     	  

@@ -7,11 +7,14 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockQuarry;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.CastingTableBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.DisenchanterBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.FeyPortalBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ItemRepairerBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.LargeChestBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.OilPortalBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.alloy_table.AlloyTableBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.auto_spawner.AutoSpawnerBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.enchantment_forge.EnchantmentForgeBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_slayer.MobSlayerBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.oil_generator.OilGeneratorBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.tinker_table.TinkerTableBlock;
 
@@ -110,5 +113,14 @@ public class BlockInit {
 
 	public static final RegistryObject<Block> DISENCHANTER = BLOCKS.register("disenchanter",
 			() -> new DisenchanterBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> ITEM_REPAIRER = BLOCKS.register("item_repairer",
+			() -> new ItemRepairerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> MOB_SLAYER = BLOCKS.register("mob_slayer",
+			() -> new MobSlayerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> AUTO_SPAWNER = BLOCKS.register("auto_spawner",
+			() -> new AutoSpawnerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
 }
