@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iai",
+    "bmb",
+    "iei"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "a": {
+      "item": "minecraft:anvil"
+    },
+    "m": {
+      "item": "progressivetechnicalities:machine_base"
+    },
+    "e": {
+      "item": "minecraft:enchantment_table"
+    },
+    "b": {
+      "item": "progressivetechnicalities:chromium_block"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:enchantment_forge"
+  }
+}

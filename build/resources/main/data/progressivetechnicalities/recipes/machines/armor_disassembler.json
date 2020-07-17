@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "iii",
     "iai",
-    "iii"
+    "imi",
+    "ili"
   ],
   "key": {
     "i": {
@@ -11,6 +11,12 @@
     },
     "a": {
       "item": "minecraft:anvil"
+    },
+    "m": {
+      "item": "progressivetechnicalities:machine_base"
+    },
+    "l": {
+      "item": "minecraft:lava_bucket"
     }
   },
   "result": {

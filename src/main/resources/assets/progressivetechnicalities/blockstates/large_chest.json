@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": {"model": "progressivetechnicalities:block/large_chest"}
-	}
+    "variants": {
+        "": {
+            "model": "progressivetechnicalities:block/large_chest"
+        }
+    }
 }

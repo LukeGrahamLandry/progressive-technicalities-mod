@@ -1,4 +1,4 @@
-## Additions
+## Objects
 - [[Tools]]
 - [[Armour]]
 - [[Staffs]]
@@ -6,7 +6,7 @@
 - [[Dimensions]]
 - [[Machines]]
 
-### Changes
+### Stuff
 - [[Chromium]]
 - [[Food Changes]]
 - [[Scaling Monsters]]

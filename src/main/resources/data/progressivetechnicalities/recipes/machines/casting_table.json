@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "ooo",
-    " i ",
+    "imi",
     "iii"
   ],
   "key": {
@@ -11,6 +11,9 @@
     },
     "o": {
       "item": "minecraft:obsidian"
+    },
+    "m": {
+      "item": "progressivetechnicalities:machine_base"
     }
   },
   "result": {

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:steel_dust"
+    },
+    {
+    	"item": "progressivetechnicalities:aluminum_dust"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:diastima_dust"
+  }
+}

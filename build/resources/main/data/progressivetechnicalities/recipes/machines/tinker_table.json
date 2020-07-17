@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "uuu",
-    " i ",
+    "aia",
     "iii"
   ],
   "key": {
@@ -11,6 +11,9 @@
     },
     "u": {
       "item": "progressivetechnicalities:unobtanium_ingot"
+    },
+    "a": {
+      "item": "minecraft:anvil"
     }
   },
   "result": {

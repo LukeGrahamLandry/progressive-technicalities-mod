@@ -177,6 +177,38 @@ public class ItemInit {
 	public static final RegistryObject<Item> ADVANCED_ROCKET_CASING = ITEMS.register("advanced_rocket_casting",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
+	// Dusts
+	public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> CHROMIUM_DUST = ITEMS.register("chromium_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> CARBIDE_DUST = ITEMS.register("carbide_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> TITANIUM_DUST = ITEMS.register("titanium_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> FEYSTEEL_DUST = ITEMS.register("feysteel_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> STEEL_DUST = ITEMS.register("steel_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> SILVER_DUST = ITEMS.register("silver_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> ELECTRUM_DUST = ITEMS.register("electrum_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> ALUMINUM_DUST = ITEMS.register("aluminum_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> OBSIDIAN_DUST = ITEMS.register("obsidian_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> DIASTIMA_DUST = ITEMS.register("diastima_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> UNOBTANIUM_DUST = ITEMS.register("unobtanium_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> BEDROCKIUM_DUST = ITEMS.register("bedrockium_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> SKY_GEM_DUST = ITEMS.register("sky_gem_dust",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
 	// Staffs
 
 	public static final RegistryObject<Item> STAFF = ITEMS.register("staff",
@@ -275,7 +307,7 @@ public class ItemInit {
 			() -> new UnobtaniumDrill(ModItemTier.UNOBTANIUM, 7, -3f, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> UNOBTANIUM_SWORD = ITEMS.register("unobtanium_sword",
-			() -> new UnobtaniumSword(ModItemTier.UNOBTANIUM, Integer.MAX_VALUE, -2.4f, new Item.Properties().group(ProgtechItemGroup.instance)));
+			() -> new UnobtaniumSword(ModItemTier.UNOBTANIUM, 0, -2f, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	 
 	// Armour

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:electrum_dust"
+    },
+    {
+    	"item": "progressivetechnicalities:sky_gem"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:aluminum_dust"
+  }
+}

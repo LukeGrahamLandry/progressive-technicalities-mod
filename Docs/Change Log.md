@@ -1,3 +1,11 @@
+### The Mob Farm Update
+- added item repairer
+- added more fluids to casting table
+- added mob slayer
+- added auto spawner
+- refactored magic eggshell
+- added soulbound enchantment
+
 ### Refactor
 - make scaling mobs use attribute modifiers instead of items/potions
 - moved modual adding logic to modular armor class

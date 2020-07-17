@@ -2,18 +2,21 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "ibi",
-    "bmb",
+    "eme",
     "ibi"
   ],
   "key": {
     "b": {
       "item": "progressivetechnicalities:oil_bucket"
     },
+    "e": {
+      "item": "minecraft:experience_bottle"
+    },
     "m": {
       "item": "progressivetechnicalities:machine_base"
     },
     "i": {
-      "item": "minecraft:iron_ingot"
+      "item": "progressivetechnicalities:chromium_ingot"
     }
   },
   "result": {

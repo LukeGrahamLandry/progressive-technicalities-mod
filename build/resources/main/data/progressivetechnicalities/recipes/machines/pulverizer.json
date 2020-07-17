@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "igi",
+    "bmb",
+    "igi"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:redstone"
+    },
+    "m": {
+      "item": "progressivetechnicalities:machine_base"
+    },
+    "g": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "b": {
+      "item": "progressivetechnicalities:chromium_block"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:pulverizer"
+  }
+}

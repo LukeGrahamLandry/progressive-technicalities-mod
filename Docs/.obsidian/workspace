@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Misc/Soulbound.md",
+            "file": "Machines/Pulverizer.md",
             "mode": "source"
           }
         }
@@ -72,10 +72,10 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Misc/Soulbound.md",
-    "Misc/Lava Walker.md",
-    "Soulbound.md",
-    "Misc/Misc.md",
-    "Index.md"
+    "Machines/Pulverizer.md",
+    "Machines/Machines.md",
+    "Index.md",
+    "Change Log.md",
+    "Machines/Enchantment Forge.md"
   ]
 }

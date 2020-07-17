@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    "isi",
+    " s "
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:unobtanium_ingot"
+    },
+    "s": {
+      "item":"progressivetechnicalities:chromium_rod"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:unobtanium_drill"
+  }
+}

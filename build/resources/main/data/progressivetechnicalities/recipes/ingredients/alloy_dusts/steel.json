@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:carbide_dust"
+    },
+    {
+    	"item": "progressivetechnicalities:titanium_dust"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:steel_dust"
+  }
+}

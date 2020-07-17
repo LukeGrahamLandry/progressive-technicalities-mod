@@ -1,10 +1,11 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.auto_spawner.AutoSpawnerTileEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.electric_furnace.ElectricFurnaceTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.coal.CoalGeneratorTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.lava.LavaGeneratorTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.oil.OilGeneratorTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_slayer.MobSlayerTileEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.oil_generator.OilGeneratorTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_spawner.MobSpawnerTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.FeywildPortalTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.LargeChestTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.MultiTNTTileEntity;
@@ -32,15 +33,18 @@ public class ModTileEntityTypes {
 	public static final RegistryObject<TileEntityType<FeywildPortalTileEntity>> FEYWILD_PORTAL = TILE_ENTITY_TYPES.register("feywild_portal", 
 			() -> TileEntityType.Builder.create(FeywildPortalTileEntity::new, BlockInit.FEYWILD_PORTAL.get()).build(null));
 	
-	public static final RegistryObject<TileEntityType<ElectricFurnaceTileEntity>> ELECTRIC_FURNACE = TILE_ENTITY_TYPES.register("electric_furnace", 
-			() -> TileEntityType.Builder.create(ElectricFurnaceTileEntity::new, BlockInit.ELECTRIC_FURNACE.get()).build(null));
-
 	public static final RegistryObject<TileEntityType<OilGeneratorTileEntity>> OIL_GENERATOR = TILE_ENTITY_TYPES.register("oil_generator", 
 			() -> TileEntityType.Builder.create(OilGeneratorTileEntity::new, BlockInit.OIL_GENERATOR.get()).build(null));
+	
+	public static final RegistryObject<TileEntityType<LavaGeneratorTileEntity>> LAVA_GENERATOR = TILE_ENTITY_TYPES.register("lava_generator", 
+			() -> TileEntityType.Builder.create(LavaGeneratorTileEntity::new, BlockInit.LAVA_GENERATOR.get()).build(null));
+	
+	public static final RegistryObject<TileEntityType<CoalGeneratorTileEntity>> COAL_GENERATOR = TILE_ENTITY_TYPES.register("coal_generator", 
+			() -> TileEntityType.Builder.create(CoalGeneratorTileEntity::new, BlockInit.COAL_GENERATOR.get()).build(null));
 	
 	public static final RegistryObject<TileEntityType<MobSlayerTileEntity>> MOB_SLAYER = TILE_ENTITY_TYPES.register("mob_slayer", 
 			() -> TileEntityType.Builder.create(MobSlayerTileEntity::new, BlockInit.MOB_SLAYER.get()).build(null));
 	
-	public static final RegistryObject<TileEntityType<AutoSpawnerTileEntity>> AUTO_SPAWNER = TILE_ENTITY_TYPES.register("auto_spawner", 
-			() -> TileEntityType.Builder.create(AutoSpawnerTileEntity::new, BlockInit.AUTO_SPAWNER.get()).build(null));
+	public static final RegistryObject<TileEntityType<MobSpawnerTileEntity>> MOB_SPAWNER = TILE_ENTITY_TYPES.register("auto_spawner", 
+			() -> TileEntityType.Builder.create(MobSpawnerTileEntity::new, BlockInit.MOB_SPAWNER.get()).build(null));
 } 
