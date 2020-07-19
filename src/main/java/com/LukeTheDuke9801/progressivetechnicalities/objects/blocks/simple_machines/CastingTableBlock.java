@@ -22,7 +22,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
-public class CastingTableBlock extends Block{
+public class CastingTableBlock extends SimpleMachineBlock{
+	public static final int cost = 5;
 	public CastingTableBlock(Block.Properties builder) {
 	      super(builder);
 	   }
@@ -47,6 +48,9 @@ public class CastingTableBlock extends Block{
 			   }
 			   
 			   if (result != null) {
+				   boolean success = expendExperience(worldIn, pos, player, this.cost);
+				   if (!success) return ActionResultType.FAIL;
+				   
 				   player.setHeldItem(Hand.MAIN_HAND, new ItemStack(Items.BUCKET));
 				   
 				   ItemEntity itementity = new ItemEntity(worldIn, player.getPosX(), player.getPosY(), player.getPosZ(), new ItemStack(result));

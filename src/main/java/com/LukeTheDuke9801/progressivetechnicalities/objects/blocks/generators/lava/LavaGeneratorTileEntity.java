@@ -5,6 +5,6 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.A
 
 public class LavaGeneratorTileEntity extends AbstractGenoratorTileEntity {
    public LavaGeneratorTileEntity() {
-      super(ModTileEntityTypes.LAVA_GENERATOR.get(), 20);
+      super(ModTileEntityTypes.LAVA_GENERATOR.get(), 10);
    }
 }

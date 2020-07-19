@@ -6,6 +6,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.item.IItemTier;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
 
@@ -22,6 +23,9 @@ public enum ModItemTier implements IItemTier{
 	}),
 	UNOBTANIUM(4, 3000, 300.0f, 0f, 0, () -> {
 		return Ingredient.fromItems(ItemInit.UNOBTANIUM_INGOT.get()); 
+	}),
+	FIREGEM(3, 1561, 8.0F, 3.0F, 10, () -> {
+		return Ingredient.fromItems(ItemInit.FIRE_GEM.get());
 	});
 	
 	private final int harvestLevel;

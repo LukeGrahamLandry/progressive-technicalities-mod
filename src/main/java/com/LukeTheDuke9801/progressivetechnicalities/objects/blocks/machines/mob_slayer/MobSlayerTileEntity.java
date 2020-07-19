@@ -2,35 +2,34 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mo
 
 import java.util.List;
 
-import javax.annotation.Nullable;
-
-import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
-import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.NBTHelper;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.IXPContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.XPContainer;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ExperienceOrbEntity;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.fluid.IFluidState;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
 
-public class MobSlayerTileEntity extends TileEntity implements ITickableTileEntity{
+public class MobSlayerTileEntity extends TileEntity implements ITickableTileEntity, IXPContainer{
 	int tick = 0;
 	int damagePerSecond = 3;
 	int range = 8;
+	int costPerAttack = 1;
+	
+	public XPContainer xpContainer;
+	public XPContainer getXPContainer() {
+		return this.xpContainer;
+	}
 	
 	public MobSlayerTileEntity(final TileEntityType<?> tileEntityTypeIn) {
 		super(tileEntityTypeIn);
+		this.xpContainer = new XPContainer(100, 10, false);
 	}
 	
 	public MobSlayerTileEntity() {
@@ -53,6 +52,9 @@ public class MobSlayerTileEntity extends TileEntity implements ITickableTileEnti
 		for (Entity entity : entities) {
 			boolean isMonster = entity instanceof MonsterEntity;
 			if (isMonster) {
+				boolean success = this.xpContainer.removeXP(this.costPerAttack);
+				if (!success) break;
+				
 				entity.attackEntityFrom(DamageSource.MAGIC, damagePerSecond);
 				boolean isDead = ((MonsterEntity)entity).getHealth() == 0;
 				if (isDead) {
@@ -68,5 +70,18 @@ public class MobSlayerTileEntity extends TileEntity implements ITickableTileEnti
 		double y = this.pos.getY();
 		double z = this.pos.getZ();
 		return new AxisAlignedBB(x-range,y-range,z-range,x+range,y+range,z+range);
+	}
+	
+	@Override
+	public CompoundNBT write(CompoundNBT compound) {
+		compound.put("xpContainer", this.xpContainer.toNBT());
+		return super.write(compound);
+	}
+	
+	@Override
+	public void read(CompoundNBT compound) {
+		super.read(compound);
+		this.xpContainer = XPContainer.fromNBT(compound);
+		
 	}
 }

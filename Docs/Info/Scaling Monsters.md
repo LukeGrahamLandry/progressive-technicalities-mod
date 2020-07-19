@@ -9,7 +9,6 @@ Armor goes up one point (capped at 30 / a bar and a half)
 Movement speed goes up by 5% (capped at 5 times the base value)
 Starting at hour 10, armor thoughness goes up 1 point (capped at 20)
 
-After hour 30, things get fire resistance
 After hour 25, creepers get one minute of invisability
 After hour 40, creepers get a minute of speed 3
 

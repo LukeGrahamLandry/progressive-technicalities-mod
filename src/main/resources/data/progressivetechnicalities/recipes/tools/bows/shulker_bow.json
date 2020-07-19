@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " is",
+    "c s",
+    " is"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:sky_gem"
+    },
+    "c": {
+      "item": "minecraft:shulker_shell"
+    },
+    "s": {
+      "item":"minecraft:string"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:shulker_bow"
+  }
+}

@@ -13,12 +13,14 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.enc
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_slayer.MobSlayerBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_spawner.MobSpawnerBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.tinker_table.TinkerTableBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.xp_tank.XPTankBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.ArmorDisassembler;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.CastingTableBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.DisenchanterBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.InductionSmelterBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.ItemRepairerBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.PulverizerBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.SimpleMachineBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -35,7 +37,7 @@ public class BlockInit {
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 6f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> CARBIDE_BLOCK = BLOCKS.register("carbide_block",
-			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> TITANIUM_BLOCK = BLOCKS.register("titanium_block",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
@@ -47,19 +49,19 @@ public class BlockInit {
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 6f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> SKY_GEM_ORE = BLOCKS.register("sky_gem_ore",
-			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 
 	public static final RegistryObject<Block> SKY_GEM_BLOCK = BLOCKS.register("sky_gem_block",
-			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 
 	public static final RegistryObject<Block> DARK_STONE = BLOCKS.register("dark_stone",
-			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(5f, 2f).sound(SoundType.STONE).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(5f, 2f).sound(SoundType.STONE).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> TITANIUM_ORE = BLOCKS.register("titanium_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> FEY_STONE = BLOCKS.register("fey_stone",
-			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(15f, 0.1f).sound(SoundType.STONE).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(15f, 0.1f).sound(SoundType.STONE).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> FEYSTEEL_ORE = BLOCKS.register("feysteel_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 50f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
@@ -70,6 +72,9 @@ public class BlockInit {
 	public static final RegistryObject<Block> UNOBTANIUM_ORE = BLOCKS.register("unobtanium_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 	
+	public static final RegistryObject<Block> FIRE_GEM_ORE = BLOCKS.register("fire_gem_ore",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+
 	// Fey Food
 	//public static final RegistryObject<Block> COFFEE_CROP = BLOCKS.register("coffee_crop",
 	//		() -> new CoffeeCrop(Block.Properties.from(Blocks.WHEAT)));
@@ -131,4 +136,10 @@ public class BlockInit {
 	public static final RegistryObject<Block> INDUCTION_SMELTER = BLOCKS.register("induction_smelter",
 			() -> new InductionSmelterBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
-}
+	public static final RegistryObject<Block> XP_TANK = BLOCKS.register("xp_tank",
+			() -> new XPTankBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> SIMPLE_MACHINE = BLOCKS.register("simple_machine",
+			() -> new SimpleMachineBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+	
+	}

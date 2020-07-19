@@ -1,6 +1,8 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_spawner;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.IXPContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.XPContainer;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -10,14 +12,20 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 
-public class MobSpawnerTileEntity extends TileEntity implements ITickableTileEntity{
+public class MobSpawnerTileEntity extends TileEntity implements ITickableTileEntity, IXPContainer{
 	int tick = 0;
-
 	String mobType;
+	int cost = 5;
+	
+	public XPContainer xpContainer;
+	public XPContainer getXPContainer() {
+		return this.xpContainer;
+	}
 	
 	public MobSpawnerTileEntity(final TileEntityType<?> tileEntityTypeIn) {
 		super(tileEntityTypeIn);
 		this.mobType = "";
+		this.xpContainer = new XPContainer(200, 20, false);
 	}
 	
 	public MobSpawnerTileEntity() {
@@ -37,6 +45,9 @@ public class MobSpawnerTileEntity extends TileEntity implements ITickableTileEnt
 		if (world.isRemote) return;
 		
 		if (this.mobType != "") {
+			boolean success = this.xpContainer.removeXP(this.cost);
+			if (!success) return;
+			
 			EntityType e = EntityType.byKey(this.mobType).get();
 			e.spawn(world, ItemStack.EMPTY, null, pos.up(), SpawnReason.SPAWNER, false, false);
 		}

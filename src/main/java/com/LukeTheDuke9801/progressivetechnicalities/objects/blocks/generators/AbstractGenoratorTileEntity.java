@@ -1,15 +1,21 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.IXPContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.XPContainer;
+
 import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
 
 public abstract class AbstractGenoratorTileEntity extends TileEntity implements ITickableTileEntity{
 	private int tick = 0;
 	public int timeRemaining;
-	private int amountGenerated;
+	public int amountGenerated;
 	
 	public AbstractGenoratorTileEntity(final TileEntityType<?> tileEntityTypeIn, int amountGeneratedIn) {
 		super(tileEntityTypeIn);
@@ -23,14 +29,58 @@ public abstract class AbstractGenoratorTileEntity extends TileEntity implements 
 		if (tick == 20) {
 			tick = 0;
 			if (timeRemaining > 0) {
-				outputEX();
+				boolean shouldDropOrbs = !outputToTanks();
+				if (shouldDropOrbs) {
+					spawnXPEntity(this.amountGenerated);
+				}
 				timeRemaining--;
 			}
 		}
 	}
 	
-	private void outputEX() {
-		ExperienceOrbEntity orb = new ExperienceOrbEntity(world, this.pos.getX(), this.pos.getY()+2, this.pos.getZ(), this.amountGenerated);
+	// returns false if there are no adjacent tanks
+	private boolean outputToTanks() {
+		NonNullList<BlockPos> sides = NonNullList.create();
+		sides.add(pos.up()); sides.add(pos.down()); sides.add(pos.north()); 
+		sides.add(pos.south()); sides.add(pos.east()); sides.add(pos.west());
+		
+		NonNullList<XPContainer> containers = NonNullList.create();
+		
+		for (BlockPos position : sides) {
+			XPContainer container;
+			if (world.getTileEntity(position) instanceof IXPContainer) {
+				container = ((IXPContainer)world.getTileEntity(position)).getXPContainer();
+			} else {continue;}
+			
+			if (!container.isFull()) {
+				containers.add(container);
+			}
+		}
+		
+		if (containers.size() == 0) return false;
+		
+		int amountToSend = amountGenerated / containers.size();
+		
+		// if amountGenerated is less than containers.size()
+		if (amountToSend == 0) {
+			containers.get(0).addXP(amountGenerated);
+			return true;
+		}
+		
+		int remaining = 0;
+		for (XPContainer container : containers) {
+			remaining = container.addXP(amountToSend + remaining);
+		}
+		
+		if (remaining > 0) {
+			spawnXPEntity(remaining);  // dont delete overflow
+		}
+		
+		return true;
+	}
+	
+	private void spawnXPEntity(int amount) {
+		ExperienceOrbEntity orb = new ExperienceOrbEntity(world, this.pos.getX(), this.pos.getY()+2, this.pos.getZ(), amount);
 		world.addEntity(orb);
 	}
 

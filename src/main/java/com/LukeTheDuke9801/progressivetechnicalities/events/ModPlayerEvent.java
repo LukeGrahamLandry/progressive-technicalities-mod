@@ -10,6 +10,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.SilverFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeyFood;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FeySteelArmorItem;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FireGemArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
@@ -110,14 +111,19 @@ public class ModPlayerEvent {
     			numFeysteel += 1;
     		}
     	}
-    	
     	if (ModularArmor.hasFullSet(entity)) {
     		numFeysteel = ModularArmor.getModuleLevel(entity, "thorns");
     	}
-    	
     	Entity trueSource = event.getSource().getTrueSource();
-    	if (trueSource instanceof LivingEntity) {
+    	if (trueSource instanceof LivingEntity && numFeysteel > 0) {
     		((LivingEntity)trueSource).attackEntityFrom(DamageSource.MAGIC, numFeysteel * 2);
+    	}
+    	
+    	boolean hasFireArmor = FireGemArmor.hasFullSet(entity);
+    	if (hasFireArmor) {
+    		if (trueSource instanceof LivingEntity) {
+        		((LivingEntity)trueSource).setFire(5);
+        	}
     	}
     }
     
@@ -126,7 +132,7 @@ public class ModPlayerEvent {
     public static void onPlayerEatFood(LivingEntityUseItemEvent.Finish event) {
     	if (event.getItem().getItem().isFood() && event.getEntityLiving() instanceof PlayerEntity) {
     		PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-    		boolean isFeyFood = event.getItem().getItem() instanceof FeyFood;
+    		boolean isFeyFood = FeyFood.isFeyFood(event.getItem().getItem());
     		if (!isFeyFood) {
     			player.getFoodStats().setFoodSaturationLevel(0);
     			/* supposed to make it give two thirds of the food they're meant to 

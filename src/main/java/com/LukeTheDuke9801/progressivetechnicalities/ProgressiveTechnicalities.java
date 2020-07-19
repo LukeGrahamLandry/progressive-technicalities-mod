@@ -16,6 +16,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ModIceBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.ChromiumOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.FeysteelOreGen;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.FireGemOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.MelangeOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.SkyGemOreGen;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.TitaniumOreGen;
@@ -117,6 +118,7 @@ public class ProgressiveTechnicalities
     	FeysteelOreGen.generateOre();
     	MelangeOreGen.generateOre();
     	UnobtaniumOreGen.generateOre();
+    	FireGemOreGen.generateOre();
     }
     
     public static class ProgtechItemGroup extends ItemGroup {

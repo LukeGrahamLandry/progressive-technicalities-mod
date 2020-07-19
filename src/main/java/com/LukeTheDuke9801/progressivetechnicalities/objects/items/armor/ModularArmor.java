@@ -218,7 +218,7 @@ public class ModularArmor extends ArmorItem {
   		  return "regen";
   	  }
   	  
-  	  if (item2.equals(ItemInit.ALUMINUM.get())){
+  	  if (item2.equals(ItemInit.VARIDIUM_INGOT.get())){
   		  return "speed";
   	  }
   	  

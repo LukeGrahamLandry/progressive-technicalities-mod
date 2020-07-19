@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "i i",
+        "iii",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "progressivetechnicalities:fire_gem"
+        }
+    },
+    "result": {
+        "item": "progressivetechnicalities:firegem_chestplate"
+    }
+}

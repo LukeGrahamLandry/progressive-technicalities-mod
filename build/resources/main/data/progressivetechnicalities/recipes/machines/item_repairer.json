@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "iai",
-    "bmb",
+    "fmf",
     "iai"
   ],
   "key": {
     "i": {
-      "item": "progressivetechnicalities:chromium_ingot"
+      "item": "progressivetechnicalities:titanium_ingot"
     },
     "a": {
       "item": "minecraft:anvil"
@@ -15,11 +15,8 @@
     "m": {
       "item": "progressivetechnicalities:machine_base"
     },
-    "l": {
-      "item": "minecraft:lava_bucket"
-    },
-    "b": {
-      "item": "progressivetechnicalities:chromium_block"
+    "f": {
+      "item": "progressivetechnicalities:feysteel_ingot"
     }
   },
   "result": {

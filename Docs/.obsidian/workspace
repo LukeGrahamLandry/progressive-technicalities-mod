@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Machines/Pulverizer.md",
+            "file": "Machines/Knowledge Generators.md",
             "mode": "source"
           }
         }
@@ -46,7 +46,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 290
   },
   "right": {
     "id": "e8bfbee092d133be",
@@ -72,10 +72,10 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Machines/Pulverizer.md",
+    "Machines/Knowledge Generators.md",
     "Machines/Machines.md",
     "Index.md",
-    "Change Log.md",
-    "Machines/Enchantment Forge.md"
+    "Machines/Induction Smelter.md",
+    "Info/Alloys.md"
   ]
 }

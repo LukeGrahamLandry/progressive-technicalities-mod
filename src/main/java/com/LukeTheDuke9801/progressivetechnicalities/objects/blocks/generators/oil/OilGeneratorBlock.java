@@ -27,7 +27,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class OilGeneratorBlock extends Block{
-	private static final int secondsPerFuel = 30;
+	private static final int secondsPerFuel = 20;
 	public OilGeneratorBlock(Block.Properties builder) {
 	      super(builder);
 	   }

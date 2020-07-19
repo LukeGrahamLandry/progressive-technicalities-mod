@@ -2,12 +2,12 @@ Knowledge Generators take a fuel and generate xp for a while. Right click with f
 
 ### Petroleum Knowledge Generator
 Fuel: oil
-Generates 3 xp per second for 30 seconds
+Generates 5 xp per second for 20 seconds
 
 ### Geothermal Knowledge Generator
 Fuel: lava
-Generates 20 xp per second for 10 seconds
+Generates 10 xp per second for 10 seconds
 
 ### Furnace Knowledge Generator
 Fuel: any furnace fuel
-Generates 1 xp per second for as long as it would last in a furnace (ie 2 minutes for coal)
+Generates 1 xp per second for half as long as it would last in a furnace (ie 1 minute for coal)

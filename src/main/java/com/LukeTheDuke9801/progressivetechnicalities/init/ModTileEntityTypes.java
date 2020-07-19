@@ -6,6 +6,8 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.l
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.oil.OilGeneratorTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_slayer.MobSlayerTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_spawner.MobSpawnerTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.xp_tank.XPTankTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.SimpleMachineTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.FeywildPortalTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.LargeChestTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.MultiTNTTileEntity;
@@ -47,4 +49,10 @@ public class ModTileEntityTypes {
 	
 	public static final RegistryObject<TileEntityType<MobSpawnerTileEntity>> MOB_SPAWNER = TILE_ENTITY_TYPES.register("auto_spawner", 
 			() -> TileEntityType.Builder.create(MobSpawnerTileEntity::new, BlockInit.MOB_SPAWNER.get()).build(null));
+	
+	public static final RegistryObject<TileEntityType<XPTankTileEntity>> XP_TANK = TILE_ENTITY_TYPES.register("xp_tank", 
+			() -> TileEntityType.Builder.create(XPTankTileEntity::new, BlockInit.XP_TANK.get()).build(null));
+	
+	public static final RegistryObject<TileEntityType<SimpleMachineTileEntity>> SIMPLE_MACHINE = TILE_ENTITY_TYPES.register("simple_machine", 
+			() -> TileEntityType.Builder.create(SimpleMachineTileEntity::new, BlockInit.SIMPLE_MACHINE.get()).build(null));
 } 

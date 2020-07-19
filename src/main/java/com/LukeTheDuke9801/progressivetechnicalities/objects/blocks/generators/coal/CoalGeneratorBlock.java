@@ -51,7 +51,7 @@ public class CoalGeneratorBlock extends Block{
     	  int burnTime = ForgeHooks.getBurnTime(stack);
     	  ProgressiveTechnicalities.LOGGER.debug(burnTime);
     	  if (te.timeRemaining == 0 && burnTime > 0) {
-    		  te.timeRemaining = burnTime / 20;
+    		  te.timeRemaining = burnTime / 40; // one second for every two of burn time
     		  stack.shrink(1);
     	  }
       }

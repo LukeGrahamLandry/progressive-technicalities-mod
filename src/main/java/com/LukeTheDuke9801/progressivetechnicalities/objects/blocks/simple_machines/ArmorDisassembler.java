@@ -26,14 +26,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
-public class ArmorDisassembler extends Block{
+public class ArmorDisassembler extends SimpleMachineBlock{
+	private static final int cost = 20;
+	
 	public ArmorDisassembler(Block.Properties builder) {
 	      super(builder);
 	   }
 	   
 	   
 	   public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-		   ItemStack handHeld = player.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
+		   ItemStack handHeld = player.getHeldItem(handIn);
 		   if (!worldIn.isRemote && handHeld.getItem() instanceof ArmorItem) {
 			   
 			   int baseMaterialAmount = 0;
@@ -75,6 +77,9 @@ public class ArmorDisassembler extends Block{
 			   
 			   
 			   if (number > 0) {
+				   boolean success = expendExperience(worldIn, pos, player, this.cost);
+				   if (!success) return ActionResultType.FAIL;
+				   
 				   player.setHeldItem(Hand.MAIN_HAND, ItemStack.EMPTY);
 				   
 				   for (int i=0;i<number;i++) {
@@ -118,6 +123,9 @@ public class ArmorDisassembler extends Block{
 			   resultItem = ((TieredItem) handHeld.getItem()).getTier().getRepairMaterial().getMatchingStacks()[0].getItem();
 			   
 			   if (number > 0) {
+				   boolean success = expendExperience(worldIn, pos, player, this.cost);
+				   if (!success) return ActionResultType.FAIL;
+				   
 				   player.setHeldItem(Hand.MAIN_HAND, ItemStack.EMPTY);
 				   
 				   for (int i=0;i<number;i++) {

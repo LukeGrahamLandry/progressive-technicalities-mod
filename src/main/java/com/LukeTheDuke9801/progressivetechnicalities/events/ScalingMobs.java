@@ -130,9 +130,6 @@ public class ScalingMobs {
         		if (entityType == EntityType.CREEPER && hours >= 25) {
             		mob.addPotionEffect(new EffectInstance(Effects.INVISIBILITY, 1*60*20, 1));
         		}
-            	if (hours >= 30) {
-            		mob.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 59*60*20, 1));
-            	}
         		
         		if (isInOilDim(mob)) {
         			mob.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 59*60*20, 1));

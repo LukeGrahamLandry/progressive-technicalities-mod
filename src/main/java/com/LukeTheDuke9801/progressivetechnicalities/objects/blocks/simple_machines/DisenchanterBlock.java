@@ -32,7 +32,8 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-public class DisenchanterBlock extends Block{
+public class DisenchanterBlock extends SimpleMachineBlock{
+	public static final int cost = 20;
 	public DisenchanterBlock(Block.Properties builder) {
 	      super(builder);
 	   }
@@ -41,8 +42,11 @@ public class DisenchanterBlock extends Block{
 	   public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		   ItemStack handHeld = player.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
 		   if (!worldIn.isRemote && handHeld.isEnchanted()) {
-			   
 			   ListNBT enchants = handHeld.getEnchantmentTagList();
+			   
+			   boolean success = expendExperience(worldIn, pos, player, this.cost * enchants.size());
+			   if (!success) return ActionResultType.FAIL;
+			   
 			   for (int i=0;i<enchants.size();i++) {
 				   CompoundNBT enchant = enchants.getCompound(i);
 				   String id = enchant.getString("id");

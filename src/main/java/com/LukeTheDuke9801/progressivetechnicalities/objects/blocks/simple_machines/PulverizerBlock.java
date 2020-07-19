@@ -24,7 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
-public class PulverizerBlock extends Block{
+public class PulverizerBlock extends SimpleMachineBlock{
 	private static final int cost = 5;
 	
 	public PulverizerBlock(Block.Properties builder) {
@@ -33,16 +33,14 @@ public class PulverizerBlock extends Block{
 	   
 	   
    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-	   ItemStack stack = player.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
+	   ItemStack stack = player.getHeldItem(handIn);
 	   Item item = stack.getItem();
-	   
-	   if (player.experienceTotal < cost) {
-		   return ActionResultType.FAIL;
-	   }
 	   
 	   RecipeResult result = getOutput(item);
 	   if (result != null) {
-		   player.giveExperiencePoints(-cost);
+		   boolean success = expendExperience(worldIn, pos, player, this.cost);
+		   if (!success) return ActionResultType.FAIL;
+		   
 		   stack.shrink(1);
 		   
 		   for (int i=0;i<result.count;i++) {
@@ -187,8 +185,8 @@ public class PulverizerBlock extends Block{
 		   result = ItemInit.ELECTRUM_DUST.get();
 		   count = 1;
 	   }
-	   if (item.equals(ItemInit.ALUMINUM.get())) {
-		   result = ItemInit.ALUMINUM_DUST.get();
+	   if (item.equals(ItemInit.VARIDIUM_INGOT.get())) {
+		   result = ItemInit.VARIDIUM_DUST.get();
 		   count = 1;
 	   }
 	   if (item.equals(ItemInit.FEYSTEEL_INGOT.get())) {

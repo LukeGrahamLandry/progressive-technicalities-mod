@@ -5,6 +5,6 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.A
 
 public class OilGeneratorTileEntity extends AbstractGenoratorTileEntity {
    public OilGeneratorTileEntity() {
-      super(ModTileEntityTypes.OIL_GENERATOR.get(), 3);
+      super(ModTileEntityTypes.OIL_GENERATOR.get(), 5);
    }
 }

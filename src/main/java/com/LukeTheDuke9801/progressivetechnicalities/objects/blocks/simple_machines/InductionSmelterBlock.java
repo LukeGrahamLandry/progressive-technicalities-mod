@@ -17,7 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
-public class InductionSmelterBlock extends Block{
+public class InductionSmelterBlock extends SimpleMachineBlock{
 	private static final int cost = 5;
 	
 	public InductionSmelterBlock(Block.Properties builder) {
@@ -26,16 +26,14 @@ public class InductionSmelterBlock extends Block{
 	   
 	   
    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-	   ItemStack stack = player.getItemStackFromSlot(EquipmentSlotType.MAINHAND);
+	   ItemStack stack = player.getHeldItem(handIn);
 	   Item item = stack.getItem();
-	   
-	   if (player.experienceTotal < cost) {
-		   return ActionResultType.FAIL;
-	   }
 	   
 	   Item result = getOutput(item, worldIn);
 	   if (result != null) {
-		   player.giveExperiencePoints(-cost);
+		   boolean success = expendExperience(worldIn, pos, player, this.cost);
+		   if (!success) return ActionResultType.FAIL;
+		   
 		   stack.shrink(1);
 		   
 		   ItemEntity itementity = new ItemEntity(worldIn, player.getPosX(), player.getPosY(), player.getPosZ(), new ItemStack(result));
@@ -58,8 +56,8 @@ public class InductionSmelterBlock extends Block{
 		   result = Items.GOLD_INGOT;
 	   }
 	   
-	   if (item.equals(ItemInit.ALUMINUM_DUST.get())) {
-		   result = ItemInit.ALUMINUM.get();
+	   if (item.equals(ItemInit.VARIDIUM_DUST.get())) {
+		   result = ItemInit.VARIDIUM_INGOT.get();
 	   }
 	   if (item.equals(ItemInit.CARBIDE_DUST.get())) {
 		   result = ItemInit.CARBIDE_INGOT.get();

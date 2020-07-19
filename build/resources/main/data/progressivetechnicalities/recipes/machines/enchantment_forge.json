@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "iai",
+    "gag",
     "bmb",
-    "iei"
+    "ded"
   ],
   "key": {
-    "i": {
-      "item": "progressivetechnicalities:chromium_ingot"
+    "g": {
+      "item": "minecraft:gold_block"
     },
     "a": {
       "item": "minecraft:anvil"
@@ -16,10 +16,10 @@
       "item": "progressivetechnicalities:machine_base"
     },
     "e": {
-      "item": "minecraft:enchantment_table"
+      "item": "minecraft:enchanting_table"
     },
-    "b": {
-      "item": "progressivetechnicalities:chromium_block"
+    "d": {
+      "item": "minecraft:diamond"
     }
   },
   "result": {
