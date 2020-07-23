@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    	"item": "minecraft:diamond_ore"
-   },
-  "result": "progressivetechnicalities:carbide_ingot",
-  "experience": 1.0,
-  "cookingtime": 100
-}
