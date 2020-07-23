@@ -28,6 +28,8 @@ public class Flippers extends ArmorItem{
 		if (player.isInWater()) {
 			player.addPotionEffect(new EffectInstance(Effects.DOLPHINS_GRACE, 100, 0));
 			player.addPotionEffect(new EffectInstance(Effects.SPEED, 100, 0));
+		} else {
+			player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 100, 1));
 		}
 		
 		super.onArmorTick(stack, world, player);
@@ -36,7 +38,7 @@ public class Flippers extends ArmorItem{
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Grants dolphins grace and speed I while in water"));
+			tooltip.add(new StringTextComponent("Grants dolphins grace and speed I while in water but slowness II while on land"));
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);

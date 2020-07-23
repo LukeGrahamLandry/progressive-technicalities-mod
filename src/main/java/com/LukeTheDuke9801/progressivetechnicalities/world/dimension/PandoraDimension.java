@@ -26,7 +26,7 @@ public class PandoraDimension extends Dimension{
 	public ChunkGenerator<?> createChunkGenerator() {
 		OverworldGenSettings settings = new OverworldGenSettings();
 		SingleBiomeProviderSettings biomeProviderSettings = new SingleBiomeProviderSettings(world.getWorldInfo());
-	    biomeProviderSettings.setBiome(BiomeInit.JUNGLE_PLAINS.get());
+	    biomeProviderSettings.setBiome(BiomeInit.SPACE_JUNGLE.get());
 		return new OverworldChunkGenerator(world, new SingleBiomeProvider(biomeProviderSettings), settings);
 	}
 

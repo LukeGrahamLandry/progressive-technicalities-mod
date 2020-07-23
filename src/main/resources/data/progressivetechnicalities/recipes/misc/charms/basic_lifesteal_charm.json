@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "sps",
+    "iii"
+  ],
+  "key": {
+    "p": {
+      "item": "progressivetechnicalities:potion_core"
+    },
+    "s": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "i": {
+      "item": "progressivetechnicalities:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:basic_lifesteal_charm"
+  }
+}

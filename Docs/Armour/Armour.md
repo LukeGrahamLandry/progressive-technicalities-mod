@@ -6,6 +6,7 @@
 - [[Titanium Armor]]
 - [[Bedrockium Armor]]
 - [[Steel Armour]]
+- [[Fire Gem Armor]]
 
 ### Special Pieces
 - [[Night Vision Goggles]]

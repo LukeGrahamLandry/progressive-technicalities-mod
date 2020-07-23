@@ -1,3 +1,18 @@
+### The Power Update
+- added experience tank
+- made machines take xp
+- added fire gem armor, sword, ore
+- added fire, shuking bow
+- changed aluminum to varidium
+
+### The Dust Update
+- added pulverizer
+- added induction smelter
+- removed alloy table
+- removed electric furnace
+- made oil generator generate xp
+- added lava & coal generators
+
 ### The Mob Farm Update
 - added item repairer
 - added more fluids to casting table

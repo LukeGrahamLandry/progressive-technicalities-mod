@@ -24,8 +24,6 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 public class BedrockiumArmor extends ArmorItem {
-	int tick = 0;
-
 	public BedrockiumArmor(EquipmentSlotType slot, Properties builder) {
 		super(new Material(), slot, builder);
 	}
@@ -41,27 +39,19 @@ public class BedrockiumArmor extends ArmorItem {
 	
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-		this.tick++;
-		if (this.tick == 300) {
-			this.tick = 0;
-			
-			if (!hasBedrockiumArmor(player)) {
-				return;
-			}
-			
-			player.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 500, 4));
-			player.addPotionEffect(new EffectInstance(Effects.REGENERATION, 500, 2));
-			player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 500, 2));
-			player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 500, 4));
-			player.addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, 500, 0));
+		if (!world.isRemote && hasFullSet(player)) {
+			player.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 100, 4));
+			player.addPotionEffect(new EffectInstance(Effects.REGENERATION, 100, 2));
+			player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 100, 2));
+			player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 100, 4));
+			player.addPotionEffect(new EffectInstance(Effects.MINING_FATIGUE, 100, 0));
 		}
-		
 		super.onArmorTick(stack, world, player);
 	}
 	
 	@Override
 	public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
-		if (hasBedrockiumArmor(entity)) {
+		if (hasFullSet(entity)) {
 			entity.getItemStackFromSlot(EquipmentSlotType.HEAD).setDamage(0);
 			entity.getItemStackFromSlot(EquipmentSlotType.CHEST).setDamage(0);
 			entity.getItemStackFromSlot(EquipmentSlotType.LEGS).setDamage(0);
@@ -71,7 +61,7 @@ public class BedrockiumArmor extends ArmorItem {
 		return super.damageItem(stack, amount, entity, onBroken);
 	}
 	
-	public static boolean hasBedrockiumArmor(LivingEntity entity) {
+	public static boolean hasFullSet(LivingEntity entity) {
 		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.BEDROCKIUM_HELMET.get())
 				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.BEDROCKIUM_CHESTPLATE.get())
 				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.BEDROCKIUM_LEGGINGS.get())

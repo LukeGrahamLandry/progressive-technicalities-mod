@@ -10,8 +10,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Machines/Knowledge Generators.md",
-            "mode": "source"
+            "file": "Index.md",
+            "mode": "preview"
           }
         }
       }
@@ -72,10 +72,10 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "Machines/Knowledge Generators.md",
-    "Machines/Machines.md",
     "Index.md",
-    "Machines/Induction Smelter.md",
-    "Info/Alloys.md"
+    "Charms & Enchantments/Charms & Enchantments.md",
+    "Misc/Misc.md",
+    "Advanced Life Steal Charm.md",
+    "Basic Life Steal Charm.md"
   ]
 }

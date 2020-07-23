@@ -23,8 +23,14 @@ public enum ModArmorMaterial implements IArmorMaterial {
 		   return Ingredient.fromItems(ItemInit.FEYSTEEL_INGOT.get());}),
 	   STEEL(ProgressiveTechnicalities.MOD_ID + ":steel", 66, new int[]{5, 9, 11, 5}, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 5.0F, () -> {
 		   return Ingredient.fromItems(ItemInit.STEEL_INGOT.get());}),
-	   FIREGEM(ProgressiveTechnicalities.MOD_ID + ":firegem", 33, new int[]{3, 6, 8, 3}, 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F, () -> {
-		   return Ingredient.fromItems(ItemInit.FEYSTEEL_INGOT.get());});
+	   FIREGEM(ProgressiveTechnicalities.MOD_ID + ":firegem", 33, new int[]{3, 6, 8, 3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F, () -> {
+		   return Ingredient.fromItems(ItemInit.FIRE_GEM.get());}),
+	   SKYGEM(ProgressiveTechnicalities.MOD_ID + ":skygem", 20, new int[]{1, 5, 5, 1}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0, () -> {
+		   return Ingredient.fromItems(ItemInit.SKY_GEM.get());}),
+	   WATERGEM(ProgressiveTechnicalities.MOD_ID + ":watergem", 33, new int[]{3, 6, 8, 3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F, () -> {
+		   return Ingredient.fromItems(ItemInit.WATER_GEM.get());}),
+	   EARTHGEM(ProgressiveTechnicalities.MOD_ID + ":earthgem", 33, new int[]{3, 6, 8, 3}, 20, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 4.0F, () -> {
+		   return Ingredient.fromItems(ItemInit.EARTH_GEM.get());});
 	
 	   private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
 	   private final String name;

@@ -6,7 +6,7 @@ Every hour monsters....
 Attack damage goes up half a heart (capped at 100 extra hearts)
 Max health goes up half a heart (capped at 150 extra hearts)
 Armor goes up one point (capped at 30 / a bar and a half)
-Movement speed goes up by 5% (capped at 5 times the base value)
+Movement speed goes up by 5% (capped at twice the base value)
 Starting at hour 10, armor thoughness goes up 1 point (capped at 20)
 
 After hour 25, creepers get one minute of invisability

@@ -24,7 +24,7 @@ public enum ModItemTier implements IItemTier{
 	UNOBTANIUM(4, 3000, 300.0f, 0f, 0, () -> {
 		return Ingredient.fromItems(ItemInit.UNOBTANIUM_INGOT.get()); 
 	}),
-	FIREGEM(3, 1561, 8.0F, 3.0F, 10, () -> {
+	FIREGEM(3, 1561, 8.0F, 3.0F, 20, () -> {
 		return Ingredient.fromItems(ItemInit.FIRE_GEM.get());
 	});
 	

@@ -13,6 +13,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.OilPortalKey;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.TinyCoal;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.XPCharge;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.BedrockiumArmor;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.EarthGemArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FeySteelArmorItem;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FireGemArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.Flippers;
@@ -24,12 +25,16 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFal
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.NightVisionGoggles;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ScubaGear;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SkyGemArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SlowFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.TitaniumArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.VoidStriderLeggings;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.WaterGemArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.BoostCharm;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.FireResCharm;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.LifeStealCharmAdvanced;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.LifeStealCharmBasic;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.BlazeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.CreativeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.EnderStaff;
@@ -184,6 +189,12 @@ public class ItemInit {
 	public static final RegistryObject<Item> FIRE_GEM = ITEMS.register("fire_gem",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
+	public static final RegistryObject<Item> WATER_GEM = ITEMS.register("water_gem",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> EARTH_GEM = ITEMS.register("earth_gem",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
 	// Dusts
 	public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -278,6 +289,12 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> FIRERES_CHARM = ITEMS.register("fireres_charm",
 			() -> new FireResCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> BASIC_LIFESTEAL_CHARM = ITEMS.register("basic_lifesteal_charm",
+			() -> new LifeStealCharmBasic(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> ADVANCED_LIFESTEAL_CHARM = ITEMS.register("advanced_lifesteal_charm",
+			() -> new LifeStealCharmAdvanced(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	// Tools
 	public static final RegistryObject<Item> CARBIDE_SWORD = ITEMS.register("carbide_sword",
@@ -462,6 +479,42 @@ public class ItemInit {
 	public static final RegistryObject<Item> FIREGEM_BOOTS = ITEMS.register("firegem_boots",
 			() -> new ArmorItem(ModArmorMaterial.FIREGEM, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
+	public static final RegistryObject<Item> SKYGEM_HELMET = ITEMS.register("skygem_helmet",
+			() -> new SkyGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> SKYGEM_CHESTPLATE = ITEMS.register("skygem_chestplate",
+			() -> new SkyGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> SKYGEM_LEGGINGS = ITEMS.register("skygem_leggings",
+			() -> new SkyGemArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> SKYGEM_BOOTS = ITEMS.register("skygem_boots",
+			() -> new SkyGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> WATERGEM_HELMET = ITEMS.register("watergem_helmet",
+			() -> new ArmorItem(ModArmorMaterial.WATERGEM, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> WATERGEM_CHESTPLATE = ITEMS.register("watergem_chestplate",
+			() -> new WaterGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> WATERGEM_LEGGINGS = ITEMS.register("watergem_leggings",
+			() -> new ArmorItem(ModArmorMaterial.WATERGEM, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> WATERGEM_BOOTS = ITEMS.register("watergem_boots",
+			() -> new ArmorItem(ModArmorMaterial.WATERGEM, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> EARTHGEM_HELMET = ITEMS.register("earthgem_helmet",
+			() -> new EarthGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> EARTHGEM_CHESTPLATE = ITEMS.register("earthgem_chestplate",
+			() -> new EarthGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> EARTHGEM_LEGGINGS = ITEMS.register("earthgem_leggings",
+			() -> new EarthGemArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> EARTHGEM_BOOTS = ITEMS.register("earthgem_boots",
+			() -> new EarthGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+	
 	
 	// Fey Food 
 	public static final RegistryObject<Item> COFFEE_BEAN = ITEMS.register("coffee_beans",

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " i ",
+    " i ",
+    " s "
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:fire_gem"
+    },
+    "s": {
+      "item":"progressivetechnicalities:chromium_rod"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:firegem_sword"
+  }
+}

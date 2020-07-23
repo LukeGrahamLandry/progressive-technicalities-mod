@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iii",
+        "i i",
+        "i i"
+    ],
+    "key": {
+        "i": {
+            "item": "progressivetechnicalities:sky_gem"
+        }
+    },
+    "result": {
+        "item": "progressivetechnicalities:skygem_leggings"
+    }
+}

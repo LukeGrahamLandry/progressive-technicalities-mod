@@ -14,15 +14,10 @@ import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModContainerTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ModIceBlock;
-import com.LukeTheDuke9801.progressivetechnicalities.world.gen.ChromiumOreGen;
-import com.LukeTheDuke9801.progressivetechnicalities.world.gen.FeysteelOreGen;
-import com.LukeTheDuke9801.progressivetechnicalities.world.gen.FireGemOreGen;
-import com.LukeTheDuke9801.progressivetechnicalities.world.gen.MelangeOreGen;
-import com.LukeTheDuke9801.progressivetechnicalities.world.gen.SkyGemOreGen;
-import com.LukeTheDuke9801.progressivetechnicalities.world.gen.TitaniumOreGen;
-import com.LukeTheDuke9801.progressivetechnicalities.world.gen.UnobtaniumOreGen;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.OreGen;
 
 import net.minecraft.block.FlowingFluidBlock;
+import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -48,7 +43,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber(modid = ProgressiveTechnicalities.MOD_ID, bus=Bus.MOD)
 public class ProgressiveTechnicalities
 {
-    // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "progressivetechnicalities";
     public static ProgressiveTechnicalities instance;
@@ -112,13 +106,7 @@ public class ProgressiveTechnicalities
     
     @SubscribeEvent
     public static void loadCompleteEvent(FMLLoadCompleteEvent event) {
-    	ChromiumOreGen.generateOre();
-    	SkyGemOreGen.generateOre();
-    	TitaniumOreGen.generateOre();
-    	FeysteelOreGen.generateOre();
-    	MelangeOreGen.generateOre();
-    	UnobtaniumOreGen.generateOre();
-    	FireGemOreGen.generateOre();
+    	OreGen.generateAllOres();
     }
     
     public static class ProgtechItemGroup extends ItemGroup {

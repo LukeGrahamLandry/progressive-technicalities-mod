@@ -75,6 +75,12 @@ public class BlockInit {
 	public static final RegistryObject<Block> FIRE_GEM_ORE = BLOCKS.register("fire_gem_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 
+	public static final RegistryObject<Block> WATER_GEM_ORE = BLOCKS.register("water_gem_ore",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+	
+	public static final RegistryObject<Block> EARTH_GEM_ORE = BLOCKS.register("earth_gem_ore",
+			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+
 	// Fey Food
 	//public static final RegistryObject<Block> COFFEE_CROP = BLOCKS.register("coffee_crop",
 	//		() -> new CoffeeCrop(Block.Properties.from(Blocks.WHEAT)));

@@ -7,3 +7,8 @@
 - [[Titanium Trident]]
 - [[Unobtanium Drill]]
 - [[Unobtanium Sword]]
+- [[Fire Gem Sword]]
+
+### Bows
+- [[Fire Gem Bow]]
+- [[Shulker Bow]]

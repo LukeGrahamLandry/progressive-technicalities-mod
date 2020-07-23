@@ -1,0 +1,1 @@
+Like a diamond sword. Lights target on fire for 10 seconds

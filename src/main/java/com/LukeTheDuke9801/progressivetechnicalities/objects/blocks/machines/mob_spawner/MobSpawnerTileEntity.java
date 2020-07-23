@@ -15,7 +15,7 @@ import net.minecraft.tileentity.TileEntityType;
 public class MobSpawnerTileEntity extends TileEntity implements ITickableTileEntity, IXPContainer{
 	int tick = 0;
 	String mobType;
-	int cost = 5;
+	int cost = 10;
 	
 	public XPContainer xpContainer;
 	public XPContainer getXPContainer() {

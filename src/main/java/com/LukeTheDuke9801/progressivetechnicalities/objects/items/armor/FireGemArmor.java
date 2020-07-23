@@ -43,19 +43,14 @@ public class FireGemArmor extends ArmorItem {
 	
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-		this.tick++;
-		if (this.tick == 300) {
-			this.tick = 0;
-			
-			if (!hasFullSet(player)) {
-				return;
-			}
-			
-			player.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 500, 0));
-		}
+		if (!world.isRemote && hasFullSet(player)) {
+			player.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 0));
+	   }
 		
 		super.onArmorTick(stack, world, player);
 	}
+	
+	
 	
 	public static boolean hasFullSet(LivingEntity entity) {
 		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.FIREGEM_HELMET.get())

@@ -42,7 +42,7 @@ public class PandoraBiome extends Biome{
 
       this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(
     		  OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.INFESTED_STONE.getDefaultState(), 50)).withPlacement(Placement.COUNT_RANGE.configure(
-    				  new CountRangeConfig(100, 0, 0, 128))));
+    				  new CountRangeConfig(20, 0, 0, 128))));
 	}
 	
 	@Override

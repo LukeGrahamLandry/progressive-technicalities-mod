@@ -26,14 +26,14 @@ public class BiomeInit {
 	public static final RegistryObject<Biome> SAND_DUNES = BIOMES.register("sand_dunes",
 			() -> new ArrakisBiome());
 	
-	public static final RegistryObject<Biome> JUNGLE_PLAINS = BIOMES.register("jungle_plains",
+	public static final RegistryObject<Biome> SPACE_JUNGLE = BIOMES.register("jungle_plains",
 			() -> new PandoraBiome());
 	
 	public static void registerBiomes() {
 		registerBiome(OIL_SPIKES.get(), Type.PLAINS, Type.OVERWORLD);
 		registerBiome(FEY_PLAINS.get(), Type.PLAINS, Type.OVERWORLD);
 		registerBiome(SAND_DUNES.get(), Type.HILLS, Type.OVERWORLD);
-		registerBiome(JUNGLE_PLAINS.get(), Type.HILLS, Type.OVERWORLD);
+		registerBiome(SPACE_JUNGLE.get(), Type.HILLS, Type.OVERWORLD);
 	}
 	
 	private static void registerBiome(Biome biome, Type... types) {

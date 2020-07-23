@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "sps",
+    "iii"
+  ],
+  "key": {
+    "p": {
+      "item": "progressivetechnicalities:basic_lifesteal_charm"
+    },
+    "s": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "i": {
+      "item": "progressivetechnicalities:unobtanium_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:advanced_lifesteal_charm"
+  }
+}

@@ -1,14 +1,14 @@
 package com.LukeTheDuke9801.progressivetechnicalities.events;
 
-import java.util.List;
-
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.enchantments.LavaWalkerEnchantment;
 import com.LukeTheDuke9801.progressivetechnicalities.enchantments.SoulBoundEnchantment;
 import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.SilverFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeyFood;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.EarthGemArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FeySteelArmorItem;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FireGemArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
@@ -23,6 +23,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
@@ -88,6 +90,7 @@ public class ModPlayerEvent {
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
     	LivingEntity entity = event.getEntityLiving();
+    	
     	// Handle long fall boots
     	boolean isFallDamage = event.getSource() == DamageSource.FALL;
     	boolean wearingLongFallBoots = entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem() instanceof LongFallBoots || (ModularArmor.getModuleLevel(entity, "longfall") == 1);
@@ -116,14 +119,32 @@ public class ModPlayerEvent {
     	}
     	Entity trueSource = event.getSource().getTrueSource();
     	if (trueSource instanceof LivingEntity && numFeysteel > 0) {
-    		((LivingEntity)trueSource).attackEntityFrom(DamageSource.MAGIC, numFeysteel * 2);
+    		((LivingEntity)trueSource).attackEntityFrom(DamageSource.causeThornsDamage(entity), numFeysteel * 2);
     	}
     	
+    	// Handle fire thorns from fire armor
     	boolean hasFireArmor = FireGemArmor.hasFullSet(entity);
     	if (hasFireArmor) {
     		if (trueSource instanceof LivingEntity) {
         		((LivingEntity)trueSource).setFire(5);
         	}
+    	}
+    	
+    	// Handle slowness thorns from earth armor
+    	boolean hasEarthArmor = EarthGemArmor.hasFullSet(entity);
+    	if (hasEarthArmor) {
+    		if (trueSource instanceof LivingEntity) {
+        		((LivingEntity)trueSource).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 200, 1));
+        	}
+    	}
+    	
+    	// Handle advanced life steal charm
+    	if (trueSource instanceof PlayerEntity) {
+    		boolean hasLifeStealCharm = ((PlayerEntity) trueSource).inventory.hasItemStack(new ItemStack(ItemInit.ADVANCED_LIFESTEAL_CHARM.get()));
+    		if (hasLifeStealCharm) {
+    			int toHeal = (int) (event.getAmount() / 4);
+    			((PlayerEntity) trueSource).heal(toHeal);
+    		}
     	}
     }
     
@@ -135,14 +156,6 @@ public class ModPlayerEvent {
     		boolean isFeyFood = FeyFood.isFeyFood(event.getItem().getItem());
     		if (!isFeyFood) {
     			player.getFoodStats().setFoodSaturationLevel(0);
-    			/* supposed to make it give two thirds of the food they're meant to 
-    			 * but doesnt work properly doesnt let you get to full hunger cause it 
-    			 * removes hunger after the hunger cap is applied
-    			int itemFoodAmount = event.getItem().getItem().getFood().getHealing();
-    			int foodToRemove = (itemFoodAmount / 3);
-    			int newFoodLevel = player.getFoodStats().getFoodLevel() - foodToRemove;
-    			player.getFoodStats().setFoodLevel(newFoodLevel);
-    			*/
     		}
     	}
     }
@@ -152,13 +165,22 @@ public class ModPlayerEvent {
     private static NonNullList<ItemStack> soulboundItems = NonNullList.create();
     
     @SubscribeEvent
-    public static void onPlayerDeath(LivingDeathEvent event) {
+    public static void onLivingDeath(LivingDeathEvent event) {
+    	// Handle basic life steal charm
+    	Entity source = event.getSource().getTrueSource();
+    	if (source instanceof PlayerEntity) {
+    		boolean hasLifeStealCharm = ((PlayerEntity) source).inventory.hasItemStack(new ItemStack(ItemInit.BASIC_LIFESTEAL_CHARM.get()));
+    		if (hasLifeStealCharm) {
+    			((PlayerEntity) source).heal(4);
+    		}
+    	}
+    	
+    	// handle soulbound enchant
     	if (event.getEntityLiving() instanceof PlayerEntity) {
     		PlayerEntity player = (PlayerEntity)event.getEntityLiving();
     		NonNullList<ItemStack> mainInventory = player.inventory.mainInventory;
     		int i = 0;
     		for (ItemStack stack : mainInventory) {
-    			ProgressiveTechnicalities.LOGGER.debug(stack.toString());
     			if (SoulBoundEnchantment.hasSoulBound(stack)) {
     				soulboundItems.add(stack);
     				player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
@@ -169,7 +191,6 @@ public class ModPlayerEvent {
     		NonNullList<ItemStack> armorInventory = player.inventory.armorInventory;
     		i = 0;
     		for (ItemStack stack : armorInventory) {
-    			ProgressiveTechnicalities.LOGGER.debug(stack.toString());
     			if (SoulBoundEnchantment.hasSoulBound(stack)) {
     				soulboundItems.add(stack);
     				player.inventory.armorInventory.set(i, ItemStack.EMPTY);
@@ -190,20 +211,4 @@ public class ModPlayerEvent {
     		soulboundItems = NonNullList.create();
     	}
     }
-    
-    /*
-    @SubscribeEvent
-    public static void onPlayerBreakBlock(PlayerEvent.HarvestCheck event) {
-    	if (event.getTargetBlock().getBlock().equals(Blocks.STONE)) {
-    		ItemStack held = event.getPlayer().getHeldItemMainhand();
-    		if (held.getToolTypes().contains(ToolType.PICKAXE)) {
-    			int harvestLevel = held.getHarvestLevel(ToolType.PICKAXE,  event.getPlayer(), event.getTargetBlock());
-        		if (harvestLevel <= 3) {
-        			// not carbide / titanium / etc.
-        			held.damageItem(25, event.getPlayer(), null);
-        		}
-    		}
-    	}
-    }
-    */
 }

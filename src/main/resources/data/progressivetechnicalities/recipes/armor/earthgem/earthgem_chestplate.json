@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "i i",
+        "iii",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "progressivetechnicalities:earth_gem"
+        }
+    },
+    "result": {
+        "item": "progressivetechnicalities:earthgem_chestplate"
+    }
+}

@@ -42,20 +42,13 @@ public class TitaniumArmor extends ArmorItem {
 	
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-		this.tick++;
-		if (this.tick == 300) {
-			this.tick = 0;
-			
-			if (!hasFullSet(player)) {
-				return;
-			}
-			
-			player.addPotionEffect(new EffectInstance(Effects.STRENGTH, 500, 9));
-			player.addPotionEffect(new EffectInstance(Effects.SPEED, 500, 4));
-			player.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 500, 2));
-			player.addPotionEffect(new EffectInstance(Effects.HASTE, 500, 2));
-			player.addPotionEffect(new EffectInstance(Effects.REGENERATION, 500, 0));
-			player.addPotionEffect(new EffectInstance(Effects.SATURATION, 500, 0));
+		if (!world.isRemote && hasFullSet(player)) {
+			player.addPotionEffect(new EffectInstance(Effects.STRENGTH, 100, 9));
+			player.addPotionEffect(new EffectInstance(Effects.SPEED, 100, 4));
+			player.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 100, 2));
+			player.addPotionEffect(new EffectInstance(Effects.HASTE, 100, 2));
+			player.addPotionEffect(new EffectInstance(Effects.REGENERATION, 100, 0));
+			player.addPotionEffect(new EffectInstance(Effects.SATURATION, 100, 0));
 		}
 		
 		super.onArmorTick(stack, world, player);
