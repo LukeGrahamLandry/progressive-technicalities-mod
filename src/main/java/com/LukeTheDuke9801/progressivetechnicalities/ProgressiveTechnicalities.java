@@ -3,6 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.LukeTheDuke9801.progressivetechnicalities.events.AddToLootTables;
 import com.LukeTheDuke9801.progressivetechnicalities.events.ModPlayerEvent;
 import com.LukeTheDuke9801.progressivetechnicalities.events.ScalingMobs;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BiomeInit;
@@ -12,12 +13,12 @@ import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModContainerTypes;
+import com.LukeTheDuke9801.progressivetechnicalities.init.ModEntityTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ModIceBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.OreGen;
 
 import net.minecraft.block.FlowingFluidBlock;
-import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -50,6 +51,7 @@ public class ProgressiveTechnicalities
     public static final ResourceLocation FEY_DIM_TYPE = new ResourceLocation(MOD_ID, "feywild");
     public static final ResourceLocation ARRAKIS_DIM_TYPE = new ResourceLocation(MOD_ID, "arrakis");
     public static final ResourceLocation PANDORA_DIM_TYPE = new ResourceLocation(MOD_ID, "pandora");
+    public static final ResourceLocation LUNA_DIM_TYPE = new ResourceLocation(MOD_ID, "luna");
 
     public ProgressiveTechnicalities() {
     	final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -62,11 +64,13 @@ public class ProgressiveTechnicalities
     	BlockInit.BLOCKS.register(modEventBus);
     	ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
     	ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
+    	ModEntityTypes.ENTITY_TYPES.register(modEventBus);
     	BiomeInit.BIOMES.register(modEventBus);
     	DimensionInit.MOD_DIMENSIONS.register(modEventBus);
     	
     	MinecraftForge.EVENT_BUS.register(ModPlayerEvent.class);
     	MinecraftForge.EVENT_BUS.register(ScalingMobs.class);
+    	MinecraftForge.EVENT_BUS.addListener(AddToLootTables::lootLoad);
         
         instance = this;
         

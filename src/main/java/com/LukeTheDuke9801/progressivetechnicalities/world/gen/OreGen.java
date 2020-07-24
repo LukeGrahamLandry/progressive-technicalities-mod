@@ -22,6 +22,7 @@ public class OreGen {
 	private static final OreFeatureConfig.FillerBlockType DARKSTONE_FILLER = OreFeatureConfig.FillerBlockType.create("progressivetechnicalities:DARKSTONE", "progressivetechnicalities:dark_stone", new BlockMatcher(BlockInit.DARK_STONE.get()));
 	private static final OreFeatureConfig.FillerBlockType FEYSTONE_FILLER = OreFeatureConfig.FillerBlockType.create("progressivetechnicalities:FEYSTONE", "progressivetechnicalities:fey_stone", new BlockMatcher(BlockInit.FEY_STONE.get()));
 	private static final OreFeatureConfig.FillerBlockType SANDSTONE_FILLER = OreFeatureConfig.FillerBlockType.create("progressivetechnicalities:SANDSTONE", "progressivetechnicalities:sand_stone", new BlockMatcher(Blocks.SANDSTONE));
+	private static final OreFeatureConfig.FillerBlockType LUNASTONE_FILLER = OreFeatureConfig.FillerBlockType.create("progressivetechnicalities:LUNASTONE", "progressivetechnicalities:luna_stone", new BlockMatcher(BlockInit.LUNA_STONE.get()));
 	
 	
 	public static void generateAllOres() {
@@ -54,6 +55,10 @@ public class OreGen {
 			if (biome == BiomeInit.SPACE_JUNGLE.get()) {
 				generate(biome, STONE_FILLER, BlockInit.UNOBTANIUM_ORE.get(), 10, 0, 16, 6);
 				generate(biome, STONE_FILLER, Blocks.INFESTED_STONE, 25, 0, 70, 50);
+			}
+			
+			if (biome == BiomeInit.LUNA_PLAINS.get()) {
+				generate(biome, LUNASTONE_FILLER, BlockInit.DILITHIUM_ORE.get(), 100, 0, 30, 4);
 			}
 		}
 	}

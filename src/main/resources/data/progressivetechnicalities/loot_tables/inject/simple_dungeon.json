@@ -1,0 +1,27 @@
+{
+    "pools": [{
+      "name": "charms",
+      "rolls": 1,
+      "entries": [
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:anti_slowness_charm",
+             "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "progressivetechnicalities:anti_blindness_charm",
+           "weight": 10
+        },
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:earth_gem",
+            "weight": 20
+        },
+        {
+            "type": "empty",
+            "weight": 60
+        }
+      ]
+    }]
+  }

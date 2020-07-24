@@ -4,9 +4,9 @@
   <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="net.minecraftforge.userdev.LaunchTesting"/>
   <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=SCAN,REGISTRIES,REGISTRYDUMP"/>
   <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value=""/>
-  <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="/Users/luke/Documents/progressive_technicalities/run"/>
+  <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="/Users/luke/Desktop/Code/progressive_technicalities/run"/>
   <mapAttribute key="org.eclipse.debug.core.environmentVariables">
-    <mapEntry key="MOD_CLASSES" value="examplemod%%/Users/luke/Documents/progressive_technicalities/bin/main:examplemod%%/Users/luke/Documents/progressive_technicalities/bin/main"/>
+    <mapEntry key="MOD_CLASSES" value="examplemod%%/Users/luke/Desktop/Code/progressive_technicalities/bin/main:examplemod%%/Users/luke/Desktop/Code/progressive_technicalities/bin/main"/>
     <mapEntry key="MCP_MAPPINGS" value="snapshot_20200509-1.15.1"/>
     <mapEntry key="MCP_VERSION" value="20191217.105819"/>
     <mapEntry key="FORGE_VERSION" value="30.0.51"/>

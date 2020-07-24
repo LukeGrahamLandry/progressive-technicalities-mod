@@ -1,0 +1,17 @@
+{
+    "pools": [{
+      "name": "charms",
+      "rolls": 1,
+      "entries": [
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:basic_lifesteal_charm",
+             "weight": 10
+        },
+        {
+            "type": "empty",
+            "weight": 90
+        }
+      ]
+    }]
+  }

@@ -194,7 +194,7 @@ public class ModularArmor extends ArmorItem {
   		  return "nightvision";
   	  }
   	  
-  	  if (item2.equals(ItemInit.FIRERES_CHARM.get())){
+  	  if (item2.equals(ItemInit.ANTI_FIRE_CHARM.get())){
   		  return "fireres";
   	  }
   	  

@@ -27,6 +27,9 @@ public class ForgeEventBusSubscriber {
 		if (DimensionType.byName(ProgressiveTechnicalities.PANDORA_DIM_TYPE) == null) {
 			DimensionManager.registerDimension(ProgressiveTechnicalities.PANDORA_DIM_TYPE, DimensionInit.PANDORA_DIM.get(), null, false);
 		}
+		if (DimensionType.byName(ProgressiveTechnicalities.LUNA_DIM_TYPE) == null) {
+			DimensionManager.registerDimension(ProgressiveTechnicalities.LUNA_DIM_TYPE, DimensionInit.LUNA_DIM.get(), null, false);
+		}
 		ProgressiveTechnicalities.LOGGER.info("Dimensions Added");
 	}
 }

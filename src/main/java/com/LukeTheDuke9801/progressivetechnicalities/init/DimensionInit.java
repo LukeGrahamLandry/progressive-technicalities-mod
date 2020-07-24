@@ -3,6 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.ArrakisModDimension;
 import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.FeyModDimension;
+import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.LunaModDimension;
 import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.OilModDimension;
 import com.LukeTheDuke9801.progressivetechnicalities.world.dimension.PandoraModDimension;
 
@@ -27,4 +28,7 @@ public class DimensionInit {
 	
 	public static final RegistryObject<ModDimension> PANDORA_DIM = MOD_DIMENSIONS.register("pandora_dim",
 			() -> new PandoraModDimension());
+	
+	public static final RegistryObject<ModDimension> LUNA_DIM = MOD_DIMENSIONS.register("luna_dim",
+			() -> new LunaModDimension());
 }

@@ -1,0 +1,28 @@
+{
+    "__comment": "This table is injected as its own pool into minecraft:chests/abandoned_mineshaft",
+    "pools": [{
+      "name": "charms",
+      "rolls": 1,
+      "entries": [
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:miners_charm",
+            "weight": 10
+        },
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:anti_poison_charm",
+             "weight": 10
+        },
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:earth_gem",
+            "weight": 20
+        },
+        {
+            "type": "empty",
+            "weight": 60
+        }
+      ]
+    }]
+  }

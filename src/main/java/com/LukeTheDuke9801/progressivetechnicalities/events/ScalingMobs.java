@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.ModEntityTypes;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -11,8 +12,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -20,6 +21,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -34,6 +36,7 @@ public class ScalingMobs {
 	@SubscribeEvent
     public static void onMobDeath(LivingDeathEvent event) {
 		LivingEntity mob = event.getEntityLiving();
+		
 		boolean killedByPlayer = event.getSource().getTrueSource() instanceof PlayerEntity;
 		if (!mob.isNonBoss() || !killedByPlayer || !(mob instanceof MonsterEntity)) {
 			return;
@@ -89,6 +92,10 @@ public class ScalingMobs {
     	int hours = (int) (minutes / 60);
     	
     	Entity entity = event.getEntity();
+    	
+    	if (entity instanceof AbstractVillagerEntity) {
+    		setWandererName((LivingEntity) entity);
+    	}
     	
     	if (entity instanceof MonsterEntity && entity.isNonBoss()) {
     		MonsterEntity mob = (MonsterEntity) entity;
@@ -152,12 +159,11 @@ public class ScalingMobs {
 		return currentDim == oilDim;
 	}
 	
-	public static String buffsAsString(World worldIn) {
-		long ticks = worldIn.getGameTime(); 
-    	long minutes = ticks/20/60;
-    	int hours = (int) (minutes / 60);
-    	
-		String s = "Hours: " + String.valueOf(hours);
-		return s;
+	private static void setWandererName(LivingEntity mob) {
+		if (mob.getType() == ModEntityTypes.WANDERING_GEM_SMITH.get()) {
+			mob.setCustomName(new StringTextComponent("Gen Smith"));
+		}
+		
+		
 	}
 }

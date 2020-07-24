@@ -89,6 +89,8 @@ public class HandHeldRocket extends Item{
 			return DimensionType.byName(ProgressiveTechnicalities.ARRAKIS_DIM_TYPE);
 		case "pandora":
 			return DimensionType.byName(ProgressiveTechnicalities.PANDORA_DIM_TYPE);
+		case "luna":
+			return DimensionType.byName(ProgressiveTechnicalities.LUNA_DIM_TYPE);
 		default:
 			throw new NullPointerException("INVALID DESTINATION STRING IN HandHeldRocket");
 		}

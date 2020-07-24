@@ -23,6 +23,8 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machi
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.SimpleMachineBlock;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
@@ -80,6 +82,15 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> EARTH_GEM_ORE = BLOCKS.register("earth_gem_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+
+	public static final RegistryObject<Block> LUNA_DUST = BLOCKS.register("luna_dust",
+			() -> new FallingBlock(Block.Properties.from(Blocks.SAND)));
+	
+	public static final RegistryObject<Block> LUNA_STONE = BLOCKS.register("luna_stone",
+			() -> new Block(Block.Properties.from(Blocks.STONE)));
+	
+	public static final RegistryObject<Block> DILITHIUM_ORE = BLOCKS.register("dilithium_ore",
+			() -> new Block(Block.Properties.from(Blocks.STONE)));
 
 	// Fey Food
 	//public static final RegistryObject<Block> COFFEE_CROP = BLOCKS.register("coffee_crop",

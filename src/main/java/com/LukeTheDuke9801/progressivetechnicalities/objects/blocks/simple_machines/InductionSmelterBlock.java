@@ -7,15 +7,19 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.FurnaceRecipe;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootContext;
+import net.minecraftforge.items.ItemHandlerHelper;
 
 public class InductionSmelterBlock extends SimpleMachineBlock{
 	private static final int cost = 5;
@@ -103,6 +107,18 @@ public class InductionSmelterBlock extends SimpleMachineBlock{
 		   result = ItemInit.FEYSTEEL_INGOT.get();
 	   }
 	   
+	   if (result == null) {
+		   result = smelt(new ItemStack(item), world).getItem();
+	   }
+	   
 	   return result;
+   }
+   
+   private static ItemStack smelt(ItemStack stack, World world) {
+       return world.getRecipeManager().getRecipe(IRecipeType.SMELTING, new Inventory(stack), world)
+               .map(FurnaceRecipe::getRecipeOutput)
+               .filter(itemStack -> !itemStack.isEmpty())
+               .map(itemStack -> ItemHandlerHelper.copyStackWithSize(itemStack, stack.getCount() * itemStack.getCount()))
+               .orElse(stack);
    }
 }

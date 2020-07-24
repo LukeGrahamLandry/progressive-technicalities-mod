@@ -8,9 +8,9 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeywildPortal
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.HandHeldRocket;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.LookingGlass;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MagicEggShell;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MonsterousLookingGlass;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.OilPortalKey;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.TinyCoal;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.WandererContract;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.XPCharge;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.BedrockiumArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.EarthGemArmor;
@@ -31,10 +31,12 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHe
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.TitaniumArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.VoidStriderLeggings;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.WaterGemArmor;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.AntiEffectCharm;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.AntiFireCharm;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.BoostCharm;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.FireResCharm;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.LifeStealCharmAdvanced;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.LifeStealCharmBasic;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.MinersCharm;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.BlazeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.CreativeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.EnderStaff;
@@ -162,8 +164,8 @@ public class ItemInit {
 	public static final RegistryObject<Item> OVERWORLD_ROCKET = ITEMS.register("overworld_rocket",
 			() -> new HandHeldRocket("overworld", false, new Item.Properties().group(ProgtechItemGroup.instance)));;
 			
-	public static final RegistryObject<Item> MOON_ROCKET = ITEMS.register("moon_rocket",
-			() -> new HandHeldRocket("moon", false, new Item.Properties().group(ProgtechItemGroup.instance)));;
+	public static final RegistryObject<Item> LUNA_ROCKET = ITEMS.register("luna_rocket",
+			() -> new HandHeldRocket("luna", false, new Item.Properties().group(ProgtechItemGroup.instance)));;
 			
 	public static final RegistryObject<Item> ADVANCED_OVERWORLD_ROCKET = ITEMS.register("advanced_overworld_rocket",
 			() -> new HandHeldRocket("overworld", true, new Item.Properties().group(ProgtechItemGroup.instance)));;
@@ -193,6 +195,12 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> EARTH_GEM = ITEMS.register("earth_gem",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	
+	public static final RegistryObject<Item> GEM_SMITH_CONTRACT = ITEMS.register("gem_smith_contract",
+			() -> new WandererContract("gem smith", new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> DILITHIUM = ITEMS.register("dilithium",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	// Dusts
@@ -277,9 +285,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> LOOKING_GLASS = ITEMS.register("looking_glass",
 			() -> new LookingGlass(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
-	public static final RegistryObject<Item> MONSTEROUS_LOOKING_GLASS = ITEMS.register("monsterous_looking_glass",
-			() -> new MonsterousLookingGlass(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-	
 	public static final RegistryObject<Item> AMMETER = ITEMS.register("ammeter",
 			() -> new Ammeter(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
@@ -287,14 +292,36 @@ public class ItemInit {
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",
 			() -> new BoostCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
-	public static final RegistryObject<Item> FIRERES_CHARM = ITEMS.register("fireres_charm",
-			() -> new FireResCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	public static final RegistryObject<Item> ANTI_FIRE_CHARM = ITEMS.register("anti_fire_charm",
+			() -> new AntiFireCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	public static final RegistryObject<Item> BASIC_LIFESTEAL_CHARM = ITEMS.register("basic_lifesteal_charm",
 			() -> new LifeStealCharmBasic(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	public static final RegistryObject<Item> ADVANCED_LIFESTEAL_CHARM = ITEMS.register("advanced_lifesteal_charm",
 			() -> new LifeStealCharmAdvanced(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> MINERS_CHARM = ITEMS.register("miners_charm",
+			() -> new MinersCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> ANTI_POISON_CHARM = ITEMS.register("anti_poison_charm",
+			() -> new AntiEffectCharm(Effects.POISON, new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> ANTI_SLOWNESS_CHARM = ITEMS.register("anti_slowness_charm",
+			() -> new AntiEffectCharm(Effects.SLOWNESS, new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> ANTI_WITHER_CHARM = ITEMS.register("anti_wither_charm",
+			() -> new AntiEffectCharm(Effects.WITHER, new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> ANTI_MINING_FATIGUE_CHARM = ITEMS.register("anti_mining_fatigue_charm",
+			() -> new AntiEffectCharm(Effects.MINING_FATIGUE, new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> ANTI_LEVITATION_CHARM = ITEMS.register("anti_levitaion_charm",
+			() -> new AntiEffectCharm(Effects.LEVITATION, new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
+	public static final RegistryObject<Item> ANTI_BLINDNESS_CHARM = ITEMS.register("anti_blindness_charm",
+			() -> new AntiEffectCharm(Effects.BLINDNESS, new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+	
 	
 	// Tools
 	public static final RegistryObject<Item> CARBIDE_SWORD = ITEMS.register("carbide_sword",

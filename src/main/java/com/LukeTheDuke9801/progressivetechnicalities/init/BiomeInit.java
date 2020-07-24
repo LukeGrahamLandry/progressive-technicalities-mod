@@ -3,6 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.ArrakisBiome;
 import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.FeyBiome;
+import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.LunaBiome;
 import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.OilBiome;
 import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.PandoraBiome;
 
@@ -26,14 +27,18 @@ public class BiomeInit {
 	public static final RegistryObject<Biome> SAND_DUNES = BIOMES.register("sand_dunes",
 			() -> new ArrakisBiome());
 	
-	public static final RegistryObject<Biome> SPACE_JUNGLE = BIOMES.register("jungle_plains",
+	public static final RegistryObject<Biome> SPACE_JUNGLE = BIOMES.register("jungle_hills",
 			() -> new PandoraBiome());
+	
+	public static final RegistryObject<Biome> LUNA_PLAINS = BIOMES.register("luna_plains",
+			() -> new LunaBiome());
 	
 	public static void registerBiomes() {
 		registerBiome(OIL_SPIKES.get(), Type.PLAINS, Type.OVERWORLD);
 		registerBiome(FEY_PLAINS.get(), Type.PLAINS, Type.OVERWORLD);
 		registerBiome(SAND_DUNES.get(), Type.HILLS, Type.OVERWORLD);
 		registerBiome(SPACE_JUNGLE.get(), Type.HILLS, Type.OVERWORLD);
+		registerBiome(LUNA_PLAINS.get(), Type.PLAINS, Type.OVERWORLD);
 	}
 	
 	private static void registerBiome(Biome biome, Type... types) {
