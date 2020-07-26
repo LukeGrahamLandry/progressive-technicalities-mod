@@ -56,22 +56,17 @@ public class OilPortalKey extends Item {
     */
    public ActionResultType onItemUse(ItemUseContext context) {
       World world = context.getWorld();
-      if (world.isRemote) {
-         return ActionResultType.SUCCESS;
-      } else {
-         ItemStack itemstack = context.getItem();
-         BlockPos blockpos = context.getPos();
-         Direction direction = context.getFace();
-         BlockState blockstate = world.getBlockState(blockpos);
-         Block block = blockstate.getBlock();
-         
-         if (validPortalSpawnLocation(world, blockpos)) {
-        	 genPortal(world, blockpos);
-        	 itemstack.shrink(1);
-         }
+      if (world.isRemote) return ActionResultType.SUCCESS;
 
-         return ActionResultType.SUCCESS;
-      }
+	 ItemStack itemstack = context.getItem();
+	 BlockPos blockpos = context.getPos();
+
+	 if (validPortalSpawnLocation(world, blockpos)) {
+		 genPortal(world, blockpos);
+		 itemstack.shrink(1);
+	 }
+
+	 return ActionResultType.SUCCESS;
    }
    
    private boolean validPortalSpawnLocation(World world, BlockPos pos) {

@@ -36,10 +36,10 @@ public class FeyBiome extends Biome{
 				.scale(0.05f)
 				.temperature(0.8F));
 		
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.VEX, 10, 1, 3));
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.PHANTOM, 10, 1, 3));
-	    this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.MOOSHROOM, 20, 3, 6));
-	    this.addSpawn(EntityClassification.WATER_CREATURE, new SpawnListEntry(EntityType.DOLPHIN, 20, 1, 5));
+	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.VEX, 10, 1, 2));
+	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.PHANTOM, 10, 1, 1));
+	    this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.MOOSHROOM, 20, 2, 5));
+	    this.addSpawn(EntityClassification.WATER_CREATURE, new SpawnListEntry(EntityType.DOLPHIN, 20, 1, 2));
 	    
 	    DefaultBiomeFeatures.addMushrooms(this);
 	    DefaultBiomeFeatures.addHugeMushrooms(this);
@@ -49,7 +49,7 @@ public class FeyBiome extends Biome{
 	    DefaultBiomeFeatures.addBerryBushes(this);
 	    
 	    this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.MELON.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).replaceable().func_227317_b_().build()).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
-	    this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.withConfiguration(new BlockStateFeatureConfig(FluidInit.SILVER_FLUID_BLOCK.get().getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(3))));
+	    this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.withConfiguration(new BlockStateFeatureConfig(FluidInit.NYMPHARIUM_FLUID_BLOCK.get().getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(3))));
 	    
 	}
 	

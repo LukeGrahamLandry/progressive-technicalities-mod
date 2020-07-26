@@ -6,6 +6,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -13,11 +14,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public class VoidStriderLeggings extends ArmorItem{
+public class VoidStriderLeggings extends ArmorItem implements HitEventListener{
 
 	public VoidStriderLeggings(EquipmentSlotType slot, Properties builder) {
 		super(new Material(), slot, builder);
@@ -29,6 +32,16 @@ public class VoidStriderLeggings extends ArmorItem{
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
+	}
+
+	@Override
+	public void onWearerHit(LivingHurtEvent event) {
+		LivingEntity entity = event.getEntityLiving();
+		boolean belowBedrock = entity.getPosY() <= 0;
+		boolean isVoidDamage = event.getSource() == DamageSource.OUT_OF_WORLD;
+		if (belowBedrock && isVoidDamage) {
+			event.setCanceled(true);
+		}
 	}
 	
 	@Override

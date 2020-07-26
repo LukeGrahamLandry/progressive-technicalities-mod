@@ -63,9 +63,6 @@ public class FeywildPortalKey extends Item {
       } else {
          ItemStack itemstack = context.getItem();
          BlockPos blockpos = context.getPos();
-         Direction direction = context.getFace();
-         BlockState blockstate = world.getBlockState(blockpos);
-         Block block = blockstate.getBlock();
          
          if (validPortalSpawnLocation(world, blockpos)) {
         	 genPortal(world, blockpos);

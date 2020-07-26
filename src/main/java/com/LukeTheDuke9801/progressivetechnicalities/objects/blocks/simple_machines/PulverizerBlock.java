@@ -177,8 +177,8 @@ public class PulverizerBlock extends SimpleMachineBlock{
 		   result = ItemInit.STEEL_DUST.get();
 		   count = 1;
 	   }
-	   if (item.equals(ItemInit.SILVER_INGOT.get())) {
-		   result = ItemInit.SILVER_DUST.get();
+	   if (item.equals(ItemInit.NYMPHARIUM_INGOT.get())) {
+		   result = ItemInit.NYMPHARIUM_DUST.get();
 		   count = 1;
 	   }
 	   if (item.equals(ItemInit.ELECTRUM_INGOT.get())) {

@@ -2,10 +2,12 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items;
 
 import java.util.List;
 
+import com.LukeTheDuke9801.progressivetechnicalities.entities.AbstractWanderer;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModEntityTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.Item;
@@ -37,10 +39,13 @@ public class WandererContract extends Item {
 	public ActionResultType onItemUse(ItemUseContext context) {
 		if (context.getHand() == Hand.OFF_HAND) return ActionResultType.PASS;
 		
-		EntityType entityType;
+		EntityType<? extends AbstractWanderer> entityType;
 		switch (this.type) {
 		case "gem smith":
 			entityType = ModEntityTypes.WANDERING_GEM_SMITH.get();
+			break;
+		case "astronomer":
+			entityType = ModEntityTypes.WANDERING_ASTRONOMER.get();
 			break;
 		default:
 			throw new NullPointerException("INVALID WONDERING TRADER TYPE");
@@ -48,7 +53,7 @@ public class WandererContract extends Item {
 		
 		BlockPos spawnPos = context.getPos().offset(context.getFace());
 		
-		entityType.spawn(context.getWorld(), ItemStack.EMPTY, null, spawnPos, SpawnReason.SPAWN_EGG, false, false);
+		entityType.spawn(context.getWorld(), ItemStack.EMPTY, context.getPlayer(), spawnPos, SpawnReason.SPAWN_EGG, false, false);
 		
 		context.getPlayer().setHeldItem(Hand.MAIN_HAND, ItemStack.EMPTY);
 		

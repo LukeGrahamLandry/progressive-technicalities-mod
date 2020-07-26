@@ -39,25 +39,25 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fluids.FluidAttributes;
 
-public abstract class SilverFluid extends FlowingFluid {
+public abstract class NymphariumFluid extends FlowingFluid {
    public Fluid getFlowingFluid() {
-      return FluidInit.SILVER_FLOWING.get();
+      return FluidInit.NYMPHARIUM_FLOWING.get();
    }
 
    public Fluid getStillFluid() {
-      return FluidInit.SILVER_FLUID.get();
+      return FluidInit.NYMPHARIUM_FLUID.get();
    }
 
    public Item getFilledBucket() {
-      return FluidInit.SILVER_FLUID_BUCKET.get();
+      return FluidInit.NYMPHARIUM_FLUID_BUCKET.get();
    }
    
    @Override
 	protected FluidAttributes createAttributes() {
 	   return net.minecraftforge.fluids.FluidAttributes.builder(
-               FluidInit.SILVER_STILL_RL,
-               FluidInit.SILVER_FLOWING_RL)
-               .luminosity(1000).density(3000).viscosity(6000).temperature(0).overlay(FluidInit.SILVER_OVERLAY_RL).build(this);
+               FluidInit.NYMPHARIUM_STILL_RL,
+               FluidInit.NYMPHARIUM_FLOWING_RL)
+               .luminosity(1000).density(3000).viscosity(6000).temperature(0).overlay(FluidInit.NYMPHARIUM_OVERLAY_RL).build(this);
 	}
    
    public static void applyFluidPotionEffects(PlayerEntity player) {
@@ -85,8 +85,8 @@ public abstract class SilverFluid extends FlowingFluid {
 	                  for(int j2 = i1; j2 < j1; ++j2) {
 	                     blockpos$pooledmutable.setPos(l1, i2, j2);
 	                     IFluidState ifluidstate = player.world.getFluidState(blockpos$pooledmutable);
-	                     boolean inSilver = ifluidstate.getFluid() instanceof SilverFluid;
-	                     if (inSilver) {
+	                     boolean inNympharium = ifluidstate.getFluid() instanceof NymphariumFluid;
+	                     if (inNympharium) {
 	                        double d1 = (double)((float)i2 + ifluidstate.getActualHeight(player.world, blockpos$pooledmutable));
 	                        if (d1 >= axisalignedbb.minY) {
 	                           flag1 = true;
@@ -104,7 +104,7 @@ public abstract class SilverFluid extends FlowingFluid {
    
    public static void solidifyNearby(LivingEntity living, World worldIn, BlockPos pos, int level) {
 	      if (living.onGround || true) {
-	         BlockState blockstate = FluidInit.SILVER_ICE.get().getDefaultState();
+	         BlockState blockstate = FluidInit.NYMPHARIUM_ICE.get().getDefaultState();
 	         float f = (float)Math.min(16, 2 + level);
 	         BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 
@@ -114,11 +114,11 @@ public abstract class SilverFluid extends FlowingFluid {
 	               BlockState blockstate1 = worldIn.getBlockState(blockpos$mutable);
 	               if (blockstate1.isAir(worldIn, blockpos$mutable)) {
 	                  BlockState blockstate2 = worldIn.getBlockState(blockpos);
-	                  boolean isFull = blockstate2.getBlock() == FluidInit.SILVER_FLUID_BLOCK.get() && blockstate2.get(FlowingFluidBlock.LEVEL) == 0; 
-	                  boolean isSilver = blockstate2.getFluidState().getFluid().isEquivalentTo(FluidInit.SILVER_FLUID.get());
-	                  if (isSilver && isFull && blockstate.isValidPosition(worldIn, blockpos) && worldIn.func_226663_a_(blockstate, blockpos, ISelectionContext.dummy()) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(living, new net.minecraftforge.common.util.BlockSnapshot(worldIn, blockpos, blockstate2), net.minecraft.util.Direction.UP)) {
+	                  boolean isFull = blockstate2.getBlock() == FluidInit.NYMPHARIUM_FLUID_BLOCK.get() && blockstate2.get(FlowingFluidBlock.LEVEL) == 0; 
+	                  boolean isNympharium = blockstate2.getFluidState().getFluid().isEquivalentTo(FluidInit.NYMPHARIUM_FLUID.get());
+	                  if (isNympharium && isFull && blockstate.isValidPosition(worldIn, blockpos) && worldIn.func_226663_a_(blockstate, blockpos, ISelectionContext.dummy()) && !net.minecraftforge.event.ForgeEventFactory.onBlockPlace(living, new net.minecraftforge.common.util.BlockSnapshot(worldIn, blockpos, blockstate2), net.minecraft.util.Direction.UP)) {
 	                     worldIn.setBlockState(blockpos, blockstate);
-	                     worldIn.getPendingBlockTicks().scheduleTick(blockpos,FluidInit.SILVER_ICE.get(), MathHelper.nextInt(living.getRNG(), 60, 120));
+	                     worldIn.getPendingBlockTicks().scheduleTick(blockpos,FluidInit.NYMPHARIUM_ICE.get(), MathHelper.nextInt(living.getRNG(), 60, 120));
 	                  }
 	               }
 	            }
@@ -159,7 +159,7 @@ public abstract class SilverFluid extends FlowingFluid {
    }
 
    public BlockState getBlockState(IFluidState state) {
-      return FluidInit.SILVER_FLUID_BLOCK.get().getDefaultState().with(FlowingFluidBlock.LEVEL, Integer.valueOf(getLevelFromState(state)));
+      return FluidInit.NYMPHARIUM_FLUID_BLOCK.get().getDefaultState().with(FlowingFluidBlock.LEVEL, Integer.valueOf(getLevelFromState(state)));
    }
 
    public boolean isEquivalentTo(Fluid fluidIn) {
@@ -182,7 +182,7 @@ public abstract class SilverFluid extends FlowingFluid {
       return 100.0F;
    }
 
-   public static class Flowing extends SilverFluid {
+   public static class Flowing extends NymphariumFluid {
       protected void fillStateContainer(StateContainer.Builder<Fluid, IFluidState> builder) {
          super.fillStateContainer(builder);
          builder.add(LEVEL_1_8);
@@ -197,7 +197,7 @@ public abstract class SilverFluid extends FlowingFluid {
       }
    }
 
-   public static class Source extends SilverFluid {
+   public static class Source extends NymphariumFluid {
       public int getLevel(IFluidState p_207192_1_) {
          return 8;
       }

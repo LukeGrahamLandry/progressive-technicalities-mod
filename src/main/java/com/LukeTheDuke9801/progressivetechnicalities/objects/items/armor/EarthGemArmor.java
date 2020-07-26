@@ -11,6 +11,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper
 import com.google.common.collect.Multimap;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -18,13 +19,15 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public class EarthGemArmor extends ArmorItem {
+public class EarthGemArmor extends ArmorItem implements HitEventListener{
 	int tick = 0;
 
 	public EarthGemArmor(EquipmentSlotType slot, Properties builder) {
@@ -34,10 +37,31 @@ public class EarthGemArmor extends ArmorItem {
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Full set gives haste I, knockback resistance and gives attackers slowness II for 10 seconds"));
+			tooltip.add(new StringTextComponent("Full set gives haste I, knockback resistance. Gives attackers slowness II for 2 seconds per piece"));
 		}
 
 		super.addInformation(stack, worldIn, tooltip, flagIn);
+	}
+
+	@Override
+	public void onWearerHit(LivingHurtEvent event) {
+		Entity trueSource = event.getSource().getTrueSource();
+		if (trueSource instanceof LivingEntity) {
+			LivingEntity source = (LivingEntity)trueSource;
+			EffectInstance slow = source.getActivePotionEffect(Effects.SLOWNESS);
+
+			int newSlowTime;
+			if (slow == null || slow.getAmplifier() < 1){
+				newSlowTime = 40;
+			} else if (slow.getAmplifier() == 1){
+				newSlowTime = slow.getDuration() + 40;
+				if (newSlowTime > 160) return;
+			} else {
+				return;
+			}
+
+			source.addPotionEffect(new EffectInstance(Effects.SLOWNESS, newSlowTime, 1));
+		}
 	}
 	
 	@Nonnull

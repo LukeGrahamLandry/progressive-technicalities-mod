@@ -6,15 +6,9 @@ import com.LukeTheDuke9801.progressivetechnicalities.enchantments.SoulBoundEncha
 import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluid;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.SilverFluid;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.NymphariumFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeyFood;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.EarthGemArmor;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FeySteelArmorItem;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FireGemArmor;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.VoidStriderLeggings;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.*;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -22,6 +16,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -50,8 +45,8 @@ public class ModPlayerEvent {
     		if (OilFluid.isInFluid(player)) {
     			OilFluid.applyFluidPotionEffects(event.player);
     		}
-    		if (SilverFluid.isInFluid(player)) {
-    			SilverFluid.applyFluidPotionEffects(event.player);
+    		if (NymphariumFluid.isInFluid(player)) {
+    			NymphariumFluid.applyFluidPotionEffects(event.player);
     		}
     	}
     	
@@ -90,54 +85,11 @@ public class ModPlayerEvent {
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
     	LivingEntity entity = event.getEntityLiving();
-    	
-    	// Handle long fall boots
-    	boolean isFallDamage = event.getSource() == DamageSource.FALL;
-    	boolean wearingLongFallBoots = entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem() instanceof LongFallBoots || (ModularArmor.getModuleLevel(entity, "longfall") == 1);
-    	if (isFallDamage && wearingLongFallBoots) {
-    		event.setCanceled(true);
-    	}
-    	
-    	// Handle void strider
-    	boolean belowBedrock = entity.getPosY() <= 0;
-    	boolean wearingVoidStrider = entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem() instanceof VoidStriderLeggings;
-    	boolean isVoidDamage = event.getSource() == DamageSource.OUT_OF_WORLD; 
-    	if (belowBedrock && wearingVoidStrider && isVoidDamage) {
-    		event.setCanceled(true);
-    	}
-    	
-    	// deal thorns damage from feysteel armour
-    	Iterable<ItemStack> armor = entity.getArmorInventoryList();
-    	int numFeysteel = 0;
-    	for (ItemStack armorPiece : armor){ 
-    		if (armorPiece.getItem() instanceof FeySteelArmorItem) {
-    			numFeysteel += 1;
-    		}
-    	}
-    	if (ModularArmor.hasFullSet(entity)) {
-    		numFeysteel = ModularArmor.getModuleLevel(entity, "thorns");
-    	}
-    	Entity trueSource = event.getSource().getTrueSource();
-    	if (trueSource instanceof LivingEntity && numFeysteel > 0) {
-    		((LivingEntity)trueSource).attackEntityFrom(DamageSource.causeThornsDamage(entity), numFeysteel * 2);
-    	}
-    	
-    	// Handle fire thorns from fire armor
-    	boolean hasFireArmor = FireGemArmor.hasFullSet(entity);
-    	if (hasFireArmor) {
-    		if (trueSource instanceof LivingEntity) {
-        		((LivingEntity)trueSource).setFire(5);
-        	}
-    	}
-    	
-    	// Handle slowness thorns from earth armor
-    	boolean hasEarthArmor = EarthGemArmor.hasFullSet(entity);
-    	if (hasEarthArmor) {
-    		if (trueSource instanceof LivingEntity) {
-        		((LivingEntity)trueSource).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 200, 1));
-        	}
-    	}
-    	
+
+    	handleArmorOnHitEffects(entity, event);
+
+		Entity trueSource = event.getSource().getTrueSource();
+
     	// Handle advanced life steal charm
     	if (trueSource instanceof PlayerEntity) {
     		boolean hasLifeStealCharm = ((PlayerEntity) trueSource).inventory.hasItemStack(new ItemStack(ItemInit.ADVANCED_LIFESTEAL_CHARM.get()));
@@ -147,8 +99,19 @@ public class ModPlayerEvent {
     		}
     	}
     }
-    
-    // Makes vanilla food give no saturation
+
+	private static void handleArmorOnHitEffects(LivingEntity entity, LivingHurtEvent event) {
+		for (ItemStack stack : entity.getArmorInventoryList()){
+			Item item = stack.getItem();
+			if (item instanceof HitEventListener){
+				HitEventListener listener = (HitEventListener) item;
+				listener.onWearerHit(event);
+			}
+		}
+	}
+
+
+	// Makes vanilla food give no saturation
     @SubscribeEvent
     public static void onPlayerEatFood(LivingEntityUseItemEvent.Finish event) {
     	if (event.getItem().getItem().isFood() && event.getEntityLiving() instanceof PlayerEntity) {

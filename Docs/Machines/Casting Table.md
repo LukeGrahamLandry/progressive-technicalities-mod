@@ -1,4 +1,4 @@
-Rightclick with a bucket of silver to get a silver ingot 
+Rightclick with a bucket of nympharium to get a nympharium ingot 
 water -> ice
 lava -> obsidian
 oil -> tiny coal

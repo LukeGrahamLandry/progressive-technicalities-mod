@@ -34,8 +34,8 @@ public class CastingTableBlock extends SimpleMachineBlock{
 		   if (handHeld instanceof BucketItem) {
 			   Fluid fluid = ((BucketItem) handHeld).getFluid();
 			   Item result = null;
-			   if (fluid.isEquivalentTo(FluidInit.SILVER_FLUID.get())) {
-				   result = ItemInit.SILVER_INGOT.get();
+			   if (fluid.isEquivalentTo(FluidInit.NYMPHARIUM_FLUID.get())) {
+				   result = ItemInit.NYMPHARIUM_INGOT.get();
 			   }
 			   if (fluid.isEquivalentTo(FluidInit.OIL_FLUID.get())) {
 				   result = ItemInit.TINY_COAL.get();

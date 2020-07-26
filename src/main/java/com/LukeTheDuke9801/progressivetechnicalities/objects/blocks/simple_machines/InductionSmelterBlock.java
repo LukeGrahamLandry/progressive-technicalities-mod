@@ -78,8 +78,8 @@ public class InductionSmelterBlock extends SimpleMachineBlock{
 	   if (item.equals(ItemInit.OBSIDIAN_DUST.get())) {
 		   result = ItemInit.OBSIDIAN_INGOT.get();
 	   }
-	   if (item.equals(ItemInit.SILVER_DUST.get())) {
-		   result = ItemInit.SILVER_INGOT.get();
+	   if (item.equals(ItemInit.NYMPHARIUM_DUST.get())) {
+		   result = ItemInit.NYMPHARIUM_INGOT.get();
 	   }
 	   if (item.equals(ItemInit.STEEL_DUST.get())) {
 		   result = ItemInit.STEEL_INGOT.get();

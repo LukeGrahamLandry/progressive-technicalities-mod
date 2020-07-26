@@ -4,7 +4,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ModIceBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluid;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.SilverFluid;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.NymphariumFluid;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -43,22 +43,22 @@ public class FluidInit {
 			() -> new BucketItem(() -> FluidInit.OIL_FLUID.get(), new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(ProgtechItemGroup.instance)));
 	
 	
-	public static final ResourceLocation SILVER_STILL_RL = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "blocks/silver_still");
-	public static final ResourceLocation SILVER_FLOWING_RL = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "blocks/silver_flowing");
-	public static final ResourceLocation SILVER_OVERLAY_RL = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "blocks/oil_overlay");
+	public static final ResourceLocation NYMPHARIUM_STILL_RL = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "blocks/nympharium_still");
+	public static final ResourceLocation NYMPHARIUM_FLOWING_RL = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "blocks/nympharium_flowing");
+	public static final ResourceLocation NYMPHARIUM_OVERLAY_RL = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "blocks/oil_overlay");
 	
-	public static final RegistryObject<FlowingFluid> SILVER_FLUID = FLUIDS.register("silver_fluid",
-			() -> new SilverFluid.Source());
+	public static final RegistryObject<FlowingFluid> NYMPHARIUM_FLUID = FLUIDS.register("nympharium_fluid",
+			() -> new NymphariumFluid.Source());
 			
-	public static final RegistryObject<FlowingFluid> SILVER_FLOWING = FLUIDS.register("silver_flowing",
-			() -> new SilverFluid.Flowing());
+	public static final RegistryObject<FlowingFluid> NYMPHARIUM_FLOWING = FLUIDS.register("nympharium_flowing",
+			() -> new NymphariumFluid.Flowing());
 	
-	public static final RegistryObject<FlowingFluidBlock> SILVER_FLUID_BLOCK = BlockInit.BLOCKS.register("silver",
-			() -> new FlowingFluidBlock(() -> FluidInit.SILVER_FLUID.get(), Block.Properties.create(Material.WATER)
+	public static final RegistryObject<FlowingFluidBlock> NYMPHARIUM_FLUID_BLOCK = BlockInit.BLOCKS.register("nympharium",
+			() -> new FlowingFluidBlock(() -> FluidInit.NYMPHARIUM_FLUID.get(), Block.Properties.create(Material.WATER)
 					.doesNotBlockMovement().hardnessAndResistance(100f).noDrops()));
 	
-	public static final RegistryObject<Item> SILVER_FLUID_BUCKET = ItemInit.ITEMS.register("silver_fluid_bucket",
-			() -> new BucketItem(() -> FluidInit.SILVER_FLUID.get(), new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> NYMPHARIUM_FLUID_BUCKET = ItemInit.ITEMS.register("nympharium_fluid_bucket",
+			() -> new BucketItem(() -> FluidInit.NYMPHARIUM_FLUID.get(), new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(ProgtechItemGroup.instance)));
 	
 	
 	// Ice
@@ -68,7 +68,7 @@ public class FluidInit {
 	public static final RegistryObject<Block> OIL_ICE = BlockInit.BLOCKS.register("oil_ice",
 			() -> new ModIceBlock(() -> FluidInit.OIL_BLOCK.get(), Block.Properties.create(Material.ROCK).hardnessAndResistance(1f, 2f).slipperiness(1.05f).sound(SoundType.WOOD)));
 	
-	public static final RegistryObject<Block> SILVER_ICE = BlockInit.BLOCKS.register("silver_ice",
-			() -> new ModIceBlock(() -> FluidInit.SILVER_FLUID_BLOCK.get(), Block.Properties.create(Material.ROCK).hardnessAndResistance(1f, 2f).slipperiness(1.05f).sound(SoundType.WOOD)));
+	public static final RegistryObject<Block> NYMPHARIUM_ICE = BlockInit.BLOCKS.register("nympharium_ice",
+			() -> new ModIceBlock(() -> FluidInit.NYMPHARIUM_FLUID_BLOCK.get(), Block.Properties.create(Material.ROCK).hardnessAndResistance(1f, 2f).slipperiness(1.05f).sound(SoundType.WOOD)));
 	
 }

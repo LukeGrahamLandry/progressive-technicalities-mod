@@ -4,7 +4,7 @@ Very very extreme mountains. The surface is made of obsidian, oceans of oil and 
 
 Many mobs spawn naturally in large groups
 - Zombies, Skeletions, Spiders, Creepers
-- Silverfish, Cave Spiders
+- Nymphariumfish, Cave Spiders
 - Slimes, Witches, Phantoms
 - Blazes, Ghasts, Wither Skeletons
 - Evokers, Vexes

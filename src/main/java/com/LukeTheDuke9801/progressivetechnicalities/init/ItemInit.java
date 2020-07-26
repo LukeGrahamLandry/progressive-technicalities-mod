@@ -128,7 +128,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> OBSIDIAN_INGOT = ITEMS.register("obsidian_ingot",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> SILVER_INGOT = ITEMS.register("silver_ingot",
+	public static final RegistryObject<Item> NYMPHARIUM_INGOT = ITEMS.register("nympharium_ingot",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> ELECTRUM_INGOT = ITEMS.register("electrum_ingot",
@@ -218,7 +218,7 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	public static final RegistryObject<Item> STEEL_DUST = ITEMS.register("steel_dust",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> SILVER_DUST = ITEMS.register("silver_dust",
+	public static final RegistryObject<Item> NYMPHARIUM_DUST = ITEMS.register("nympharium_dust",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	public static final RegistryObject<Item> ELECTRUM_DUST = ITEMS.register("electrum_dust",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -495,16 +495,16 @@ public class ItemInit {
 			() -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> FIREGEM_HELMET = ITEMS.register("firegem_helmet",
-			() -> new ArmorItem(ModArmorMaterial.FIREGEM, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+			() -> new FireGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> FIREGEM_CHESTPLATE = ITEMS.register("firegem_chestplate",
 			() -> new FireGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> FIREGEM_LEGGINGS = ITEMS.register("firegem_leggings",
-			() -> new ArmorItem(ModArmorMaterial.FIREGEM, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+			() -> new FireGemArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> FIREGEM_BOOTS = ITEMS.register("firegem_boots",
-			() -> new ArmorItem(ModArmorMaterial.FIREGEM, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+			() -> new FireGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> SKYGEM_HELMET = ITEMS.register("skygem_helmet",
 			() -> new SkyGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));

@@ -1,3 +1,3 @@
 A portal can be created by right clicking a patch of five grass in a plus shape with a *fey portal key*. Fall on the center block to change dimensions. Portals in the feywild automaticly close after five minutes so bring an extra portal key or get out quick.
 
-Quite flat grassy landscape. Lakes of liquid silver (causes damage if you don't have fire resistance). Lot's of vegitaion: giant mushrooms, flowers, melons. Eternal day. Underground is made of *solid fairy dust* which is slow to break but vulnerable to explosions. Fey steel ore can be found and made into [[Feysteel Armour]].
+Quite flat grassy landscape. Lakes of liquid nympharium (causes damage if you don't have fire resistance). Lot's of vegitaion: giant mushrooms, flowers, melons. Eternal day. Underground is made of *solid fairy dust* which is slow to break but vulnerable to explosions. Fey steel ore can be found and made into [[Feysteel Armour]].

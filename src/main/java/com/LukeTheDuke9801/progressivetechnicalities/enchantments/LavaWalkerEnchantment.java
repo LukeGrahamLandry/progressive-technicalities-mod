@@ -1,7 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.enchantments;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.SilverFluid;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.NymphariumFluid;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -44,7 +44,7 @@ public class LavaWalkerEnchantment extends Enchantment{
 	   }
 	
 	public static void solidifyNearby(LivingEntity living, World worldIn, BlockPos pos, int level) {
-		  SilverFluid.solidifyNearby(living, worldIn, pos, level);
+		  NymphariumFluid.solidifyNearby(living, worldIn, pos, level);
 		  
 	      if (living.onGround || true) {
 	         BlockState blockstate = FluidInit.LAVA_ICE.get().getDefaultState();

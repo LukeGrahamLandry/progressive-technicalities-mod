@@ -3,6 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.events;
 import java.util.UUID;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.AbstractWanderer;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModEntityTypes;
 
@@ -93,10 +94,6 @@ public class ScalingMobs {
     	
     	Entity entity = event.getEntity();
     	
-    	if (entity instanceof AbstractVillagerEntity) {
-    		setWandererName((LivingEntity) entity);
-    	}
-    	
     	if (entity instanceof MonsterEntity && entity.isNonBoss()) {
     		MonsterEntity mob = (MonsterEntity) entity;
     		
@@ -157,13 +154,5 @@ public class ScalingMobs {
 		DimensionType oilDim = DimensionType.byName(ProgressiveTechnicalities.OIL_DIM_TYPE);
 		DimensionType currentDim = mob.getEntityWorld().getDimension().getType();
 		return currentDim == oilDim;
-	}
-	
-	private static void setWandererName(LivingEntity mob) {
-		if (mob.getType() == ModEntityTypes.WANDERING_GEM_SMITH.get()) {
-			mob.setCustomName(new StringTextComponent("Gen Smith"));
-		}
-		
-		
 	}
 }

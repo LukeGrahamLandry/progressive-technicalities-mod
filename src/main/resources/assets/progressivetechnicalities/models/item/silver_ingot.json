@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "progressivetechnicalities:items/silver_ingot"
+        "layer0": "progressivetechnicalities:items/nympharium_ingot"
     }
 }

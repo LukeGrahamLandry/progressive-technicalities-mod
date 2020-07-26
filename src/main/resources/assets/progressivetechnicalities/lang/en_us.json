@@ -15,7 +15,7 @@
 	"item.progressivetechnicalities.feysteel_ingot": "Feysteel Ingot",
 	"item.progressivetechnicalities.electrum_ingot": "Electrum Ingot",
 	"item.progressivetechnicalities.steel_ingot": "Steel Ingot",
-	"item.progressivetechnicalities.silver_ingot": "Silver Ingot",
+	"item.progressivetechnicalities.nympharium_ingot": "Nympharium Ingot",
 	"item.progressivetechnicalities.varidium_ingot": "Varidium Ingot",
 	"item.progressivetechnicalities.melange_clump": "Melange Clump",
 	"item.progressivetechnicalities.obsidian_ingot": "Obsidian Ingot",
@@ -38,7 +38,7 @@
 	"item.progressivetechnicalities.unobtanium_dust": "Unobtanium Dust",
 	"item.progressivetechnicalities.bedrockium_dust": "Bedrockium Dust",
 	"item.progressivetechnicalities.obsidian_dust": "Obsidian Dust",
-	"item.progressivetechnicalities.silver_dust": "Silver Dust",
+	"item.progressivetechnicalities.nympharium_dust": "Nympharium Dust",
 	"item.progressivetechnicalities.dilithium_crystal": "Dilithium Crystal",
 
 	"item.progressivetechnicalities.coffee": "Coffee",
@@ -75,7 +75,7 @@
 	"item.progressivetechnicalities.fireres_charm": "Charm of Obsidian Skin",
 	
 	"item.progressivetechnicalities.oil_bucket": "Bucket of Oil",
-	"item.progressivetechnicalities.sliver_fluid_bucket": "Bucket of Molten Silver",
+	"item.progressivetechnicalities.sliver_fluid_bucket": "Bucket of Molten Nympharium",
 	"item.progressivetechnicalities.obsidian_sword": "Obsidian Sword",
 	"item.progressivetechnicalities.obsidian_pickaxe": "Obsidian Pickaxe",
 	"item.progressivetechnicalities.obsidian_axe": "Obsidian Axe",
@@ -179,6 +179,7 @@
 	"container.enchantment_forge": "Enchantment Forge",
 
 	"enchantment.progressivetechnicalities.lava_walker_enchant": "Lava Walker",
+	"enchantment.progressivetechnicalities.soul_bound_enchant": "Soul Bound",
 	
 	"itemGroup.progtechtab": "Progressive Technicalities"
 }

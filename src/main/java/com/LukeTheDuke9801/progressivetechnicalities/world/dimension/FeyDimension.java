@@ -25,7 +25,7 @@ public class FeyDimension extends Dimension{
 		@Override
 		public ChunkGenerator<?> createChunkGenerator() {
 			OverworldGenSettings settings = new OverworldGenSettings();
-			settings.setDefaultFluid(FluidInit.SILVER_FLUID_BLOCK.get().getDefaultState());
+			settings.setDefaultFluid(FluidInit.NYMPHARIUM_FLUID_BLOCK.get().getDefaultState());
 			settings.setDefaultBlock(BlockInit.FEY_STONE.get().getDefaultState());
 			SingleBiomeProviderSettings biomeProviderSettings = new SingleBiomeProviderSettings(world.getWorldInfo());
 		    biomeProviderSettings.setBiome(BiomeInit.FEY_PLAINS.get());
