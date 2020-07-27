@@ -1,8 +1,10 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.init.BiomeInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
 
+import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.FeyBiome;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,6 +16,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.server.ServerWorld;
 

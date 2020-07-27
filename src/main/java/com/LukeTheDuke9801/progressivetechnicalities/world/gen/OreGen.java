@@ -72,7 +72,7 @@ public class OreGen {
 		}
 	}
 
-	private static boolean isVanillaOverworldBiome(Biome biome) {
+	public static boolean isVanillaOverworldBiome(Biome biome) {
 		String namespace = biome.getRegistryName().getNamespace();
 		return namespace == "minecraft" && biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND;
 	}

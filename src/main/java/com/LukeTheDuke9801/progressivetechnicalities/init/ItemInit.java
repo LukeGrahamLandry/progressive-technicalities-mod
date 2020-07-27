@@ -182,10 +182,10 @@ public class ItemInit {
 	public static final RegistryObject<Item> FLIGHT_COMPONENT = ITEMS.register("flight_component",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> BASIC_ROCKET_CASING = ITEMS.register("basic_rocket_casting",
+	public static final RegistryObject<Item> BASIC_ROCKET_CASING = ITEMS.register("basic_rocket_casing",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> ADVANCED_ROCKET_CASING = ITEMS.register("advanced_rocket_casting",
+	public static final RegistryObject<Item> ADVANCED_ROCKET_CASING = ITEMS.register("advanced_rocket_casing",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> FIRE_GEM = ITEMS.register("fire_gem",

@@ -1,15 +1,30 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.FairyEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.WanderingAstronomer;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.WanderingGemSmith;
 
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
+import net.minecraft.entity.*;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.gen.Heightmap;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ObjectHolder;
 
+import java.util.Random;
+
+import static net.minecraft.entity.MobEntity.canSpawnOn;
+
+@Mod.EventBusSubscriber(modid = ProgressiveTechnicalities.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntityTypes {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES,
 			ProgressiveTechnicalities.MOD_ID);
@@ -24,4 +39,28 @@ public class ModEntityTypes {
 			.register("wandering_astronomer",
 					() -> EntityType.Builder.<WanderingAstronomer>create(WanderingAstronomer::new, EntityClassification.CREATURE)
 							.size(0.6F, 1.95F).build("progressivetechnicalities:wandering_astronomer"));
+
+	/*
+	public static final RegistryObject<EntityType<FairyEntity>> FAIRY = ENTITY_TYPES
+			.register("fairy",
+					() -> EntityType.Builder.<FairyEntity>create(FairyEntity::new, EntityClassification.CREATURE)
+							.size(0.6F, 1.95F).build("progressivetechnicalities:fairy"));
+
+	 */
+
+	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":fairy")
+	public static final EntityType<FairyEntity> FAIRY = EntityType.Builder.create(FairyEntity::new, EntityClassification.MONSTER)
+			.immuneToFire().size(0.4F, 0.8F)
+			.build(ProgressiveTechnicalities.MOD_ID + ":fairy");
+
+	@SubscribeEvent
+	public static void onRegisterEntities(RegistryEvent.Register<EntityType<?>> event) {
+		FAIRY.setRegistryName(ProgressiveTechnicalities.MOD_ID, "fairy");
+		event.getRegistry().register(FAIRY);
+		EntitySpawnPlacementRegistry.register(FAIRY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canFairySpawn);
+	}
+
+	public static boolean canFairySpawn(EntityType<? extends MonsterEntity> type, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+		return worldIn.getDifficulty() != Difficulty.PEACEFUL;
+	}
 }

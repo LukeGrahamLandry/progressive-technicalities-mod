@@ -1,9 +1,11 @@
 package com.LukeTheDuke9801.progressivetechnicalities.util;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.client.entity.FairyRenderer;
 import com.LukeTheDuke9801.progressivetechnicalities.client.entity.WanderingAstronomerRenderer;
 import com.LukeTheDuke9801.progressivetechnicalities.client.entity.WanderingGemSmithRenderer;
 import com.LukeTheDuke9801.progressivetechnicalities.client.gui.LargeChestScreen;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.FairyEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.WanderingAstronomer;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.WanderingGemSmith;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModContainerTypes;
@@ -32,5 +34,6 @@ public class ClientEventBusSubscriber {
 		
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WANDERING_GEM_SMITH.get(), WanderingGemSmithRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WANDERING_ASTRONOMER.get(), WanderingAstronomerRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FAIRY, FairyRenderer::new);
 	}
 }

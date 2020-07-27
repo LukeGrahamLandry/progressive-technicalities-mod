@@ -1,20 +1,19 @@
 package com.LukeTheDuke9801.progressivetechnicalities;
 
+import com.LukeTheDuke9801.progressivetechnicalities.init.*;
+import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.FeyBiome;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.placement.IPlacementConfig;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.LukeTheDuke9801.progressivetechnicalities.events.AddToLootTables;
 import com.LukeTheDuke9801.progressivetechnicalities.events.ModPlayerEvent;
 import com.LukeTheDuke9801.progressivetechnicalities.events.ScalingMobs;
-import com.LukeTheDuke9801.progressivetechnicalities.init.BiomeInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.DimensionInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
-import com.LukeTheDuke9801.progressivetechnicalities.init.ModContainerTypes;
-import com.LukeTheDuke9801.progressivetechnicalities.init.ModEntityTypes;
-import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ModIceBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.OreGen;
 
@@ -38,6 +37,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
+
+import static com.LukeTheDuke9801.progressivetechnicalities.world.gen.OreGen.isVanillaOverworldBiome;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("progressivetechnicalities")
@@ -71,6 +72,8 @@ public class ProgressiveTechnicalities
     	MinecraftForge.EVENT_BUS.register(ModPlayerEvent.class);
     	MinecraftForge.EVENT_BUS.register(ScalingMobs.class);
     	MinecraftForge.EVENT_BUS.addListener(AddToLootTables::lootLoad);
+
+		// MinecraftForge.EVENT_BUS.register(ModEventTypes.class);
         
         instance = this;
         
@@ -94,9 +97,25 @@ public class ProgressiveTechnicalities
     public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event) {
     	BiomeInit.registerBiomes();
     }
-    
-    private void setup(final FMLCommonSetupEvent event){
-    	
+
+	private void setup(final FMLCommonSetupEvent event){
+		// .addStructure tells Minecraft that this biome can start the generation of the structure.
+		// .addFeature tells Minecraft that the pieces of the structure can be made in this biome.
+		//
+		// Thus it is best practice to do .addFeature for all biomes and do .addStructure as well for
+		// the biome you want the structure to spawn in. That way, the structure will only spawn in the
+		// biomes you want but will not get cut off when generating if part of it goes into a non-valid biome.
+		for (Biome biome : ForgeRegistries.BIOMES){
+			if (isVanillaOverworldBiome(biome)){
+				biome.addStructure(FeatureInit.WANDERER_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+				biome.addStructure(FeatureInit.NETHER_DUNGEON.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			}
+
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureInit.WANDERER_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+					.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureInit.NETHER_DUNGEON.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+					.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+		}
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)  {
@@ -112,17 +131,34 @@ public class ProgressiveTechnicalities
     public static void loadCompleteEvent(FMLLoadCompleteEvent event) {
     	OreGen.generateAllOres();
     }
-    
-    public static class ProgtechItemGroup extends ItemGroup {
+
+	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+	public static class RegistryEvents {
+
+		/**
+		 * This method will be called by Forge when it is time for the mod to register features.
+		 */
+		@SubscribeEvent
+		public static void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event) {
+			//registers the structures/features.
+			//If you don't do this, you'll crash.
+			FeatureInit.registerFeatures(event);
+
+			LOGGER.debug("features/structures registered.");
+		}
+	}
+
+		public static class ProgtechItemGroup extends ItemGroup {
     	public static final ProgtechItemGroup instance = new ProgtechItemGroup(ItemGroup.GROUPS.length, "progtechtab");
     	private ProgtechItemGroup(int index, String label) {
     		super(index, label);
     	}
-    	
+
     	@Override
     	public ItemStack createIcon() {
     		return new ItemStack(BlockInit.CHROMIUM_BLOCK.get());
     	}
     }
+
     
 }

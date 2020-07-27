@@ -7,6 +7,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.LunaBiome;
 import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.OilBiome;
 import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.PandoraBiome;
 
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;

@@ -1,6 +1,8 @@
 package com.LukeTheDuke9801.progressivetechnicalities.world.biomes;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.ModEntityTypes;
 import com.google.common.collect.ImmutableSet;
 
 import net.minecraft.block.Blocks;
@@ -35,12 +37,15 @@ public class FeyBiome extends Biome{
 				.waterFogColor(16711935)
 				.scale(0.05f)
 				.temperature(0.8F));
-		
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.VEX, 10, 1, 2));
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.PHANTOM, 10, 1, 1));
-	    this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.MOOSHROOM, 20, 2, 5));
+
+		// doesnt fucking work who knows why TODO
+		// this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(ModEntityTypes.FAIRY, 50, 1, 2));
+		// this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.COW, 50, 1, 2));
+
+		// this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.COW, 10, 1, 1));
+		// this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.SHEEP, 10, 1, 1));
 	    this.addSpawn(EntityClassification.WATER_CREATURE, new SpawnListEntry(EntityType.DOLPHIN, 20, 1, 2));
-	    
+
 	    DefaultBiomeFeatures.addMushrooms(this);
 	    DefaultBiomeFeatures.addHugeMushrooms(this);
 	    DefaultBiomeFeatures.addGrass(this);
