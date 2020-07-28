@@ -39,7 +39,7 @@ public class AddToLootTables  {
 		return LootPool.builder()
 				.addEntry(getInjectEntry(entryName, 1))
 				.bonusRolls(0, 1)
-				.name("botania_inject")
+				.name("progtech_inject")
 				.build();
 	}
 

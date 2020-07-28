@@ -266,7 +266,7 @@ public class ModularArmor extends ArmorItem {
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":powerarmor";
+            return ProgressiveTechnicalities.MOD_ID + ":unobtanium";
         }
 
         @Override

@@ -4,6 +4,8 @@ import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.FeatureInit;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ChestTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -20,6 +22,7 @@ import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.world.storage.loot.LootTables;
 
 import java.util.List;
 import java.util.Map;
@@ -102,14 +105,13 @@ public class NetherDungeonPieces {
         @Override
         protected void handleDataMarker(String function, BlockPos pos, IWorld worldIn, Random rand, MutableBoundingBox sbb) {
             if ("chest".equals(function)) {
-                worldIn.setBlockState(pos, Blocks.CHEST.getDefaultState(), 2);
-                TileEntity tileentity = worldIn.getTileEntity(pos);
-
-                //Just another check to make sure everything is going well before we try to set the chest.
+                worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+                TileEntity tileentity = worldIn.getTileEntity(pos.down());
                 if (tileentity instanceof ChestTileEntity) {
-                    //((ChestTileEntity) tileentity).setLootTable(<resource_location_to_loottable>, rand.nextLong());
-
+                    ResourceLocation ltable = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "chest/nether_dungeon");
+                    ((ChestTileEntity)tileentity).setLootTable(ltable, rand.nextLong());
                 }
+
             }
         }
 

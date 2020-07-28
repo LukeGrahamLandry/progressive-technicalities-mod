@@ -74,7 +74,7 @@ public class TitaniumArmor extends ArmorItem {
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":special";
+            return ProgressiveTechnicalities.MOD_ID + ":titanium";
         }
 
         @Override

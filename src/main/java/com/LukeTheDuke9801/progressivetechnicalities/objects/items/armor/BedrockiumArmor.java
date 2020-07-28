@@ -86,7 +86,7 @@ public class BedrockiumArmor extends ArmorItem {
 
         @Override
         public String getName() {
-            return ProgressiveTechnicalities.MOD_ID + ":special";
+            return ProgressiveTechnicalities.MOD_ID + ":bedrockium";
         }
 
         @Override
