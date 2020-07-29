@@ -25,8 +25,16 @@
         },
         {
           "type": "item",
+          "name": "minecraft:book",
+          "weight": 15,
+          "functions":[
+            {"function": "enchant_randomly", "enchantments": ["minecraft:flame", "minecraft:fire_aspect", "minecraft:fire_protection", "minecraft:blast_protection", "progressivetechnicalities:lava_walker_enchant"]}
+          ]
+        },
+        {
+          "type": "item",
           "name": "minecraft:netherrack",
-            "weight": 39
+            "weight": 24
         }
       ]
     },

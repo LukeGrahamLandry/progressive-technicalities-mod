@@ -33,11 +33,13 @@ public class FairyEntity extends MonsterEntity {
     protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.createKey(FairyEntity.class, DataSerializers.BYTE);
     @Nullable
     private BlockPos boundOrigin;
+    private int angryTimer;
 
     public FairyEntity(EntityType<? extends FairyEntity> p_i50190_1_, World p_i50190_2_) {
         super(p_i50190_1_, p_i50190_2_);
         this.moveController = new FairyEntity.MoveHelperController(this);
         this.experienceValue = 3;
+        this.angryTimer = 0;
     }
 
     @Override
@@ -45,6 +47,14 @@ public class FairyEntity extends MonsterEntity {
         boolean flag = super.attackEntityAsMob(entityIn);
         entityIn.setMotion(entityIn.getMotion().add(0.0D, (double)2F, 0.0D));
         return flag;
+    }
+
+    /**
+     * Called when the entity is attacked.
+     */
+    public boolean attackEntityFrom(DamageSource source, float amount) {
+        this.angryTimer = 1*60*20;
+        return super.attackEntityFrom(source, amount);
     }
 
     public void move(MoverType typeIn, Vec3d pos) {
@@ -60,6 +70,11 @@ public class FairyEntity extends MonsterEntity {
         super.tick();
         this.noClip = false;
         this.setNoGravity(true);
+
+        if (this.angryTimer > 0){
+            this.angryTimer--;
+            this.addPotionEffect(new EffectInstance(Effects.GLOWING, 5, 0));
+        }
     }
 
     protected void registerGoals() {
@@ -92,6 +107,7 @@ public class FairyEntity extends MonsterEntity {
         if (compound.contains("BoundX")) {
             this.boundOrigin = new BlockPos(compound.getInt("BoundX"), compound.getInt("BoundY"), compound.getInt("BoundZ"));
         }
+        this.angryTimer = compound.getInt("angryTimer");
     }
 
     public void writeAdditional(CompoundNBT compound) {
@@ -101,6 +117,7 @@ public class FairyEntity extends MonsterEntity {
             compound.putInt("BoundY", this.boundOrigin.getY());
             compound.putInt("BoundZ", this.boundOrigin.getZ());
         }
+        compound.putInt("angryTimer", this.angryTimer);
     }
 
     @Nullable
@@ -182,7 +199,7 @@ public class FairyEntity extends MonsterEntity {
          * method as well.
          */
         public boolean shouldExecute() {
-            if (FairyEntity.this.getAttackTarget() != null && !FairyEntity.this.getMoveHelper().isUpdating() && FairyEntity.this.rand.nextInt(7) == 0) {
+            if (FairyEntity.this.angryTimer > 0 && FairyEntity.this.getAttackTarget() != null && !FairyEntity.this.getMoveHelper().isUpdating()){ // && FairyEntity.this.rand.nextInt(7) == 0) {
                 return FairyEntity.this.getDistanceSq(FairyEntity.this.getAttackTarget()) > 4.0D;
             } else {
                 return false;

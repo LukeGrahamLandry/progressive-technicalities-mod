@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "progressivetechnicalities:blocks/end_sky_gem_ore"
+        "all": "progressivetechnicalities:blocks/end_air_gem_ore"
     }
 }

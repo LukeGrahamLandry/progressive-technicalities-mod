@@ -1,0 +1,82 @@
+{
+    "pools": [{
+      "name": "fey_items",
+      "rolls": 3,
+      "entries": [
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:feysteel_ingot",
+            "weight": 20
+        },
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:xp_charge",
+             "weight": 20
+        },
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:feywild_portal_key",
+            "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "progressivetechnicalities:potion_core",
+          "weight": 15
+        },
+        {
+          "type": "item",
+          "name": "progressivetechnicalities:magic_eggshell",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:book",
+          "weight": 10,
+          "functions":[
+            {"function": "enchant_randomly", "enchantments": ["minecraft:infinity", "minecraft:mending", "minecraft:power", "minecraft:punch", "minecraft:multishot", "minecraft:piercing", "minecraft:quick_charge", "minecraft:unbreaking"]}
+          ]
+        },
+        {
+          "type": "item",
+          "name": "progressivetechnicalities:fey_stone",
+            "weight": 14
+        }
+      ]
+    },
+      {
+        "name": "flowers",
+        "rolls": 2,
+        "entries": [
+          {
+            "type": "item",
+            "name": "minecraft:allium",
+            "weight": 25
+          },
+          {
+            "type": "item",
+            "name": "minecraft:poppy",
+            "weight": 25
+          },
+          {
+            "type": "item",
+            "name": "minecraft:grass",
+            "weight": 25
+          },
+          {
+            "type": "item",
+            "name": "minecraft:bone_meal",
+            "weight": 25
+          }
+        ]
+      },
+    {
+      "name": "basic_loot",
+      "rolls": 1,
+      "entries": [
+        {
+            "type": "loot_table",
+            "name": "progressivetechnicalities:chest/basic_loot",
+            "weight": 100
+        }]
+    }]
+  }

@@ -8,7 +8,6 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_spawner.MobSpawnerTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.xp_tank.XPTankTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.SimpleMachineTileEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.village_gen.VillageGenTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.FeywildPortalTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.LargeChestTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.tileentity.MultiTNTTileEntity;
@@ -56,7 +55,4 @@ public class ModTileEntityTypes {
 	
 	public static final RegistryObject<TileEntityType<SimpleMachineTileEntity>> SIMPLE_MACHINE = TILE_ENTITY_TYPES.register("simple_machine", 
 			() -> TileEntityType.Builder.create(SimpleMachineTileEntity::new, BlockInit.SIMPLE_MACHINE.get()).build(null));
-
-	public static final RegistryObject<TileEntityType<VillageGenTileEntity>> VILLAGE_GEN = TILE_ENTITY_TYPES.register("village_gen",
-			() -> TileEntityType.Builder.create(VillageGenTileEntity::new, BlockInit.VILLAGE_GEN.get()).build(null));
 } 

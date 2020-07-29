@@ -25,16 +25,8 @@
         },
         {
           "type": "item",
-          "name": "minecraft:book",
-          "weight": 10,
-          "functions":[
-            {"function": "enchant_randomly", "enchantments": ["minecraft:flame", "minecraft:fire_aspect", "minecraft:fire_protection", "minecraft:blast_protection", "progressivetechnicalities:lava_walker_enchant"]}
-          ]
-      },
-        {
-          "type": "item",
           "name": "minecraft:bone",
-            "weight": 40
+            "weight": 50
         }
       ]
     }]

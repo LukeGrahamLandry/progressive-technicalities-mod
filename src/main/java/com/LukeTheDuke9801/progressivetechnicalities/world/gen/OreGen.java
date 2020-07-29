@@ -30,7 +30,7 @@ public class OreGen {
 		for (Biome biome : ForgeRegistries.BIOMES) {
 			if (isVanillaOverworldBiome(biome)){
 				generate(biome, STONE_FILLER, BlockInit.CHROMIUM_ORE.get(), 20, 40, 60, 17);
-				generate(biome, STONE_FILLER, BlockInit.SKY_GEM_ORE.get(), 4, 63, 120, 8);
+				generate(biome, STONE_FILLER, BlockInit.AIR_GEM_ORE.get(), 4, 63, 120, 8);
 				generate(biome, STONE_FILLER, BlockInit.EARTH_GEM_ORE.get(), 4, 0, 16, 8);
 			}
 
@@ -39,11 +39,11 @@ public class OreGen {
 			}
 			
 			if (biome.getCategory() == Biome.Category.NETHER) {
-				generate(biome, NETHERRACK_FILLER, BlockInit.FIRE_GEM_ORE.get(), 8, 0, 256, 8);
+				generate(biome, NETHERRACK_FILLER, BlockInit.FIRE_GEM_ORE.get(), 8, 0, 64, 8);
 			}
 
 			if (biome.getCategory() == Biome.Category.THEEND) {
-				generate(biome, ENDSTONE_FILLER, BlockInit.END_SKY_GEM_ORE.get(), 4, 0, 256, 8);
+				generate(biome, ENDSTONE_FILLER, BlockInit.END_AIR_GEM_ORE.get(), 4, 0, 256, 8);
 			}
 			
 			if (biome == BiomeInit.OIL_SPIKES.get()) {

@@ -38,12 +38,8 @@ public class FeyBiome extends Biome{
 				.scale(0.05f)
 				.temperature(0.8F));
 
-		// doesnt fucking work who knows why TODO
-		// this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(ModEntityTypes.FAIRY, 50, 1, 2));
-		// this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.COW, 50, 1, 2));
+		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(ModEntityTypes.FAIRY, 25, 1, 1));
 
-		// this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.COW, 10, 1, 1));
-		// this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.SHEEP, 10, 1, 1));
 	    this.addSpawn(EntityClassification.WATER_CREATURE, new SpawnListEntry(EntityType.DOLPHIN, 20, 1, 2));
 
 	    DefaultBiomeFeatures.addMushrooms(this);

@@ -115,6 +115,12 @@ public class ProgressiveTechnicalities
 					.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureInit.NETHER_DUNGEON.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
 					.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+
+			if (biome == BiomeInit.FEY_PLAINS.get()){
+				biome.addStructure(FeatureInit.FEY_HENGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+				biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureInit.FEY_HENGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
+						.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+			}
 		}
     }
 

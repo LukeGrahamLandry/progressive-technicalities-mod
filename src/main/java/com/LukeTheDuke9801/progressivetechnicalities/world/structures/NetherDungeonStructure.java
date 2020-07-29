@@ -1,6 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.world.structures;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.init.FeatureInit;
 import com.mojang.datafixers.Dynamic;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
@@ -34,9 +35,8 @@ public class NetherDungeonStructure extends Structure<NoFeatureConfig> {
     @Override
     protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
     {
-        //this means they cannot be closer than 30 chunks or more than 50 chunks
-        int maxDistance = 50;
-        int minDistance = 30;
+        int maxDistance = FeatureInit.netherDungeonDistance.max;
+        int minDistance = FeatureInit.netherDungeonDistance.min;
 
         int xTemp = x + maxDistance * spacingOffsetsX;
         int ztemp = z + maxDistance * spacingOffsetsZ;

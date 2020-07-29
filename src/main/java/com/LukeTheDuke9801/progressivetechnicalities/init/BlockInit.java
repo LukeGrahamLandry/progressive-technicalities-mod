@@ -22,7 +22,6 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machi
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.PulverizerBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.SimpleMachineBlock;
 
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.village_gen.VillageGenBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FallingBlock;
@@ -51,10 +50,10 @@ public class BlockInit {
 	public static final RegistryObject<Block> CHROMIUM_ORE = BLOCKS.register("chromium_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 6f).sound(SoundType.METAL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
 	
-	public static final RegistryObject<Block> SKY_GEM_ORE = BLOCKS.register("sky_gem_ore",
+	public static final RegistryObject<Block> AIR_GEM_ORE = BLOCKS.register("air_gem_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 
-	public static final RegistryObject<Block> SKY_GEM_BLOCK = BLOCKS.register("sky_gem_block",
+	public static final RegistryObject<Block> AIR_GEM_BLOCK = BLOCKS.register("air_gem_block",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 
 	public static final RegistryObject<Block> DARK_STONE = BLOCKS.register("dark_stone",
@@ -93,8 +92,11 @@ public class BlockInit {
 	public static final RegistryObject<Block> DILITHIUM_ORE = BLOCKS.register("dilithium_ore",
 			() -> new Block(Block.Properties.from(Blocks.STONE)));
 
-	public static final RegistryObject<Block> END_SKY_GEM_ORE = BLOCKS.register("end_sky_gem_ore",
+	public static final RegistryObject<Block> END_AIR_GEM_ORE = BLOCKS.register("end_air_gem_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+
+	public static final RegistryObject<Block> FEY_BRICK = BLOCKS.register("fey_bricks",
+			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(15f, 15f).sound(SoundType.STONE).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
 
 
 	// Fey Food
@@ -163,8 +165,4 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> SIMPLE_MACHINE = BLOCKS.register("simple_machine",
 			() -> new SimpleMachineBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
-
-	public static final RegistryObject<Block> VILLAGE_GEN = BLOCKS.register("village_gen",
-			() -> new VillageGenBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
-
 }

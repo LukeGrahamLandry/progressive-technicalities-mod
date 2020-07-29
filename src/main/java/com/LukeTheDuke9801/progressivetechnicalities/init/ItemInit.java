@@ -25,7 +25,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFal
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.NightVisionGoggles;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ScubaGear;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SkyGemArmor;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.AirGemArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SlowFallBoots;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.TitaniumArmor;
@@ -92,7 +92,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> SKY_GEM = ITEMS.register("sky_gem",
+	public static final RegistryObject<Item> AIR_GEM = ITEMS.register("air_gem",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> SPACE_INGOT = ITEMS.register("space_ingot",
@@ -175,10 +175,7 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> PANDORA_ROCKET = ITEMS.register("pandora_rocket",
 			() -> new HandHeldRocket("pandora", true, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> DILITHIUM_CRYSTAL = ITEMS.register("dilithium_crystal",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
+
 	public static final RegistryObject<Item> FLIGHT_COMPONENT = ITEMS.register("flight_component",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
@@ -232,7 +229,7 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	public static final RegistryObject<Item> BEDROCKIUM_DUST = ITEMS.register("bedrockium_dust",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> SKY_GEM_DUST = ITEMS.register("sky_gem_dust",
+	public static final RegistryObject<Item> AIR_GEM_DUST = ITEMS.register("air_gem_dust",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	// Staffs
@@ -506,17 +503,17 @@ public class ItemInit {
 	public static final RegistryObject<Item> FIREGEM_BOOTS = ITEMS.register("firegem_boots",
 			() -> new FireGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> SKYGEM_HELMET = ITEMS.register("skygem_helmet",
-			() -> new SkyGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> AIRGEM_HELMET = ITEMS.register("airgem_helmet",
+			() -> new AirGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> SKYGEM_CHESTPLATE = ITEMS.register("skygem_chestplate",
-			() -> new SkyGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> AIRGEM_CHESTPLATE = ITEMS.register("airgem_chestplate",
+			() -> new AirGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> SKYGEM_LEGGINGS = ITEMS.register("skygem_leggings",
-			() -> new SkyGemArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> AIRGEM_LEGGINGS = ITEMS.register("airgem_leggings",
+			() -> new AirGemArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> SKYGEM_BOOTS = ITEMS.register("skygem_boots",
-			() -> new SkyGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> AIRGEM_BOOTS = ITEMS.register("airgem_boots",
+			() -> new AirGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> WATERGEM_HELMET = ITEMS.register("watergem_helmet",
 			() -> new ArmorItem(ModArmorMaterial.WATERGEM, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));

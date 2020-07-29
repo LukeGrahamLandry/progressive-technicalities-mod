@@ -68,7 +68,7 @@ public class WanderingGemSmith extends AbstractWanderer {
                 new ModVillagerTrades.EmeraldsForItemsTrade(ItemInit.FIRE_GEM.get(), 1, 8, Integer.MAX_VALUE, 5),
                 new ModVillagerTrades.EmeraldsForItemsTrade(ItemInit.EARTH_GEM.get(), 1, 8, Integer.MAX_VALUE, 5),
                 new ModVillagerTrades.EmeraldsForItemsTrade(ItemInit.WATER_GEM.get(), 1, 8, Integer.MAX_VALUE, 5),
-                new ModVillagerTrades.EmeraldsForItemsTrade(ItemInit.SKY_GEM.get(), 1, 8, Integer.MAX_VALUE, 5)
+                new ModVillagerTrades.EmeraldsForItemsTrade(ItemInit.AIR_GEM.get(), 1, 8, Integer.MAX_VALUE, 5)
         };
     }
 }

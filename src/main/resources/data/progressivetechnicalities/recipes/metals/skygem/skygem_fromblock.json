@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-    	"item": "progressivetechnicalities:sky_gem_block"
+    	"item": "progressivetechnicalities:air_gem_block"
     }
   ],
   "result": {
-    "item": "progressivetechnicalities:sky_gem",
+    "item": "progressivetechnicalities:air_gem",
     "count": 9
   }
 }
