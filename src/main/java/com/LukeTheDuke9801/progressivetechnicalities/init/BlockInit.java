@@ -73,9 +73,12 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> UNOBTANIUM_ORE = BLOCKS.register("unobtanium_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
-	
+
 	public static final RegistryObject<Block> FIRE_GEM_ORE = BLOCKS.register("fire_gem_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+
+	public static final RegistryObject<Block> SANDSTONE_FIRE_GEM_ORE = BLOCKS.register("sandstone_fire_gem_ore",
+			() -> new Block(Block.Properties.from(FIRE_GEM_ORE.get())));
 
 	public static final RegistryObject<Block> WATER_GEM_ORE = BLOCKS.register("water_gem_ore",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
@@ -93,7 +96,7 @@ public class BlockInit {
 			() -> new Block(Block.Properties.from(Blocks.STONE)));
 
 	public static final RegistryObject<Block> END_AIR_GEM_ORE = BLOCKS.register("end_air_gem_ore",
-			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 6f).sound(SoundType.METAL).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
+			() -> new Block(Block.Properties.from(AIR_GEM_ORE.get())));
 
 	public static final RegistryObject<Block> FEY_BRICK = BLOCKS.register("fey_bricks",
 			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(15f, 15f).sound(SoundType.STONE).harvestLevel(2).harvestTool(ToolType.PICKAXE)));

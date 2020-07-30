@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": {"model": "progressivetechnicalities:block/feywild_portal"}
-	}
+    "variants": {
+        "": {
+            "model": "progressivetechnicalities:block/feywild_portal"
+        }
+    }
 }

@@ -1,5 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.world.biomes;
 
+import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.OreGen;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -47,6 +49,8 @@ public class OilBiome extends Biome{
 	    this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.05D, MineshaftStructure.Type.NORMAL)));
 	    this.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(WorldCarver.CAVE, new ProbabilityConfig(0.3F)));
 	    this.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(WorldCarver.CANYON, new ProbabilityConfig(0.2F)));
+
+		OreGen.generate(this, OreGen.DARKSTONE_FILLER, BlockInit.TITANIUM_ORE.get(), 100, 0, 200, 4);
 	    }
 	
 	@Override

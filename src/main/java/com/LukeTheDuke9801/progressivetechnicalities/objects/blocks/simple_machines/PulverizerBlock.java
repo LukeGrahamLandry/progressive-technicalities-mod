@@ -181,10 +181,6 @@ public class PulverizerBlock extends SimpleMachineBlock{
 		   result = ItemInit.NYMPHARIUM_DUST.get();
 		   count = 1;
 	   }
-	   if (item.equals(ItemInit.ELECTRUM_INGOT.get())) {
-		   result = ItemInit.ELECTRUM_DUST.get();
-		   count = 1;
-	   }
 	   if (item.equals(ItemInit.VARIDIUM_INGOT.get())) {
 		   result = ItemInit.VARIDIUM_DUST.get();
 		   count = 1;

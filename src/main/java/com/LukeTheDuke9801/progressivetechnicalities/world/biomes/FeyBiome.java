@@ -1,8 +1,10 @@
 package com.LukeTheDuke9801.progressivetechnicalities.world.biomes;
 
-import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.FeatureInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModEntityTypes;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.OreGen;
 import com.google.common.collect.ImmutableSet;
 
 import net.minecraft.block.Blocks;
@@ -10,8 +12,6 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.Biome.RainType;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
@@ -51,7 +51,9 @@ public class FeyBiome extends Biome{
 	    
 	    this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.MELON.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).replaceable().func_227317_b_().build()).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
 	    this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.withConfiguration(new BlockStateFeatureConfig(FluidInit.NYMPHARIUM_FLUID_BLOCK.get().getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(3))));
-	    
+
+		OreGen.generate(this, OreGen.FEYSTONE_FILLER, BlockInit.FEYSTEEL_ORE.get(), 25, 0, 70, 4);
+		FeatureInit.generate(this, FeatureInit.FEY_HENGE);
 	}
 	
 	@Override

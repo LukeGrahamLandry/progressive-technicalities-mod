@@ -69,9 +69,6 @@ public class InductionSmelterBlock extends SimpleMachineBlock{
 	   if (item.equals(ItemInit.CHROMIUM_DUST.get())) {
 		   result = ItemInit.CHROMIUM_INGOT.get();
 	   }
-	   if (item.equals(ItemInit.ELECTRUM_DUST.get())) {
-		   result = ItemInit.ELECTRUM_INGOT.get();
-	   }
 	   if (item.equals(ItemInit.FEYSTEEL_DUST.get())) {
 		   result = ItemInit.FEYSTEEL_INGOT.get();
 	   }

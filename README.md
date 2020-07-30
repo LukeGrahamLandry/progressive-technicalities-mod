@@ -12,8 +12,8 @@
 - New dimensions: a dark oil realm and a bright feywild
 - Planets reached with rockets: Luna, Arrakis, Pandora
 - Charms in loot chests that remove negative effects, grant life steal, and more
-- Summonable vilagers to trade gems
-- Craftable saddles, enchanted golden apples, horse armor, name tags
+- Generated structures: village (w/ traders), nether dungeon, fey stone henge
+- new mobs: fairies, traders, 
 - and so much more
 
 ## Download
@@ -22,4 +22,4 @@
 
 ## Support Me
 - https://www.patreon.com/LukeGrahamLandry
-- Donate ERC20 tokens (that are supported by binance): 0x997d1d591a62040947426b300b61460bd3d67b30
+- Donate ERC20 tokens: 0xEC605a18aB47f52eEf4f26d9841856d0e4B41556

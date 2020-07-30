@@ -1,5 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.world.biomes;
 
+import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
+import com.LukeTheDuke9801.progressivetechnicalities.world.gen.OreGen;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -38,11 +40,10 @@ public class PandoraBiome extends Biome{
 	  this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.PANDA, 1, 1, 2));
 	  this.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityType.BAT, 10, 8, 8));
 	  this.addSpawn(EntityClassification.MONSTER, new Biome.SpawnListEntry(EntityType.OCELOT, 2, 1, 3));
-	  
 
-      this.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(
-    		  OreFeatureConfig.FillerBlockType.NATURAL_STONE, Blocks.INFESTED_STONE.getDefaultState(), 50)).withPlacement(Placement.COUNT_RANGE.configure(
-    				  new CountRangeConfig(20, 0, 0, 128))));
+	  OreGen.generate(this, OreGen.STONE_FILLER, BlockInit.UNOBTANIUM_ORE.get(), 10, 0, 16, 6);
+	  OreGen.generate(this, OreGen.STONE_FILLER, Blocks.INFESTED_STONE, 25, 0, 70, 50);
+	  OreGen.generate(this, OreGen.STONE_FILLER, BlockInit.EARTH_GEM_ORE.get(), 4, 0, 16, 8);
 	}
 	
 	@Override

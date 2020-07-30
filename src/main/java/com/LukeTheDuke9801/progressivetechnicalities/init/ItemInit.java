@@ -2,16 +2,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.Ammeter;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeyFood;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeywildPortalKey;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.HandHeldRocket;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.LookingGlass;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.MagicEggShell;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.OilPortalKey;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.TinyCoal;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.WandererContract;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.XPCharge;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.BedrockiumArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.EarthGemArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FeySteelArmorItem;
@@ -199,6 +190,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> DILITHIUM = ITEMS.register("dilithium",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> CREPUSCULUM = ITEMS.register("crepusculum",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	// Dusts
 	public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
@@ -284,6 +278,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> AMMETER = ITEMS.register("ammeter",
 			() -> new Ammeter(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+
+	public static final RegistryObject<Item> HAND_HELD_TELEPORTER = ITEMS.register("hand_held_teleporter",
+			() -> new HandHeldTeleporter(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",

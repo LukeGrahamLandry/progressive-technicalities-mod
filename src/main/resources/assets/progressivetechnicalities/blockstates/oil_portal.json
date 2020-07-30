@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": {"model": "progressivetechnicalities:block/oil_portal"}
-	}
+    "variants": {
+        "": {
+            "model": "progressivetechnicalities:block/oil_portal"
+        }
+    }
 }

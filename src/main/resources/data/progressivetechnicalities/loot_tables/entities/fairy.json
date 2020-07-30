@@ -1,0 +1,17 @@
+{
+    "pools": [{
+      "name": "gem_drop",
+      "rolls": 1,
+      "entries": [
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:crepusculum",
+            "weight": 66
+        },
+        {
+          "type": "empty",
+          "weight": 33
+        }
+      ]
+    }]
+  }

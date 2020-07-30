@@ -96,32 +96,11 @@ public class ProgressiveTechnicalities
     @SubscribeEvent
     public static void onRegisterBiomes(final RegistryEvent.Register<Biome> event) {
     	BiomeInit.registerBiomes();
+		OreGen.AddOresToVanillaBiomes();
+		FeatureInit.addStructuresToVanillaBiomes();
     }
 
 	private void setup(final FMLCommonSetupEvent event){
-		// .addStructure tells Minecraft that this biome can start the generation of the structure.
-		// .addFeature tells Minecraft that the pieces of the structure can be made in this biome.
-		//
-		// Thus it is best practice to do .addFeature for all biomes and do .addStructure as well for
-		// the biome you want the structure to spawn in. That way, the structure will only spawn in the
-		// biomes you want but will not get cut off when generating if part of it goes into a non-valid biome.
-		for (Biome biome : ForgeRegistries.BIOMES){
-			if (isVanillaOverworldBiome(biome)){
-				biome.addStructure(FeatureInit.WANDERER_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-				biome.addStructure(FeatureInit.NETHER_DUNGEON.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-			}
-
-			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureInit.WANDERER_VILLAGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-					.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-			biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureInit.NETHER_DUNGEON.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-					.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-
-			if (biome == BiomeInit.FEY_PLAINS.get()){
-				biome.addStructure(FeatureInit.FEY_HENGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-				biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, FeatureInit.FEY_HENGE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
-						.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
-			}
-		}
     }
 
     private void doClientStuff(final FMLClientSetupEvent event)  {
@@ -135,7 +114,7 @@ public class ProgressiveTechnicalities
     
     @SubscribeEvent
     public static void loadCompleteEvent(FMLLoadCompleteEvent event) {
-    	OreGen.generateAllOres();
+
     }
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
