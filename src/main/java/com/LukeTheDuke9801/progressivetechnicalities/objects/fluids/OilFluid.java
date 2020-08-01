@@ -36,6 +36,7 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fluids.FluidAttributes;
 
 public abstract class OilFluid extends FlowingFluid {
@@ -59,7 +60,7 @@ public abstract class OilFluid extends FlowingFluid {
                .luminosity(0).density(3000).viscosity(6000).temperature(0).overlay(FluidInit.OIL_OVERLAY_RL).build(this);
 	}
    
-   public static void applyFluidPotionEffects(PlayerEntity player) {
+   public static void applyFluidPotionEffects(LivingEntity player) {
 	   player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 200, 4));
 	   if (player.areEyesInFluid(FluidTags.WATER)) {
 		   player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 20, 0));
@@ -67,7 +68,7 @@ public abstract class OilFluid extends FlowingFluid {
    }
 
    
-   public static boolean isInFluid(PlayerEntity player) {
+   public static boolean isInFluid(LivingEntity player) {
 	      AxisAlignedBB axisalignedbb = player.getBoundingBox().shrink(0.001D);
 	      int i = MathHelper.floor(axisalignedbb.minX);
 	      int j = MathHelper.ceil(axisalignedbb.maxX);

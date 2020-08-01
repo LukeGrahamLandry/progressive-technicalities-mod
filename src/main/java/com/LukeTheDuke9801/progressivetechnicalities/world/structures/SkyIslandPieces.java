@@ -2,18 +2,33 @@ package com.LukeTheDuke9801.progressivetechnicalities.world.structures;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.FeatureInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Multimap;
 import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.monster.SkeletonEntity;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ChestTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.util.math.Vec3i;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.structure.TemplateStructurePiece;
@@ -24,6 +39,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 
 public class SkyIslandPieces {
     private static final ResourceLocation ALL = new ResourceLocation(ProgressiveTechnicalities.MOD_ID + ":sky_island");
@@ -88,17 +104,7 @@ public class SkyIslandPieces {
             tagCompound.putString("Rot", this.rotation.name());
         }
 
-
-        /*
-         * If you added any data marker structure blocks to your structure, you can access and modify them here. In this case,
-         * our structure has a data maker with the string "chest" put into it. So we check to see if the incoming function is
-         * "chest" and if it is, we now have that exact position.
-         *
-         * So what is done here is we replace the structure block with a chest and we can then set the loottable for it.
-         *
-         * You can set other data markers to do other behaviors such as spawn a random mob in a certain spot, randomize what
-         * rare block spawns under the floor, or what item an Item Frame will have.
-         */
+        // replaces data structure blocks
         @Override
         protected void handleDataMarker(String function, BlockPos pos, IWorld worldIn, Random rand, MutableBoundingBox sbb) {
             if ("chest".equals(function)) {
@@ -108,13 +114,15 @@ public class SkyIslandPieces {
                     ResourceLocation ltable = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "chest/sky_island");
                     ((ChestTileEntity)tileentity).setLootTable(ltable, rand.nextLong());
                 }
+            }
 
+            if ("skeleton".equals(function)) {
+                worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+                createSkyGuardian(worldIn.getWorld(), pos);
             }
         }
 
-
-        //
-        // Will called create on newer mappings TODO
+        // Will be called create on newer mappings TODO
         @Override
         public boolean func_225577_a_(IWorld worldIn, ChunkGenerator<?> p_225577_2_, Random randomIn, MutableBoundingBox structureBoundingBoxIn, ChunkPos chunkPos) {
             PlacementSettings placementsettings = (new PlacementSettings()).setRotation(this.rotation).setMirror(Mirror.NONE);
@@ -122,6 +130,19 @@ public class SkyIslandPieces {
             this.templatePosition.add(Template.transformedBlockPos(placementsettings, new BlockPos(0 - blockpos.getX(), 0, 0 - blockpos.getZ())));
 
             return super.func_225577_a_(worldIn, p_225577_2_, randomIn, structureBoundingBoxIn, chunkPos);
+        }
+
+        private void createSkyGuardian(World world, BlockPos pos){
+            SkeletonEntity skeleton = (SkeletonEntity) EntityType.SKELETON.create(world);
+            skeleton.setPosition(pos.getX(), pos.getY(), pos.getZ());
+            skeleton.enablePersistence();  // don't despawn
+            ItemStack bowStack = new ItemStack(Items.BOW);
+            bowStack.addEnchantment(Enchantments.PUNCH, 2);
+            skeleton.setHeldItem(Hand.MAIN_HAND, bowStack);
+            ItemStack helmetStack = new ItemStack(ItemInit.SKY_GUARDIAN_HELM.get());  // knock back resistance, no fall damage, no burn in day
+            skeleton.setItemStackToSlot(EquipmentSlotType.HEAD, helmetStack);
+            skeleton.setCustomName(new StringTextComponent("Sky Guardian"));
+            world.addEntity(skeleton);
         }
     }
 }

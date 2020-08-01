@@ -35,53 +35,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @Mod.EventBusSubscriber(modid = ProgressiveTechnicalities.MOD_ID, bus=Bus.MOD)
 public class ModPlayerEvent {
-	// Used for potion effects in liquids and enchantments 
-    @SubscribeEvent
-    public static void onTick(PlayerTickEvent event) {
-    	PlayerEntity player = event.player;
-    	World world = player.world;
-    	
-    	if (player.isInWater()) {
-    		if (OilFluid.isInFluid(player)) {
-    			OilFluid.applyFluidPotionEffects(event.player);
-    		}
-    		if (NymphariumFluid.isInFluid(player)) {
-    			NymphariumFluid.applyFluidPotionEffects(event.player);
-    		}
-    	}
-    	
-    	int lavaWalkerLevel = EnchantmentHelper.getMaxEnchantmentLevel(EnchantmentInit.LAVA_WALKER.get(), player);
-        if (lavaWalkerLevel > 0) {
-        	LavaWalkerEnchantment.solidifyNearby(player, world, player.getPosition(), lavaWalkerLevel);
-        }
-        
-        int frostWalkerLevel = EnchantmentHelper.getMaxEnchantmentLevel(Enchantments.FROST_WALKER, player);
-        if (frostWalkerLevel > 0) {
-        	OilFluid.solidifyNearby(player, world, player.getPosition(), frostWalkerLevel);
-        }
-        
-        /* How air works:
-         * Full bar is 300, each tick while under water it deceases by one
-         * if its -20, you get damages and set to 0 (so damage once a second)
-         * regain 4 each tick while in air
-         * because reasons if you want it to go down while in air you have to reduce by 3 per tick
-         */
-        
-        boolean isInSpace = player.getPosY() >= 300
-        		|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.PANDORA_DIM_TYPE)
-        		|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.ARRAKIS_DIM_TYPE);
-        if (isInSpace){
-        	boolean wearingSpaceHelmet = player.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() instanceof SpaceHelmet || (ModularArmor.getModuleLevel(player, "spacehelmet") == 1);
-        	if (!wearingSpaceHelmet && !player.isCreative()) {
-        		player.setAir(player.getAir() - 3);
-        		if (player.getAir() <= -20) {
-    	        	player.setAir(0);
-    	        	player.attackEntityFrom(DamageSource.DROWN, 4);
-    	        } 
-        	}
-        }
-    }
-    
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
     	LivingEntity entity = event.getEntityLiving();
@@ -110,68 +63,15 @@ public class ModPlayerEvent {
 		}
 	}
 
-
-	// Makes vanilla food give no saturation
-    @SubscribeEvent
-    public static void onPlayerEatFood(LivingEntityUseItemEvent.Finish event) {
-    	if (event.getItem().getItem().isFood() && event.getEntityLiving() instanceof PlayerEntity) {
-    		PlayerEntity player = (PlayerEntity) event.getEntityLiving();
-    		boolean isFeyFood = FeyFood.isFeyFood(event.getItem().getItem());
-    		if (!isFeyFood) {
-    			player.getFoodStats().setFoodSaturationLevel(0);
-    		}
-    	}
-    }
-    
-    
-    // holds items for soulbound // TODO: make it player specific
-    private static NonNullList<ItemStack> soulboundItems = NonNullList.create();
-    
-    @SubscribeEvent
-    public static void onLivingDeath(LivingDeathEvent event) {
-    	// Handle basic life steal charm
-    	Entity source = event.getSource().getTrueSource();
-    	if (source instanceof PlayerEntity) {
-    		boolean hasLifeStealCharm = ((PlayerEntity) source).inventory.hasItemStack(new ItemStack(ItemInit.BASIC_LIFESTEAL_CHARM.get()));
-    		if (hasLifeStealCharm) {
-    			((PlayerEntity) source).heal(4);
-    		}
-    	}
-    	
-    	// handle soulbound enchant
-    	if (event.getEntityLiving() instanceof PlayerEntity) {
-    		PlayerEntity player = (PlayerEntity)event.getEntityLiving();
-    		NonNullList<ItemStack> mainInventory = player.inventory.mainInventory;
-    		int i = 0;
-    		for (ItemStack stack : mainInventory) {
-    			if (SoulBoundEnchantment.hasSoulBound(stack)) {
-    				soulboundItems.add(stack);
-    				player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
-    			}
-    			i++;
-    		}
-    		
-    		NonNullList<ItemStack> armorInventory = player.inventory.armorInventory;
-    		i = 0;
-    		for (ItemStack stack : armorInventory) {
-    			if (SoulBoundEnchantment.hasSoulBound(stack)) {
-    				soulboundItems.add(stack);
-    				player.inventory.armorInventory.set(i, ItemStack.EMPTY);
-    			}
-    			i++;
-    		}
-    	}
-    }
-    
-    @SubscribeEvent
-    public static void onPlayerSpawn(EntityJoinWorldEvent event) {
-    	if (soulboundItems.size() == 0) return;
-    	
-    	if (event.getEntity() instanceof PlayerEntity) {
-    		for (ItemStack stack : soulboundItems) {
-    			((PlayerEntity) event.getEntity()).addItemStackToInventory(stack);
-    		}
-    		soulboundItems = NonNullList.create();
-    	}
-    }
+	@SubscribeEvent
+	public static void onLivingDeath(LivingDeathEvent event) {
+		// Handle basic life steal charm
+		Entity source = event.getSource().getTrueSource();
+		if (source instanceof PlayerEntity) {
+			boolean hasLifeStealCharm = ((PlayerEntity) source).inventory.hasItemStack(new ItemStack(ItemInit.BASIC_LIFESTEAL_CHARM.get()));
+			if (hasLifeStealCharm) {
+				((PlayerEntity) source).heal(4);
+			}
+		}
+	}
 }

@@ -2,6 +2,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools;
 
 import java.util.List;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -33,9 +34,9 @@ public class UnobtaniumSword extends SwordItem {
 	
 	@Override
 	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-	      int damage = (int) (target.getMaxHealth() / 4);
-	      target.attackEntityFrom(DamageSource.OUT_OF_WORLD, damage);
-	      return true;
+		int damage = (int) (target.getMaxHealth() / 4) + 1;
+		target.attackEntityFrom(DamageSource.OUT_OF_WORLD, damage);
+		return super.hitEntity(stack, target, attacker);
 	}
 	
 	@Override

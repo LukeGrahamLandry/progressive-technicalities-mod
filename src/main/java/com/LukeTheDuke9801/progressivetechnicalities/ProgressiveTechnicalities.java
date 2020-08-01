@@ -1,6 +1,9 @@
 package com.LukeTheDuke9801.progressivetechnicalities;
 
+import com.LukeTheDuke9801.progressivetechnicalities.enchantments.SoulBoundEnchantment;
+import com.LukeTheDuke9801.progressivetechnicalities.events.ModLivingTickEvent;
 import com.LukeTheDuke9801.progressivetechnicalities.init.*;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeyFood;
 import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.FeyBiome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
@@ -71,6 +74,9 @@ public class ProgressiveTechnicalities
     	
     	MinecraftForge.EVENT_BUS.register(ModPlayerEvent.class);
     	MinecraftForge.EVENT_BUS.register(ScalingMobs.class);
+		MinecraftForge.EVENT_BUS.register(SoulBoundEnchantment.class);
+		MinecraftForge.EVENT_BUS.register(FeyFood.class);
+		MinecraftForge.EVENT_BUS.register(ModLivingTickEvent.class);
     	MinecraftForge.EVENT_BUS.addListener(AddToLootTables::lootLoad);
 
 		// MinecraftForge.EVENT_BUS.register(ModEventTypes.class);

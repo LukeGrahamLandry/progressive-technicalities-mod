@@ -3,25 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.*;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.BedrockiumArmor;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.EarthGemArmor;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FeySteelArmorItem;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.FireGemArmor;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.Flippers;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.HealthChestplate;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack1;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPack2;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.JetPackArmored;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.LongFallBoots;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.NightVisionGoggles;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ScubaGear;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.AirGemArmor;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SlowFallBoots;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.TitaniumArmor;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.VoidStriderLeggings;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.WaterGemArmor;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.AntiEffectCharm;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.AntiFireCharm;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.BoostCharm;
@@ -281,6 +263,9 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> HAND_HELD_TELEPORTER = ITEMS.register("hand_held_teleporter",
 			() -> new HandHeldTeleporter(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+
+	public static final RegistryObject<Item> LOOT_TABLE_DEBUG = ITEMS.register("loot_table_debug",
+			() -> new LootTableDebug(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",
@@ -403,6 +388,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> VOID_STRIDER_LEGGINGS = ITEMS.register("void_strider_leggings",
 			() -> new VoidStriderLeggings(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> SKY_GUARDIAN_HELM = ITEMS.register("sky_guardian_helm",
+			() -> new SkyGuardianHelm(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> CARBIDE_HELMET = ITEMS.register("carbide_helmet",
 			() -> new ArmorItem(ModArmorMaterial.CARBIDE, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));

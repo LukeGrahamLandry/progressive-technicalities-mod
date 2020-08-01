@@ -1,102 +1,102 @@
 {
-    "pools": [{
-      "name": "sky_jazz",
-      "rolls": 2,
+  "pools": [{
+    "name": "sky_jazz",
+    "rolls": 2,
+    "entries": [
+      {
+        "type": "item",
+        "name": "progressivetechnicalities:air_gem",
+        "weight": 20
+      },
+      {
+        "type": "item",
+        "name": "minecraft:book",
+        "weight": 20,
+        "functions":[
+          {"function": "enchant_randomly", "enchantments": ["minecraft:feather_falling", "minecraft:knockback", "minecraft:punch", "minecraft:unbreaking"]}
+        ]
+      },
+      {
+        "type": "item",
+        "name": "minecraft:phantom_membrane",
+        "weight": 20
+      },
+      {
+        "type": "item",
+        "name": "minecraft:feather",
+        "weight": 20
+      },
+      {
+        "type": "item",
+        "name": "minecraft:firework_rocket",
+        "weight": 20
+      }
+    ]
+  },
+    {
+      "name": "armor",
+      "rolls": 1,
       "entries": [
         {
-            "type": "item",
-            "name": "progressivetechnicalities:sky_gem",
-            "weight": 20
+          "type": "item",
+          "name": "minecraft:elytra",
+          "weight": 1
         },
         {
           "type": "item",
-          "name": "minecraft:book",
-          "weight": 20,
-          "functions":[
-            {"function": "enchant_randomly", "enchantments": ["minecraft:feather_falling", "minecraft:knock_back", "minecraft:punch", "minecraft:unbreaking"]}
-          ]
+          "name": "progressivetechnicalities:longfall_boots",
+          "weight": 25
         },
         {
           "type": "item",
-          "name": "minecraft:phantom_membrane",
-          "weight": 20
+          "name": "progressivetechnicalities:airgem_helmet",
+          "weight": 5
         },
         {
           "type": "item",
-          "name": "minecraft:feather",
-            "weight": 20
+          "name": "progressivetechnicalities:airgem_chestplate",
+          "weight": 5
         },
         {
           "type": "item",
-          "name": "minecraft:firework_rocket",
-          "weight": 20
+          "name": "progressivetechnicalities:airgem_leggings",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "progressivetechnicalities:airgem_boots",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "minecraft:leather_helmet",
+          "weight": 12
+        },
+        {
+          "type": "item",
+          "name": "minecraft:leather_chestplate",
+          "weight": 14
+        },
+        {
+          "type": "item",
+          "name": "minecraft:leather_leggings",
+          "weight": 14
+        },
+        {
+          "type": "item",
+          "name": "minecraft:leather_boots",
+          "weight": 14
         }
       ]
     },
-      {
-        "name": "armor",
-        "rolls": 1,
-        "entries": [
-          {
-            "type": "item",
-            "name": "minecraft:elytra",
-            "weight": 1
-          },,
-          {
-            "type": "item",
-            "name": "progressivetechnicalities:longfall_boots",
-            "weight": 29
-          },
-          {
-            "type": "item",
-            "name": "progressivetechnicalities:airgem_helmet",
-            "weight": 5
-          },
-          {
-            "type": "item",
-            "name": "progressivetechnicalities:airgem_chestplate",
-            "weight": 5
-          },
-          {
-            "type": "item",
-            "name": "progressivetechnicalities:airgem_leggings",
-            "weight": 5
-          },
-          {
-            "type": "item",
-            "name": "progressivetechnicalities:airgem_boots",
-            "weight": 5
-          },
-          {
-            "type": "item",
-            "name": "minecraft:leather_helmet",
-            "weight": 15
-          },
-          {
-            "type": "item",
-            "name": "minecraft:leather_chestplate",
-            "weight": 10
-          },
-          {
-            "type": "item",
-            "name": "minecraft:leather_leggings",
-            "weight": 10
-          },
-          {
-            "type": "item",
-            "name": "minecraft:leather_boots",
-            "weight": 15
-          }
-        ]
-      },
     {
       "name": "basic_loot",
       "rolls": 3,
       "entries": [
         {
-            "type": "loot_table",
-            "name": "progressivetechnicalities:chest/basic_loot",
-            "weight": 100
+          "type": "loot_table",
+          "name": "progressivetechnicalities:chest/basic_loot",
+          "weight": 100
         }]
     }]
-  }
+}

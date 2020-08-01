@@ -60,13 +60,13 @@ public abstract class NymphariumFluid extends FlowingFluid {
                .luminosity(1000).density(3000).viscosity(6000).temperature(0).overlay(FluidInit.NYMPHARIUM_OVERLAY_RL).build(this);
 	}
    
-   public static void applyFluidPotionEffects(PlayerEntity player) {
+   public static void applyFluidPotionEffects(LivingEntity player) {
 	   player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 4));
 	   player.attackEntityFrom(DamageSource.LAVA, 4);
    }
 
    
-   public static boolean isInFluid(PlayerEntity player) {
+   public static boolean isInFluid(LivingEntity player) {
 	      AxisAlignedBB axisalignedbb = player.getBoundingBox().shrink(0.001D);
 	      int i = MathHelper.floor(axisalignedbb.minX);
 	      int j = MathHelper.ceil(axisalignedbb.maxX);
