@@ -42,13 +42,7 @@ public class FeywildPortalTileEntity extends TileEntity implements ITickableTile
 	}
 	
 	private void removePortal() {
-		DimensionType feyDimType = DimensionType.byName(ProgressiveTechnicalities.FEY_DIM_TYPE);
-		boolean isInFeywild = this.world.getDimension().getType() == feyDimType;
-		ProgressiveTechnicalities.LOGGER.debug(isInFeywild);
-		if (isInFeywild) {
-			this.world.setBlockState(this.pos, Blocks.MYCELIUM.getDefaultState());
-		}
-	      
+		this.world.setBlockState(this.pos, Blocks.MYCELIUM.getDefaultState());
 	}
 	
 	@Override

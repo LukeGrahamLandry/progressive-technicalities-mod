@@ -58,7 +58,6 @@ public class ModLivingTickEvent {
 					|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.PANDORA_DIM_TYPE)
 					|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.ARRAKIS_DIM_TYPE)
 					|| world.getDimension().getType() == DimensionType.byName(ProgressiveTechnicalities.LUNA_DIM_TYPE);
-			ProgressiveTechnicalities.LOGGER.debug(isInSpace);
 			if (isInSpace){
 				boolean wearingSpaceHelmet = entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem() instanceof SpaceHelmet || (ModularArmor.getModuleLevel(entity, "spacehelmet") == 1);
 				boolean isCreative = entity instanceof PlayerEntity && ((PlayerEntity) entity).isCreative();

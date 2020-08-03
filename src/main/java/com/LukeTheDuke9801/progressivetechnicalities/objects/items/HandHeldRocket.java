@@ -2,6 +2,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
+import com.LukeTheDuke9801.progressivetechnicalities.util.DimensionHelper;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -71,17 +72,13 @@ public class HandHeldRocket extends Item{
 		entityIn.setMotion(0, 0, 0);  // so you don't keep flying up
 		worldIn.createExplosion(entityIn, entityIn.getPosX(), entityIn.getPosY(), entityIn.getPosZ(), 10, Explosion.Mode.DESTROY);
 		entityIn.attackEntityFrom(DamageSource.FLY_INTO_WALL, 19); // deals 9.5 hearts as though you hit wall with elytra
+
+		entityIn.attackEntityFrom(DamageSource.GENERIC, 6);
 	}
 
 	private void sendToTargetDimension(Entity entityIn) {
-		MinecraftServer minecraftserver = entityIn.getServer();
-		if (minecraftserver == null) {
-			return;
-		}
-		ServerWorld serverworld = minecraftserver.getWorld(this.getDestination());
-
-		((ServerPlayerEntity)entityIn).teleport(serverworld, 0, 150, 0, entityIn.getYaw(0), entityIn.getPitch(0));
-
+		DimensionHelper.changeDimension(entityIn, getDestination());
+		entityIn.setPosition(0, 150, 0);
 		((LivingEntity) entityIn).addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 300, 0)); // so you dont go splat
 	}
 

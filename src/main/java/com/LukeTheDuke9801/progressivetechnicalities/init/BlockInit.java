@@ -1,11 +1,9 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockMultiTNT;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.BlockQuarry;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.FeyPortalBlock;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.LargeChestBlock;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.OilPortalBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.special.RitualGuardian;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.special.SkyGuardian;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.coal.CoalGeneratorBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.lava.LavaGeneratorBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.oil.OilGeneratorBlock;
@@ -101,11 +99,22 @@ public class BlockInit {
 	public static final RegistryObject<Block> FEY_BRICK = BLOCKS.register("fey_bricks",
 			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(15f, 15f).sound(SoundType.STONE).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
 
+	public static final RegistryObject<Block> RUNE_STONE = BLOCKS.register("rune_stone",
+			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3f, 50f).sound(SoundType.STONE).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 
-	// Fey Food
-	//public static final RegistryObject<Block> COFFEE_CROP = BLOCKS.register("coffee_crop",
-	//		() -> new CoffeeCrop(Block.Properties.from(Blocks.WHEAT)));
-	
+	public static final RegistryObject<Block> RITUAL_STONE = BLOCKS.register("ritual_stone",
+			() -> new RitualStone(Block.Properties.create(Material.ROCK).hardnessAndResistance(3f, 50f).sound(SoundType.STONE).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+
+	/* Mobs for structures
+	It hangs when I try to add the mob directly from the dataMarker so instead
+	the data marker makes these blocks which become a mob after a random tick
+	 */
+	public static final RegistryObject<Block> RITUAL_GUARDIAN = BLOCKS.register("ritual_guardian",
+			() -> new SingleMobSpawner(new RitualGuardian(), Block.Properties.create(Material.AIR).tickRandomly().doesNotBlockMovement().notSolid()));
+
+	public static final RegistryObject<Block> SKY_GUARDIAN = BLOCKS.register("sky_guardian",
+			() -> new SingleMobSpawner(new SkyGuardian(), Block.Properties.create(Material.AIR).tickRandomly().doesNotBlockMovement().notSolid()));
+
 	// Advanced / Tile Entities
 	public static final RegistryObject<Block> QUARRY = BLOCKS.register("quarry",
 			() -> new BlockQuarry(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(2).harvestTool(ToolType.PICKAXE)));

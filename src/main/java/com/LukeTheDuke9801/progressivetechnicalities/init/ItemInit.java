@@ -24,12 +24,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TestSt
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TimeStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.WeatherStaff;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.XPStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.FireBowItem;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.FireGemSword;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.ShulkerBowItem;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.TitaniumAIOT;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.UnobtaniumDrill;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.UnobtaniumSword;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.*;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModArmorMaterial;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModItemTier;
 
@@ -353,7 +348,11 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> SHULKER_BOW = ITEMS.register("shulker_bow",
 			() -> new ShulkerBowItem(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
+
+	public static final RegistryObject<Item> RITUAL_GUARDIAN_SWORD = ITEMS.register("ritual_guardian_sword",
+			() -> new RitualGuardianSword(ModItemTier.CARBIDE, 3, -2.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+
 
 	// Armour
 	public static final RegistryObject<Item> NIGHTVISION_GOGGLES = ITEMS.register("nightvision_goggles",

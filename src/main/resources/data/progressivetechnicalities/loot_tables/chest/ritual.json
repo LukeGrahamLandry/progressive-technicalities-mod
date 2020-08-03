@@ -1,0 +1,67 @@
+{
+  "pools": [{
+    "name": "ritual_loot",
+    "rolls": 2,
+    "entries": [
+      {
+        "type": "item",
+        "name": "progressivetechnicalities:earth_gem",
+        "weight": 20
+      },
+      {
+        "type": "item",
+        "name": "minecraft:book",
+        "weight": 20,
+        "functions":[
+          {"function": "enchant_randomly", "enchantments": ["minecraft:blast_protection", "minecraft:fire_protection", "minecraft:unbreaking"]}
+        ]
+      },
+      {
+        "type": "item",
+        "name": "progressivetechnicalities:feywild_portal_key",
+        "weight": 20
+      },
+      {
+        "type": "item",
+        "name": "progressivetechnicalities:dark_stone",
+        "weight": 40
+      }
+    ]
+  },
+    {
+      "name": "ritual_blocks",
+      "rolls": 5,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 30
+        },
+        {
+          "type": "item",
+          "name": "progressivetechnicalities:ritual_stone",
+          "weight": 10
+        },
+        {
+          "type": "item",
+          "name": "progressivetechnicalities:rune_stone",
+          "weight": 50
+        }
+      ]
+    },
+    {
+      "name": "basic_loot",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "progressivetechnicalities:chest/basic_loot",
+          "weight": 100
+        }]
+    }]
+}

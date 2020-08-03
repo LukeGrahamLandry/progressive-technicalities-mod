@@ -41,6 +41,10 @@ public class FeatureInit {
     public static IStructurePieceType SKY_ISLAND_PIECE = SkyIslandPieces.Piece::new;
     public static StructureDistance skyIslandDistance = defaultDistance;
 
+    public static Structure<NoFeatureConfig> RITUAL = new RitualStructure(NoFeatureConfig::deserialize);
+    public static IStructurePieceType RITUAL_PIECE = RitualPieces.Piece::new;
+    public static StructureDistance ritualDistance = defaultDistance;
+
 
     /*
      * Registers the features and structures. Normal Features will be registered here too.
@@ -63,6 +67,9 @@ public class FeatureInit {
         SKY_ISLAND.setRegistryName(new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "sky_island"));
         registry.register(SKY_ISLAND);
         Registry.register(Registry.STRUCTURE_PIECE, "sky_island_piece", SKY_ISLAND_PIECE);
+
+        RITUAL.setRegistryName(new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "ritual"));
+        Registry.register(Registry.STRUCTURE_PIECE, "ritual_piece", RITUAL_PIECE);
     }
 
     public static void addStructuresToVanillaBiomes(){

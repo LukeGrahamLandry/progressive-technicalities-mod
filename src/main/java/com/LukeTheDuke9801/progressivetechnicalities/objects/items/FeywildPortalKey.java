@@ -7,7 +7,9 @@ import javax.annotation.Nullable;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.DimensionInit;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.FeyPortalBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.util.DimensionHelper;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.block.Block;
@@ -39,7 +41,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.spawner.AbstractSpawner;
 
-public class FeywildPortalKey extends Item {
+public class FeywildPortalKey extends Item implements RitualCatalyst{
    public FeywildPortalKey(Item.Properties builder) {
       super(builder);
    }
@@ -47,7 +49,7 @@ public class FeywildPortalKey extends Item {
    @Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Rightclick a patch of mycilium in a plus shape to open a portal to the Feywild. (also opens a portal home from anywhere in the feywild)"));
+			tooltip.add(new StringTextComponent("A ritual catalyst to send you to the feywild. Rightclick in the fey wild to create a portal home"));
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -79,8 +81,10 @@ public class FeywildPortalKey extends Item {
 		valid = valid && world.getBlockState(pos.south()).getBlock() == Blocks.GRASS_BLOCK;
 		valid = valid && world.getBlockState(pos.east()).getBlock() == Blocks.GRASS_BLOCK;
 		valid = valid && world.getBlockState(pos.west()).getBlock() == Blocks.GRASS_BLOCK;
+
+		boolean isInFeywild = world.getDimension().getType() == DimensionHelper.FEYWILD;
 		
-		return valid;
+		return valid && isInFeywild;
 	}
 	
 	private void genPortal(World world, BlockPos pos) {
@@ -93,6 +97,27 @@ public class FeywildPortalKey extends Item {
 		world.setBlockState(pos.up().south(), Blocks.BROWN_MUSHROOM.getDefaultState());
 		world.setBlockState(pos.up().east(), Blocks.RED_MUSHROOM.getDefaultState());
 		world.setBlockState(pos.up().west(), Blocks.RED_MUSHROOM.getDefaultState());
+	}
+
+	private boolean validSpawnLocation(World world, BlockPos pos) {
+		return !world.getBlockState(pos).isSolid() &&
+				!world.getBlockState(pos.up()).isSolid() &&
+				world.getBlockState(pos.down()).isSolid();
+	}
+
+	public void doRitual(World world, BlockPos pos, PlayerEntity player){
+		DimensionHelper.changeDimension(player, DimensionHelper.FEYWILD);
+
+		player.setPosition(player.getPosX(), 63, player.getPosZ());
+
+		// make you spawn on a new portal in the lowest air space above sea level
+		for (int i=0; i<128; i++) {
+			if (validSpawnLocation(player.world, player.getPosition())) {
+				break;
+			} else {
+				player.teleportKeepLoaded(player.getPosX(), player.getPosY() + 1, player.getPosZ());
+			}
+		}
 	}
 
 }

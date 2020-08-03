@@ -23,6 +23,8 @@ import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class FeyBiome extends Biome{
 	public FeyBiome() {
@@ -63,6 +65,12 @@ public class FeyBiome extends Biome{
 	
 	@Override
 	public int getGrassColor(double posX, double posZ) {
+		return 16711904;
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	@Override
+	public int getFoliageColor() {
 		return 16711904;
 	}
 }
