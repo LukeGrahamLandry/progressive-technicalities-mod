@@ -5,7 +5,6 @@
 - added fire, shuking bow
 - changed aluminum to varidium
 
-[3](test/three.md)
 ### The Dust Update
 - added pulverizer
 - added induction smelter
