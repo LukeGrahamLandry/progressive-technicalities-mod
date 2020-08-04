@@ -8,11 +8,9 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_spawner.MobSpawnerTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.xp_tank.XPTankTileEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.SimpleMachineTileEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.tileentity.FeywildPortalTileEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.tileentity.LargeChestTileEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.tileentity.MultiTNTTileEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.tileentity.QuarryTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.tileentity.*;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -55,4 +53,4 @@ public class ModTileEntityTypes {
 	
 	public static final RegistryObject<TileEntityType<SimpleMachineTileEntity>> SIMPLE_MACHINE = TILE_ENTITY_TYPES.register("simple_machine", 
 			() -> TileEntityType.Builder.create(SimpleMachineTileEntity::new, BlockInit.SIMPLE_MACHINE.get()).build(null));
-} 
+}

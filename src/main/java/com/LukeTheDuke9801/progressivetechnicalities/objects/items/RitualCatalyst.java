@@ -7,4 +7,8 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public interface RitualCatalyst {
     void doRitual(World world, BlockPos pos, PlayerEntity player);
+
+    default int ritualLevel(){
+        return 0;
+    }
 }

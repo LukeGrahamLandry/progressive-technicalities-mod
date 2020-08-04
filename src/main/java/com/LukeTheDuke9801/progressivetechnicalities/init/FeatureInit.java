@@ -69,6 +69,7 @@ public class FeatureInit {
         Registry.register(Registry.STRUCTURE_PIECE, "sky_island_piece", SKY_ISLAND_PIECE);
 
         RITUAL.setRegistryName(new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "ritual"));
+        registry.register(RITUAL);
         Registry.register(Registry.STRUCTURE_PIECE, "ritual_piece", RITUAL_PIECE);
     }
 

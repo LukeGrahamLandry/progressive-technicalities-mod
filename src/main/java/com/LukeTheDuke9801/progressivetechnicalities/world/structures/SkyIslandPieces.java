@@ -104,6 +104,7 @@ public class SkyIslandPieces {
 
             if ("skeleton".equals(function)) {
                 worldIn.setBlockState(pos, BlockInit.SKY_GUARDIAN.get().getDefaultState(), 3);
+                worldIn.getPendingBlockTicks().scheduleTick(pos, BlockInit.SKY_GUARDIAN.get(), 1);
             }
         }
 

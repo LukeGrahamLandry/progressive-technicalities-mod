@@ -68,6 +68,5 @@ public class MobSpawnerTileEntity extends TileEntity implements ITickableTileEnt
 	public void read(CompoundNBT compound) {
 		super.read(compound);
 		this.mobType = compound.getString("type");
-		
 	}
 }

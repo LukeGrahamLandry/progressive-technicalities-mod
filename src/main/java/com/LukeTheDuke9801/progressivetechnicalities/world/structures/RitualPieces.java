@@ -128,6 +128,7 @@ public class RitualPieces {
 
             if ("monster".equals(function)) {
                 worldIn.setBlockState(pos, BlockInit.RITUAL_GUARDIAN.get().getDefaultState(), 3);
+                worldIn.getPendingBlockTicks().scheduleTick(pos, BlockInit.RITUAL_GUARDIAN.get(), 1);
             }
         }
 

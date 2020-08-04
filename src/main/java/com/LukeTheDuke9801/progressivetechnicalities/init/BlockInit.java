@@ -103,7 +103,7 @@ public class BlockInit {
 			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3f, 50f).sound(SoundType.STONE).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 
 	public static final RegistryObject<Block> RITUAL_STONE = BLOCKS.register("ritual_stone",
-			() -> new RitualStone(Block.Properties.create(Material.ROCK).hardnessAndResistance(3f, 50f).sound(SoundType.STONE).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+			() -> new BasicRitualStone(Block.Properties.create(Material.ROCK).hardnessAndResistance(3f, 50f).sound(SoundType.STONE).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
 
 	/* Mobs for structures
 	It hangs when I try to add the mob directly from the dataMarker so instead

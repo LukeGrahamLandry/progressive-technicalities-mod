@@ -23,8 +23,13 @@
       },
       {
         "type": "item",
+        "name": "progressivetechnicalities:smelting_ritual_catalyst",
+        "weight": 20
+      },
+      {
+        "type": "item",
         "name": "progressivetechnicalities:dark_stone",
-        "weight": 40
+        "weight": 20
       }
     ]
   },

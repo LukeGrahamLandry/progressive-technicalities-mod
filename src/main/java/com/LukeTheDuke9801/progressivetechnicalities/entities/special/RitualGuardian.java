@@ -18,8 +18,9 @@ public class RitualGuardian implements SpawnableSpecialMob{
         ZombieEntity zombie = (ZombieEntity) EntityType.ZOMBIE.create(world);
         zombie.setPosition(pos.getX(), pos.getY(), pos.getZ());
         zombie.enablePersistence();  // don't despawn
-        ItemStack swordStack = new ItemStack(ItemInit.RITUAL_GUARDIAN_SWORD.get());
+        ItemStack swordStack = new ItemStack(ItemInit.CARBIDE_SWORD.get());
         swordStack.addEnchantment(Enchantments.FIRE_ASPECT, 2);
+        swordStack.addEnchantment(Enchantments.KNOCKBACK, 2);
         zombie.setHeldItem(Hand.MAIN_HAND, swordStack);
         zombie.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(ItemInit.EARTHGEM_HELMET.get()));
         zombie.setItemStackToSlot(EquipmentSlotType.CHEST, new ItemStack(ItemInit.EARTHGEM_CHESTPLATE.get()));

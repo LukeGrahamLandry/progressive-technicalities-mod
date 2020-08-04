@@ -17,6 +17,9 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import java.util.HashMap;
+
+import java.util.HashMap;
 
 @Mod.EventBusSubscriber(modid = ProgressiveTechnicalities.MOD_ID, bus= Mod.EventBusSubscriber.Bus.MOD)
 public class SoulBoundEnchantment extends Enchantment{
@@ -59,13 +62,15 @@ public class SoulBoundEnchantment extends Enchantment{
 		return false;
     }
 
-	// holds items for soulbound // TODO: make it player specific
-	private static NonNullList<ItemStack> soulboundItems = NonNullList.create();
+    private static HashMap<String, NonNullList<ItemStack>> soulboundItemsMap = new HashMap<String, NonNullList<ItemStack>>();
 
 	@SubscribeEvent
 	public static void onLivingDeath(LivingDeathEvent event) {
 		if (event.getEntityLiving() instanceof PlayerEntity) {
 			PlayerEntity player = (PlayerEntity)event.getEntityLiving();
+			String name = player.getName().getUnformattedComponentText();
+			NonNullList<ItemStack> soulboundItems = getPlayersSoulboundItems(name);
+
 			NonNullList<ItemStack> mainInventory = player.inventory.mainInventory;
 			int i = 0;
 			for (ItemStack stack : mainInventory) {
@@ -90,13 +95,25 @@ public class SoulBoundEnchantment extends Enchantment{
 
 	@SubscribeEvent
 	public static void onPlayerSpawn(EntityJoinWorldEvent event) {
-		if (soulboundItems.size() == 0) return;
-
 		if (event.getEntity() instanceof PlayerEntity) {
+			PlayerEntity player = (PlayerEntity)event.getEntity();
+			String name = player.getName().getUnformattedComponentText();
+			NonNullList<ItemStack> soulboundItems = getPlayersSoulboundItems(name);
+
+			if (soulboundItems.size() == 0) return;
+
 			for (ItemStack stack : soulboundItems) {
 				((PlayerEntity) event.getEntity()).addItemStackToInventory(stack);
 			}
-			soulboundItems = NonNullList.create();
+
+			soulboundItemsMap.remove(name);
 		}
+	}
+
+	private static NonNullList<ItemStack> getPlayersSoulboundItems(String name){
+		if (!soulboundItemsMap.containsKey(name)){  // should always be true cause its removed when you respawn
+			soulboundItemsMap.put(name, NonNullList.create());
+		}
+		return soulboundItemsMap.get(name);
 	}
 }

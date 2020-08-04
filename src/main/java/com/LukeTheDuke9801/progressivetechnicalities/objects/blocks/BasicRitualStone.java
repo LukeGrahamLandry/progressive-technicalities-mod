@@ -17,22 +17,22 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.List;
 
-public class RitualStone extends Block {
+public class BasicRitualStone extends Block {
 
-    public RitualStone(Properties properties) {
+    public BasicRitualStone(Properties properties) {
         super(properties);
     }
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         Item item = player.getHeldItem(handIn).getItem();
-        if (validRitualSetup(worldIn, pos) && item instanceof RitualCatalyst){
+        boolean isValidCatalyst = item instanceof RitualCatalyst && ((RitualCatalyst)item).ritualLevel() == 0;
+        if (validRitualSetup(worldIn, pos) && isValidCatalyst){
             player.getHeldItem(handIn).shrink(1);
 
             doRitual(worldIn, pos);
@@ -63,7 +63,7 @@ public class RitualStone extends Block {
         doLightning(world, pos.west(3));
 
         MobEntity mob = findClosestMob(world, pos);
-        world.createExplosion((Entity)null, mob.getPosX(), mob.getPosY(), mob.getPosZ(), 1f, false, Explosion.Mode.NONE);
+        mob.onKillCommand();
     }
 
     private void doLightning(World world, BlockPos pos) {

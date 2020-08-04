@@ -170,6 +170,9 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> CREPUSCULUM = ITEMS.register("crepusculum",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> SMELTING_RITUAL_CATALYST = ITEMS.register("smelting_ritual_catalyst",
+			() -> new SmeltingRitualCatalyst(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	// Dusts
 	public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
@@ -348,11 +351,6 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> SHULKER_BOW = ITEMS.register("shulker_bow",
 			() -> new ShulkerBowItem(new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> RITUAL_GUARDIAN_SWORD = ITEMS.register("ritual_guardian_sword",
-			() -> new RitualGuardianSword(ModItemTier.CARBIDE, 3, -2.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-
 
 	// Armour
 	public static final RegistryObject<Item> NIGHTVISION_GOGGLES = ITEMS.register("nightvision_goggles",
