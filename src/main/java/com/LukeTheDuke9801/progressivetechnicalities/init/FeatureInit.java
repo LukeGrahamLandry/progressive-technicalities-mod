@@ -45,6 +45,10 @@ public class FeatureInit {
     public static IStructurePieceType RITUAL_PIECE = RitualPieces.Piece::new;
     public static StructureDistance ritualDistance = defaultDistance;
 
+    public static Structure<NoFeatureConfig> METEOR = new MeteorStructure(NoFeatureConfig::deserialize);
+    public static IStructurePieceType METEOR_PIECE = MeteorPieces.Piece::new;
+    public static StructureDistance meteorDistance = defaultDistance;
+
 
     /*
      * Registers the features and structures. Normal Features will be registered here too.
@@ -71,6 +75,10 @@ public class FeatureInit {
         RITUAL.setRegistryName(new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "ritual"));
         registry.register(RITUAL);
         Registry.register(Registry.STRUCTURE_PIECE, "ritual_piece", RITUAL_PIECE);
+
+        METEOR.setRegistryName(new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "meteor"));
+        registry.register(METEOR);
+        Registry.register(Registry.STRUCTURE_PIECE, "meteor_piece", METEOR_PIECE);
     }
 
     public static void addStructuresToVanillaBiomes(){

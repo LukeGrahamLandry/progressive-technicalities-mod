@@ -12,7 +12,7 @@
 - New dimensions: a dark oil realm and a bright feywild
 - Planets reached with rockets: Luna, Arrakis, Pandora
 - Charms in loot chests that remove negative effects, grant life steal, and more
-- Generated structures: village (w/ traders), nether dungeon, fey stone henge
+- Generated structures: village (w/ traders), nether dungeon, fey stone henge, meteor,  ritual
 - new mobs: fairies, traders, 
 - and so much more
 

@@ -29,22 +29,19 @@ public class OilBiome extends Biome{
 				.parent(null)
 				.scale(2f)
 				.temperature(0f));
-		
-		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ZOMBIE, 100, 5, 10));
-		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SKELETON, 100, 5, 10));
-		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SPIDER, 100, 5, 10));
+
 		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.CAVE_SPIDER, 100, 5, 10));
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.CREEPER, 100, 5, 10));
 	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SILVERFISH, 100, 5, 10));
 	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SLIME, 100, 5, 10));
 	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 100, 5, 10));
+		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.PHANTOM, 100, 5, 10));
+
 	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITHER_SKELETON, 100, 5, 10));
 	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.BLAZE, 100, 5, 10));
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.EVOKER, 100, 5, 10));
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.VEX, 100, 5, 10));
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.GHAST, 100, 5, 10));
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.PHANTOM, 100, 5, 10));
-	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITHER, 5, 1, 1));
+		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.GHAST, 100, 5, 10));
+		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.MAGMA_CUBE, 100, 5, 10));
+
+	    this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITHER, 1, 1, 1));
 	    
 	    
 	    this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.05D, MineshaftStructure.Type.NORMAL)));

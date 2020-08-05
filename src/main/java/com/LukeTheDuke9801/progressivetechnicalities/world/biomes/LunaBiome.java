@@ -1,6 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.world.biomes;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
+import com.LukeTheDuke9801.progressivetechnicalities.init.FeatureInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
 import com.LukeTheDuke9801.progressivetechnicalities.world.gen.OreGen;
 import com.google.common.collect.ImmutableSet;
@@ -42,6 +43,7 @@ public class LunaBiome extends Biome{
 	    this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.withConfiguration(new BlockStateFeatureConfig(Blocks.AIR.getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(2))));
 
 		OreGen.generate(this, OreGen.LUNASTONE_FILLER, BlockInit.DILITHIUM_ORE.get(), 100, 0, 30, 4);
+		FeatureInit.generate(this, FeatureInit.METEOR);
 	}
 	
 	@Override

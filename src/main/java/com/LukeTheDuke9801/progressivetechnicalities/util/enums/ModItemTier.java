@@ -26,6 +26,9 @@ public enum ModItemTier implements IItemTier{
 	}),
 	FIREGEM(3, 1561, 8.0F, 3.0F, 20, () -> {
 		return Ingredient.fromItems(ItemInit.FIRE_GEM.get());
+	}),
+	AIRGEM(3, 1561, 8.0F, 3.0F, 20, () -> {
+		return Ingredient.fromItems(ItemInit.AIR_GEM.get());
 	});
 	
 	private final int harvestLevel;

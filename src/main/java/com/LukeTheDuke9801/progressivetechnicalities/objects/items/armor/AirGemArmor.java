@@ -20,13 +20,15 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public class AirGemArmor extends ArmorItem {
+public class AirGemArmor extends ArmorItem implements HitEventListener{
 	private static final int maxFlightTime = 10*20;
 
 	public AirGemArmor(EquipmentSlotType slot, Properties builder) {
@@ -36,7 +38,7 @@ public class AirGemArmor extends ArmorItem {
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Full set gives you flight (for 10 seconds, recharges while on ground)"));
+			tooltip.add(new StringTextComponent("Full set gives you flight (for 10 seconds, recharges while on ground). Blocks fall damage"));
 		}
 
 		super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -61,8 +63,14 @@ public class AirGemArmor extends ArmorItem {
 
 		super.onArmorTick(stack, world, player);
 	}
-	
-	
+
+	@Override
+	public void onWearerHit(LivingHurtEvent event) {
+		boolean isFallDamage = event.getSource() == DamageSource.FALL;
+		if (isFallDamage) {
+			event.setCanceled(true);
+		}
+	}
 	
 	public static boolean hasFullSet(LivingEntity entity) {
 		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.AIRGEM_HELMET.get())

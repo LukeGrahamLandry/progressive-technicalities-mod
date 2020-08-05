@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Index.md",
+            "file": "Dimensions/Feywild.md",
             "mode": "preview"
           }
         }
@@ -72,10 +72,10 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "Dimensions/Feywild.md",
+    "Dimensions/Dimensions.md",
     "Index.md",
-    "Armour/Armour.md",
-    "Charms & Enchantments/Charms & Enchantments.md",
-    "Misc/Misc.md",
-    "Advanced Life Steal Charm.md"
+    "Dimensions/Oil Dimension.md",
+    "Armour/Armour.md"
   ]
 }

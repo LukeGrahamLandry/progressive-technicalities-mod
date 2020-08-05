@@ -1,0 +1,77 @@
+{
+  "pools": [{
+    "name": "space_loot",
+    "rolls": 2,
+    "entries": [
+      {
+        "type": "item",
+        "name": "progressivetechnicalities:earth_gem",
+        "weight": 20
+      },
+      {
+        "type": "item",
+        "name": "minecraft:book",
+        "weight": 20,
+        "functions":[
+          {"function": "enchant_randomly"}
+        ]
+      },
+      {
+        "type": "item",
+        "name": "progressivetechnicalities:air_gem",
+        "weight": 20
+      },
+      {
+        "type": "item",
+        "name": "progressivetechnicalities:overworld_rocket",
+        "weight": 20
+      },
+      {
+        "type": "item",
+        "name": "progressivetechnicalities:luna_stone",
+        "weight": 20
+      }
+    ]
+  },
+    {
+      "name": "valuables",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_block",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_block",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald_block",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "progressivetechnicalities:titanium_ingot",
+          "weight": 20
+        }
+      ]
+    },
+    {
+      "name": "basic_loot",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "progressivetechnicalities:chest/basic_loot",
+          "weight": 100
+        }]
+    }]
+}

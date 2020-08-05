@@ -161,9 +161,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> EARTH_GEM = ITEMS.register("earth_gem",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> GEM_SMITH_CONTRACT = ITEMS.register("gem_smith_contract",
-			() -> new WandererContract("gem smith", new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+
+	public static final RegistryObject<Item> END_GEM = ITEMS.register("end_gem",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> DILITHIUM = ITEMS.register("dilithium",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -352,6 +352,10 @@ public class ItemInit {
 	public static final RegistryObject<Item> SHULKER_BOW = ITEMS.register("shulker_bow",
 			() -> new ShulkerBowItem(new Item.Properties().group(ProgtechItemGroup.instance)));
 
+	public static final RegistryObject<Item> AIRGEM_SWORD = ITEMS.register("airgem_sword",
+			() -> new AirGemSword(ModItemTier.AIRGEM, 3, -2.4f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+
 	// Armour
 	public static final RegistryObject<Item> NIGHTVISION_GOGGLES = ITEMS.register("nightvision_goggles",
 			() -> new NightVisionGoggles(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -520,6 +524,18 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> EARTHGEM_BOOTS = ITEMS.register("earthgem_boots",
 			() -> new EarthGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> NYMPHARIUM_HELMET = ITEMS.register("nympharium_helmet",
+			() -> new NymphariumArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> NYMPHARIUM_CHESTPLATE = ITEMS.register("nympharium_chestplate",
+			() -> new NymphariumArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> NYMPHARIUM_LEGGINGS = ITEMS.register("nympharium_leggings",
+			() -> new NymphariumArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> NYMPHARIUM_BOOTS = ITEMS.register("nympharium_boots",
+			() -> new NymphariumArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	
 	// Fey Food 

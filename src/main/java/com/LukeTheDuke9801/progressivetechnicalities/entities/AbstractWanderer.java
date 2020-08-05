@@ -6,6 +6,7 @@ import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.merchant.villager.VillagerTrades;
@@ -22,6 +23,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -51,6 +53,11 @@ public class AbstractWanderer extends AbstractVillagerEntity {
 
     public void setHome(BlockPos pos){
         this.homePos = pos;
+    }
+
+    public void onStruckByLightning(LightningBoltEntity lightningBolt) {
+        super.onStruckByLightning(lightningBolt);
+        this.world.createExplosion(null, this.getPosX(), this.getPosY(), this.getPosZ(), 5, true, Explosion.Mode.DESTROY);
     }
 
     protected void registerGoals() {
