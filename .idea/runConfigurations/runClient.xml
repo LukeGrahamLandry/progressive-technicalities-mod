@@ -8,15 +8,15 @@
     <module name="progressive_technicalities.main"/>
     <envs>
       <env name="MOD_CLASSES" value="examplemod%%$PROJECT_DIR$/build/resources/main:examplemod%%$PROJECT_DIR$/build/classes/java/main"/>
-      <env name="MCP_MAPPINGS" value="snapshot_20200509-1.15.1"/>
-      <env name="MCP_VERSION" value="20191217.105819"/>
-      <env name="FORGE_VERSION" value="30.0.51"/>
+      <env name="MCP_MAPPINGS" value="snapshot_20200515-1.15.1"/>
+      <env name="MCP_VERSION" value="20200515.085601"/>
+      <env name="FORGE_VERSION" value="31.2.0"/>
       <env name="assetIndex" value="1.15"/>
       <env name="assetDirectory" value="/Users/luke/.gradle/caches/forge_gradle/assets"/>
       <env name="nativesDirectory" value="$PROJECT_DIR$/build/natives"/>
       <env name="FORGE_GROUP" value="net.minecraftforge"/>
       <env name="target" value="fmluserdevclient"/>
-      <env name="MC_VERSION" value="1.15.1"/>
+      <env name="MC_VERSION" value="1.15.2"/>
     </envs>
     <method v="2">
       <option enabled="true" name="Make"/>

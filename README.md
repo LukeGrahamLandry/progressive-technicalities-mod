@@ -1,5 +1,5 @@
 # Progressive Technicalities
- A minecraft mod for version 1.15.1 (forge)
+ A minecraft mod for version 1.15.2 (forge)
 
 ## Features 
 - Machines that use xp: pulverizer, repairer, enchanter, disenchanter, spawner, and more
@@ -17,8 +17,11 @@
 - and so much more
 
 ## Download
-- https://www.curseforge.com/members/lukegrahamlandry/projects
+- https://www.curseforge.com/minecraft/mc-mods/progressive-technicalities
 - Note: do not download from anywhere other than curseforge
+
+## Contact
+- For any questions, issues, suggestions, etc: https://discord.gg/VbZVnRd
 
 ## Support Me
 - https://www.patreon.com/LukeGrahamLandry

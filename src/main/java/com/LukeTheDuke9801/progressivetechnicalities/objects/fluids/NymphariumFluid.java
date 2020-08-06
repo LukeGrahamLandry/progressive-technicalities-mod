@@ -11,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.passive.DolphinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
@@ -60,9 +61,11 @@ public abstract class NymphariumFluid extends FlowingFluid {
                .luminosity(1000).density(3000).viscosity(6000).temperature(0).overlay(FluidInit.NYMPHARIUM_OVERLAY_RL).build(this);
 	}
    
-   public static void applyFluidPotionEffects(LivingEntity player) {
-	   player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 4));
-	   player.attackEntityFrom(DamageSource.LAVA, 4);
+   public static void applyFluidPotionEffects(LivingEntity entity) {
+       if (!(entity instanceof DolphinEntity)){
+           // only actually damages twice a second
+           entity.attackEntityFrom(DamageSource.LAVA, 4);
+       }
    }
 
    

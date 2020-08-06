@@ -31,6 +31,8 @@ public class EnderStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
+		playerIn.getCooldownTracker().setCooldown(this, 20);
+
 		EnderPearlEntity pearl = new EnderPearlEntity(worldIn, playerIn);
 		pearl.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
 		worldIn.addEntity(pearl);

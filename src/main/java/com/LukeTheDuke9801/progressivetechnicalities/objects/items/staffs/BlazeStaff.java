@@ -33,6 +33,8 @@ public class BlazeStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
+		playerIn.getCooldownTracker().setCooldown(this, 20);
+
 		if (KeyboardHelper.isHoldingShift()) {
 			BlazeEntity blaze = new BlazeEntity(EntityType.BLAZE, worldIn);
 			blaze.setPosition(playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ());

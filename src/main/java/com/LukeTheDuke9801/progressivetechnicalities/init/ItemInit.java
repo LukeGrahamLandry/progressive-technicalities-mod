@@ -173,6 +173,10 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> SMELTING_RITUAL_CATALYST = ITEMS.register("smelting_ritual_catalyst",
 			() -> new SmeltingRitualCatalyst(new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	// Compasses
+	public static final RegistryObject<Item> SKY_ISLAND_COMPASS = ITEMS.register("sky_island_compass",
+			() -> new StructureCompass(ProgressiveTechnicalities.MOD_ID + ":sky_island", new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	// Dusts
 	public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
@@ -354,6 +358,10 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> AIRGEM_SWORD = ITEMS.register("airgem_sword",
 			() -> new AirGemSword(ModItemTier.AIRGEM, 3, -2.4f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+
+	public static final RegistryObject<Item> TEST = ITEMS.register("test",
+			() -> new ResistanceArmorTest(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 
 	// Armour

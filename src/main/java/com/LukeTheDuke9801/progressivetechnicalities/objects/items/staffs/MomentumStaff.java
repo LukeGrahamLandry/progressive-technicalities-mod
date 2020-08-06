@@ -33,6 +33,8 @@ public class MomentumStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
+		playerIn.getCooldownTracker().setCooldown(this, 10);
+
 		double vecLen = 2;
 		EffectInstance speedEffect = playerIn.getActivePotionEffect(Effects.SPEED);
 		if (speedEffect != null) {

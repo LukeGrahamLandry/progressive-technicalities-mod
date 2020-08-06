@@ -33,6 +33,8 @@ public class TNTStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
+		playerIn.getCooldownTracker().setCooldown(this, 10);
+
 		TNTBallEntity ball = new TNTBallEntity(worldIn, playerIn);
 		ball.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
 		worldIn.addEntity(ball);

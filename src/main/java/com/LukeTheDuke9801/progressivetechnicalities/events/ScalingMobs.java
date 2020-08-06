@@ -16,6 +16,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -83,7 +84,6 @@ public class ScalingMobs {
 	    itementity.setDefaultPickupDelay();
 	    world.addEntity(itementity);
 	}
-	
 	
 	// Make them stronger
 	@SubscribeEvent

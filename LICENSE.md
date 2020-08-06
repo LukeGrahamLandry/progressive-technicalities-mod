@@ -7,7 +7,9 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-If you make any money from this software, donate 25% of it to my pateron:
+Give me credit
+
+If you make any money from this software, make a donation to my pateron:
 https://www.patreon.com/LukeGrahamLandry
 
 The above copyright notice and this permission notice shall be included in all

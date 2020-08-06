@@ -46,6 +46,8 @@ public class ShulkingStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
+		playerIn.getCooldownTracker().setCooldown(this, 20);
+
 		List<Entity> entities = worldIn.getEntitiesWithinAABBExcludingEntity(playerIn, getAABB(playerIn));
 		NonNullList<MonsterEntity> targets = NonNullList.create();
 		for (Entity e : entities) {
