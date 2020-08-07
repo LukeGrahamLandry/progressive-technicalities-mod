@@ -29,15 +29,6 @@ public class ModLivingTickEvent {
 			LivingEntity entity = event.getEntityLiving();
 			World world = entity.getEntityWorld();
 
-			if (entity.isInWater()) {
-				if (OilFluid.isInFluid(entity)) {
-					OilFluid.applyFluidPotionEffects(entity);
-				}
-				if (NymphariumFluid.isInFluid(entity)) {
-					NymphariumFluid.applyFluidPotionEffects(entity);
-				}
-			}
-
 			int lavaWalkerLevel = EnchantmentHelper.getMaxEnchantmentLevel(EnchantmentInit.LAVA_WALKER.get(), entity);
 			if (lavaWalkerLevel > 0) {
 				LavaWalkerEnchantment.solidifyNearby(entity, world, entity.getPosition(), lavaWalkerLevel);

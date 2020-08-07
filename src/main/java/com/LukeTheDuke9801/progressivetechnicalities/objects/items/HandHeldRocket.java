@@ -2,20 +2,17 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
-import com.LukeTheDuke9801.progressivetechnicalities.util.DimensionHelper;
+import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.DimensionHelper;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
@@ -24,7 +21,6 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
-import net.minecraft.world.server.ServerWorld;
 
 import java.util.List;
 
@@ -77,7 +73,7 @@ public class HandHeldRocket extends Item{
 	}
 
 	private void sendToTargetDimension(Entity entityIn) {
-		DimensionHelper.changeDimension(entityIn, getDestination());
+		DimensionHelper.changeDimension((PlayerEntity) entityIn, getDestination());
 		entityIn.setPosition(0, 150, 0);
 		((LivingEntity) entityIn).addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 300, 0)); // so you dont go splat
 	}

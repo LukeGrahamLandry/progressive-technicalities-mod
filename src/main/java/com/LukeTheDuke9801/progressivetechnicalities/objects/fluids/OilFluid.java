@@ -66,43 +66,6 @@ public abstract class OilFluid extends FlowingFluid {
 		   player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 20, 0));
 	   }
    }
-
-   
-   public static boolean isInFluid(LivingEntity player) {
-	      AxisAlignedBB axisalignedbb = player.getBoundingBox().shrink(0.001D);
-	      int i = MathHelper.floor(axisalignedbb.minX);
-	      int j = MathHelper.ceil(axisalignedbb.maxX);
-	      int k = MathHelper.floor(axisalignedbb.minY);
-	      int l = MathHelper.ceil(axisalignedbb.maxY);
-	      int i1 = MathHelper.floor(axisalignedbb.minZ);
-	      int j1 = MathHelper.ceil(axisalignedbb.maxZ);
-	      if (!player.world.isAreaLoaded(i, k, i1, j, l, j1)) {
-	         return false;
-	      } else {
-	         boolean flag1 = false;
-
-	         try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.retain()) {
-	            for(int l1 = i; l1 < j; ++l1) {
-	               for(int i2 = k; i2 < l; ++i2) {
-	                  for(int j2 = i1; j2 < j1; ++j2) {
-	                     blockpos$pooledmutable.setPos(l1, i2, j2);
-	                     IFluidState ifluidstate = player.world.getFluidState(blockpos$pooledmutable);
-	                     boolean inOil = ifluidstate.getFluid() instanceof OilFluid;
-	                     if (inOil) {
-	                        double d1 = (double)((float)i2 + ifluidstate.getActualHeight(player.world, blockpos$pooledmutable));
-	                        if (d1 >= axisalignedbb.minY) {
-	                           flag1 = true;
-	                        }
-	                     }
-	                  }
-	               }
-	            }
-	         }
-
-	         return flag1;
-	      }
-	   
-   }
    
    public static void solidifyNearby(LivingEntity living, World worldIn, BlockPos pos, int level) {
 	      if (living.onGround) {

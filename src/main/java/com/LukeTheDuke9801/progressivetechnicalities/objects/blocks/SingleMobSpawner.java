@@ -33,12 +33,12 @@ public class SingleMobSpawner extends Block {
         spawn(worldIn, pos);
     }
 
+    /*
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.INVISIBLE;
     }
-
-
+     */
 }
 	   
 	

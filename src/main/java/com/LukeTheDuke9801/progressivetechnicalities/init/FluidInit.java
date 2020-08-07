@@ -3,9 +3,11 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.ModIceBlock;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.NymphariumFluidBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.NymphariumFluid;
 
+import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluidBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowingFluidBlock;
@@ -36,7 +38,7 @@ public class FluidInit {
 			() -> new OilFluid.Flowing());
 	
 	public static final RegistryObject<FlowingFluidBlock> OIL_BLOCK = BlockInit.BLOCKS.register("oil",
-			() -> new FlowingFluidBlock(() -> FluidInit.OIL_FLUID.get(), Block.Properties.create(Material.WATER)
+			() -> new OilFluidBlock(() -> FluidInit.OIL_FLUID.get(), Block.Properties.create(Material.WATER)
 					.doesNotBlockMovement().hardnessAndResistance(100f).noDrops()));
 	
 	public static final RegistryObject<Item> OIL_BUCKET = ItemInit.ITEMS.register("oil_bucket",
@@ -54,7 +56,7 @@ public class FluidInit {
 			() -> new NymphariumFluid.Flowing());
 	
 	public static final RegistryObject<FlowingFluidBlock> NYMPHARIUM_FLUID_BLOCK = BlockInit.BLOCKS.register("nympharium",
-			() -> new FlowingFluidBlock(() -> FluidInit.NYMPHARIUM_FLUID.get(), Block.Properties.create(Material.WATER)
+			() -> new NymphariumFluidBlock(() -> FluidInit.NYMPHARIUM_FLUID.get(), Block.Properties.create(Material.WATER)
 					.doesNotBlockMovement().hardnessAndResistance(100f).noDrops()));
 	
 	public static final RegistryObject<Item> NYMPHARIUM_FLUID_BUCKET = ItemInit.ITEMS.register("nympharium_fluid_bucket",

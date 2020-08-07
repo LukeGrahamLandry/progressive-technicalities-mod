@@ -1,8 +1,9 @@
-package com.LukeTheDuke9801.progressivetechnicalities.util;
+package com.LukeTheDuke9801.progressivetechnicalities.util.helpers;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -22,7 +23,7 @@ public class DimensionHelper {
         return dim == LUNA || dim == ARRAKIS || dim == PANDORA;
     }
 
-    public static void changeDimension(Entity entityIn, DimensionType dim) {
+    public static void changeDimension(PlayerEntity entityIn, DimensionType dim) {
         MinecraftServer minecraftserver = entityIn.getServer();
         if (minecraftserver == null) {
             return;

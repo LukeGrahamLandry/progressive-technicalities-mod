@@ -51,14 +51,7 @@ public class BedrockiumArmor extends ArmorItem {
 	
 	@Override
 	public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
-		if (hasFullSet(entity)) {
-			entity.getItemStackFromSlot(EquipmentSlotType.HEAD).setDamage(0);
-			entity.getItemStackFromSlot(EquipmentSlotType.CHEST).setDamage(0);
-			entity.getItemStackFromSlot(EquipmentSlotType.LEGS).setDamage(0);
-			entity.getItemStackFromSlot(EquipmentSlotType.FEET).setDamage(0);
-			return 0;
-		}
-		return super.damageItem(stack, amount, entity, onBroken);
+		return 0;
 	}
 	
 	public static boolean hasFullSet(LivingEntity entity) {

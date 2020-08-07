@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "hsc",
+    "szs",
+    "lsb"
+  ],
+  "key": {
+    "z": {
+      "item": "progressivetechnicalities:charm"
+    },
+    "s": {
+      "item": "minecraft:nautilus_shell"
+    },
+    "h": {
+      "item": "progressivetechnicalities:watergem_helmet"
+    },
+    "c": {
+      "item": "progressivetechnicalities:watergem_chestplate"
+    },
+    "l": {
+      "item": "progressivetechnicalities:watergem_leggings"
+    },
+    "b": {
+      "item": "progressivetechnicalities:watergem_boots"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:watergem_charm"
+  }
+}

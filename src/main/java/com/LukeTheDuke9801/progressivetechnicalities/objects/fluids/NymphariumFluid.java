@@ -4,11 +4,13 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.DolphinEntity;
@@ -60,52 +62,8 @@ public abstract class NymphariumFluid extends FlowingFluid {
                FluidInit.NYMPHARIUM_FLOWING_RL)
                .luminosity(1000).density(3000).viscosity(6000).temperature(0).overlay(FluidInit.NYMPHARIUM_OVERLAY_RL).build(this);
 	}
-   
-   public static void applyFluidPotionEffects(LivingEntity entity) {
-       if (!(entity instanceof DolphinEntity)){
-           // only actually damages twice a second
-           entity.attackEntityFrom(DamageSource.LAVA, 4);
-       }
-   }
 
-   
-   public static boolean isInFluid(LivingEntity player) {
-	      AxisAlignedBB axisalignedbb = player.getBoundingBox().shrink(0.001D);
-	      int i = MathHelper.floor(axisalignedbb.minX);
-	      int j = MathHelper.ceil(axisalignedbb.maxX);
-	      int k = MathHelper.floor(axisalignedbb.minY);
-	      int l = MathHelper.ceil(axisalignedbb.maxY);
-	      int i1 = MathHelper.floor(axisalignedbb.minZ);
-	      int j1 = MathHelper.ceil(axisalignedbb.maxZ);
-	      if (!player.world.isAreaLoaded(i, k, i1, j, l, j1)) {
-	         return false;
-	      } else {
-	         boolean flag1 = false;
-
-	         try (BlockPos.PooledMutable blockpos$pooledmutable = BlockPos.PooledMutable.retain()) {
-	            for(int l1 = i; l1 < j; ++l1) {
-	               for(int i2 = k; i2 < l; ++i2) {
-	                  for(int j2 = i1; j2 < j1; ++j2) {
-	                     blockpos$pooledmutable.setPos(l1, i2, j2);
-	                     IFluidState ifluidstate = player.world.getFluidState(blockpos$pooledmutable);
-	                     boolean inNympharium = ifluidstate.getFluid() instanceof NymphariumFluid;
-	                     if (inNympharium) {
-	                        double d1 = (double)((float)i2 + ifluidstate.getActualHeight(player.world, blockpos$pooledmutable));
-	                        if (d1 >= axisalignedbb.minY) {
-	                           flag1 = true;
-	                        }
-	                     }
-	                  }
-	               }
-	            }
-	         }
-
-	         return flag1;
-	      }
-	   
-   }
-   
-   public static void solidifyNearby(LivingEntity living, World worldIn, BlockPos pos, int level) {
+    public static void solidifyNearby(LivingEntity living, World worldIn, BlockPos pos, int level) {
 	      if (living.onGround || true) {
 	         BlockState blockstate = FluidInit.NYMPHARIUM_ICE.get().getDefaultState();
 	         float f = (float)Math.min(16, 2 + level);
@@ -178,7 +136,7 @@ public abstract class NymphariumFluid extends FlowingFluid {
    }
 
    public boolean canDisplace(IFluidState p_215665_1_, IBlockReader p_215665_2_, BlockPos p_215665_3_, Fluid p_215665_4_, Direction p_215665_5_) {
-      return p_215665_5_ == Direction.DOWN && !p_215665_4_.isIn(FluidTags.WATER);
+       return p_215665_5_ == Direction.DOWN && !p_215665_4_.isIn(FluidTags.WATER);
    }
 
    protected float getExplosionResistance() {

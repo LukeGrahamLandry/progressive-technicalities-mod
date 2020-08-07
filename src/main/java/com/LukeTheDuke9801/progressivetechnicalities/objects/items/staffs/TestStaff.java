@@ -9,6 +9,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -36,7 +37,9 @@ public class TestStaff extends Item{
 	public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity playerIn, Hand handIn){
 		AttributeModifier modifier = new AttributeModifier(UUID.fromString("131fa735-ff9a-45c8-8197-fa8e561829e1"),
 				"ProgTechScalingMobs_health", 5, AttributeModifier.Operation.ADDITION);
-		playerIn.getAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(modifier);
+
+		ItemStack stack = playerIn.getItemStackFromSlot(EquipmentSlotType.HEAD);
+		stack.addAttributeModifier(SharedMonsterAttributes.MAX_HEALTH.getName(), modifier, EquipmentSlotType.HEAD);
 
 		return super.onItemRightClick(world, playerIn, handIn);
 		

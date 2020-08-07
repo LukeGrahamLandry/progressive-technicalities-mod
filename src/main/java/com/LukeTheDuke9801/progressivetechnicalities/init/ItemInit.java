@@ -4,26 +4,8 @@ import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.*;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.AntiEffectCharm;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.AntiFireCharm;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.BoostCharm;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.LifeStealCharmAdvanced;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.LifeStealCharmBasic;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.MinersCharm;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.BlazeStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.CreativeStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.EnderStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.LightningStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.MomentumStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.NetherStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.RecallStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.ShulkingStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.SnowStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TNTStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TestStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.TimeStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.WeatherStaff;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.XPStaff;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.*;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.*;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModArmorMaterial;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModItemTier;
@@ -86,9 +68,6 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> OIL_PORTAL_KEY = ITEMS.register("oil_portal_key",
 			() -> new OilPortalKey(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> FEYWILD_PORTAL_KEY = ITEMS.register("feywild_portal_key",
-			() -> new FeywildPortalKey(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> FEYSTEEL_INGOT = ITEMS.register("feysteel_ingot",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -171,13 +150,21 @@ public class ItemInit {
 	public static final RegistryObject<Item> CREPUSCULUM = ITEMS.register("crepusculum",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> SMELTING_RITUAL_CATALYST = ITEMS.register("smelting_ritual_catalyst",
-			() -> new SmeltingRitualCatalyst(new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	// Compasses
 	public static final RegistryObject<Item> SKY_ISLAND_COMPASS = ITEMS.register("sky_island_compass",
 			() -> new StructureCompass(ProgressiveTechnicalities.MOD_ID + ":sky_island", new Item.Properties().group(ProgtechItemGroup.instance)));
-	
+
+	// Ritual Catalysts
+	public static final RegistryObject<Item> FEYWILD_PORTAL_KEY = ITEMS.register("feywild_portal_key",
+			() -> new FeywildPortalKey(new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> SMELTING_RITUAL_CATALYST = ITEMS.register("smelting_ritual_catalyst",
+			() -> new SmeltingRitualCatalyst(new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> ARMOR_HEALTH_BOOST_CATALYST = ITEMS.register("armor_health_boost_catalyst",
+			() -> new ArmorHealthBoostCatalyst(new Item.Properties().group(ProgtechItemGroup.instance)));
+
 	// Dusts
 	public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -265,9 +252,6 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> HAND_HELD_TELEPORTER = ITEMS.register("hand_held_teleporter",
 			() -> new HandHeldTeleporter(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-
-	public static final RegistryObject<Item> LOOT_TABLE_DEBUG = ITEMS.register("loot_table_debug",
-			() -> new LootTableDebug(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",
@@ -302,8 +286,10 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> ANTI_BLINDNESS_CHARM = ITEMS.register("anti_blindness_charm",
 			() -> new AntiEffectCharm(Effects.BLINDNESS, new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-	
-	
+
+	public static final RegistryObject<Item> WATERGEM_CHARM = ITEMS.register("watergem_charm",
+			() -> new WaterGemCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+
 	// Tools
 	public static final RegistryObject<Item> CARBIDE_SWORD = ITEMS.register("carbide_sword",
 			() -> new SwordItem(ModItemTier.CARBIDE, 3, -2.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -359,11 +345,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> AIRGEM_SWORD = ITEMS.register("airgem_sword",
 			() -> new AirGemSword(ModItemTier.AIRGEM, 3, -2.4f, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-
-	public static final RegistryObject<Item> TEST = ITEMS.register("test",
-			() -> new ResistanceArmorTest(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-
 	// Armour
 	public static final RegistryObject<Item> NIGHTVISION_GOGGLES = ITEMS.register("nightvision_goggles",
 			() -> new NightVisionGoggles(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -400,6 +381,9 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> SKY_GUARDIAN_HELM = ITEMS.register("sky_guardian_helm",
 			() -> new SkyGuardianHelm(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> NINJA_ROBE = ITEMS.register("ninja_robe",
+			() -> new NinjaRobe(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> CARBIDE_HELMET = ITEMS.register("carbide_helmet",
 			() -> new ArmorItem(ModArmorMaterial.CARBIDE, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));

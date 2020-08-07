@@ -1,18 +1,13 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks;
 
-import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
-
+import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.DimensionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
-import net.minecraft.world.server.ServerWorld;
 
 public class OilPortalBlock extends Block {
 	   
@@ -23,33 +18,21 @@ public class OilPortalBlock extends Block {
 	   @Override
 	   public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
 		   if (!worldIn.isRemote && entityIn instanceof PlayerEntity) {
-		   
-		    DimensionType feyDimType = DimensionType.byName(ProgressiveTechnicalities.OIL_DIM_TYPE);
-			boolean isInFeywild = worldIn.getDimension().getType() == feyDimType;
-			
-			DimensionType destination = null;
-			double movementFactor;
-			if (isInFeywild) {
-				destination = DimensionType.OVERWORLD;
-				movementFactor = 1;
-			} else {
-				destination = feyDimType;
-				movementFactor = 1;
-			}
-			MinecraftServer minecraftserver = entityIn.getServer();
-			ServerWorld serverworld = minecraftserver.getWorld(destination);
 
-			double x = entityIn.getPosX() * movementFactor;
-			double z = entityIn.getPosZ() * movementFactor;
-			((ServerPlayerEntity)entityIn).teleport(serverworld, x, 0, z, entityIn.getYaw(0), entityIn.getPitch(0));
-		
+			boolean isInOilDim = worldIn.getDimension().getType() == DimensionHelper.OIL;
+			if (isInOilDim) {
+				DimensionHelper.changeDimension((PlayerEntity) entityIn, DimensionType.OVERWORLD);
+			} else {
+				DimensionHelper.changeDimension((PlayerEntity) entityIn, DimensionHelper.OIL);
+			}
+
 			// make you spawn on a portal in the lowest air space
 	         for (int i=0; i<256; i++) {
 	        	 if (validPortalSpawnLocation(entityIn.world, entityIn.getPosition())) {
 	        		 genPortal(entityIn.world, entityIn.getPosition());
 	        		 break;
             	 } else {
-            		 entityIn.teleportKeepLoaded(x, entityIn.getPosY() + 1, z);
+            		 entityIn.teleportKeepLoaded(entityIn.getPosX(), entityIn.getPosY() + 1, entityIn.getPosZ());
             	 }
              }
 

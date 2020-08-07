@@ -3,7 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items;
 import java.util.List;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
-import com.LukeTheDuke9801.progressivetechnicalities.util.DimensionHelper;
+import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.DimensionHelper;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.block.Blocks;

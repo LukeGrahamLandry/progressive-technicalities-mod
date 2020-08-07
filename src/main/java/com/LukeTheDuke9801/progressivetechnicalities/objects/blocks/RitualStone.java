@@ -1,5 +1,6 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.RitualCatalyst;
 import net.minecraft.block.Block;
@@ -9,6 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.effect.LightningBoltEntity;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.util.ActionResultType;
@@ -22,17 +24,19 @@ import net.minecraft.world.server.ServerWorld;
 
 import java.util.List;
 
-public class BasicRitualStone extends Block {
-
-    public BasicRitualStone(Properties properties) {
+public class RitualStone extends Block {
+    private int ritualLevel;
+    public RitualStone(int level, Properties properties) {
         super(properties);
+        this.ritualLevel = level;
     }
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         Item item = player.getHeldItem(handIn).getItem();
-        boolean isValidCatalyst = item instanceof RitualCatalyst && ((RitualCatalyst)item).ritualLevel() == 0;
-        if (validRitualSetup(worldIn, pos) && isValidCatalyst){
+        if (!(item instanceof RitualCatalyst)) return ActionResultType.FAIL;
+        RitualCatalyst catalyst = ((RitualCatalyst)item);
+        if (validRitualSetup(worldIn, pos, catalyst.getRitualLevel()) && catalyst.getRitualLevel() <= this.ritualLevel){
             player.getHeldItem(handIn).shrink(1);
 
             doRitual(worldIn, pos);
@@ -44,16 +48,28 @@ public class BasicRitualStone extends Block {
         }
     }
 
-    private boolean validRitualSetup(World world, BlockPos pos) {
-        return isRuneStone(world, pos.north(3)) && isRuneStone(world, pos.south(3)) &&
-                isRuneStone(world, pos.east(3)) && isRuneStone(world, pos.west(3)) &&
+    private boolean validRitualSetup(World world, BlockPos pos, int level) {
+        boolean valid0 =
+                isGoldRune(world, pos.north(3)) && isGoldRune(world, pos.south(3)) &&
+                isGoldRune(world, pos.east(3)) && isGoldRune(world, pos.west(3)) &&
                 world.getBlockState(pos.down()).getBlock().equals(Blocks.DIAMOND_BLOCK) &&
-                findClosestMob(world, pos) != null;
+                        findClosestMob(world, pos) != null;
+        boolean valid2 =
+                isFeysteelRune(world, pos.north(3).west(3)) && isFeysteelRune(world, pos.north(3).east(3)) &&
+                isFeysteelRune(world, pos.south(3).west(3)) && isFeysteelRune(world, pos.south(3).east(3));
+
+        if (level >= 2) valid0 = valid0 && valid2;
+        return valid0;
     }
 
-    private boolean isRuneStone(World world, BlockPos pos) {
+    private boolean isGoldRune(World world, BlockPos pos) {
         return world.getBlockState(pos).getBlock().equals(BlockInit.RUNE_STONE.get())
                 && world.getBlockState(pos.down()).getBlock().equals(Blocks.GOLD_BLOCK);
+    }
+
+    private boolean isFeysteelRune(World world, BlockPos pos) {
+        return world.getBlockState(pos).getBlock().equals(BlockInit.RUNE_STONE.get())
+                && world.getBlockState(pos.down()).getBlock().equals(BlockInit.FEYSTEEL_BLOCK.get());
     }
 
     private void doRitual(World world, BlockPos pos) {
