@@ -3,8 +3,10 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_mach
 import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 
+import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
@@ -17,9 +19,17 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootContext;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.items.ItemHandlerHelper;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class InductionSmelterBlock extends SimpleMachineBlock{
 	private static final int cost = 5;
@@ -27,14 +37,22 @@ public class InductionSmelterBlock extends SimpleMachineBlock{
 	public InductionSmelterBlock(Block.Properties builder) {
 	      super(builder);
 	   }
-	   
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		if (KeyboardHelper.isHoldingShift()) {
+			tooltip.add(new StringTextComponent("Right click with an item to smelt it (also turns dusts to ingots) (takes power)"));
+		}
+		super.addInformation(stack, worldIn, tooltip, flagIn);
+	}
 	   
    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 	   ItemStack stack = player.getHeldItem(handIn);
 	   Item item = stack.getItem();
 	   
 	   Item result = getOutput(item, worldIn);
-	   if (result != null) {
+	   if (result == item) {
 		   boolean success = expendExperience(worldIn, pos, player, this.cost);
 		   if (!success) return ActionResultType.FAIL;
 		   
@@ -52,7 +70,11 @@ public class InductionSmelterBlock extends SimpleMachineBlock{
    
    private Item getOutput(Item item, World world) {
 	   Item result = null;
-	   
+
+	   if (item.equals(Items.ROTTEN_FLESH)) {
+		   result = Items.LEATHER;
+	   }
+
 	   if (item.equals(ItemInit.IRON_DUST.get())) {
 		   result = Items.IRON_INGOT;
 	   }

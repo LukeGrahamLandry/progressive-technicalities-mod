@@ -4,10 +4,12 @@ import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.oil.OilGeneratorTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
@@ -22,7 +24,15 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class PulverizerBlock extends SimpleMachineBlock{
 	private static final int cost = 5;
@@ -30,7 +40,15 @@ public class PulverizerBlock extends SimpleMachineBlock{
 	public PulverizerBlock(Block.Properties builder) {
 	      super(builder);
 	   }
-	   
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		if (KeyboardHelper.isHoldingShift()) {
+			tooltip.add(new StringTextComponent("Right click with an item to pulverize it (ie. ore to dust for ore doubling) (takes power)"));
+		}
+		super.addInformation(stack, worldIn, tooltip, flagIn);
+	}
 	   
    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 	   ItemStack stack = player.getHeldItem(handIn);

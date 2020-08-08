@@ -150,6 +150,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> CREPUSCULUM = ITEMS.register("crepusculum",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 
+	public static final RegistryObject<Item> LIGHTNING_BOTTLE = ITEMS.register("lightning_bottle",
+			() -> new LightningBottle(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(16)));
+
 
 	// Compasses
 	public static final RegistryObject<Item> SKY_ISLAND_COMPASS = ITEMS.register("sky_island_compass",
@@ -252,6 +255,9 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> HAND_HELD_TELEPORTER = ITEMS.register("hand_held_teleporter",
 			() -> new HandHeldTeleporter(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+
+	public static final RegistryObject<Item> ZHONYAS_HOURGLASS = ITEMS.register("zhonyas_hourglass",
+			() -> new ZhonyasHourglass(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",

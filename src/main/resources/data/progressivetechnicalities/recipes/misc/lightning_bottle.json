@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+          "item": "minecraft:glass_bottle"
+      },
+      {
+        "item": "progressivetechnicalities:air_gem"
+      },
+      {
+        "item": "progressivetechnicalities:fire_gem"
+      }
+    ],
+    "result": {
+      "item": "progressivetechnicalities:lightning_bottle",
+      "count": 16
+    }
+  }

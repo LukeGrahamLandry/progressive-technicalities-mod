@@ -1,12 +1,15 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.TitaniumAIOT;
 
+import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.entity.item.ItemEntity;
@@ -30,14 +33,29 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.Nullable;
 
 public class DisenchanterBlock extends SimpleMachineBlock{
 	public static final int cost = 20;
 	public DisenchanterBlock(Block.Properties builder) {
 	      super(builder);
 	   }
-	   
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		if (KeyboardHelper.isHoldingShift()) {
+			tooltip.add(new StringTextComponent("Right click with an item to take off enchantments and put them on books (takes power)"));
+		}
+		super.addInformation(stack, worldIn, tooltip, flagIn);
+	}
 	   
 	   public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 		   ItemStack handHeld = player.getItemStackFromSlot(EquipmentSlotType.MAINHAND);

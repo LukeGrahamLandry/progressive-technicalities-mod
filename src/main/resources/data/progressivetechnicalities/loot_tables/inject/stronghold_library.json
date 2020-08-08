@@ -1,0 +1,17 @@
+{
+    "pools": [{
+      "name": "hourglass",
+      "rolls": 1,
+      "entries": [
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:zhonyas_hourglass",
+             "weight": 20
+        },
+        {
+            "type": "empty",
+            "weight": 80
+        }
+      ]
+    }]
+  }

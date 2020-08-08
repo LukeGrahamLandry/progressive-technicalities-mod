@@ -1,5 +1,6 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.fluids;
 
+import com.LukeTheDuke9801.progressivetechnicalities.entities.FairyEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowingFluidBlock;
@@ -14,12 +15,16 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
+import java.util.Random;
 import java.util.function.Supplier;
 
 public class NymphariumFluidBlock extends FlowingFluidBlock {
+    static final Random rand = new Random();
+    public static final DamageSource DAMAGE_SOURCE = (new DamageSource("nympharium")).setDamageBypassesArmor();
     public NymphariumFluidBlock(Supplier<? extends FlowingFluid> supplier, Properties p_i48368_1_) {
         super(supplier, p_i48368_1_);
     }
@@ -28,11 +33,12 @@ public class NymphariumFluidBlock extends FlowingFluidBlock {
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity){
             LivingEntity living = (LivingEntity) entityIn;
-            if (!(entityIn instanceof DolphinEntity)){
+            if (!(entityIn instanceof DolphinEntity || entityIn instanceof FairyEntity)){
                 // only actually damages twice a second
-                living.attackEntityFrom(DamageSource.LAVA, 4);  // TODO: when I add charm from fairies, make it not lava damage
+                living.attackEntityFrom(DAMAGE_SOURCE, 4);
             }
+        } else {
+            entityIn.addVelocity(0, 0.5D, 0);
         }
-
     }
 }

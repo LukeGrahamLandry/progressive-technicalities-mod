@@ -4,7 +4,7 @@
 	"item.progressivetechnicalities.chromium_ingot": "Chromium Ingot",
 	"item.progressivetechnicalities.carbide_ingot": "Carbide Ingot",
 	"item.progressivetechnicalities.titanium_ingot": "Titanium Ingot",
-	"item.progressivetechnicalities.air_gem": "Sky Gem",
+	"item.progressivetechnicalities.air_gem": "Air Gem",
 	"item.progressivetechnicalities.space_ingot": "Diastima Alloy",
 	"item.progressivetechnicalities.tiny_coal": "Tiny Coal",
 	"item.progressivetechnicalities.magic_eggshell": "Magic Eggshell",
@@ -44,6 +44,7 @@
 	"item.progressivetechnicalities.end_gem": "End Gem",
 	"item.progressivetechnicalities.water_gem": "Water Gem",
 	"item.progressivetechnicalities.earth_gem": "Earth Gem",
+	"item.progressivetechnicalities.lightning_bottle": "Lightning in a Bottle",
 
 	"item.progressivetechnicalities.coffee": "Coffee",
 	"item.progressivetechnicalities.coffee_beans": "Coffee Beans",
@@ -76,6 +77,7 @@
 	"item.progressivetechnicalities.lightning_staff": "Lightning Staff",
 	"item.progressivetechnicalities.shulking_staff": "Shulking Staff",
 	"item.progressivetechnicalities.hand_held_teleporter": "Hand Held Teleporter",
+	"item.progressivetechnicalities.zhonyas_hourglass": "Zhonya's Hourglass",
 
 	"item.progressivetechnicalities.sky_island_compass": "Sky Island Compass",
 
@@ -188,7 +190,7 @@
 	"block.progressivetechnicalities.titanium_block": "Titanium Block",
 	"block.progressivetechnicalities.titanium_ore": "Titanium Ore",
 	"block.progressivetechnicalities.carbide_block": "Carbide Block",
-	"block.progressivetechnicalities.air_gem_ore": "Sky Gem Ore",
+	"block.progressivetechnicalities.air_gem_ore": "Air Gem Ore",
 	"block.progressivetechnicalities.dark_stone": "Igneous Rock",
 	"block.progressivetechnicalities.fey_stone": "Solid Fairy Dust",
 	"block.progressivetechnicalities.feysteel_ore": "Feysteel Ore",
@@ -229,6 +231,8 @@
 	"block.progressivetechnicalities.induction_smelter": "Induction Smelter",
 	"block.progressivetechnicalities.item_repairer": "Item Repairer",
 	"block.progressivetechnicalities.xp_tank": "XP Tank",
+
+	"death.attack.nympharium": "%1$s tried to swim with the fairies",
 	
 	"container.large_chest": "Large Chest",
 	"container.tinker_table": "Tinker Table",

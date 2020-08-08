@@ -8,6 +8,11 @@ import net.minecraft.world.storage.loot.LootPool;
 import net.minecraft.world.storage.loot.TableLootEntry;
 import net.minecraftforge.event.LootTableLoadEvent;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 public class AddToLootTables  {
 	public static void lootLoad(LootTableLoadEvent evt) {
 		String prefix = "minecraft:chests/";
@@ -19,18 +24,18 @@ public class AddToLootTables  {
 			if (file == "underwater_ruin_small" || file == "underwater_ruin_big" || file == "buried_treasure" || file == "shipwreck_treasure") {
 				file = "ocean_chest";
 			}
-			
-			switch (file) {
-			case "abandoned_mineshaft":
-			case "ocean_chest": 
-			case "nether_bridge":
-			case "end_city_treasure":
-			case "simple_dungeon":
-			case "stronghold_corridor":
+
+			Set<String> fileNamesToInjectTo = new HashSet<String>();
+			fileNamesToInjectTo.add("abandoned_mineshaft");
+			fileNamesToInjectTo.add("ocean_chest");
+			fileNamesToInjectTo.add("nether_bridge");
+			fileNamesToInjectTo.add("simple_dungeon");
+			fileNamesToInjectTo.add("end_city_treasure");
+			fileNamesToInjectTo.add("stronghold_corridor");
+			fileNamesToInjectTo.add("stronghold_library");
+
+			if (fileNamesToInjectTo.contains(file)){
 				evt.getTable().addPool(getInjectPool(file));
-				break;
-			default:
-				break;
 			}
 		}
 	}

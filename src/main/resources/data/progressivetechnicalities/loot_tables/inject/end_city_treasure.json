@@ -9,13 +9,18 @@
              "weight": 10
         },
         {
+          "type": "item",
+          "name": "progressivetechnicalities:ninja_robe",
+          "weight": 10
+        },
+        {
             "type": "item",
             "name": "progressivetechnicalities:air_gem",
             "weight": 20
         },
         {
             "type": "empty",
-            "weight": 70
+            "weight": 60
         }
       ]
     }]

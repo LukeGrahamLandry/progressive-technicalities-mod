@@ -1,5 +1,6 @@
 package com.LukeTheDuke9801.progressivetechnicalities;
 
+import com.LukeTheDuke9801.progressivetechnicalities.client.ModRenderHandler;
 import com.LukeTheDuke9801.progressivetechnicalities.enchantments.SoulBoundEnchantment;
 import com.LukeTheDuke9801.progressivetechnicalities.events.ModLivingTickEvent;
 import com.LukeTheDuke9801.progressivetechnicalities.init.*;

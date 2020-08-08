@@ -1,14 +1,17 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.items;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.ThrowableFireballEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.monster.BlazeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -28,13 +31,14 @@ public class HandHeldTeleporter extends Item{
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Shift right click to save location, right click to return to saved location. "));
+			tooltip.add(new StringTextComponent("Shift right click to save location, hold right click to return to saved location. "));
 			tooltip.add(new StringTextComponent("Currently bound to " + getLocation(stack).toString()));
 		} 
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
-	
+
+	// set destination
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
 		ItemStack stack = playerIn.getHeldItem(handIn);
@@ -42,14 +46,39 @@ public class HandHeldTeleporter extends Item{
 			Location location = new Location(playerIn);
 			setLocation(stack, location);
 		} else {
-			Location targetLocation = getLocation(stack);
-			Location currentLocation = new Location(playerIn);
-			if (targetLocation.dim.equals(currentLocation.dim)){
-				playerIn.setPosition(targetLocation.pos.getX(), targetLocation.pos.getY(), targetLocation.pos.getZ());
-			}
+			playerIn.setActiveHand(handIn);  // required to make the useFinished / stoppedUsing fire
 		}
-		
-		return super.onItemRightClick(worldIn, playerIn, handIn);
+
+		return ActionResult.resultConsume(stack);
+	}
+
+	// teleport to destination
+	@Override
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+		Location targetLocation = getLocation(stack);
+		Location currentLocation = new Location(entityLiving);
+		if (targetLocation.dim.equals(currentLocation.dim)){
+			entityLiving.setPosition(targetLocation.pos.getX(), targetLocation.pos.getY(), targetLocation.pos.getZ());
+		}
+
+		return stack;
+	}
+
+	// set destination
+	@Override
+	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
+		Location location = new Location(playerIn);
+		setLocation(stack, location);
+	}
+
+	@Override
+	public int getUseDuration(ItemStack stack) {
+		return 40;
+	}
+
+	@Override
+	public UseAction getUseAction(ItemStack stack) {
+		return UseAction.BOW;
 	}
 
 	private Location getLocation(ItemStack stack) {
