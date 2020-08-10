@@ -4,6 +4,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.FluidInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators.oil.OilGeneratorTileEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.items.PreWrittenBook;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import com.mojang.datafixers.util.Pair;
 
@@ -75,7 +76,11 @@ public class PulverizerBlock extends SimpleMachineBlock{
    private RecipeResult getOutput(Item item) {
 	   Item result = null;
 	   int count = 0;
-	   
+
+	   if (item instanceof PreWrittenBook) {
+		   result = ItemInit.CHROMIUM_DUST.get();
+		   count = 1;
+	   }
 	   if (item.equals(Items.BLAZE_ROD)) {
 		   result = Items.BLAZE_POWDER;
 		   count = 4;
@@ -105,7 +110,7 @@ public class PulverizerBlock extends SimpleMachineBlock{
 		   count = 4;
 	   }
 	   if (item.equals(Items.BRICK)) {
-		   result = Items.CLAY;
+		   result = Items.CLAY_BALL;
 		   count = 1;
 	   }
 	   if (item.equals(Items.FLOWER_POT)) {
@@ -115,6 +120,18 @@ public class PulverizerBlock extends SimpleMachineBlock{
 	   if (item.equals(Items.COAL)) {
 		   result = ItemInit.TINY_COAL.get();
 		   count = 8;
+	   }
+	   if (item.equals(Items.CLAY)) {
+		   result = Items.CLAY_BALL;
+		   count = 4;
+	   }
+	   if (item.equals(Items.BRICKS)) {
+		   result = Items.BRICK;
+		   count = 4;
+	   }
+	   if (item.equals(Items.QUARTZ_BLOCK)) {
+		   result = Items.QUARTZ;
+		   count = 4;
 	   }
 		   
 	   if (item.equals(Items.COAL_ORE)) {

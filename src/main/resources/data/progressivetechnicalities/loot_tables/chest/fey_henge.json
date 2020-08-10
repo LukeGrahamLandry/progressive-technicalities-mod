@@ -78,5 +78,19 @@
             "name": "progressivetechnicalities:chest/basic_loot",
             "weight": 100
         }]
-    }]
+    },
+      {
+        "name": "book",
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "item",
+            "name": "progressivetechnicalities:rocket_help_book",
+            "weight": 50
+          },
+          {
+            "type": "empty",
+            "weight": 50
+          }]
+      }]
   }

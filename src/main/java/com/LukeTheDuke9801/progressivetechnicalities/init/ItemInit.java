@@ -7,6 +7,9 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools.*;
+import com.LukeTheDuke9801.progressivetechnicalities.util.books.BasicHelp;
+import com.LukeTheDuke9801.progressivetechnicalities.util.books.RitualHelp;
+import com.LukeTheDuke9801.progressivetechnicalities.util.books.RocketHelp;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModArmorMaterial;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModItemTier;
 
@@ -167,6 +170,16 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> ARMOR_HEALTH_BOOST_CATALYST = ITEMS.register("armor_health_boost_catalyst",
 			() -> new ArmorHealthBoostCatalyst(new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	// Books
+	public static final RegistryObject<Item> HELP_BOOK = ITEMS.register("help_book",
+			() -> new PreWrittenBook(new BasicHelp(), new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> RITUAL_HELP_BOOK = ITEMS.register("ritual_help_book",
+			() -> new PreWrittenBook(new RitualHelp(), new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> ROCKET_HELP_BOOK = ITEMS.register("rocket_help_book",
+			() -> new PreWrittenBook(new RocketHelp(), new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	// Dusts
 	public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
@@ -350,6 +363,9 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> AIRGEM_SWORD = ITEMS.register("airgem_sword",
 			() -> new AirGemSword(ModItemTier.AIRGEM, 3, -2.4f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> TORCH_BOW = ITEMS.register("torch_bow",
+			() -> new TorchBowItem(new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	// Armour
 	public static final RegistryObject<Item> NIGHTVISION_GOGGLES = ITEMS.register("nightvision_goggles",

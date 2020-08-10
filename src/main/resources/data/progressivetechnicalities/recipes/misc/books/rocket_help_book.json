@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+      {
+          "item": "progressivetechnicalities:help_book"
+      },
+      {
+        "item": "progressivetechnicalities:fey_stone"
+      }
+    ],
+    "result": {
+      "item": "progressivetechnicalities:rocket_help_book",
+      "count": 1
+    }
+  }

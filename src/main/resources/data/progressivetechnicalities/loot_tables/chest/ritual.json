@@ -49,7 +49,7 @@
         },
         {
           "type": "item",
-          "name": "progressivetechnicalities:ritual_stone",
+          "name": "progressivetechnicalities:basic_ritual_stone",
           "weight": 10
         },
         {
@@ -66,6 +66,16 @@
         {
           "type": "loot_table",
           "name": "progressivetechnicalities:chest/basic_loot",
+          "weight": 100
+        }]
+    },
+    {
+      "name": "book",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "progressivetechnicalities:ritual_help_book",
           "weight": 100
         }]
     }]

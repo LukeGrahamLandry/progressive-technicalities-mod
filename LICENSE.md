@@ -1,19 +1,11 @@
 Copyright (c) 2020 Luke Graham Landry
 
-Permission is hereby granted, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+You can use the mod in your modpack without asking (pls give me credit).
 
-Give me credit
+You can't redistribute the mod / source code or claim it as your own.
 
-If you make any money from this software, make a donation to my pateron:
-https://www.patreon.com/LukeGrahamLandry
+Feel free to check out the code if you are learning modding.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

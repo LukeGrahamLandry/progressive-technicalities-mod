@@ -39,10 +39,11 @@ public class OilPortalBlock extends Block {
 	   public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
 		   if (!worldIn.isRemote && entityIn instanceof PlayerEntity) {
 
-			boolean isInOilDim = worldIn.getDimension().getType() == DimensionHelper.OIL;
-			if (isInOilDim) {
+			DimensionType current = worldIn.getDimension().getType();
+			if (current == DimensionHelper.OIL) {
 				DimensionHelper.changeDimension((PlayerEntity) entityIn, DimensionType.OVERWORLD);
-			} else {
+				entityIn.setPosition(entityIn.getPosX(), 63, entityIn.getPosZ());  // spawn above sea level
+			} else if (current == DimensionType.OVERWORLD){
 				DimensionHelper.changeDimension((PlayerEntity) entityIn, DimensionHelper.OIL);
 			}
 
