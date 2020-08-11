@@ -15,7 +15,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 public enum ModArmorMaterial implements IArmorMaterial {
-	   CARBIDE(ProgressiveTechnicalities.MOD_ID + ":carbide", 66, new int[]{3, 6, 8, 2}, 35, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 4.0F, () -> {
+	   CARBIDE(ProgressiveTechnicalities.MOD_ID + ":carbide", 50, new int[]{3, 6, 8, 2}, 35, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 4.0F, () -> {
 		   return Ingredient.fromItems(ItemInit.CARBIDE_INGOT.get());}), 
 	   OBSIDIAN(ProgressiveTechnicalities.MOD_ID + ":obsidian", 100000, new int[]{2, 6, 5, 2}, 25, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F, () -> {
 		   return Ingredient.fromItems(ItemInit.OBSIDIAN_INGOT.get());}),

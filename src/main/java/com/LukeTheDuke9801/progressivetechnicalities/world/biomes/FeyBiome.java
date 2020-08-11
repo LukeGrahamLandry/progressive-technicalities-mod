@@ -18,7 +18,9 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.placement.ChanceConfig;
+import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
@@ -54,7 +56,8 @@ public class FeyBiome extends Biome{
 	    this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.MELON.getDefaultState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).replaceable().func_227317_b_().build()).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
 	    this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.withConfiguration(new BlockStateFeatureConfig(FluidInit.NYMPHARIUM_FLUID_BLOCK.get().getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(3))));
 
-		OreGen.generate(this, OreGen.FEYSTONE_FILLER, BlockInit.FEYSTEEL_ORE.get(), 25, 0, 70, 4);
+		OreGen.generate(this, OreGen.FEYSTONE_FILLER, BlockInit.FEYSTEEL_ORE.get(), 20, 16, 64, 4);
+		OreGen.generate(this, OreGen.FEYSTONE_FILLER, BlockInit.FEY_DIAMOND_ORE.get(), 1, 0, 16, 8);
 		FeatureInit.generate(this, FeatureInit.FEY_HENGE);
 	}
 	

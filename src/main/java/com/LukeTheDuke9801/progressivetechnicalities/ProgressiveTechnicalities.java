@@ -1,17 +1,11 @@
 package com.LukeTheDuke9801.progressivetechnicalities;
 
-import com.LukeTheDuke9801.progressivetechnicalities.client.ModRenderHandler;
 import com.LukeTheDuke9801.progressivetechnicalities.enchantments.SoulBoundEnchantment;
 import com.LukeTheDuke9801.progressivetechnicalities.events.ModLivingTickEvent;
 import com.LukeTheDuke9801.progressivetechnicalities.init.*;
+import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.CoffeePlant;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeyFood;
-import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.FeyBiome;
-import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.placement.IPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,8 +35,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
-
-import static com.LukeTheDuke9801.progressivetechnicalities.world.gen.OreGen.isVanillaOverworldBiome;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("progressivetechnicalities")
@@ -91,7 +83,7 @@ public class ProgressiveTechnicalities
     @SubscribeEvent
     public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
     	final IForgeRegistry<Item> registry = event.getRegistry();
-    	BlockInit.BLOCKS.getEntries().stream().filter(block -> !(block.get() instanceof FlowingFluidBlock || block.get() instanceof ModIceBlock)).map(RegistryObject::get).forEach(block -> {
+    	BlockInit.BLOCKS.getEntries().stream().filter(block -> !(block.get() instanceof FlowingFluidBlock || block.get() instanceof ModIceBlock || block.get() instanceof CoffeePlant)).map(RegistryObject::get).forEach(block -> {
     		final Item.Properties properties = new Item.Properties().group(ProgtechItemGroup.instance);
     		final BlockItem blockItem = new BlockItem(block, properties);
     		blockItem.setRegistryName(block.getRegistryName());

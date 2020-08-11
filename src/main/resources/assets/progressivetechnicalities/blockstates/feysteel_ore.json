@@ -1,5 +1,7 @@
 {
-	"variants": {
-		"": {"model": "progressivetechnicalities:block/feysteel_ore"}
-	}
+    "variants": {
+        "": {
+            "model": "progressivetechnicalities:block/feysteel_ore"
+        }
+    }
 }

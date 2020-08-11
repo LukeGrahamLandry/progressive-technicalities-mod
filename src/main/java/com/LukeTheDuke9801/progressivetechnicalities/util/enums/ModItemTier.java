@@ -12,7 +12,7 @@ import net.minecraft.util.LazyValue;
 
 public enum ModItemTier implements IItemTier{
 	// tier, durability, efficency, attack damage, enchantability, repair material
-	CARBIDE(4, 3000, 15.0f, 4.0f, 30, () -> {
+	CARBIDE(4, 2000, 10.0f, 4.0f, 35, () -> {
 		return Ingredient.fromItems(ItemInit.CARBIDE_INGOT.get()); 
 	}),
 	TITANIUM(4, 3000, 15.0f, 4.0f, 30, () -> {
@@ -29,6 +29,9 @@ public enum ModItemTier implements IItemTier{
 	}),
 	AIRGEM(3, 1561, 8.0F, 3.0F, 20, () -> {
 		return Ingredient.fromItems(ItemInit.AIR_GEM.get());
+	}),
+	FEYSTEEL(4, 500, 12.0F, 4.0F, 35, () -> {
+		return Ingredient.fromItems(ItemInit.FEYSTEEL_INGOT.get());
 	});
 	
 	private final int harvestLevel;

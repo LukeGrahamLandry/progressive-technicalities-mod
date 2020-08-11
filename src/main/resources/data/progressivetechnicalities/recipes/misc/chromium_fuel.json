@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ici",
+    "cic",
+    "ici"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "c": {
+      "item": "minecraft:coal"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:chromium_fuel",
+    "count": 4
+  }
+}

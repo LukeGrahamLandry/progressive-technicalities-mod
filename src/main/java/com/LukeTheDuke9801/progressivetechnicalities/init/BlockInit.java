@@ -1,6 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.special.RitualGuardian;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.special.SkyGuardian;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.*;
@@ -25,6 +26,9 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.BlockNamedItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -64,8 +68,11 @@ public class BlockInit {
 			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(15f, 0.1f).sound(SoundType.STONE).harvestLevel(2).harvestTool(ToolType.PICKAXE)));
 	
 	public static final RegistryObject<Block> FEYSTEEL_ORE = BLOCKS.register("feysteel_ore",
-			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 50f).sound(SoundType.METAL).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
-	
+			() -> new Block(Block.Properties.from(Blocks.IRON_ORE)));
+
+	public static final RegistryObject<Block> FEY_DIAMOND_ORE = BLOCKS.register("fey_diamond_ore",
+			() -> new Block(Block.Properties.from(Blocks.DIAMOND_ORE)));
+
 	public static final RegistryObject<Block> MELANGE_DEPOSIT = BLOCKS.register("melange_deposit",
 			() -> new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(3f, 0.001f).sound(SoundType.SAND).harvestLevel(4).harvestTool(ToolType.SHOVEL)));
 	
@@ -180,4 +187,14 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> SIMPLE_MACHINE = BLOCKS.register("simple_machine",
 			() -> new SimpleMachineBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(2f, 1000f).sound(SoundType.ANVIL).harvestLevel(0).harvestTool(ToolType.PICKAXE)));
+
+	// Plants
+	public static final RegistryObject<Block> COFFEE_PLANT = BLOCKS.register("coffee_plant",
+			() -> new CoffeePlant(Block.Properties.from(Blocks.COCOA)));
+
+	public static final RegistryObject<Item> COFFEE_BEANS = ItemInit.ITEMS.register("coffee_beans",
+			() -> new BlockNamedItem(COFFEE_PLANT.get(), (new Item.Properties()).group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Block> FEY_LOG = BLOCKS.register("fey_log",
+			() -> new Block(Block.Properties.from(Blocks.OAK_LOG)));
 }

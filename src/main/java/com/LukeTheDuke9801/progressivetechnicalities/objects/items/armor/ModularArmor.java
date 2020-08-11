@@ -230,7 +230,7 @@ public class ModularArmor extends ArmorItem {
   		  return "strength";
   	  }
   	  
-  	  if (item2.equals(ItemInit.CARBIDE_PICKAXE.get())){
+  	  if (item2.equals(Items.DIAMOND_PICKAXE)){
   		  return "haste";
   	  }
   	  

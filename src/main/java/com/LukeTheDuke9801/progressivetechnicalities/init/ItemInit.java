@@ -156,6 +156,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> LIGHTNING_BOTTLE = ITEMS.register("lightning_bottle",
 			() -> new LightningBottle(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(16)));
 
+	public static final RegistryObject<Item> CHROMIUM_FUEL = ITEMS.register("chromium_fuel",
+			() -> new ChromiumFuel(new Item.Properties().group(ProgtechItemGroup.instance)));
+
 
 	// Compasses
 	public static final RegistryObject<Item> SKY_ISLAND_COMPASS = ITEMS.register("sky_island_compass",
@@ -310,35 +313,9 @@ public class ItemInit {
 			() -> new WaterGemCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 
 	// Tools
-	public static final RegistryObject<Item> CARBIDE_SWORD = ITEMS.register("carbide_sword",
-			() -> new SwordItem(ModItemTier.CARBIDE, 3, -2.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> CARBIDE_PICKAXE = ITEMS.register("carbide_pickaxe",
-			() -> new PickaxeItem(ModItemTier.CARBIDE, -2, -1.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> CARBIDE_SHOVEL = ITEMS.register("carbide_shovel",
-			() -> new ShovelItem(ModItemTier.CARBIDE, -2, -1.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> CARBIDE_AXE = ITEMS.register("carbide_axe",
-			() -> new AxeItem(ModItemTier.CARBIDE, 5, -2.8f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	 
-	public static final RegistryObject<Item> CARBIDE_HOE = ITEMS.register("carbide_hoe",
-			() -> new HoeItem(ModItemTier.CARBIDE, 3.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> OBSIDIAN_SWORD = ITEMS.register("obsidian_sword",
-			() -> new SwordItem(ModItemTier.OBSIDIAN, 3, -2.4f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> OBSIDIAN_PICKAXE = ITEMS.register("obsidian_pickaxe",
-			() -> new PickaxeItem(ModItemTier.OBSIDIAN, 1, -2.8f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> OBSIDIAN_SHOVEL = ITEMS.register("obsidian_shovel",
-			() -> new ShovelItem(ModItemTier.OBSIDIAN, 1.5f, -3.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> OBSIDIAN_AXE = ITEMS.register("obsidian_axe",
-			() -> new AxeItem(ModItemTier.OBSIDIAN, 6.0f, -3.1f, new Item.Properties().group(ProgtechItemGroup.instance)));
-	 
-	public static final RegistryObject<Item> OBSIDIAN_HOE = ITEMS.register("obsidian_hoe",
-			() -> new HoeItem(ModItemTier.OBSIDIAN, -1.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final int OBSIDIAN_TOOLS = createSimpleToolSet(ModItemTier.OBSIDIAN, "obsidian");
+	public static final int CARBIDE_TOOLS = createSimpleToolSet(ModItemTier.CARBIDE, "carbide");
+	public static final int FEYSTEEL_TOOLS = createSimpleToolSet(ModItemTier.FEYSTEEL, "feysteel");
 
 	public static final RegistryObject<Item> TITANIUM_AIOT = ITEMS.register("titanium_aiot",
 			() -> new TitaniumAIOT(ModItemTier.TITANIUM, 2, -3.1f, new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -368,6 +345,10 @@ public class ItemInit {
 			() -> new TorchBowItem(new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	// Armour
+	public static final int OBSIDIAN_ARMOR = createSimpleArmorSet(ModArmorMaterial.OBSIDIAN, "obsidian");
+	public static final int CARBIDE_ARMOR = createSimpleArmorSet(ModArmorMaterial.CARBIDE, "carbide");
+	public static final int STEEL_ARMOR = createSimpleArmorSet(ModArmorMaterial.STEEL, "steel");
+
 	public static final RegistryObject<Item> NIGHTVISION_GOGGLES = ITEMS.register("nightvision_goggles",
 			() -> new NightVisionGoggles(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
@@ -406,30 +387,6 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> NINJA_ROBE = ITEMS.register("ninja_robe",
 			() -> new NinjaRobe(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> CARBIDE_HELMET = ITEMS.register("carbide_helmet",
-			() -> new ArmorItem(ModArmorMaterial.CARBIDE, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> CARBIDE_CHESTPLATE = ITEMS.register("carbide_chestplate",
-			() -> new ArmorItem(ModArmorMaterial.CARBIDE, EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> CARBIDE_LEGGINGS = ITEMS.register("carbide_leggings",
-			() -> new ArmorItem(ModArmorMaterial.CARBIDE, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> CARBIDE_BOOTS = ITEMS.register("carbide_boots",
-			() -> new ArmorItem(ModArmorMaterial.CARBIDE, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> OBSIDIAN_HELMET = ITEMS.register("obsidian_helmet",
-			() -> new ArmorItem(ModArmorMaterial.OBSIDIAN, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> OBSIDIAN_CHESTPLATE = ITEMS.register("obsidian_chestplate",
-			() -> new ArmorItem(ModArmorMaterial.OBSIDIAN, EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> OBSIDIAN_LEGGINGS = ITEMS.register("obsidian_leggings",
-			() -> new ArmorItem(ModArmorMaterial.OBSIDIAN, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> OBSIDIAN_BOOTS = ITEMS.register("obsidian_boots",
-			() -> new ArmorItem(ModArmorMaterial.OBSIDIAN, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> FEYSTEEL_HELMET = ITEMS.register("feysteel_helmet",
 			() -> new FeySteelArmorItem(ModArmorMaterial.FEYSTEEL, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -479,18 +436,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
 			() -> new ArmorItem(new TitaniumArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> STEEL_HELMET = ITEMS.register("steel_helmet",
-			() -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> STEEL_CHESTPLATE = ITEMS.register("steel_chestplate",
-			() -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> STEEL_LEGGINGS = ITEMS.register("steel_leggings",
-			() -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> STEEL_BOOTS = ITEMS.register("steel_boots",
-			() -> new ArmorItem(ModArmorMaterial.STEEL, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
 	public static final RegistryObject<Item> FIREGEM_HELMET = ITEMS.register("firegem_helmet",
 			() -> new FireGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
@@ -553,12 +498,48 @@ public class ItemInit {
 	
 	
 	// Fey Food 
-	public static final RegistryObject<Item> COFFEE_BEAN = ITEMS.register("coffee_beans",
-			() -> new FeyFood(new Item.Properties().group(ProgtechItemGroup.instance).food(
-					new Food.Builder().hunger(1).saturation(2f).fastToEat().build())));
+
 	
 	public static final RegistryObject<Item> COFFEE = ITEMS.register("coffee",
 			() -> new FeyFood(new Item.Properties().group(ProgtechItemGroup.instance).food(
 					new Food.Builder().hunger(3).saturation(5f).setAlwaysEdible()
 					.effect(new EffectInstance(Effects.SPEED, 100, 49), 0.9f).build())));
+
+
+	private static int createSimpleToolSet(ModItemTier tier, String name){
+		ITEMS.register(name + "_sword",
+				() -> new SwordItem(tier, 3, -2.4f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+		ITEMS.register(name + "_pickaxe",
+				() -> new PickaxeItem(tier, 1, -2.8f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+		ITEMS.register(name + "_shovel",
+				() -> new ShovelItem(tier, 1.5f, -3.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+		ITEMS.register(name + "_axe",
+				() -> new AxeItem(tier, 6.0f, -3.1f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+		ITEMS.register(name + "_hoe",
+				() -> new HoeItem(tier, -1.0f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+		return 1;
+	}
+
+	private static int createSimpleArmorSet(ModArmorMaterial tier, String name){
+		ITEMS.register(name + "_helmet",
+				() -> new ArmorItem(tier, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+		ITEMS.register(name + "_chestplate",
+				() -> new ArmorItem(tier, EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+		ITEMS.register(name + "_leggings",
+				() -> new ArmorItem(tier, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+		ITEMS.register(name + "_boots",
+				() -> new ArmorItem(tier, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+
+		return 1;
+	}
+
+
 }
