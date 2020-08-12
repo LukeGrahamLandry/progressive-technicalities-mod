@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y":    { "model": "progressivetechnicalities:block/fey_log" },
+    "axis=z":     { "model": "progressivetechnicalities:block/fey_log", "x": 90 },
+    "axis=x":     { "model": "progressivetechnicalities:block/fey_log", "x": 90, "y": 90 }
+  }
+}

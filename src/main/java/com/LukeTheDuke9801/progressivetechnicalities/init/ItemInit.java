@@ -14,15 +14,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModArmorMaterial
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModItemTier;
 
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.Food;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.ShovelItem;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.TridentItem;
+import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraftforge.fml.RegistryObject;
@@ -32,10 +24,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ItemInit {
 	
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, ProgressiveTechnicalities.MOD_ID);
-	
+
 	public static final RegistryObject<Item> CHROMIUM_ROD = ITEMS.register("chromium_rod",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
+
 	public static final RegistryObject<Item> CHROMIUM_INGOT = ITEMS.register("chromium_ingot",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
@@ -159,6 +151,8 @@ public class ItemInit {
 	public static final RegistryObject<Item> CHROMIUM_FUEL = ITEMS.register("chromium_fuel",
 			() -> new ChromiumFuel(new Item.Properties().group(ProgtechItemGroup.instance)));
 
+	public static final RegistryObject<Item> PROGRESSIVE_LOOT_BOX = ITEMS.register("progressive_loot_box",
+			() -> new LootBox(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 
 	// Compasses
 	public static final RegistryObject<Item> SKY_ISLAND_COMPASS = ITEMS.register("sky_island_compass",
@@ -498,7 +492,9 @@ public class ItemInit {
 	
 	
 	// Fey Food 
-
+	public static final RegistryObject<Item> CHERRY = ITEMS.register("cherry",
+			() -> new FeyFood(new Item.Properties().group(ProgtechItemGroup.instance).food(
+					new Food.Builder().hunger(1).saturation(2f).build())));
 	
 	public static final RegistryObject<Item> COFFEE = ITEMS.register("coffee",
 			() -> new FeyFood(new Item.Properties().group(ProgtechItemGroup.instance).food(

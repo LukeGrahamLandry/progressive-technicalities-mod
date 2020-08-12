@@ -59,16 +59,15 @@ public class WanderingGemSmith extends AbstractWanderer {
         this.setCustomName(new StringTextComponent("Gem Smith"));
 
         this.sells = new VillagerTrades.ITrade[]{
-                // item, num emeralds to input, num items to output, max uses, priceMultiplierIn
-                new ModVillagerTrades.ItemsForEmeraldsTrade(Items.DIAMOND, 24, 1, Integer.MAX_VALUE, 1)
+                new ModVillagerTrades.SellTrade(new ItemStack(Items.DIAMOND, 1), 24)
         };
 
         this.buys = new VillagerTrades.ITrade[]{
                 // item, num items to input, num emeralds to output, max uses, ex given
-                new ModVillagerTrades.EmeraldsForItemsTrade(ItemInit.FIRE_GEM.get(), 1, 8, Integer.MAX_VALUE, 5),
-                new ModVillagerTrades.EmeraldsForItemsTrade(ItemInit.EARTH_GEM.get(), 1, 8, Integer.MAX_VALUE, 5),
-                new ModVillagerTrades.EmeraldsForItemsTrade(ItemInit.WATER_GEM.get(), 1, 8, Integer.MAX_VALUE, 5),
-                new ModVillagerTrades.EmeraldsForItemsTrade(ItemInit.AIR_GEM.get(), 1, 8, Integer.MAX_VALUE, 5)
+                new ModVillagerTrades.BuyTrade(new ItemStack(ItemInit.AIR_GEM.get(), 1), 8),
+                new ModVillagerTrades.BuyTrade(new ItemStack(ItemInit.WATER_GEM.get(), 1), 8),
+                new ModVillagerTrades.BuyTrade(new ItemStack(ItemInit.EARTH_GEM.get(), 1), 8),
+                new ModVillagerTrades.BuyTrade(new ItemStack(ItemInit.FIRE_GEM.get(), 1), 8),
         };
     }
 }

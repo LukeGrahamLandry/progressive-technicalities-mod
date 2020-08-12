@@ -1,6 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.fluids;
 
 import com.LukeTheDuke9801.progressivetechnicalities.entities.FairyEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.FeyFoxEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowingFluidBlock;
@@ -33,7 +34,7 @@ public class NymphariumFluidBlock extends FlowingFluidBlock {
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity){
             LivingEntity living = (LivingEntity) entityIn;
-            if (!(entityIn instanceof DolphinEntity || entityIn instanceof FairyEntity)){
+            if (!(entityIn instanceof DolphinEntity || entityIn instanceof FairyEntity || entityIn instanceof FeyFoxEntity)){
                 // only actually damages twice a second
                 living.attackEntityFrom(DAMAGE_SOURCE, 4);
             }

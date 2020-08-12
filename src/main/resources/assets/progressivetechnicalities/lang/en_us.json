@@ -210,7 +210,11 @@
 	"block.progressivetechnicalities.rune_stone": "Rune Stone",
 	"block.progressivetechnicalities.basic_ritual_stone": "Basic Ritual Stone",
 	"block.progressivetechnicalities.advanced_ritual_stone": "Advanced Ritual Stone",
-	
+	"block.progressivetechnicalities.fey_log": "Fey Log",
+	"block.progressivetechnicalities.fey_planks": "Fey Planks",
+	"block.progressivetechnicalities.cherry_sapling": "Cherry Sapling",
+	"block.progressivetechnicalities.cherry_leaves": "Cherry Leaves",
+
 	"block.progressivetechnicalities.quarry": "Basic Quarry",
 	"block.progressivetechnicalities.multi_tnt": "Multi-TNT (NO FUSE!)",
 	"block.progressivetechnicalities.large_chest": "Large Chest",

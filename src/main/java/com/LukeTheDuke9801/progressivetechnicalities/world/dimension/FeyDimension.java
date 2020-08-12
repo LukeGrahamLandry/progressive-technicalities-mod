@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.provider.OverworldBiomeProviderSettings;
 import net.minecraft.world.biome.provider.SingleBiomeProvider;
 import net.minecraft.world.biome.provider.SingleBiomeProviderSettings;
 import net.minecraft.world.dimension.Dimension;
@@ -27,9 +28,8 @@ public class FeyDimension extends Dimension{
 			OverworldGenSettings settings = new OverworldGenSettings();
 			settings.setDefaultFluid(FluidInit.NYMPHARIUM_FLUID_BLOCK.get().getDefaultState());
 			settings.setDefaultBlock(BlockInit.FEY_STONE.get().getDefaultState());
-			SingleBiomeProviderSettings biomeProviderSettings = new SingleBiomeProviderSettings(world.getWorldInfo());
-		    biomeProviderSettings.setBiome(BiomeInit.FEY_PLAINS.get());
-			return new OverworldChunkGenerator(world, new SingleBiomeProvider(biomeProviderSettings), settings);
+			OverworldBiomeProviderSettings biomeProviderSettings = new OverworldBiomeProviderSettings(world.getWorldInfo());
+			return new OverworldChunkGenerator(world, new FeyBiomeProvider(biomeProviderSettings), settings);
 		}
 
 		@Override

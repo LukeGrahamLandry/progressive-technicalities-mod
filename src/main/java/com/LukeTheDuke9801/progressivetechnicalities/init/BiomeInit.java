@@ -1,13 +1,8 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.ArrakisBiome;
-import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.FeyBiome;
-import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.LunaBiome;
-import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.OilBiome;
-import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.PandoraBiome;
+import com.LukeTheDuke9801.progressivetechnicalities.world.biomes.*;
 
-import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -23,7 +18,11 @@ public class BiomeInit {
 			() -> new OilBiome());
 	
 	public static final RegistryObject<Biome> FEY_PLAINS = BIOMES.register("fey_plains",
-			() -> new FeyBiome());
+			() -> new FeyPlainsBiome());
+	public static final RegistryObject<Biome> MUSHROOM_FOREST = BIOMES.register("mushroom_forest",
+			() -> new MushroomForestBiome());
+	public static final RegistryObject<Biome> FRUIT_FOREST = BIOMES.register("fruit_forest",
+			() -> new FruitForestBiome());
 	
 	public static final RegistryObject<Biome> SAND_DUNES = BIOMES.register("sand_dunes",
 			() -> new ArrakisBiome());
@@ -35,11 +34,15 @@ public class BiomeInit {
 			() -> new LunaBiome());
 	
 	public static void registerBiomes() {
-		registerBiome(OIL_SPIKES.get(), Type.PLAINS, Type.OVERWORLD);
-		registerBiome(FEY_PLAINS.get(), Type.PLAINS, Type.OVERWORLD);
-		registerBiome(SAND_DUNES.get(), Type.HILLS, Type.OVERWORLD);
-		registerBiome(SPACE_JUNGLE.get(), Type.HILLS, Type.OVERWORLD);
-		registerBiome(LUNA_PLAINS.get(), Type.PLAINS, Type.OVERWORLD);
+		registerBiome(OIL_SPIKES.get(), Type.PLAINS);
+		
+		registerBiome(FEY_PLAINS.get(), Type.PLAINS);
+		registerBiome(MUSHROOM_FOREST.get(), Type.FOREST);
+		registerBiome(FRUIT_FOREST.get(), Type.HILLS);
+		
+		registerBiome(SAND_DUNES.get(), Type.HILLS);
+		registerBiome(SPACE_JUNGLE.get(), Type.HILLS);
+		registerBiome(LUNA_PLAINS.get(), Type.PLAINS);
 	}
 	
 	private static void registerBiome(Biome biome, Type... types) {

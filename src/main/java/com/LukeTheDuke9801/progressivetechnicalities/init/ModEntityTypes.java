@@ -2,9 +2,11 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.FairyEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.FeyFoxEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.WanderingAstronomer;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.WanderingGemSmith;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -53,12 +55,22 @@ public class ModEntityTypes {
 			.immuneToFire().size(0.4F, 0.8F)
 			.build(ProgressiveTechnicalities.MOD_ID + ":fairy");
 
+	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":fey_fox")
+	public static final EntityType<FeyFoxEntity> FEY_FOX = EntityType.Builder.create(FeyFoxEntity::new, EntityClassification.CREATURE)
+			.immuneToFire().size(0.6F, 0.7F)
+			.build(ProgressiveTechnicalities.MOD_ID + ":fey_fox");
+
 	@SubscribeEvent
 	public static void onRegisterEntities(RegistryEvent.Register<EntityType<?>> event) {
 		FAIRY.setRegistryName(ProgressiveTechnicalities.MOD_ID, "fairy");
 		event.getRegistry().register(FAIRY);
 		EntitySpawnPlacementRegistry.register(FAIRY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canFairySpawn);
+
+		FEY_FOX.setRegistryName(ProgressiveTechnicalities.MOD_ID, "fey_fox");
+		event.getRegistry().register(FEY_FOX);
+		EntitySpawnPlacementRegistry.register(FEY_FOX, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::canAnimalSpawn);
 	}
+
 
 	public static boolean canFairySpawn(EntityType<? extends MonsterEntity> type, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
 		return worldIn.getDifficulty() != Difficulty.PEACEFUL;

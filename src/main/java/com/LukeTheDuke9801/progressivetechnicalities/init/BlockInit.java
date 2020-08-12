@@ -21,11 +21,10 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machi
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.PulverizerBlock;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines.SimpleMachineBlock;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FallingBlock;
-import net.minecraft.block.SoundType;
+import com.LukeTheDuke9801.progressivetechnicalities.world.feature.FruitTree;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -195,6 +194,16 @@ public class BlockInit {
 	public static final RegistryObject<Item> COFFEE_BEANS = ItemInit.ITEMS.register("coffee_beans",
 			() -> new BlockNamedItem(COFFEE_PLANT.get(), (new Item.Properties()).group(ProgtechItemGroup.instance)));
 
+	// Trees
+	public static final RegistryObject<Block> FEY_PLANKS = BLOCKS.register("fey_planks",
+			() -> new Block(Block.Properties.from(Blocks.OAK_PLANKS)));
+
 	public static final RegistryObject<Block> FEY_LOG = BLOCKS.register("fey_log",
-			() -> new Block(Block.Properties.from(Blocks.OAK_LOG)));
+			() -> new LogBlock(MaterialColor.WOOD, Block.Properties.from(Blocks.OAK_LOG)));
+
+	public static final RegistryObject<Block> CHERRY_LEAVES = BLOCKS.register("cherry_leaves",
+			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
+
+	public static final RegistryObject<Block> CHERRY_SAPLING = BLOCKS.register("cherry_sapling",
+			() -> new ModSapplingBlock(() -> new FruitTree(), Block.Properties.from(Blocks.OAK_SAPLING)));
 }

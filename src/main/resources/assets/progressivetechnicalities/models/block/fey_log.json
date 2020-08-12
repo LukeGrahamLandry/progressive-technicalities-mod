@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "progressivetechnicalities:blocks/fey_log_top",
+    "side": "progressivetechnicalities:blocks/fey_log"
+  }
+}
