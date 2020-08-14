@@ -1,4 +1,4 @@
-package com.LukeTheDuke9801.progressivetechnicalities.objects.items;
+package com.LukeTheDuke9801.progressivetechnicalities.util.interfaces;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;

@@ -33,7 +33,7 @@ public class MeteorStructure extends Structure<NoFeatureConfig> {
      * This is using vanilla's default algorithm to determine chunks that this structure can spawn in.
      */
     @Override
-    protected ChunkPos getStartPositionForPosition(ChunkGenerator<?> chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
+    protected ChunkPos getStartPositionForPosition(ChunkGenerator chunkGenerator, Random random, int x, int z, int spacingOffsetsX, int spacingOffsetsZ)
     {
         // they cannot be closer than minDistance chunks or farther apart than maxDistance chunks
         int maxDistance = FeatureInit.meteorDistance.max;

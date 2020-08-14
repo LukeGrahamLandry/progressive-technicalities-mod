@@ -1,10 +1,9 @@
 package com.LukeTheDuke9801.progressivetechnicalities.events;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.client.entity.BreathesInSpace;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.BreathesInSpace;
 import com.LukeTheDuke9801.progressivetechnicalities.enchantments.LavaWalkerEnchantment;
 import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.NymphariumFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluid;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.ModularArmor;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.SpaceHelmet;

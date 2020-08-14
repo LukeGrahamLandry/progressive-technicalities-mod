@@ -3,7 +3,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mo
 import java.util.List;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.IXPContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.XPContainerHolder;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.XPContainer;
 
 import net.minecraft.entity.Entity;
@@ -16,7 +16,7 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 
-public class MobSlayerTileEntity extends TileEntity implements ITickableTileEntity, IXPContainer{
+public class MobSlayerTileEntity extends TileEntity implements ITickableTileEntity, XPContainerHolder {
 	int tick = 0;
 	int damagePerSecond = 3;
 	int range = 8;

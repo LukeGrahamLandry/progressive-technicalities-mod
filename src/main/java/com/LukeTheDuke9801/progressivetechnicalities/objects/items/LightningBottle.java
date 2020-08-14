@@ -1,10 +1,9 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.items;
 
-import com.LukeTheDuke9801.progressivetechnicalities.entities.LightningBottleEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.LightningBottleEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.PotionEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Stats;

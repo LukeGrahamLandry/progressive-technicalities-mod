@@ -195,8 +195,6 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	public static final RegistryObject<Item> NYMPHARIUM_DUST = ITEMS.register("nympharium_dust",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> ELECTRUM_DUST = ITEMS.register("electrum_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	public static final RegistryObject<Item> VARIDIUM_DUST = ITEMS.register("varidium_dust",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	public static final RegistryObject<Item> OBSIDIAN_DUST = ITEMS.register("obsidian_dust",
@@ -268,6 +266,9 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> ZHONYAS_HOURGLASS = ITEMS.register("zhonyas_hourglass",
 			() -> new ZhonyasHourglass(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+
+	public static final RegistryObject<Item> UNDO_STAFF = ITEMS.register("undo_staff",
+			() -> new UndoStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",
@@ -337,6 +338,12 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> TORCH_BOW = ITEMS.register("torch_bow",
 			() -> new TorchBowItem(new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> MULTIBOW = ITEMS.register("multibow",
+			() -> new MultiShotBow(new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> FIRE_BALL_BOW = ITEMS.register("fireballbow",
+			() -> new FireChargeBow(new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	// Armour
 	public static final int OBSIDIAN_ARMOR = createSimpleArmorSet(ModArmorMaterial.OBSIDIAN, "obsidian");

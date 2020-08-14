@@ -6,6 +6,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.init.BlockInit;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.DimensionHelper;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.RitualCatalyst;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;

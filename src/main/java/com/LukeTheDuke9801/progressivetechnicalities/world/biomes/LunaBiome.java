@@ -37,7 +37,7 @@ public class LunaBiome extends Biome{
 				.parent(null)
 				.waterColor(0)
 				.waterFogColor(0)
-				.scale(0.09f)
+				.scale(0.1f)
 				.temperature(0.8F));
 		
 	    this.addFeature(GenerationStage.Decoration.LOCAL_MODIFICATIONS, Feature.LAKE.withConfiguration(new BlockStateFeatureConfig(Blocks.AIR.getDefaultState())).withPlacement(Placement.WATER_LAKE.configure(new ChanceConfig(2))));

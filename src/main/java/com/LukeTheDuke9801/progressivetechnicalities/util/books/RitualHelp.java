@@ -1,6 +1,6 @@
 package com.LukeTheDuke9801.progressivetechnicalities.util.books;
 
-public class RitualHelp implements BookContents{
+public class RitualHelp implements BookContents {
     public String getTitle(){
         return "Ritual Help";
     }

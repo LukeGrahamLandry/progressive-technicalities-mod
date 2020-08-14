@@ -2,7 +2,6 @@ package com.LukeTheDuke9801.progressivetechnicalities.util;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.DimensionInit;
-
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.world.RegisterDimensionsEvent;
@@ -15,6 +14,7 @@ public class ForgeEventBusSubscriber {
 	
 	@SubscribeEvent
 	public static void registerDimensions(final RegisterDimensionsEvent event) {
+
 		if (DimensionType.byName(ProgressiveTechnicalities.OIL_DIM_TYPE) == null) {
 			DimensionManager.registerDimension(ProgressiveTechnicalities.OIL_DIM_TYPE, DimensionInit.OIL_DIM.get(), null, false);
 		}

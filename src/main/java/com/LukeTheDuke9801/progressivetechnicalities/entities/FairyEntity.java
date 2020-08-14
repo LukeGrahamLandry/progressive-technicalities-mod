@@ -1,5 +1,6 @@
 package com.LukeTheDuke9801.progressivetechnicalities.entities;
 
+import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.NymphariumFluidBlock;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.controller.MovementController;
@@ -31,8 +32,6 @@ import java.util.EnumSet;
 
 public class FairyEntity extends MonsterEntity {
     protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.createKey(FairyEntity.class, DataSerializers.BYTE);
-    @Nullable
-    private BlockPos boundOrigin;
     private int angryTimer;
 
     public FairyEntity(EntityType<? extends FairyEntity> p_i50190_1_, World p_i50190_2_) {
@@ -45,7 +44,7 @@ public class FairyEntity extends MonsterEntity {
     @Override
     public boolean attackEntityAsMob(Entity entityIn) {
         boolean flag = super.attackEntityAsMob(entityIn);
-        entityIn.setMotion(entityIn.getMotion().add(0.0D, (double)2F, 0.0D));
+        entityIn.setMotion(entityIn.getMotion().add(0.0D, 2.0D, 0.0D));
         return flag;
     }
 
@@ -54,7 +53,14 @@ public class FairyEntity extends MonsterEntity {
      */
     public boolean attackEntityFrom(DamageSource source, float amount) {
         this.angryTimer = 1*60*20;
+
+        if (source == NymphariumFluidBlock.DAMAGE_SOURCE) this.heal(amount);
         return super.attackEntityFrom(source, amount);
+    }
+
+    public boolean isInvulnerableTo(DamageSource source) {
+        if (source == NymphariumFluidBlock.DAMAGE_SOURCE) return true;
+        return super.isInvulnerableTo(source);
     }
 
     public void move(MoverType typeIn, Vec3d pos) {
@@ -73,6 +79,7 @@ public class FairyEntity extends MonsterEntity {
 
         if (this.angryTimer > 0){
             this.angryTimer--;
+            // TODO: have an angry texture instead
             this.addPotionEffect(new EffectInstance(Effects.GLOWING, 5, 0));
         }
     }
@@ -84,14 +91,14 @@ public class FairyEntity extends MonsterEntity {
         this.goalSelector.addGoal(8, new FairyEntity.MoveRandomGoal());
         this.goalSelector.addGoal(9, new LookAtGoal(this, PlayerEntity.class, 3.0F, 1.0F));
         this.goalSelector.addGoal(10, new LookAtGoal(this, MobEntity.class, 8.0F));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, AbstractRaiderEntity.class)).setCallsForHelp());
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
 
     protected void registerAttributes() {
         super.registerAttributes();
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(14.0D);
-        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(10.0D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_KNOCKBACK).setBaseValue(5.0D);
     }
 
     protected void registerData() {
@@ -104,29 +111,12 @@ public class FairyEntity extends MonsterEntity {
      */
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
-        if (compound.contains("BoundX")) {
-            this.boundOrigin = new BlockPos(compound.getInt("BoundX"), compound.getInt("BoundY"), compound.getInt("BoundZ"));
-        }
         this.angryTimer = compound.getInt("angryTimer");
     }
 
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
-        if (this.boundOrigin != null) {
-            compound.putInt("BoundX", this.boundOrigin.getX());
-            compound.putInt("BoundY", this.boundOrigin.getY());
-            compound.putInt("BoundZ", this.boundOrigin.getZ());
-        }
         compound.putInt("angryTimer", this.angryTimer);
-    }
-
-    @Nullable
-    public BlockPos getBoundOrigin() {
-        return this.boundOrigin;
-    }
-
-    public void setBoundOrigin(@Nullable BlockPos boundOriginIn) {
-        this.boundOrigin = boundOriginIn;
     }
 
     private boolean getVexFlag(int mask) {
@@ -169,7 +159,7 @@ public class FairyEntity extends MonsterEntity {
      * Gets how bright this entity is.
      */
     public float getBrightness() {
-        return 1.0F;
+        return 8.0F;
     }
 
     @Nullable
@@ -183,7 +173,7 @@ public class FairyEntity extends MonsterEntity {
      * Gives armor or weapon for entity based on given DifficultyInstance
      */
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-        ItemStack sword = new ItemStack(Items.DIAMOND_SWORD);
+        ItemStack sword = new ItemStack(Items.ALLIUM);
         sword.addEnchantment(Enchantments.KNOCKBACK, 2);
         this.setItemStackToSlot(EquipmentSlotType.MAINHAND, sword);
         this.setDropChance(EquipmentSlotType.MAINHAND, 0.0F);
@@ -219,7 +209,7 @@ public class FairyEntity extends MonsterEntity {
         public void startExecuting() {
             LivingEntity livingentity = FairyEntity.this.getAttackTarget();
             Vec3d vec3d = livingentity.getEyePosition(1.0F);
-            FairyEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 1.0D);
+            FairyEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 2.0D);
             FairyEntity.this.setCharging(true);
             FairyEntity.this.playSound(SoundEvents.ENTITY_VEX_CHARGE, 1.0F, 1.0F);
         }
@@ -304,10 +294,7 @@ public class FairyEntity extends MonsterEntity {
          * Keep ticking a continuous task that has already been started
          */
         public void tick() {
-            BlockPos blockpos = FairyEntity.this.getBoundOrigin();
-            if (blockpos == null) {
-                blockpos = new BlockPos(FairyEntity.this);
-            }
+            BlockPos blockpos =  new BlockPos(FairyEntity.this);
 
             for(int i = 0; i < 3; ++i) {
                 BlockPos blockpos1 = blockpos.add(FairyEntity.this.rand.nextInt(15) - 7, FairyEntity.this.rand.nextInt(11) - 5, FairyEntity.this.rand.nextInt(15) - 7);

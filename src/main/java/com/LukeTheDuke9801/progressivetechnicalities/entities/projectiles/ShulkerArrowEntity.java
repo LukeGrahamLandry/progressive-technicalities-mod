@@ -1,4 +1,4 @@
-package com.LukeTheDuke9801.progressivetechnicalities.entities;
+package com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

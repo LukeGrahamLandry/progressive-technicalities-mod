@@ -1,7 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.xp_tank;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.IXPContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.XPContainerHolder;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.XPContainer;
 
 import net.minecraft.nbt.CompoundNBT;
@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 
-public class XPTankTileEntity extends TileEntity implements ITickableTileEntity, IXPContainer{
+public class XPTankTileEntity extends TileEntity implements ITickableTileEntity, XPContainerHolder {
 	private int tick = 0;
 	
 	public XPContainer xpContainer;

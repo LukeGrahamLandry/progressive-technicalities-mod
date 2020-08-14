@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -19,79 +20,63 @@ import net.minecraft.world.dimension.DimensionType;
 
 import java.util.List;
 
-public class HandHeldTeleporter extends Item{
-	public HandHeldTeleporter(Properties properties) {
+public class UndoStaff extends Item{
+	private Location[] locations = new Location[5];  // TODO: use nbt to make stack specific
+	private int tick = 0;
+	public UndoStaff(Properties properties) {
 		super(properties);
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Shift right click to save location, hold right click to return to saved location. "));
-			tooltip.add(new StringTextComponent("Currently bound to " + getLocation(stack).toString()));
-		} 
+			tooltip.add(new StringTextComponent("Brings you to your location 5 seconds ago"));
+			tooltip.add(new StringTextComponent("Currently bound to " + locations[0].toString()));
+		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 
-	// set destination
+	// go to destination
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
 		ItemStack stack = playerIn.getHeldItem(handIn);
-		if (KeyboardHelper.isHoldingShift()) {
-			Location location = new Location(playerIn);
-			setLocation(stack, location);
-		} else {
-			playerIn.setActiveHand(handIn);  // required to make the useFinished / stoppedUsing fire
+
+		Location targetLocation = locations[0];
+		Location currentLocation = new Location(playerIn);
+		if (targetLocation.dim.equals(currentLocation.dim)){
+			playerIn.setPosition(targetLocation.pos.getX(), targetLocation.pos.getY(), targetLocation.pos.getZ());
 		}
 
 		return ActionResult.resultConsume(stack);
 	}
 
-	// teleport to destination
-	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-		Location targetLocation = getLocation(stack);
-		Location currentLocation = new Location(entityLiving);
-		if (targetLocation.dim.equals(currentLocation.dim)){
-			entityLiving.setPosition(targetLocation.pos.getX(), targetLocation.pos.getY(), targetLocation.pos.getZ());
-		}
-
-		return stack;
-	}
-
-	// set destination
+	// set destinations
 	@Override
 	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
 		Location location = new Location(playerIn);
-		setLocation(stack, location);
+		for (int i=0;i<5;i++){
+			locations[i] = location;
+		}
 	}
 
-	@Override
-	public int getUseDuration(ItemStack stack) {
-		return 40;
+	// update destination
+	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+		if (!worldIn.isRemote){
+			this.tick++;
+			if (this.tick > 20){
+				this.tick = 0;
+				locations[0] = locations[1];
+				locations[1] = locations[2];
+				locations[2] = locations[3];
+				locations[3] = locations[4];
+				locations[4] = new Location(entityIn);
+			}
+		}
+
 	}
 
-	@Override
-	public UseAction getUseAction(ItemStack stack) {
-		return UseAction.BOW;
-	}
 
-	private Location getLocation(ItemStack stack) {
-		CompoundNBT compound = stack.getTag();
-
-		if (compound == null || !compound.contains("savedLocation")) return new Location(new BlockPos(0, 70, 0), DimensionType.OVERWORLD);
-
-		return new Location(compound.getCompound("savedLocation"));
-	}
-
-	private void setLocation(ItemStack stack, Location location) {
-		CompoundNBT compound = stack.getTag();
-		if (compound == null) compound = new CompoundNBT();
-
-		compound.put("savedLocation", location.toNBT());
-		stack.setTag(compound);
-	}
 
 	static class Location{
 		public BlockPos pos;

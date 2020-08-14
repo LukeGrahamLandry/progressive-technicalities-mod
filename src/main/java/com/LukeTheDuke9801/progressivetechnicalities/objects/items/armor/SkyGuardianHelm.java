@@ -1,34 +1,24 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor;
 
-import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModArmorMaterial;
-import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.HitEventListener;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import javax.annotation.Nonnull;
-import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
 // Blocks fall damage and knock back
 
-public class SkyGuardianHelm extends ArmorItem implements HitEventListener{
+public class SkyGuardianHelm extends ArmorItem implements HitEventListener {
 	public SkyGuardianHelm(EquipmentSlotType slot, Properties builder) {
 		super(ModArmorMaterial.AIRGEM, slot, builder);
 	}

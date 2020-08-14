@@ -1,4 +1,4 @@
-package com.LukeTheDuke9801.progressivetechnicalities.entities;
+package com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

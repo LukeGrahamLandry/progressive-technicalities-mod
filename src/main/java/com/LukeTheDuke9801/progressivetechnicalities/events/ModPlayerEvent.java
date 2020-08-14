@@ -1,35 +1,16 @@
 package com.LukeTheDuke9801.progressivetechnicalities.events;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.enchantments.LavaWalkerEnchantment;
-import com.LukeTheDuke9801.progressivetechnicalities.enchantments.SoulBoundEnchantment;
-import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.OilFluid;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.NymphariumFluid;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.FeyFood;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.*;
 
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.HitEventListener;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.NonNullList;
-import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionType;
-import net.minecraftforge.event.TickEvent.PlayerTickEvent;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;

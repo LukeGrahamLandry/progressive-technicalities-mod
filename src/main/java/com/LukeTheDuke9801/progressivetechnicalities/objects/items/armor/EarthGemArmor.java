@@ -8,6 +8,7 @@ import javax.annotation.Nonnull;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModArmorMaterial;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.HitEventListener;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.client.util.ITooltipFlag;
@@ -19,7 +20,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.text.ITextComponent;
@@ -27,7 +27,7 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public class EarthGemArmor extends ArmorItem implements HitEventListener{
+public class EarthGemArmor extends ArmorItem implements HitEventListener {
 	int tick = 0;
 
 	public EarthGemArmor(EquipmentSlotType slot, Properties builder) {

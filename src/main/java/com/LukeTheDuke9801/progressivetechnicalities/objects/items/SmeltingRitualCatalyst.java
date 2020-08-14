@@ -1,6 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.items;
 
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.RitualCatalyst;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;

@@ -15,12 +15,12 @@ import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 
-public class FeyFoxRenderer extends MobRenderer<FeyFoxEntity, FoxModel<FeyFoxEntity>> {
+public class FeyFoxRenderer extends MobRenderer<FeyFoxEntity, FeyFoxModel<FeyFoxEntity>> {
     private static final ResourceLocation FOX = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "textures/entity/fey_fox.png");
     private static final ResourceLocation SLEEPING_FOX = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "textures/entity/fey_fox_sleep.png");
 
     public FeyFoxRenderer(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new FoxModel<>(), 0.4F);
+        super(renderManagerIn, new FeyFoxModel<>(), 0.4F);
     }
 
     protected void applyRotations(FeyFoxEntity entityLiving, MatrixStack matrixStackIn, float ageInTicks, float rotationYaw, float partialTicks) {

@@ -114,6 +114,10 @@ public class BlockInit {
 	public static final RegistryObject<Block> ADVANCED_RITUAL_STONE = BLOCKS.register("advanced_ritual_stone",
 			() -> new RitualStone(2, Block.Properties.from(BASIC_RITUAL_STONE.get())));
 
+	public static final RegistryObject<Block> GRASS_DEMO = BLOCKS.register("grass_demo",
+			() -> new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3f, 50f).sound(SoundType.STONE).harvestLevel(4).harvestTool(ToolType.PICKAXE)));
+
+
 	/* Mobs for structures
 	It hangs when I try to add the mob directly from the dataMarker so instead
 	the data marker makes these blocks which become a mob after a random tick

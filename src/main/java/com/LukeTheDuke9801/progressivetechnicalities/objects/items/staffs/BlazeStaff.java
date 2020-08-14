@@ -2,7 +2,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs;
 
 import java.util.List;
 
-import com.LukeTheDuke9801.progressivetechnicalities.entities.ThrowableFireballEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.ThrowableFireballEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.client.util.ITooltipFlag;

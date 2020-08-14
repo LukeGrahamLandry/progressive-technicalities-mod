@@ -1,9 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks;
 
-import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.XPContainerHolder;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -55,8 +53,8 @@ public class XPContainer {
 	
 	public static XPContainer getXPContainerAtPos(World world, BlockPos pos) {
 		XPContainer container = null;
-		if (world.getTileEntity(pos) instanceof IXPContainer) {
-			container = ((IXPContainer)world.getTileEntity(pos)).getXPContainer();
+		if (world.getTileEntity(pos) instanceof XPContainerHolder) {
+			container = ((XPContainerHolder)world.getTileEntity(pos)).getXPContainer();
 		}
 		return container;
 	}

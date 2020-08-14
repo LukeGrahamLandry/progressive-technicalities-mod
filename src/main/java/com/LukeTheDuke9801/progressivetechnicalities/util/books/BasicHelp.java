@@ -1,11 +1,10 @@
 package com.LukeTheDuke9801.progressivetechnicalities.util.books;
 
-import jdk.nashorn.internal.runtime.JSONFunctions;
 import net.minecraft.nbt.INBT;
 import net.minecraft.nbt.ListNBT;
 import net.minecraft.nbt.StringNBT;
 
-public class BasicHelp implements BookContents{
+public class BasicHelp implements BookContents {
     public String getTitle(){
         return "Prog-Tech Help";
     }

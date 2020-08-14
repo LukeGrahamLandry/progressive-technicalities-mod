@@ -1,7 +1,6 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.generators;
 
-import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.IXPContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.XPContainerHolder;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.XPContainer;
 
 import net.minecraft.entity.item.ExperienceOrbEntity;
@@ -48,8 +47,8 @@ public abstract class AbstractGenoratorTileEntity extends TileEntity implements 
 		
 		for (BlockPos position : sides) {
 			XPContainer container;
-			if (world.getTileEntity(position) instanceof IXPContainer) {
-				container = ((IXPContainer)world.getTileEntity(position)).getXPContainer();
+			if (world.getTileEntity(position) instanceof XPContainerHolder) {
+				container = ((XPContainerHolder)world.getTileEntity(position)).getXPContainer();
 			} else {continue;}
 			
 			if (!container.isFull()) {

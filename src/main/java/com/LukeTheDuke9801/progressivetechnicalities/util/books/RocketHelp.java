@@ -1,6 +1,6 @@
 package com.LukeTheDuke9801.progressivetechnicalities.util.books;
 
-public class RocketHelp implements BookContents{
+public class RocketHelp implements BookContents {
     public String getTitle(){
         return "Rocket Help";
     }

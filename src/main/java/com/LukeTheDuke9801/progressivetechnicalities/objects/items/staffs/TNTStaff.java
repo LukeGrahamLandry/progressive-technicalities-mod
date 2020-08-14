@@ -2,12 +2,10 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs;
 
 import java.util.List;
 
-import com.LukeTheDuke9801.progressivetechnicalities.entities.TNTBallEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.TNTBallEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
-import net.minecraft.block.TNTBlock;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.item.TNTEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

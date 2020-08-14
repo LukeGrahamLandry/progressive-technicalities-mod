@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "block/dirt",
+        "down": "progressivetechnicalities:blocks/feysteel_ore",
+        "up": "progressivetechnicalities:blocks/fey_planks",
+        "north": "progressivetechnicalities:blocks/titanium_ore",
+        "east": "progressivetechnicalities:blocks/titanium_ore",
+        "south": "progressivetechnicalities:blocks/titanium_ore",
+        "west": "progressivetechnicalities:blocks/titanium_ore"
+    }
+}

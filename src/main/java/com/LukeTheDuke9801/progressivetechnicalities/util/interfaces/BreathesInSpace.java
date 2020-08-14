@@ -1,4 +1,4 @@
-package com.LukeTheDuke9801.progressivetechnicalities.client.entity;
+package com.LukeTheDuke9801.progressivetechnicalities.util.interfaces;
 
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 

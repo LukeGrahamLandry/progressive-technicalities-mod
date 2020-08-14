@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "block/dirt",
+        "down": "modid:blocks/down",
+        "up": "modid:blocks/top",
+        "north": "modid:blocks/side",
+        "east": "modid:blocks/side",
+        "south": "modid:blocks/side",
+        "west": "modid:blocks/side"
+    }
+}

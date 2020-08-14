@@ -1,4 +1,4 @@
-package com.LukeTheDuke9801.progressivetechnicalities.entities;
+package com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -8,22 +8,22 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.world.World;
 
-public class WitherArrowEntity extends ArrowEntity{
-	public WitherArrowEntity(EntityType<? extends ArrowEntity> type, World worldIn) {
+public class MultiArrowEntity extends ArrowEntity{
+	public MultiArrowEntity(EntityType<? extends ArrowEntity> type, World worldIn) {
 	      super(type, worldIn);
     }
 
-    public WitherArrowEntity(World worldIn, double x, double y, double z) {
+    public MultiArrowEntity(World worldIn, double x, double y, double z) {
        super(worldIn, x, y, z);
     }
 
-    public WitherArrowEntity(World worldIn, LivingEntity shooter) {
+    public MultiArrowEntity(World worldIn, LivingEntity shooter) {
        super(worldIn, shooter);
     }
     
     protected void onEntityHit(EntityRayTraceResult ray) {
+        LivingEntity entity = (LivingEntity) ray.getEntity();
+        entity.hurtResistantTime = 0;  // let something be hit by multiple arrows
     	super.onEntityHit(ray);
-    	LivingEntity entity = (LivingEntity) ray.getEntity();
-    	entity.addPotionEffect(new EffectInstance(Effects.WITHER, 100, 2));
     }
 }

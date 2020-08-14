@@ -5,6 +5,7 @@ import java.util.List;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.HitEventListener;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -15,7 +16,7 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public class LongFallBoots extends ArmorItem implements HitEventListener{
+public class LongFallBoots extends ArmorItem implements HitEventListener {
 
 	public LongFallBoots(EquipmentSlotType slot, Properties builder) {
 		super(new Material(), slot, builder);

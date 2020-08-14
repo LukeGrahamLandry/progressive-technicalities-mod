@@ -1,17 +1,14 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.simple_machines;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.IXPContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.XPContainerHolder;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.XPContainer;
 
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
 
-public class SimpleMachineTileEntity extends TileEntity implements IXPContainer{
+public class SimpleMachineTileEntity extends TileEntity implements XPContainerHolder {
 	public XPContainer xpContainer;
 	public XPContainer getXPContainer() {
 		return this.xpContainer;

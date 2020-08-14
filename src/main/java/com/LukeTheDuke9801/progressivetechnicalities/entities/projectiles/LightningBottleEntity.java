@@ -1,11 +1,9 @@
-package com.LukeTheDuke9801.progressivetechnicalities.entities;
+package com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.projectile.PotionEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;

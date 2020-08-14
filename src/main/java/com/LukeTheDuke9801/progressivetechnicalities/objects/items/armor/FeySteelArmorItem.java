@@ -2,26 +2,23 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor;
 
 import java.util.List;
 
-import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.util.enums.ModArmorMaterial;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.HitEventListener;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public class FeySteelArmorItem extends ArmorItem implements HitEventListener{
+public class FeySteelArmorItem extends ArmorItem implements HitEventListener {
 
 	public FeySteelArmorItem(ModArmorMaterial material, EquipmentSlotType slot, Properties builder) {
 		super(material, slot, builder);

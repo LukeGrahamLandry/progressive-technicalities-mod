@@ -1,7 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.mob_spawner;
 
 import com.LukeTheDuke9801.progressivetechnicalities.init.ModTileEntityTypes;
-import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.IXPContainer;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.XPContainerHolder;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.XPContainer;
 
 import net.minecraft.entity.EntityType;
@@ -12,7 +12,7 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 
-public class MobSpawnerTileEntity extends TileEntity implements ITickableTileEntity, IXPContainer{
+public class MobSpawnerTileEntity extends TileEntity implements ITickableTileEntity, XPContainerHolder {
 	int tick = 0;
 	String mobType;
 	int cost = 10;

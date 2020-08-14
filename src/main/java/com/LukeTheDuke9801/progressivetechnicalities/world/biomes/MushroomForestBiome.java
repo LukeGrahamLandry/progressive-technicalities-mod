@@ -37,7 +37,7 @@ public class MushroomForestBiome extends Biome{
 				.parent(null)
 				.waterColor(16711935)
 				.waterFogColor(16711935)
-				.scale(0.1f)
+				.scale(0.2f)
 				.temperature(0.8F));
 
 		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(ModEntityTypes.FAIRY, 25, 1, 1));

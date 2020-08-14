@@ -2,14 +2,11 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
+import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.HitEventListener;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -17,7 +14,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import java.util.List;
 
-public class ResistanceArmorTest extends ArmorItem implements HitEventListener{
+public class ResistanceArmorTest extends ArmorItem implements HitEventListener {
 
 	public ResistanceArmorTest(EquipmentSlotType slot, Properties builder) {
 		super(new Material(), slot, builder);
