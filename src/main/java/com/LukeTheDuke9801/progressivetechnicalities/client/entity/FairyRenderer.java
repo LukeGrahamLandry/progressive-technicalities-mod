@@ -10,14 +10,13 @@ import net.minecraft.entity.monster.VexEntity;
 import net.minecraft.util.ResourceLocation;
 
 public class FairyRenderer extends BipedRenderer<FairyEntity, FairyModel> {
-    private static final ResourceLocation VEX_TEXTURE = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "textures/entity/fairy.png");
-    private static final ResourceLocation VEX_CHARGING_TEXTURE = new ResourceLocation("textures/entity/illager/vex_charging.png");
+    private static final ResourceLocation ANGRY_FAIRY_TEXTURE = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "textures/entity/angry_fairy.png");
 
     public FairyRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new FairyModel(), 0.3F);
     }
 
-    protected int getBlockLight(VexEntity entityIn, float partialTicks) {
+    protected int getBlockLight(FairyEntity entityIn, float partialTicks) {
         return 15;
     }
 
@@ -25,7 +24,10 @@ public class FairyRenderer extends BipedRenderer<FairyEntity, FairyModel> {
      * Returns the location of an entity's texture.
      */
     public ResourceLocation getEntityTexture(FairyEntity entity) {
-        return entity.isCharging() ? VEX_CHARGING_TEXTURE : VEX_TEXTURE;
+        if (entity.isAngry()) return ANGRY_FAIRY_TEXTURE;
+        else {
+            return entity.texture.resourceLocation;
+        }
     }
 
     protected void preRenderCallback(FairyEntity entitylivingbaseIn, MatrixStack matrixStackIn, float partialTickTime) {

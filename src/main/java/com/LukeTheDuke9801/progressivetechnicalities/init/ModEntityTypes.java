@@ -64,15 +64,19 @@ public class ModEntityTypes {
 	public static void onRegisterEntities(RegistryEvent.Register<EntityType<?>> event) {
 		FAIRY.setRegistryName(ProgressiveTechnicalities.MOD_ID, "fairy");
 		event.getRegistry().register(FAIRY);
-		EntitySpawnPlacementRegistry.register(FAIRY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canFairySpawn);
+		EntitySpawnPlacementRegistry.register(FAIRY, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canFairySpawn);
 
 		FEY_FOX.setRegistryName(ProgressiveTechnicalities.MOD_ID, "fey_fox");
 		event.getRegistry().register(FEY_FOX);
-		EntitySpawnPlacementRegistry.register(FEY_FOX, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::canAnimalSpawn);
+		EntitySpawnPlacementRegistry.register(FEY_FOX, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canFoxSpawn);
 	}
 
 
 	public static boolean canFairySpawn(EntityType<? extends MonsterEntity> type, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
 		return worldIn.getDifficulty() != Difficulty.PEACEFUL;
+	}
+
+	public static boolean canFoxSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
+		return random.nextInt(10) == 0 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.GRASS_BLOCK && worldIn.getLightSubtracted(pos, 0) > 8;
 	}
 }

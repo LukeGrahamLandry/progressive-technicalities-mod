@@ -1,5 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.entities;
 
+import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
+import com.LukeTheDuke9801.progressivetechnicalities.init.BiomeInit;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.fluids.NymphariumFluidBlock;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.*;
@@ -7,6 +9,7 @@ import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.AbstractRaiderEntity;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -18,6 +21,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -26,9 +30,13 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
 import java.util.EnumSet;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class FairyEntity extends MonsterEntity {
     protected static final DataParameter<Byte> VEX_FLAGS = EntityDataManager.createKey(FairyEntity.class, DataSerializers.BYTE);
@@ -58,9 +66,21 @@ public class FairyEntity extends MonsterEntity {
         return super.attackEntityFrom(source, amount);
     }
 
+    public boolean isAngry(){
+        return this.angryTimer > 0;
+    }
+
     public boolean isInvulnerableTo(DamageSource source) {
         if (source == NymphariumFluidBlock.DAMAGE_SOURCE) return true;
         return super.isInvulnerableTo(source);
+    }
+
+    @Nullable
+    @Override
+    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
+        updateTexture();
+        this.setEquipmentBasedOnDifficulty(difficultyIn);
+        return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
     public void move(MoverType typeIn, Vec3d pos) {
@@ -79,9 +99,19 @@ public class FairyEntity extends MonsterEntity {
 
         if (this.angryTimer > 0){
             this.angryTimer--;
-            // TODO: have an angry texture instead
-            this.addPotionEffect(new EffectInstance(Effects.GLOWING, 5, 0));
         }
+
+        // TODO: only do this when it first spawns
+        updateTexture();
+    }
+
+    private void updateTexture(){
+        Biome biome = this.world.getBiome(new BlockPos(this));
+        if (biome == BiomeInit.FEY_PLAINS.get()) this.texture = Texture.GREEN;
+        else if (biome == BiomeInit.FRUIT_FOREST.get()) this.texture = Texture.BLUE;
+        else if (biome == BiomeInit.MUSHROOM_FOREST.get()) this.texture = Texture.BLACK;
+        else if (biome == BiomeInit.OIL_SPIKES.get()) this.texture = Texture.YELLOW;
+        else this.texture = Texture.ORIGINAL;
     }
 
     protected void registerGoals() {
@@ -112,11 +142,40 @@ public class FairyEntity extends MonsterEntity {
     public void readAdditional(CompoundNBT compound) {
         super.readAdditional(compound);
         this.angryTimer = compound.getInt("angryTimer");
+        this.texture = Texture.getByName(compound.getString("texture"));
     }
 
     public void writeAdditional(CompoundNBT compound) {
         super.writeAdditional(compound);
         compound.putInt("angryTimer", this.angryTimer);
+        compound.putString("texture", this.texture.getName());
+    }
+
+    public Texture texture = Texture.ORIGINAL;
+    public static enum Texture{
+        ORIGINAL("original"),
+        BLUE("blue"),
+        GREEN("green"),
+        BLACK("black"),
+        YELLOW("yellow");
+
+        private final String name;
+        public final ResourceLocation resourceLocation;
+        private static final Map<String, Texture> TEXTURES_BY_NAME =  Arrays.stream(values()).collect(Collectors.toMap(Texture::getName, (p_221081_0_) -> {
+            return p_221081_0_;
+        }));
+        private Texture(String nameIn){
+            this.name = nameIn;
+            this.resourceLocation = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "textures/entity/" + nameIn + "_fairy.png");
+        }
+
+        public String getName(){
+            return this.name;
+        }
+
+        public static Texture getByName(String name){
+            return TEXTURES_BY_NAME.get(name);
+        }
     }
 
     private boolean getVexFlag(int mask) {
@@ -160,13 +219,6 @@ public class FairyEntity extends MonsterEntity {
      */
     public float getBrightness() {
         return 8.0F;
-    }
-
-    @Nullable
-    public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason, @Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
-        this.setEquipmentBasedOnDifficulty(difficultyIn);
-        this.setEnchantmentBasedOnDifficulty(difficultyIn);
-        return super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
     }
 
     /**

@@ -5,6 +5,7 @@ import java.util.List;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.item.EnderPearlEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -39,13 +40,13 @@ public class EnderStaff extends Item{
 		BlockPos pos = new BlockPos(rayTrace(worldIn, playerIn).getHitVec());
 		playerIn.setPosition(pos.getX(), pos.getY(), pos.getZ());
 		playerIn.fallDistance = 0f;
-
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 
 	}
 
 	private static RayTraceResult rayTrace(World worldIn, PlayerEntity player) {
 		// same as item.rayTrace but longer range (not just your mining range)
+		double rangeFactor = 20;
 
 		float f = player.rotationPitch;
 		float f1 = player.rotationYaw;
@@ -56,8 +57,7 @@ public class EnderStaff extends Item{
 		float f5 = MathHelper.sin(-f * ((float)Math.PI / 180F));
 		float f6 = f3 * f4;
 		float f7 = f2 * f4;
-		double d0 = 20;
-		Vec3d vec3d1 = vec3d.add((double)f6 * d0, (double)f5 * d0, (double)f7 * d0);
+		Vec3d vec3d1 = vec3d.add((double)f6 * rangeFactor, (double)f5 * rangeFactor, (double)f7 * rangeFactor);
 		return worldIn.rayTraceBlocks(new RayTraceContext(vec3d, vec3d1, RayTraceContext.BlockMode.OUTLINE, RayTraceContext.FluidMode.NONE, player));
 	}
 }

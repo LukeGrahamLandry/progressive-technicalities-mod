@@ -10,10 +10,14 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUseContext;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.DoubleNBT;
+import net.minecraft.nbt.ListNBT;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -31,7 +35,7 @@ public class MagicEggShell extends Item {
 			tooltip.add(new StringTextComponent("Hit a creature to trap it in the egg. "));
 			tooltip.add(new StringTextComponent("Can be used to spawn the creature or set an auto spawner. "));
 			if (getType(stack) != null) {
-				tooltip.add(new StringTextComponent("Currently holding: <" + getType(stack).getName() + ">"));
+				tooltip.add(new StringTextComponent("Currently holding: <" + getType(stack).getName().getFormattedText() + ">"));
 			}	
 		}
 		
@@ -44,24 +48,45 @@ public class MagicEggShell extends Item {
 		
 		if (entity instanceof LivingEntity) {
 			setType(stack, entity.getType());
+			stack.getTag().put("entityData", entity.writeWithoutTypeId(new CompoundNBT()));
 			entity.remove();
 		}
+
 		return super.onLeftClickEntity(stack, player, entity);
 	}
 	
 	public ActionResultType onItemUse(ItemUseContext context) {
 		ItemStack stack = context.getItem();
-		EntityType type = getType(stack);
-		if (type == null || context.getWorld().isRemote) return ActionResultType.PASS;
-		
 		BlockPos spawnPos = context.getPos().offset(context.getFace());
-		
-		type.spawn(context.getWorld(), ItemStack.EMPTY, null, spawnPos, SpawnReason.SPAWN_EGG, false, false);
-		
+
+		if (getType(stack) == null || context.getWorld().isRemote) return ActionResultType.PASS;
+
+		spawnStoredEntity(context.getWorld(), stack, spawnPos);
 		setEmpty(stack);
+
 		return ActionResultType.SUCCESS;
 	}
-	
+
+	private void spawnStoredEntity(World world, ItemStack stack, BlockPos spawnPos) {
+		EntityType type = getType(stack);
+		Entity spawnedEntity = type.create(world);
+		CompoundNBT entityData = stack.getTag().getCompound("entityData");
+		entityData.put("Pos", newDoubleNBTList(spawnPos.getX(), spawnPos.getY(), spawnPos.getZ()));  // if you dont set position in the compund it gets overwritten when you read everything else
+		spawnedEntity.read(entityData);
+		world.addEntity(spawnedEntity);
+	}
+
+	// from Entity.java
+	private ListNBT newDoubleNBTList(double... numbers) {
+		ListNBT listnbt = new ListNBT();
+
+		for(double d0 : numbers) {
+			listnbt.add(DoubleNBT.valueOf(d0));
+		}
+
+		return listnbt;
+	}
+
 	public static EntityType getType(ItemStack stack) {
 		CompoundNBT nbtTagCompound = stack.getTag();
 		

@@ -336,7 +336,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> AIRGEM_SWORD = ITEMS.register("airgem_sword",
 			() -> new AirGemSword(ModItemTier.AIRGEM, 3, -2.4f, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> TORCH_BOW = ITEMS.register("torch_bow",
+	public static final RegistryObject<Item> TORCH_BOW = ITEMS .register("torch_bow",
 			() -> new TorchBowItem(new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> MULTIBOW = ITEMS.register("multibow",

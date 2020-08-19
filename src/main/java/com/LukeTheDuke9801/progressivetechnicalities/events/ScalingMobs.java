@@ -136,7 +136,7 @@ public class ScalingMobs {
         		}
         		
         		if (isInOilDim(mob)) {
-        			mob.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 59*60*20, 1));
+        			mob.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 59*60*20, 1, true, false));
         		}
     		} catch (IllegalArgumentException e) {
     			// loading from save
