@@ -1,10 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.entities.FairyEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.entities.FeyFoxEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.entities.WanderingAstronomer;
-import com.LukeTheDuke9801.progressivetechnicalities.entities.WanderingGemSmith;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.*;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
@@ -60,6 +57,16 @@ public class ModEntityTypes {
 			.immuneToFire().size(0.6F, 0.7F)
 			.build(ProgressiveTechnicalities.MOD_ID + ":fey_fox");
 
+	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":freman")
+	public static final EntityType<FremanEntity> FREMAN = EntityType.Builder.create(FremanEntity::new, EntityClassification.CREATURE)
+			.immuneToFire().size(0.6F, 1.95F)
+			.build(ProgressiveTechnicalities.MOD_ID + ":freman");
+
+	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":fey_cow")
+	public static final EntityType<FeyCowEntity> FEY_COW = EntityType.Builder.create(FeyCowEntity::new, EntityClassification.CREATURE)
+			.immuneToFire().size(0.9F, 1.4F)
+			.build(ProgressiveTechnicalities.MOD_ID + ":fey_cow");
+
 	@SubscribeEvent
 	public static void onRegisterEntities(RegistryEvent.Register<EntityType<?>> event) {
 		FAIRY.setRegistryName(ProgressiveTechnicalities.MOD_ID, "fairy");
@@ -69,6 +76,15 @@ public class ModEntityTypes {
 		FEY_FOX.setRegistryName(ProgressiveTechnicalities.MOD_ID, "fey_fox");
 		event.getRegistry().register(FEY_FOX);
 		EntitySpawnPlacementRegistry.register(FEY_FOX, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canFoxSpawn);
+
+		FREMAN.setRegistryName(ProgressiveTechnicalities.MOD_ID, "freman");
+		event.getRegistry().register(FREMAN);
+		EntitySpawnPlacementRegistry.register(FREMAN, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canFremanSpawn);
+
+		FEY_COW.setRegistryName(ProgressiveTechnicalities.MOD_ID, "fey_cow");
+		event.getRegistry().register(FEY_COW);
+		EntitySpawnPlacementRegistry.register(FEY_COW, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canFoxSpawn);
+
 	}
 
 
@@ -78,5 +94,9 @@ public class ModEntityTypes {
 
 	public static boolean canFoxSpawn(EntityType<? extends AnimalEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
 		return random.nextInt(10) == 0 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.GRASS_BLOCK && worldIn.getLightSubtracted(pos, 0) > 8;
+	}
+
+	public static boolean canFremanSpawn(EntityType<? extends FremanEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
+		return random.nextInt(20) == 0 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.SAND;
 	}
 }

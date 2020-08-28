@@ -1,1 +1,0 @@
-A full set of armor with approximetly the protection of iron. Each peice 1000 durability. Whlie wearing the full set, grants strength X, regen I, saturation I, speed V, jump boost III and haste III

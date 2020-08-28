@@ -1,1 +1,0 @@
-While in inventory, heals you for 25% of the damage you deal

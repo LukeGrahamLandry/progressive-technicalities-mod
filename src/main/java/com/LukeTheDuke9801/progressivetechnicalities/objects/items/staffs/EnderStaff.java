@@ -46,7 +46,7 @@ public class EnderStaff extends Item{
 
 	private static RayTraceResult rayTrace(World worldIn, PlayerEntity player) {
 		// same as item.rayTrace but longer range (not just your mining range)
-		double rangeFactor = 20;
+		double rangeFactor = 40;
 
 		float f = player.rotationPitch;
 		float f1 = player.rotationYaw;

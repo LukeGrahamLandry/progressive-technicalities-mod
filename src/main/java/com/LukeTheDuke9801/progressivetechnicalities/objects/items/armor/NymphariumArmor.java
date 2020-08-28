@@ -27,7 +27,7 @@ public class NymphariumArmor extends ArmorItem implements HitEventListener {
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("While wearing full set, press shift to stop moving and nympharium heals you"));
+			tooltip.add(new StringTextComponent("While wearing full set, press shift to stop moving and nympharium fluid heals you"));
 		}
 
 		super.addInformation(stack, worldIn, tooltip, flagIn);

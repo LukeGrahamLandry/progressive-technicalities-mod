@@ -1,1 +1,0 @@
-Desert hills, cactuses. Normal day night cycle, husks and creepers spawn. No air so you will die quickly if not wearing a [[Space Helmet]]. Underground is sandstone with large sand veins and *melenge deposits* which can be mined with a carbide shovel and turned into *the spice*. 

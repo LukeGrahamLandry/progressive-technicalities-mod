@@ -48,7 +48,7 @@ public class StructureCompass extends Item{
         }
     }
 
-    private static double NOT_FOUND = 666;
+    private static final double NOT_FOUND = 666;
 
     private double getAngleToStructure(Entity entity) {
         ServerWorld world = (ServerWorld)entity.getEntityWorld();

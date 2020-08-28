@@ -1,1 +1,0 @@
-A full set of armour that offers more protection than [[Carbide Armour]] (8 extra points), extra toughness & same  durability and enchantibility.

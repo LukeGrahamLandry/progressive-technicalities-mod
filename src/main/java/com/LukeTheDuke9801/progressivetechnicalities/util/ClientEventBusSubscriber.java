@@ -1,10 +1,7 @@
 package com.LukeTheDuke9801.progressivetechnicalities.util;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
-import com.LukeTheDuke9801.progressivetechnicalities.client.entity.FairyRenderer;
-import com.LukeTheDuke9801.progressivetechnicalities.client.entity.FeyFoxRenderer;
-import com.LukeTheDuke9801.progressivetechnicalities.client.entity.WanderingAstronomerRenderer;
-import com.LukeTheDuke9801.progressivetechnicalities.client.entity.WanderingGemSmithRenderer;
+import com.LukeTheDuke9801.progressivetechnicalities.client.entity.*;
 import com.LukeTheDuke9801.progressivetechnicalities.client.gui.LargeChestScreen;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.FairyEntity;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.WanderingAstronomer;
@@ -40,6 +37,8 @@ public class ClientEventBusSubscriber {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WANDERING_ASTRONOMER.get(), WanderingAstronomerRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FAIRY, FairyRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FEY_FOX, FeyFoxRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FREMAN, FremanRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FEY_COW, FeyCowRenderer::new);
 
 		RenderTypeLookup.setRenderLayer(BlockInit.CHERRY_SAPLING.get(), RenderType.getCutout());
 	}

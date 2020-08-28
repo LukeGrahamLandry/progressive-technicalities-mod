@@ -4,5 +4,5 @@
 
 ### Planets
 - [Luna](luna.md)
-- [Arrakis]()
+- [Arrakis](arrakis.md)
 - [Pandora]()

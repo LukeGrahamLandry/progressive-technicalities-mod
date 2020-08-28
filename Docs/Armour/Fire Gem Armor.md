@@ -1,1 +1,0 @@
-A full set of armour that offers the same protection & durability as diamond and the enchantability of gold. Full set gives fire resistance and lights attackers on fire for 5 seconds

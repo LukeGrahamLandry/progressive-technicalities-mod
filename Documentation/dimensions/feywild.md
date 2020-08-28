@@ -5,16 +5,22 @@ Craft a feywild portal key use it to activate a basic ritual. To return to the o
 with a feywild portal key and jump on the center block.
 
 ### What Will I Find Here
-Quite flat grassy landscape. Lakes of liquid nympharium (causes damage if you don’t have fire resistance). 
-Lot’s of vegitaion: giant mushrooms, flowers, melons. Eternal day. Underground is made of solid fairy dust 
-which is slow to break but vulnerable to explosions. 
+Eternal day. Underground is made of solid fairy dust which is slow to break but vulnerable to explosions.  
+** Fey Plains **  
+Lot’s of vegitaion: grass, flowers, melons, pumpkins. Fey Foxes.
+Lakes of liquid nympharium (causes damage if not wearing nympharium armor).  
+** Mushroom Forest **  
+Mycilium, mushrooms, giant mushrooms  
+** Fruit Forest **
+Cherry Trees
 
 #### Mobs
-- Faries
-- Dolphins
+- Faries (passive until hit)
+- Fey Foxes
 
 #### Ores
 - Feysteel
+- Diamond
 
 #### Structures
 **Stone Henge**

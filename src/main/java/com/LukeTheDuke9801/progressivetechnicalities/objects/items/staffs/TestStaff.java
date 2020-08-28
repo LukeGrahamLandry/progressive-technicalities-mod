@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 
 public class TestStaff extends Item{
 	public TestStaff(Properties properties) {
-		super(properties);
+		super(properties.maxDamage(3));
 	}
 	
 	@Override
@@ -35,12 +35,8 @@ public class TestStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity playerIn, Hand handIn){
-		AttributeModifier modifier = new AttributeModifier(UUID.fromString("131fa735-ff9a-45c8-8197-fa8e561829e1"),
-				"ProgTechScalingMobs_health", 5, AttributeModifier.Operation.ADDITION);
-
-		ItemStack stack = playerIn.getItemStackFromSlot(EquipmentSlotType.HEAD);
-		stack.addAttributeModifier(SharedMonsterAttributes.MAX_HEALTH.getName(), modifier, EquipmentSlotType.HEAD);
-
+		ItemStack stack = playerIn.getHeldItem(handIn);
+		stack.setDamage(stack.getDamage() + 1);
 		return super.onItemRightClick(world, playerIn, handIn);
 		
 	}

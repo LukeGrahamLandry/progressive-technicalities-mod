@@ -84,6 +84,10 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> MELANGE_CLUMP = ITEMS.register("melange_clump",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+
+	public static final RegistryObject<Item> MELANGE = ITEMS.register("melange",
+			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance).food(
+					new Food.Builder().hunger(20).saturation(20.0F).build())));
 	
 	public static final RegistryObject<Item> UNOBTANIUM_INGOT = ITEMS.register("unobtanium_ingot",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -345,6 +349,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> FIRE_BALL_BOW = ITEMS.register("fireballbow",
 			() -> new FireChargeBow(new Item.Properties().group(ProgtechItemGroup.instance)));
 
+	public static final RegistryObject<Item> ARRAKIS_KNIFE = ITEMS.register("arrakis_knife",
+			() -> new SwordItem(ModItemTier.FIREGEM, 5, -2f, new Item.Properties().group(ProgtechItemGroup.instance)));
+
 	// Armour
 	public static final int OBSIDIAN_ARMOR = createSimpleArmorSet(ModArmorMaterial.OBSIDIAN, "obsidian");
 	public static final int CARBIDE_ARMOR = createSimpleArmorSet(ModArmorMaterial.CARBIDE, "carbide");
@@ -508,6 +515,11 @@ public class ItemInit {
 					new Food.Builder().hunger(3).saturation(5f).setAlwaysEdible()
 					.effect(new EffectInstance(Effects.SPEED, 100, 49), 0.9f).build())));
 
+	public static final RegistryObject<Item> GOLDEN_PLUM = ITEMS.register("golden_plum",
+			() -> new FeyFood(new Item.Properties().group(ProgtechItemGroup.instance).food(
+					new Food.Builder().hunger(8).saturation(0f)
+							.effect(() -> new EffectInstance(Effects.WITHER, 600, 2), 0.5F)
+							.effect(() -> new EffectInstance(Effects.REGENERATION, 600, 2), 0.5F).build())));
 
 	private static int createSimpleToolSet(ModItemTier tier, String name){
 		ITEMS.register(name + "_sword",

@@ -1,1 +1,0 @@
-While in your inventory, hals you two hearts when you kill something

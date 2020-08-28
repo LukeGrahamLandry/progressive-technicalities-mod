@@ -2,6 +2,7 @@ package com.LukeTheDuke9801.progressivetechnicalities.util;
 
 import java.util.Random;
 
+import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.merchant.villager.VillagerTrades;
@@ -35,6 +36,17 @@ public class ModVillagerTrades {
 
         public MerchantOffer getOffer(Entity trader, Random rand) {
             return new MerchantOffer(this.bought, new ItemStack(Items.EMERALD, this.price), Integer.MAX_VALUE, 3, 1);
+        }
+    }
+
+    public static class FremanSellTrade implements VillagerTrades.ITrade {
+        private final ItemStack sold;
+        public FremanSellTrade(ItemStack soldStack){
+            this.sold = soldStack;  // the vilager sells this to you
+        }
+
+        public MerchantOffer getOffer(Entity trader, Random rand) {
+            return new MerchantOffer(new ItemStack(ItemInit.MELANGE.get(), 1), this.sold, 1, 3, 1);
         }
     }
 }

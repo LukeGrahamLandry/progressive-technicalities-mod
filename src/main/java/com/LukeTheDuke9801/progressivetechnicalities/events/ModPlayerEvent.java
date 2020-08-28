@@ -33,6 +33,8 @@ public class ModPlayerEvent {
     			((PlayerEntity) trueSource).heal(toHeal);
     		}
     	}
+
+
     }
 
 	private static void handleArmorOnHitEffects(LivingEntity entity, LivingHurtEvent event) {
@@ -52,7 +54,7 @@ public class ModPlayerEvent {
 		if (source instanceof PlayerEntity) {
 			boolean hasLifeStealCharm = ((PlayerEntity) source).inventory.hasItemStack(new ItemStack(ItemInit.BASIC_LIFESTEAL_CHARM.get()));
 			if (hasLifeStealCharm) {
-				((PlayerEntity) source).heal(4);
+				((PlayerEntity) source).heal(2);
 			}
 		}
 	}

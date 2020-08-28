@@ -36,6 +36,8 @@ public class AbstractWanderer extends AbstractVillagerEntity {
 
     protected VillagerTrades.ITrade[] sells;
     protected VillagerTrades.ITrade[] buys;
+    // ^ cannot be changed dynamiclly because populate trade offeres is only called the first time you open to trade
+    // (only called if offers is null and makes offers not null)
 
 
     public AbstractWanderer(EntityType<? extends AbstractWanderer> type, World worldIn) {
@@ -47,8 +49,8 @@ public class AbstractWanderer extends AbstractVillagerEntity {
     @Override
     protected void populateTradeData() {
         MerchantOffers merchantoffers = this.getOffers();
-        this.addTrades(merchantoffers, this.sells, 5);  // idk what the 5 is for
-        this.addTrades(merchantoffers, this.buys, 5);
+        this.addTrades(merchantoffers, this.sells, Integer.MAX_VALUE);  // maxNumbers is the maximum number of trades it will add,
+        this.addTrades(merchantoffers, this.buys, Integer.MAX_VALUE);  // any extra will just be ignored. has a scroll wheel if they wont fit
     }
 
     public void setHome(BlockPos pos){

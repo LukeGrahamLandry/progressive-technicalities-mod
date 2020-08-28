@@ -25,7 +25,7 @@ public class MomentumStaff extends Item{
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Rightclick to boost you in the direction you're looking also grants brief slowfalling to negate fall damage"));
+			tooltip.add(new StringTextComponent("Rightclick to boost you in the direction you're lookinge"));
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -33,7 +33,7 @@ public class MomentumStaff extends Item{
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
-		playerIn.getCooldownTracker().setCooldown(this, 10);
+		playerIn.getCooldownTracker().setCooldown(this, 5);
 
 		double vecLen = 2;
 		EffectInstance speedEffect = playerIn.getActivePotionEffect(Effects.SPEED);
@@ -46,8 +46,6 @@ public class MomentumStaff extends Item{
 		
 		playerIn.isAirBorne = true;
 		playerIn.fallDistance = 0f;
-		
-		playerIn.addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 5, 0));
 		
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 		

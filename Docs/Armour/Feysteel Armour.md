@@ -1,2 +1,0 @@
-A full set of armour that offers the same protection & durability as diamond and the enchantability of gold. 
-Also has a powerful thorns effect (1 heart is delt to the attacker per piece of armour worn)

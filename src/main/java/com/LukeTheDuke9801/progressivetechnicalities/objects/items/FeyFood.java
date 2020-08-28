@@ -28,16 +28,16 @@ public class FeyFood extends Item{
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			String data = String.format("(%d, %.1f). ", this.getFood().getHealing(), this.getFood().getSaturation());
+			String data = String.format("(%d, %.1f)", this.getFood().getHealing(), this.getFood().getSaturation());
+			/*
 			List<Pair<EffectInstance, Float>> effects = this.getFood().getEffects();
 			for (Pair<EffectInstance, Float> effect : effects) {
 				int chance = (int) (effect.getRight() * 100);
 				String name = effect.getLeft().getEffectName().replace("effect.minecraft.", "") + " " + (effect.getLeft().getAmplifier()+1);
 				data += name + " [" + chance + "%]";
 			}
+			*/
 			tooltip.add(new StringTextComponent("This food seems extra filling " + data));
-			
-			
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);

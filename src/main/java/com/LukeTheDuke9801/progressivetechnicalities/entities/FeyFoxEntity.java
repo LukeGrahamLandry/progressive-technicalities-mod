@@ -347,7 +347,7 @@ public class FeyFoxEntity extends AnimalEntity {
      * the animal type)
      */
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.getItem() instanceof FeyFood;
+        return FeyFood.isFeyFood(stack.getItem());
     }
 
     protected void onChildSpawnFromEgg(PlayerEntity playerIn, AgeableEntity child) {

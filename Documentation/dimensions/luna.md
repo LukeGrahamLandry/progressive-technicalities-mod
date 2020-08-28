@@ -14,6 +14,6 @@ None
 - Dilithium
 
 #### Structures
-**Meteor**
+**Meteor**  
 A hunk of obsidian sourounded by ice, lava, coal ore, andisite and dilithium ore. 
 A few pieces of star dust ore in the obsidian.

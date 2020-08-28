@@ -25,7 +25,7 @@ public class LifeStealCharmBasic extends Item {
    @Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Heals you 2 hearts when you kill something"));
+			tooltip.add(new StringTextComponent("Heals you 1 heart when you kill something"));
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);

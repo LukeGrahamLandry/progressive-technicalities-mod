@@ -1,5 +1,6 @@
 ### Features
 - [Materials](materials/overview.md)
+- [Special Items](items/overview.md)
 - [Dimensions](dimensions/overview.md)
 
 ### Progression Overview
