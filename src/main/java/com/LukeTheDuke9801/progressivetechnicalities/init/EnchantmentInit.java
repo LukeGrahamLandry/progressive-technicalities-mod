@@ -5,6 +5,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.enchantments.BridgingEnchan
 import com.LukeTheDuke9801.progressivetechnicalities.enchantments.LavaWalkerEnchantment;
 import com.LukeTheDuke9801.progressivetechnicalities.enchantments.SoulBoundEnchantment;
 
+import com.LukeTheDuke9801.progressivetechnicalities.enchantments.StaffCooldownReductionEnchant;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantment.Rarity;
 import net.minecraft.enchantment.EnchantmentType;
@@ -21,5 +22,8 @@ public class EnchantmentInit {
 		
 	public static final RegistryObject<Enchantment> SOULBOUND = ENCHANTMENTS.register("soul_bound_enchant",
 			() -> new SoulBoundEnchantment(Rarity.VERY_RARE, EnchantmentType.ALL, new EquipmentSlotType[] {}));
+
+	public static final RegistryObject<Enchantment> STAFF_COOLDOWN_REDUCTION = ENCHANTMENTS.register("staff_cooldown_reduction",
+			() -> new StaffCooldownReductionEnchant(Rarity.RARE, new EquipmentSlotType[] {EquipmentSlotType.MAINHAND, EquipmentSlotType.OFFHAND}));
 		
 }

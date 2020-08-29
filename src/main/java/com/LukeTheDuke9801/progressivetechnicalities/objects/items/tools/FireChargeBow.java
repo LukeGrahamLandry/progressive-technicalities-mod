@@ -1,14 +1,11 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.items.tools;
 
-import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.ThrowableFireballEntity;
-import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.TorchArrowEntity;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.Fireball;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.SimpleProjectile;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.stats.Stats;
@@ -50,7 +47,7 @@ public class FireChargeBow extends ModBow {
 			float velocity = getArrowVelocity(timeUsed);
 			if ((double)velocity < 0.1D) return;
 
-			ThrowableFireballEntity arrowEntity = new ThrowableFireballEntity(worldIn, player);
+			SimpleProjectile arrowEntity = new SimpleProjectile(worldIn, player, new Fireball());
 			arrowEntity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
 			worldIn.addEntity(arrowEntity);
 

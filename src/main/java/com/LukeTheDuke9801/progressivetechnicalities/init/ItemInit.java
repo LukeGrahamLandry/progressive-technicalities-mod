@@ -2,6 +2,9 @@ package com.LukeTheDuke9801.progressivetechnicalities.init;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.ProgtechItemGroup;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.DragonBreathBall;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.Fireball;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.Slowball;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.*;
@@ -225,10 +228,7 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> ENDER_STAFF = ITEMS.register("ender_staff",
 			() -> new EnderStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-	
-	public static final RegistryObject<Item> SNOW_STAFF = ITEMS.register("snow_staff",
-			() -> new SnowStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-	
+
 	public static final RegistryObject<Item> RECALL_STAFF = ITEMS.register("recall_staff",
 			() -> new RecallStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
@@ -237,10 +237,7 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> XP_STAFF = ITEMS.register("xp_staff",
 			() -> new XPStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-	
-	public static final RegistryObject<Item> BLAZE_STAFF = ITEMS.register("blaze_staff",
-			() -> new BlazeStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-	
+
 	public static final RegistryObject<Item> TNT_STAFF = ITEMS.register("tnt_staff",
 			() -> new TNTStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
@@ -273,6 +270,16 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> UNDO_STAFF = ITEMS.register("undo_staff",
 			() -> new UndoStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
+
+	// Wizard Staffs
+	public static final RegistryObject<Item> FIREBALL_STAFF = ITEMS.register("blaze_staff",
+			() -> new ProjectileStaff(Fireball::new, 500, 20));
+
+	public static final RegistryObject<Item> SLOWBALL_STAFF = ITEMS.register("snow_staff",
+			() -> new ProjectileStaff(Slowball::new, 1500, 0));
+
+	public static final RegistryObject<Item> DRAGONBREATH_STAFF = ITEMS.register("dragonbreath_staff",
+			() -> new ProjectileStaff(DragonBreathBall::new, 200, 100));
 	
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",
