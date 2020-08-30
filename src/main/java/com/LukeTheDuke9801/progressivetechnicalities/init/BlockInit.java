@@ -209,5 +209,5 @@ public class BlockInit {
 			() -> new LeavesBlock(Block.Properties.from(Blocks.OAK_LEAVES)));
 
 	public static final RegistryObject<Block> CHERRY_SAPLING = BLOCKS.register("cherry_sapling",
-			() -> new ModSapplingBlock(() -> new FruitTree(), Block.Properties.from(Blocks.OAK_SAPLING)));
+			() -> new ModSapplingBlock(FruitTree::new, Block.Properties.from(Blocks.OAK_SAPLING)));
 }

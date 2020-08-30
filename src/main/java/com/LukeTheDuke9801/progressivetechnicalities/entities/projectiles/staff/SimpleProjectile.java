@@ -1,7 +1,9 @@
 package com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff;
 
+import com.LukeTheDuke9801.progressivetechnicalities.entities.WizardEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.DamagingProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -9,7 +11,9 @@ import net.minecraft.item.Items;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ItemParticleData;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -17,9 +21,34 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class SimpleProjectile extends ProjectileItemEntity {
     private ProjectileHitAction hitAction;
 
-    public SimpleProjectile(World worldIn, LivingEntity throwerIn, ProjectileHitAction hitActionIn) {
+    public int force;
+
+    public SimpleProjectile(World worldIn, LivingEntity throwerIn, ProjectileHitAction hitActionIn, int forceIn) {
         super(EntityType.SNOWBALL, throwerIn, worldIn);
         this.hitAction = hitActionIn;
+        this.force = forceIn; // increases damage, explosion size, etc.
+    }
+
+    public void shootTowardEntity(LivingEntity target){
+        LivingEntity shooter = this.getThrower();
+
+        double d1 = 4.0D;
+        Vec3d vec3d = shooter.getLook(1.0F);
+        double xAccel = target.getPosX() - (shooter.getPosX() + vec3d.x * 4.0D);
+        double yAccel = target.getPosYHeight(0.5D) - (0.5D + shooter.getPosYHeight(0.5D));
+        double zAccel = target.getPosZ() - (shooter.getPosZ() + vec3d.z * 4.0D);
+
+        this.setLocationAndAngles(shooter.getPosX(), shooter.getPosY(), shooter.getPosZ(), shooter.rotationYaw, shooter.rotationPitch);
+        this.recenterBoundingBox();
+        this.setMotion(Vec3d.ZERO);
+        xAccel = xAccel + this.rand.nextGaussian() * 0.4D;
+        yAccel = yAccel + this.rand.nextGaussian() * 0.4D;
+        zAccel = zAccel + this.rand.nextGaussian() * 0.4D;
+        double d0 = (double) MathHelper.sqrt(xAccel * xAccel + yAccel * yAccel + zAccel * zAccel);
+        this.shoot( xAccel / d0 * 0.1D, yAccel / d0 * 0.1D,zAccel / d0 * 0.1D, 1.5F, 0.5F);
+
+        // so it doesnt hit the person shooting it
+        this.setPosition(shooter.getPosX() + vec3d.x * 4.0D, shooter.getPosYHeight(0.5D) + 0.5D, this.getPosZ() + vec3d.z * 4.0D);
     }
 
     /**

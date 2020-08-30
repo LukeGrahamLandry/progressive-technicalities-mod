@@ -5,6 +5,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities.P
 import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.DragonBreathBall;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.Fireball;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.Slowball;
+import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.TNTBall;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor.*;
 import com.LukeTheDuke9801.progressivetechnicalities.objects.items.charms.*;
@@ -24,85 +25,69 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.HashMap;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 public class ItemInit {
 	
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, ProgressiveTechnicalities.MOD_ID);
 
-	public static final RegistryObject<Item> CHROMIUM_ROD = ITEMS.register("chromium_rod",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> CHROMIUM_ROD = createSimpleItem("chromium_rod");
+	public static final RegistryObject<Item> POTION_CORE = createSimpleItem("potion_core");
+	public static final RegistryObject<Item> BASIC_POTION_CORE = createSimpleItem("basic_potion_core");
+	public static final RegistryObject<Item> MACHINE_BASE = createSimpleItem("machine_base");
+	public static final RegistryObject<Item> PORTAL_KEY = createSimpleItem("portal_key");
+	public static final RegistryObject<Item> FLIGHT_COMPONENT = createSimpleItem("flight_component");
+	public static final RegistryObject<Item> BASIC_ROCKET_CASING = createSimpleItem("basic_rocket_casing");
+	public static final RegistryObject<Item> ADVANCED_ROCKET_CASING = createSimpleItem("advanced_rocket_casing");
+	public static final RegistryObject<Item> AIR_GEM = createSimpleItem("air_gem");
+	public static final RegistryObject<Item> FIRE_GEM = createSimpleItem("fire_gem");
+	public static final RegistryObject<Item> WATER_GEM = createSimpleItem("water_gem");
+	public static final RegistryObject<Item> EARTH_GEM = createSimpleItem("earth_gem");
+	public static final RegistryObject<Item> END_GEM = createSimpleItem("end_gem");
+	public static final RegistryObject<Item> DILITHIUM = createSimpleItem("dilithium");
+	public static final RegistryObject<Item> CREPUSCULUM =createSimpleItem("crepusculum");
+	public static final RegistryObject<Item> CHROMIUM_INGOT = createSimpleItem("chromium_ingot");
+	public static final RegistryObject<Item> CARBIDE_INGOT = createSimpleItem("carbide_ingot");
+	public static final RegistryObject<Item> TITANIUM_INGOT = createSimpleItem("titanium_ingot");
+	public static final RegistryObject<Item> SPACE_INGOT = createSimpleItem("space_ingot");
+	public static final RegistryObject<Item> FEYSTEEL_INGOT = createSimpleItem("feysteel_ingot");
+	public static final RegistryObject<Item> OBSIDIAN_INGOT = createSimpleItem("obsidian_ingot");
+	public static final RegistryObject<Item> NYMPHARIUM_INGOT = createSimpleItem("nympharium_ingot");
+	public static final RegistryObject<Item> STEEL_INGOT = createSimpleItem("steel_ingot");
+	public static final RegistryObject<Item> VARIDIUM_INGOT = createSimpleItem("varidium_ingot");
+	public static final RegistryObject<Item> MELANGE_CLUMP = createSimpleItem("melange_clump");
+	public static final RegistryObject<Item> UNOBTANIUM_INGOT = createSimpleItem("unobtanium_ingot");
+	public static final RegistryObject<Item> UNOBTANIUM_SHARD = createSimpleItem("unobtanium_shard");
+	public static final RegistryObject<Item> BEDROCKIUM_SHARD = createSimpleItem("bedrockium_shard");
+	public static final RegistryObject<Item> BEDROCKIUM_INGOT = createSimpleItem("bedrockium_ingot");
+	public static final RegistryObject<Item> IRON_DUST = createSimpleItem("iron_dust");
+	public static final RegistryObject<Item> GOLD_DUST = createSimpleItem("gold_dust");
+	public static final RegistryObject<Item> CHROMIUM_DUST = createSimpleItem("chromium_dust");
+	public static final RegistryObject<Item> CARBIDE_DUST = createSimpleItem("carbide_dust");
+	public static final RegistryObject<Item> TITANIUM_DUST = createSimpleItem("titanium_dust");
+	public static final RegistryObject<Item> FEYSTEEL_DUST = createSimpleItem("feysteel_dust");
+	public static final RegistryObject<Item> STEEL_DUST = createSimpleItem("steel_dust");
+	public static final RegistryObject<Item> NYMPHARIUM_DUST = createSimpleItem("nympharium_dust");
+	public static final RegistryObject<Item> VARIDIUM_DUST = createSimpleItem("varidium_dust");
+	public static final RegistryObject<Item> OBSIDIAN_DUST = createSimpleItem("obsidian_dust");
+	public static final RegistryObject<Item> DIASTIMA_DUST = createSimpleItem("diastima_dust");
+	public static final RegistryObject<Item> UNOBTANIUM_DUST = createSimpleItem("unobtanium_dust");
+	public static final RegistryObject<Item> BEDROCKIUM_DUST = createSimpleItem("bedrockium_dust");
 
-	public static final RegistryObject<Item> CHROMIUM_INGOT = ITEMS.register("chromium_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> CARBIDE_INGOT = ITEMS.register("carbide_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> AIR_GEM = ITEMS.register("air_gem",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> SPACE_INGOT = ITEMS.register("space_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> POTION_CORE = ITEMS.register("potion_core",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> BASIC_POTION_CORE = ITEMS.register("basic_potion_core",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> MACHINE_BASE = ITEMS.register("machine_base",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
 	public static final RegistryObject<Item> TINY_COAL = ITEMS.register("tiny_coal",
 			() -> new TinyCoal(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> MAGIC_EGGSHELL = ITEMS.register("magic_eggshell",
 			() -> new MagicEggShell(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> PORTAL_KEY = ITEMS.register("portal_key",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
 	public static final RegistryObject<Item> OIL_PORTAL_KEY = ITEMS.register("oil_portal_key",
 			() -> new OilPortalKey(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> FEYSTEEL_INGOT = ITEMS.register("feysteel_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> OBSIDIAN_INGOT = ITEMS.register("obsidian_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> NYMPHARIUM_INGOT = ITEMS.register("nympharium_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> ELECTRUM_INGOT = ITEMS.register("electrum_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> VARIDIUM_INGOT = ITEMS.register("varidium_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> MELANGE_CLUMP = ITEMS.register("melange_clump",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> MELANGE = ITEMS.register("melange",
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance).food(
 					new Food.Builder().hunger(20).saturation(20.0F).build())));
-	
-	public static final RegistryObject<Item> UNOBTANIUM_INGOT = ITEMS.register("unobtanium_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> UNOBTANIUM_SHARD = ITEMS.register("unobtanium_shard",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> BEDROCKIUM_SHARD = ITEMS.register("bedrockium_shard",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> BEDROCKIUM_INGOT = ITEMS.register("bedrockium_ingot",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> XP_CHARGE = ITEMS.register("xp_charge",
 			() -> new XPCharge(160, new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -124,33 +109,6 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> PANDORA_ROCKET = ITEMS.register("pandora_rocket",
 			() -> new HandHeldRocket("pandora", true, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> FLIGHT_COMPONENT = ITEMS.register("flight_component",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> BASIC_ROCKET_CASING = ITEMS.register("basic_rocket_casing",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> ADVANCED_ROCKET_CASING = ITEMS.register("advanced_rocket_casing",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> FIRE_GEM = ITEMS.register("fire_gem",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> WATER_GEM = ITEMS.register("water_gem",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> EARTH_GEM = ITEMS.register("earth_gem",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> END_GEM = ITEMS.register("end_gem",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> DILITHIUM = ITEMS.register("dilithium",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> CREPUSCULUM = ITEMS.register("crepusculum",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	public static final RegistryObject<Item> LIGHTNING_BOTTLE = ITEMS.register("lightning_bottle",
 			() -> new LightningBottle(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(16)));
@@ -185,40 +143,8 @@ public class ItemInit {
 	public static final RegistryObject<Item> ROCKET_HELP_BOOK = ITEMS.register("rocket_help_book",
 			() -> new PreWrittenBook(new RocketHelp(), new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	// Dusts
-	public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> CHROMIUM_DUST = ITEMS.register("chromium_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> CARBIDE_DUST = ITEMS.register("carbide_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> TITANIUM_DUST = ITEMS.register("titanium_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> FEYSTEEL_DUST = ITEMS.register("feysteel_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> STEEL_DUST = ITEMS.register("steel_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> NYMPHARIUM_DUST = ITEMS.register("nympharium_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> VARIDIUM_DUST = ITEMS.register("varidium_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> OBSIDIAN_DUST = ITEMS.register("obsidian_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> DIASTIMA_DUST = ITEMS.register("diastima_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> UNOBTANIUM_DUST = ITEMS.register("unobtanium_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> BEDROCKIUM_DUST = ITEMS.register("bedrockium_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	public static final RegistryObject<Item> AIR_GEM_DUST = ITEMS.register("air_gem_dust",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
-	
 	// Staffs
-
-	public static final RegistryObject<Item> STAFF = ITEMS.register("staff",
-			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final RegistryObject<Item> STAFF = createSimpleItem("staff");
 	
 	public static final RegistryObject<Item> WEATHER_STAFF = ITEMS.register("weather_staff",
 			() -> new WeatherStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
@@ -238,9 +164,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> XP_STAFF = ITEMS.register("xp_staff",
 			() -> new XPStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 
-	public static final RegistryObject<Item> TNT_STAFF = ITEMS.register("tnt_staff",
-			() -> new TNTStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-	
 	public static final RegistryObject<Item> CREATIVE_STAFF = ITEMS.register("creative_staff",
 			() -> new CreativeStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
@@ -256,31 +179,28 @@ public class ItemInit {
 	public static final RegistryObject<Item> TEST_STAFF = ITEMS.register("test_staff",
 			() -> new TestStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
-	public static final RegistryObject<Item> LOOKING_GLASS = ITEMS.register("looking_glass",
-			() -> new LookingGlass(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-	
 	public static final RegistryObject<Item> AMMETER = ITEMS.register("ammeter",
 			() -> new Ammeter(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 
 	public static final RegistryObject<Item> HAND_HELD_TELEPORTER = ITEMS.register("hand_held_teleporter",
 			() -> new HandHeldTeleporter(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 
-	public static final RegistryObject<Item> ZHONYAS_HOURGLASS = ITEMS.register("zhonyas_hourglass",
-			() -> new ZhonyasHourglass(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-
 	public static final RegistryObject<Item> UNDO_STAFF = ITEMS.register("undo_staff",
 			() -> new UndoStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 
 	// Wizard Staffs
 	public static final RegistryObject<Item> FIREBALL_STAFF = ITEMS.register("blaze_staff",
-			() -> new ProjectileStaff(Fireball::new, 500, 20));
+			() -> new ProjectileStaff(Fireball::new, 500, 10));
 
 	public static final RegistryObject<Item> SLOWBALL_STAFF = ITEMS.register("snow_staff",
-			() -> new ProjectileStaff(Slowball::new, 1500, 0));
+			() -> new ProjectileStaff(Slowball::new, 2000, 0));
 
 	public static final RegistryObject<Item> DRAGONBREATH_STAFF = ITEMS.register("dragonbreath_staff",
 			() -> new ProjectileStaff(DragonBreathBall::new, 200, 100));
-	
+
+	public static final RegistryObject<Item> TNT_STAFF = ITEMS.register("tnt_staff",
+			() -> new ProjectileStaff(TNTBall::new, 500, 15));
+
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",
 			() -> new BoostCharm(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
@@ -309,7 +229,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> ANTI_MINING_FATIGUE_CHARM = ITEMS.register("anti_mining_fatigue_charm",
 			() -> new AntiEffectCharm(Effects.MINING_FATIGUE, new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
-	public static final RegistryObject<Item> ANTI_LEVITATION_CHARM = ITEMS.register("anti_levitaion_charm",
+	public static final RegistryObject<Item> ANTI_LEVITATION_CHARM = ITEMS.register("anti_levitation_charm",
 			() -> new AntiEffectCharm(Effects.LEVITATION, new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
 	public static final RegistryObject<Item> ANTI_BLINDNESS_CHARM = ITEMS.register("anti_blindness_charm",
@@ -360,9 +280,9 @@ public class ItemInit {
 			() -> new SwordItem(ModItemTier.FIREGEM, 5, -2f, new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	// Armour
-	public static final int OBSIDIAN_ARMOR = createSimpleArmorSet(ModArmorMaterial.OBSIDIAN, "obsidian");
-	public static final int CARBIDE_ARMOR = createSimpleArmorSet(ModArmorMaterial.CARBIDE, "carbide");
-	public static final int STEEL_ARMOR = createSimpleArmorSet(ModArmorMaterial.STEEL, "steel");
+	public static final ArmorSet OBSIDIAN_ARMOR_SET = createSimpleArmorSet(ModArmorMaterial.OBSIDIAN, "obsidian");
+	public static final ArmorSet CARBIDE_ARMOR_SET = createSimpleArmorSet(ModArmorMaterial.CARBIDE, "carbide");
+	public static final ArmorSet STEEL_ARMOR_SET = createSimpleArmorSet(ModArmorMaterial.STEEL, "steel");
 
 	public static final RegistryObject<Item> NIGHTVISION_GOGGLES = ITEMS.register("nightvision_goggles",
 			() -> new NightVisionGoggles(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
@@ -403,18 +323,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> NINJA_ROBE = ITEMS.register("ninja_robe",
 			() -> new NinjaRobe(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> FEYSTEEL_HELMET = ITEMS.register("feysteel_helmet",
-			() -> new FeySteelArmorItem(ModArmorMaterial.FEYSTEEL, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> FEYSTEEL_CHESTPLATE = ITEMS.register("feysteel_chestplate",
-			() -> new FeySteelArmorItem(ModArmorMaterial.FEYSTEEL, EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> FEYSTEEL_LEGGINGS = ITEMS.register("feysteel_leggings",
-			() -> new FeySteelArmorItem(ModArmorMaterial.FEYSTEEL, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> FEYSTEEL_BOOTS = ITEMS.register("feysteel_boots",
-			() -> new FeySteelArmorItem(ModArmorMaterial.FEYSTEEL, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
 	public static final RegistryObject<Item> MODULAR_HELMET = ITEMS.register("modular_helmet",
 			() -> new ArmorItem(new ModularArmor.Material(), EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
@@ -427,90 +335,37 @@ public class ItemInit {
 	public static final RegistryObject<Item> MODULAR_BOOTS = ITEMS.register("modular_boots",
 			() -> new ArmorItem(new ModularArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-	public static final RegistryObject<Item> BEDROCKIUM_HELMET = ITEMS.register("bedrockium_helmet",
-			() -> new ArmorItem(new BedrockiumArmor.Material(), EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> BEDROCKIUM_CHESTPLATE = ITEMS.register("bedrockium_chestplate",
-			() -> new BedrockiumArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final ArmorSet FEYSTEEL_ARMOR_SET = createComplexArmorSet("feysteel", (slot) -> {
+		return new FeySteelArmorItem(slot, new Item.Properties().group(ProgtechItemGroup.instance));
+	});
 
-	public static final RegistryObject<Item> BEDROCKIUM_LEGGINGS = ITEMS.register("bedrockium_leggings",
-			() -> new ArmorItem(new BedrockiumArmor.Material(), EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final ArmorSet BEDROCKIUM_ARMOR_SET = createComplexArmorSet("bedrockium", (slot) -> {
+		return new BedrockiumArmor(slot, new Item.Properties().group(ProgtechItemGroup.instance));
+	});
 
-	public static final RegistryObject<Item> BEDROCKIUM_BOOTS = ITEMS.register("bedrockium_boots",
-			() -> new ArmorItem(new BedrockiumArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet",
-			() -> new ArmorItem(new TitaniumArmor.Material(), EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> TITANIUM_CHESTPLATE = ITEMS.register("titanium_chestplate",
-			() -> new TitaniumArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final ArmorSet TITANIUM_ARMOR_SET = createComplexArmorSet("titanium", (slot) -> {
+		return new TitaniumArmor(slot, new Item.Properties().group(ProgtechItemGroup.instance));
+	});
 
-	public static final RegistryObject<Item> TITANIUM_LEGGINGS = ITEMS.register("titanium_leggings",
-			() -> new ArmorItem(new TitaniumArmor.Material(), EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final ArmorSet AIRGEM_ARMOR_SET = createComplexArmorSet("airgem", (slot) -> {
+		return new AirGemArmor(slot, new Item.Properties().group(ProgtechItemGroup.instance));
+	});
 
-	public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots",
-			() -> new ArmorItem(new TitaniumArmor.Material(), EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final ArmorSet FIREGEM_ARMOR_SET = createComplexArmorSet("firegem", (slot) -> {
+		return new FireGemArmor(slot, new Item.Properties().group(ProgtechItemGroup.instance));
+	});
 
-	public static final RegistryObject<Item> FIREGEM_HELMET = ITEMS.register("firegem_helmet",
-			() -> new FireGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> FIREGEM_CHESTPLATE = ITEMS.register("firegem_chestplate",
-			() -> new FireGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final ArmorSet WATERGEM_ARMOR_SET = createComplexArmorSet("watergem", (slot) -> {
+		return new WaterGemArmor(slot, new Item.Properties().group(ProgtechItemGroup.instance));
+	});
 
-	public static final RegistryObject<Item> FIREGEM_LEGGINGS = ITEMS.register("firegem_leggings",
-			() -> new FireGemArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
+	public static final ArmorSet EARTHGEM_ARMOR_SET = createComplexArmorSet("earthgem", (slot) -> {
+		return new EarthGemArmor(slot, new Item.Properties().group(ProgtechItemGroup.instance));
+	});
 
-	public static final RegistryObject<Item> FIREGEM_BOOTS = ITEMS.register("firegem_boots",
-			() -> new FireGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> AIRGEM_HELMET = ITEMS.register("airgem_helmet",
-			() -> new AirGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> AIRGEM_CHESTPLATE = ITEMS.register("airgem_chestplate",
-			() -> new AirGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> AIRGEM_LEGGINGS = ITEMS.register("airgem_leggings",
-			() -> new AirGemArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> AIRGEM_BOOTS = ITEMS.register("airgem_boots",
-			() -> new AirGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> WATERGEM_HELMET = ITEMS.register("watergem_helmet",
-			() -> new ArmorItem(ModArmorMaterial.WATERGEM, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> WATERGEM_CHESTPLATE = ITEMS.register("watergem_chestplate",
-			() -> new WaterGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> WATERGEM_LEGGINGS = ITEMS.register("watergem_leggings",
-			() -> new ArmorItem(ModArmorMaterial.WATERGEM, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> WATERGEM_BOOTS = ITEMS.register("watergem_boots",
-			() -> new ArmorItem(ModArmorMaterial.WATERGEM, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> EARTHGEM_HELMET = ITEMS.register("earthgem_helmet",
-			() -> new EarthGemArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
-	public static final RegistryObject<Item> EARTHGEM_CHESTPLATE = ITEMS.register("earthgem_chestplate",
-			() -> new EarthGemArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> EARTHGEM_LEGGINGS = ITEMS.register("earthgem_leggings",
-			() -> new EarthGemArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> EARTHGEM_BOOTS = ITEMS.register("earthgem_boots",
-			() -> new EarthGemArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> NYMPHARIUM_HELMET = ITEMS.register("nympharium_helmet",
-			() -> new NymphariumArmor(EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> NYMPHARIUM_CHESTPLATE = ITEMS.register("nympharium_chestplate",
-			() -> new NymphariumArmor(EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> NYMPHARIUM_LEGGINGS = ITEMS.register("nympharium_leggings",
-			() -> new NymphariumArmor(EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
-
-	public static final RegistryObject<Item> NYMPHARIUM_BOOTS = ITEMS.register("nympharium_boots",
-			() -> new NymphariumArmor(EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
-	
+	public static final ArmorSet NYMPHARIUM_ARMOR_SET = createComplexArmorSet("nympharium", (slot) -> {
+		return new NymphariumArmor(slot, new Item.Properties().group(ProgtechItemGroup.instance));
+	});
 	
 	// Fey Food 
 	public static final RegistryObject<Item> CHERRY = ITEMS.register("cherry",
@@ -527,6 +382,20 @@ public class ItemInit {
 					new Food.Builder().hunger(8).saturation(0f)
 							.effect(() -> new EffectInstance(Effects.WITHER, 600, 2), 0.5F)
 							.effect(() -> new EffectInstance(Effects.REGENERATION, 600, 2), 0.5F).build())));
+
+	public static final RegistryObject<Item> RAW_FEY_MEAT = ITEMS.register("raw_fey_meat",
+			() -> new FeyFood(new Item.Properties().group(ProgtechItemGroup.instance).food(
+					new Food.Builder().hunger(2).saturation(2f)
+							.effect(() -> new EffectInstance(Effects.HUNGER, 200, 0), 0.5f).build())));
+
+	public static final RegistryObject<Item> FEY_STEAK = ITEMS.register("fey_steak",
+			() -> new FeyFood(new Item.Properties().group(ProgtechItemGroup.instance).food(
+					new Food.Builder().hunger(10).saturation(7f).setAlwaysEdible()
+							.effect(() -> new EffectInstance(Effects.STRENGTH, 1200, 1), 0.2f).build())));
+
+	private static RegistryObject<Item> createSimpleItem(String name){
+		return ITEMS.register(name, () -> new Item(new Item.Properties().group(ProgtechItemGroup.instance)));
+	}
 
 	private static int createSimpleToolSet(ModItemTier tier, String name){
 		ITEMS.register(name + "_sword",
@@ -547,21 +416,47 @@ public class ItemInit {
 		return 1;
 	}
 
-	private static int createSimpleArmorSet(ModArmorMaterial tier, String name){
-		ITEMS.register(name + "_helmet",
+	private static ArmorSet createSimpleArmorSet(ModArmorMaterial tier, String name){
+		RegistryObject<Item> head = ITEMS.register(name + "_helmet",
 				() -> new ArmorItem(tier, EquipmentSlotType.HEAD, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-		ITEMS.register(name + "_chestplate",
+		RegistryObject<Item> chest = ITEMS.register(name + "_chestplate",
 				() -> new ArmorItem(tier, EquipmentSlotType.CHEST, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-		ITEMS.register(name + "_leggings",
+		RegistryObject<Item> legs = ITEMS.register(name + "_leggings",
 				() -> new ArmorItem(tier, EquipmentSlotType.LEGS, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-		ITEMS.register(name + "_boots",
+		RegistryObject<Item> feet = ITEMS.register(name + "_boots",
 				() -> new ArmorItem(tier, EquipmentSlotType.FEET, new Item.Properties().group(ProgtechItemGroup.instance)));
 
-		return 1;
+		return new ArmorSet(head, chest, legs, feet);
 	}
 
+	private static ArmorSet createComplexArmorSet(String name, Function<EquipmentSlotType, ArmorItem> armorConstructer){
+		RegistryObject<Item> head = ITEMS.register(name + "_helmet",
+				() -> armorConstructer.apply(EquipmentSlotType.HEAD));
+
+		RegistryObject<Item> chest = ITEMS.register(name + "_chestplate",
+				() -> armorConstructer.apply(EquipmentSlotType.CHEST));
+
+		RegistryObject<Item> legs = ITEMS.register(name + "_leggings",
+				() -> armorConstructer.apply(EquipmentSlotType.LEGS));
+
+		RegistryObject<Item> feet = ITEMS.register(name + "_boots",
+				() -> armorConstructer.apply(EquipmentSlotType.FEET));
+
+		return new ArmorSet(head, chest, legs, feet);
+	}
+
+	// Useage example: ItemInit.SteelArmorSet.HELMET.get() instead of ItemInit.STEEL_HELMET.get()
+	public static class ArmorSet {
+		public RegistryObject<Item> HELMET, CHESTPLATE, LEGGINGS, BOOTS;
+		public ArmorSet(RegistryObject<Item> head, RegistryObject<Item> chest, RegistryObject<Item> legs, RegistryObject<Item> feet){
+			this.HELMET = head;
+			this.CHESTPLATE = chest;
+			this.LEGGINGS = legs;
+			this.BOOTS = feet;
+		}
+	}
 
 }

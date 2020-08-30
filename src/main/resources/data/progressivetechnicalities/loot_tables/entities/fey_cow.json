@@ -1,0 +1,13 @@
+{
+    "pools": [{
+      "name": "gem_drop",
+      "rolls": 1,
+      "entries": [
+        {
+            "type": "item",
+            "name": "progressivetechnicalities:raw_fey_meat",
+            "weight": 100
+        }
+      ]
+    }]
+  }

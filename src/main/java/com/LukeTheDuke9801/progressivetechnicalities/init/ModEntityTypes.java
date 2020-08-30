@@ -67,6 +67,11 @@ public class ModEntityTypes {
 			.immuneToFire().size(0.9F, 1.4F)
 			.build(ProgressiveTechnicalities.MOD_ID + ":fey_cow");
 
+	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":wizard")
+	public static final EntityType<WizardEntity> WIZARD = EntityType.Builder.create(WizardEntity::new, EntityClassification.MONSTER)
+			.immuneToFire().size(0.6F, 1.95F)
+			.build(ProgressiveTechnicalities.MOD_ID + ":wizard");
+
 	@SubscribeEvent
 	public static void onRegisterEntities(RegistryEvent.Register<EntityType<?>> event) {
 		FAIRY.setRegistryName(ProgressiveTechnicalities.MOD_ID, "fairy");
@@ -85,6 +90,9 @@ public class ModEntityTypes {
 		event.getRegistry().register(FEY_COW);
 		EntitySpawnPlacementRegistry.register(FEY_COW, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canFoxSpawn);
 
+		WIZARD.setRegistryName(ProgressiveTechnicalities.MOD_ID, "wizard");
+		event.getRegistry().register(WIZARD);
+		EntitySpawnPlacementRegistry.register(WIZARD, EntitySpawnPlacementRegistry.PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ModEntityTypes::canWizardSpawn);
 	}
 
 
@@ -98,5 +106,9 @@ public class ModEntityTypes {
 
 	public static boolean canFremanSpawn(EntityType<? extends FremanEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
 		return random.nextInt(20) == 0 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.SAND;
+	}
+
+	public static boolean canWizardSpawn(EntityType<? extends WizardEntity> animal, IWorld worldIn, SpawnReason reason, BlockPos pos, Random random) {
+		return random.nextInt(20) == 0 && worldIn.getBlockState(pos.down()).getBlock() == Blocks.OBSIDIAN;
 	}
 }

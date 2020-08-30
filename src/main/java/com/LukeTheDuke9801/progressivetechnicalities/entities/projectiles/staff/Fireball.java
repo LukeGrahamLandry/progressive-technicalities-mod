@@ -11,14 +11,17 @@ public class Fireball implements ProjectileHitAction{
         return "fire ball";
     }
 
+    // force increases damage, fire time, and explosion power
     public void onHit(RayTraceResult result, SimpleProjectile projectile){
+        float force = projectile.force;
+
         if (result.getType() == RayTraceResult.Type.ENTITY){
             Entity entity = ((EntityRayTraceResult)result).getEntity();
-            entity.attackEntityFrom(DamageSource.IN_FIRE, 6.0F);
-            entity.setFire(5);
+            entity.attackEntityFrom(DamageSource.IN_FIRE, 3 + force);
+            entity.setFire(projectile.force + 1);
         }
 
-        float explosionPower = 1.0F;
+        float explosionPower = 1 + (force / 5);
         projectile.world.createExplosion((Entity)null, projectile.getPosX(), projectile.getPosY(), projectile.getPosZ(), explosionPower, true, Explosion.Mode.NONE);
     }
 }

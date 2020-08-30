@@ -312,6 +312,16 @@ public class EnchantmentForgeContainer extends Container {
     		  enchant = EnchantmentInit.SOULBOUND.get();
     		  cost = 30;
     	  }
+
+		  if (item2.equals(ItemInit.STAFF.get())){
+			  enchant = EnchantmentInit.STAFF_COOLDOWN_REDUCTION.get();
+			  cost = 20;
+		  }
+
+		  if (item2.equals(ItemInit.CHROMIUM_ROD.get())){
+			  enchant = EnchantmentInit.STAFF_FORCE.get();
+			  cost = 20;
+		  }
     	  
     	  
     	  if (cost > 0) {

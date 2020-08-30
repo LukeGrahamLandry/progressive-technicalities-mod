@@ -1,6 +1,6 @@
 {
 	"item.progressivetechnicalities.example_item": "Example Item",
-	"item.progressivetechnicalities.chromium_rod": "Chromium Rod",
+	"item.progressivetechnicalities.chromium_rod": "Tool Rod",
 	"item.progressivetechnicalities.chromium_ingot": "Chromium Ingot",
 	"item.progressivetechnicalities.carbide_ingot": "Carbide Ingot",
 	"item.progressivetechnicalities.titanium_ingot": "Titanium Ingot",
@@ -45,14 +45,19 @@
 	"item.progressivetechnicalities.water_gem": "Water Gem",
 	"item.progressivetechnicalities.earth_gem": "Earth Gem",
 	"item.progressivetechnicalities.lightning_bottle": "Lightning in a Bottle",
+	"item.progressivetechnicalities.progressive_loot_box": "Progressive Loot Box",
 
 	"item.progressivetechnicalities.coffee": "Coffee",
 	"item.progressivetechnicalities.coffee_beans": "Coffee Beans",
+	"item.progressivetechnicalities.cherry": "Cherry",
+	"item.progressivetechnicalities.golden_plum": "Golden Plum",
+	"item.progressivetechnicalities.raw_fey_meat": "Raw Fey Meat",
+	"item.progressivetechnicalities.fey_steak": "Fey Steak",
 
 	"item.progressivetechnicalities.basic_rocket_casing": "Basic Rocket Casing",
 	"item.progressivetechnicalities.advanced_rocket_casing": "Advanced Rocket Casing",
-	"item.progressivetechnicalities.overworld_rocket": "Rocket To Earth",
-	"item.progressivetechnicalities.advanced_overworld_rocket": "Rocket To Earth (Advanced)",
+	"item.progressivetechnicalities.overworld_rocket": "Rocket To Overworld",
+	"item.progressivetechnicalities.advanced_overworld_rocket": "Rocket To Overworld (Advanced)",
 	"item.progressivetechnicalities.luna_rocket": "Rocket To Luna",
 	"item.progressivetechnicalities.arrakis_rocket": "Rocket To Arrakis",
 	"item.progressivetechnicalities.pandora_rocket": "Rocket To Pandora",
@@ -60,7 +65,7 @@
 	"item.progressivetechnicalities.potion_core": "Advanced Potion Core",
 	"item.progressivetechnicalities.machine_base": "Machine Frame",
 	"item.progressivetechnicalities.basic_potion_core": "Basic Potion Core",
-	"item.progressivetechnicalities.flight_component": "Flight Component",
+	"item.progressivetechnicalities.flight_component": "Flight Engine",
 
 	"item.progressivetechnicalities.staff": "Staff",
 	"item.progressivetechnicalities.weather_staff": "Nimbus Staff",
@@ -77,7 +82,8 @@
 	"item.progressivetechnicalities.lightning_staff": "Lightning Staff",
 	"item.progressivetechnicalities.shulking_staff": "Shulking Staff",
 	"item.progressivetechnicalities.hand_held_teleporter": "Hand Held Teleporter",
-	"item.progressivetechnicalities.zhonyas_hourglass": "Zhonya's Hourglass",
+	"item.progressivetechnicalities.ammeter": "Ammeter",
+	"item.progressivetechnicalities.undo_staff": "Staff of Backtracking",
 
 	"item.progressivetechnicalities.sky_island_compass": "Sky Island Compass",
 
@@ -93,7 +99,7 @@
 	"item.progressivetechnicalities.anti_poison_charm": "Anti-Poison Charm",
 	"item.progressivetechnicalities.anti_wither_charm": "Anti-Wither Charm",
 	"item.progressivetechnicalities.anti_mining_fatigue_charm": "Anti-Mining Fatigue Charm",
-	"item.progressivetechnicalities.anti_levitaiton_charm": "Anti-Levitation Charm",
+	"item.progressivetechnicalities.anti_levitation_charm": "Anti-Levitation Charm",
 	"item.progressivetechnicalities.anti_blindness_charm": "Anti-Blindness Charm",
 	"item.progressivetechnicalities.watergem_charm": "Magic Shell Charm",
 	
@@ -244,6 +250,9 @@
 
 	"enchantment.progressivetechnicalities.lava_walker_enchant": "Lava Walker",
 	"enchantment.progressivetechnicalities.soul_bound_enchant": "Soul Bound",
+	"enchantment.progressivetechnicalities.staff_force": "Force",
+	"enchantment.progressivetechnicalities.staff_cooldown_reduction": "Cool Down Reduction",
+
 	
 	"itemGroup.progtechtab": "Progressive Technicalities"
 }

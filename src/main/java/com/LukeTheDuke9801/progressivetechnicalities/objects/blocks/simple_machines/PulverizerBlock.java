@@ -228,10 +228,6 @@ public class PulverizerBlock extends SimpleMachineBlock{
 		   result = ItemInit.DIASTIMA_DUST.get();
 		   count = 1;
 	   }
-	   if (item.equals(ItemInit.AIR_GEM.get())) {
-		   result = ItemInit.AIR_GEM_DUST.get();
-		   count = 1;
-	   }
 	   if (item.equals(ItemInit.BEDROCKIUM_INGOT.get())) {
 		   result = ItemInit.BEDROCKIUM_DUST.get();
 		   count = 1;

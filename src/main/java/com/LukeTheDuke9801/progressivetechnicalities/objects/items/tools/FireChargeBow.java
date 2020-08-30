@@ -47,7 +47,7 @@ public class FireChargeBow extends ModBow {
 			float velocity = getArrowVelocity(timeUsed);
 			if ((double)velocity < 0.1D) return;
 
-			SimpleProjectile arrowEntity = new SimpleProjectile(worldIn, player, new Fireball());
+			SimpleProjectile arrowEntity = new SimpleProjectile(worldIn, player, new Fireball(), 0);
 			arrowEntity.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, velocity * 3.0F, 1.0F);
 			worldIn.addEntity(arrowEntity);
 

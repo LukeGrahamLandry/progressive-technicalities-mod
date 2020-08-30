@@ -45,6 +45,7 @@ public class FeyPlainsBiome extends Biome{
 		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(ModEntityTypes.FAIRY, 25, 1, 1));
 	    this.addSpawn(EntityClassification.WATER_CREATURE, new SpawnListEntry(EntityType.DOLPHIN, 20, 1, 2));
 		this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(ModEntityTypes.FEY_FOX, 1, 1, 1));
+		this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(ModEntityTypes.FEY_COW, 1, 1, 3));
 
 		DefaultBiomeFeatures.addDenseGrass(this);
 	    DefaultBiomeFeatures.addDoubleFlowers(this);

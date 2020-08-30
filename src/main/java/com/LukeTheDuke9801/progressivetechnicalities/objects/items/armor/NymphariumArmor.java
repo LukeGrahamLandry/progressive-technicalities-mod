@@ -11,7 +11,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -46,10 +45,10 @@ public class NymphariumArmor extends ArmorItem implements HitEventListener {
 	
 	
 	public static boolean hasFullSet(LivingEntity entity) {
-		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.NYMPHARIUM_HELMET.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.NYMPHARIUM_CHESTPLATE.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.NYMPHARIUM_LEGGINGS.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.NYMPHARIUM_BOOTS.get());
+		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.NYMPHARIUM_ARMOR_SET.HELMET.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.NYMPHARIUM_ARMOR_SET.CHESTPLATE.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.NYMPHARIUM_ARMOR_SET.LEGGINGS.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.NYMPHARIUM_ARMOR_SET.BOOTS.get());
 	}
 
 	@Override

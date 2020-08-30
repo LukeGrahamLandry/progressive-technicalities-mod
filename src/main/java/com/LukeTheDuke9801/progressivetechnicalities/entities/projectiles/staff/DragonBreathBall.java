@@ -19,6 +19,7 @@ public class DragonBreathBall implements ProjectileHitAction{
         return "ball of dragon breath";
     }
 
+    // force increases damage and duration
     public void onHit(RayTraceResult result, SimpleProjectile projectile){
         if (result.getType() != RayTraceResult.Type.ENTITY || !((EntityRayTraceResult)result).getEntity().isEntityEqual(projectile.getThrower())) {
             List<LivingEntity> list = projectile.world.getEntitiesWithinAABB(LivingEntity.class, projectile.getBoundingBox().grow(4.0D, 2.0D, 4.0D));
@@ -26,9 +27,10 @@ public class DragonBreathBall implements ProjectileHitAction{
             areaeffectcloudentity.setOwner(projectile.getThrower());
             areaeffectcloudentity.setParticleData(ParticleTypes.DRAGON_BREATH);
             areaeffectcloudentity.setRadius(3.0F);
-            areaeffectcloudentity.setDuration(600);
+            areaeffectcloudentity.setDuration(300 + (projectile.force * 100));
             areaeffectcloudentity.setRadiusPerTick((7.0F - areaeffectcloudentity.getRadius()) / (float)areaeffectcloudentity.getDuration());
-            areaeffectcloudentity.addEffect(new EffectInstance(Effects.INSTANT_DAMAGE, 1, 1));
+            int amplifier = projectile.force >= 3 ? 2 : 1; // force III+ does more damage
+            areaeffectcloudentity.addEffect(new EffectInstance(Effects.INSTANT_DAMAGE, 1, amplifier));
             if (!list.isEmpty()) {
                 for(LivingEntity livingentity : list) {
                     double d0 = projectile.getDistanceSq(livingentity);

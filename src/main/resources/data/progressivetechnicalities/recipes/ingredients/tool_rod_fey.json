@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+    "i",
+    "i"
+  ],
+  "key": {
+    "i": {
+      "item": "progressivetechnicalities:fey_planks"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:chromium_rod",
+    "count": 4
+  }
+}

@@ -41,6 +41,7 @@ public class MushroomForestBiome extends Biome{
 				.temperature(0.8F));
 
 		this.addSpawn(EntityClassification.MONSTER, new SpawnListEntry(ModEntityTypes.FAIRY, 25, 1, 1));
+		this.addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityType.MOOSHROOM, 1, 1, 1));
 
 		addMushrooms(this);
 		addHugeMushrooms(this, 10);

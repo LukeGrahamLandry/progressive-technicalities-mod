@@ -57,9 +57,9 @@ public class FireGemArmor extends ArmorItem implements HitEventListener {
 	
 	
 	public static boolean hasFullSet(LivingEntity entity) {
-		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.FIREGEM_HELMET.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.FIREGEM_CHESTPLATE.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.FIREGEM_LEGGINGS.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.FIREGEM_BOOTS.get());
+		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.FIREGEM_ARMOR_SET.HELMET.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.FIREGEM_ARMOR_SET.CHESTPLATE.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.FIREGEM_ARMOR_SET.LEGGINGS.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.FIREGEM_ARMOR_SET.BOOTS.get());
 	}
 }

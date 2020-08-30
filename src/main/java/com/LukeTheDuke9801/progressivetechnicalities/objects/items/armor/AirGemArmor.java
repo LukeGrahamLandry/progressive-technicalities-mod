@@ -65,10 +65,10 @@ public class AirGemArmor extends ArmorItem implements HitEventListener {
 	}
 	
 	public static boolean hasFullSet(LivingEntity entity) {
-		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.AIRGEM_HELMET.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.AIRGEM_CHESTPLATE.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.AIRGEM_LEGGINGS.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.AIRGEM_BOOTS.get());
+		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.AIRGEM_ARMOR_SET.HELMET.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.AIRGEM_ARMOR_SET.CHESTPLATE.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.AIRGEM_ARMOR_SET.LEGGINGS.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.AIRGEM_ARMOR_SET.BOOTS.get());
 	}
 
 	private int getFlightTimer(ItemStack stack) {

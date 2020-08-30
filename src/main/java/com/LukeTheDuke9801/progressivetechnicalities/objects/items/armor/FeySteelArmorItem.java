@@ -20,8 +20,8 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 public class FeySteelArmorItem extends ArmorItem implements HitEventListener {
 
-	public FeySteelArmorItem(ModArmorMaterial material, EquipmentSlotType slot, Properties builder) {
-		super(material, slot, builder);
+	public FeySteelArmorItem(EquipmentSlotType slot, Properties builder) {
+		super(ModArmorMaterial.FEYSTEEL, slot, builder);
 	}
 	
 	@Override

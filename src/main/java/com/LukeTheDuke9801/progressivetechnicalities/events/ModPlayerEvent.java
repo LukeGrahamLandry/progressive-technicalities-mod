@@ -3,12 +3,14 @@ package com.LukeTheDuke9801.progressivetechnicalities.events;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
 
+import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.DimensionHelper;
 import com.LukeTheDuke9801.progressivetechnicalities.util.interfaces.HitEventListener;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -34,7 +36,12 @@ public class ModPlayerEvent {
     		}
     	}
 
-
+    	// less fall damage on Luna
+		if (event.getSource() == DamageSource.FALL || event.getSource() == DamageSource.FALLING_BLOCK || event.getSource() == DamageSource.ANVIL){
+			if (entity.world.getDimension().getType() == DimensionHelper.LUNA){
+				event.setAmount(event.getAmount() / 2);
+			}
+		}
     }
 
 	private static void handleArmorOnHitEffects(LivingEntity entity, LivingHurtEvent event) {

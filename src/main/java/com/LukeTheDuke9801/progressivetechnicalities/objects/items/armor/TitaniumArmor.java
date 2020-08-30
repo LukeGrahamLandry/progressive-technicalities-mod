@@ -1,7 +1,6 @@
 package com.LukeTheDuke9801.progressivetechnicalities.objects.items.armor;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.init.ItemInit;
@@ -15,7 +14,6 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundEvent;
@@ -55,10 +53,10 @@ public class TitaniumArmor extends ArmorItem {
 	}
 	
 	public static boolean hasFullSet(LivingEntity entity) {
-		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.TITANIUM_HELMET.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.TITANIUM_CHESTPLATE.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.TITANIUM_LEGGINGS.get())
-				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.TITANIUM_BOOTS.get());
+		return entity.getItemStackFromSlot(EquipmentSlotType.HEAD).getItem().equals(ItemInit.TITANIUM_ARMOR_SET.HELMET.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem().equals(ItemInit.TITANIUM_ARMOR_SET.CHESTPLATE.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.LEGS).getItem().equals(ItemInit.TITANIUM_ARMOR_SET.LEGGINGS.get())
+				&& entity.getItemStackFromSlot(EquipmentSlotType.FEET).getItem().equals(ItemInit.TITANIUM_ARMOR_SET.BOOTS.get());
 	}
 	
 	public static class Material implements IArmorMaterial {

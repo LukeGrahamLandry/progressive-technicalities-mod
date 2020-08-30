@@ -22,10 +22,10 @@ public class RitualGuardian implements SpawnableSpecialMob{
         swordStack.addEnchantment(Enchantments.FIRE_ASPECT, 2);
         swordStack.addEnchantment(Enchantments.KNOCKBACK, 2);
         zombie.setHeldItem(Hand.MAIN_HAND, swordStack);
-        zombie.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(ItemInit.EARTHGEM_HELMET.get()));
-        zombie.setItemStackToSlot(EquipmentSlotType.CHEST, new ItemStack(ItemInit.EARTHGEM_CHESTPLATE.get()));
-        zombie.setItemStackToSlot(EquipmentSlotType.LEGS, new ItemStack(ItemInit.EARTHGEM_LEGGINGS.get()));
-        zombie.setItemStackToSlot(EquipmentSlotType.FEET, new ItemStack(ItemInit.EARTHGEM_BOOTS.get()));
+        zombie.setItemStackToSlot(EquipmentSlotType.HEAD, new ItemStack(ItemInit.EARTHGEM_ARMOR_SET.HELMET.get()));
+        zombie.setItemStackToSlot(EquipmentSlotType.CHEST, new ItemStack(ItemInit.EARTHGEM_ARMOR_SET.CHESTPLATE.get()));
+        zombie.setItemStackToSlot(EquipmentSlotType.LEGS, new ItemStack(ItemInit.EARTHGEM_ARMOR_SET.LEGGINGS.get()));
+        zombie.setItemStackToSlot(EquipmentSlotType.FEET, new ItemStack(ItemInit.EARTHGEM_ARMOR_SET.BOOTS.get()));
         zombie.setCustomName(new StringTextComponent("Ritual Guardian"));
         world.addEntity(zombie);
     }

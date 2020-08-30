@@ -15,6 +15,7 @@ import com.LukeTheDuke9801.progressivetechnicalities.objects.blocks.machines.tin
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.entity.EvokerRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -39,6 +40,7 @@ public class ClientEventBusSubscriber {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FEY_FOX, FeyFoxRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FREMAN, FremanRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FEY_COW, FeyCowRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WIZARD, EvokerRenderer::new);
 
 		RenderTypeLookup.setRenderLayer(BlockInit.CHERRY_SAPLING.get(), RenderType.getCutout());
 	}

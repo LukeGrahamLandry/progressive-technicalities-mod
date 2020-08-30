@@ -3,8 +3,10 @@ package com.LukeTheDuke9801.progressivetechnicalities.objects.items.staffs;
 import com.LukeTheDuke9801.progressivetechnicalities.ProgressiveTechnicalities;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.ProjectileHitAction;
 import com.LukeTheDuke9801.progressivetechnicalities.entities.projectiles.staff.SimpleProjectile;
+import com.LukeTheDuke9801.progressivetechnicalities.init.EnchantmentInit;
 import com.LukeTheDuke9801.progressivetechnicalities.util.helpers.KeyboardHelper;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
@@ -20,7 +22,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class ProjectileStaff extends Item implements Staff{
+public class ProjectileStaff extends Staff{
 	private final Supplier<ProjectileHitAction> projectileHitActionSupplier;
 	private final int cooldown;
 	public ProjectileStaff(Supplier<ProjectileHitAction> projectileSupplierIn, int durability, int cooldownIn) {
@@ -53,7 +55,8 @@ public class ProjectileStaff extends Item implements Staff{
 	}
 
 	protected void shootProjectile(PlayerEntity player, ItemStack stack){
-		ProjectileItemEntity projectile = new SimpleProjectile(player.world, player, this.projectileHitActionSupplier.get());
+		int force = EnchantmentHelper.getEnchantmentLevel(EnchantmentInit.STAFF_FORCE.get(), stack);
+		ProjectileItemEntity projectile = new SimpleProjectile(player.world, player, this.projectileHitActionSupplier.get(), force);
 		shoot(projectile, player, player.rotationPitch, player.rotationYaw, 0, 1.5F, 1.0F);
 		player.world.addEntity(projectile);
 	}
