@@ -29,10 +29,10 @@ public class SimpleProjectile extends ProjectileItemEntity {
         this.force = forceIn; // increases damage, explosion size, etc.
     }
 
+    // logic from GhastEntity
     public void shootTowardEntity(LivingEntity target){
         LivingEntity shooter = this.getThrower();
 
-        double d1 = 4.0D;
         Vec3d vec3d = shooter.getLook(1.0F);
         double xAccel = target.getPosX() - (shooter.getPosX() + vec3d.x * 4.0D);
         double yAccel = target.getPosYHeight(0.5D) - (0.5D + shooter.getPosYHeight(0.5D));
@@ -48,7 +48,7 @@ public class SimpleProjectile extends ProjectileItemEntity {
         this.shoot( xAccel / d0 * 0.1D, yAccel / d0 * 0.1D,zAccel / d0 * 0.1D, 1.5F, 0.5F);
 
         // so it doesnt hit the person shooting it
-        this.setPosition(shooter.getPosX() + vec3d.x * 4.0D, shooter.getPosYHeight(0.5D) + 0.5D, this.getPosZ() + vec3d.z * 4.0D);
+        this.setPosition(shooter.getPosX() + vec3d.x, shooter.getPosYHeight(0.5D) + 0.5D, this.getPosZ() + vec3d.z);
     }
 
     /**

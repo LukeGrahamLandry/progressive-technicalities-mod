@@ -22,6 +22,6 @@ public class Fireball implements ProjectileHitAction{
         }
 
         float explosionPower = 1 + (force / 5);
-        projectile.world.createExplosion((Entity)null, projectile.getPosX(), projectile.getPosY(), projectile.getPosZ(), explosionPower, true, Explosion.Mode.NONE);
+        projectile.world.createExplosion(projectile.getThrower(), projectile.getPosX(), projectile.getPosY(), projectile.getPosZ(), explosionPower, true, Explosion.Mode.NONE);
     }
 }

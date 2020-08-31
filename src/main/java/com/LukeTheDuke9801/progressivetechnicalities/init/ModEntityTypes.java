@@ -49,12 +49,12 @@ public class ModEntityTypes {
 
 	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":fairy")
 	public static final EntityType<FairyEntity> FAIRY = EntityType.Builder.create(FairyEntity::new, EntityClassification.MONSTER)
-			.immuneToFire().size(0.4F, 0.8F)
+			.size(0.4F, 0.8F)
 			.build(ProgressiveTechnicalities.MOD_ID + ":fairy");
 
 	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":fey_fox")
 	public static final EntityType<FeyFoxEntity> FEY_FOX = EntityType.Builder.create(FeyFoxEntity::new, EntityClassification.CREATURE)
-			.immuneToFire().size(0.6F, 0.7F)
+			.size(0.6F, 0.7F)
 			.build(ProgressiveTechnicalities.MOD_ID + ":fey_fox");
 
 	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":freman")
@@ -64,12 +64,12 @@ public class ModEntityTypes {
 
 	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":fey_cow")
 	public static final EntityType<FeyCowEntity> FEY_COW = EntityType.Builder.create(FeyCowEntity::new, EntityClassification.CREATURE)
-			.immuneToFire().size(0.9F, 1.4F)
+			.size(0.9F, 1.4F)
 			.build(ProgressiveTechnicalities.MOD_ID + ":fey_cow");
 
 	@ObjectHolder(ProgressiveTechnicalities.MOD_ID + ":wizard")
 	public static final EntityType<WizardEntity> WIZARD = EntityType.Builder.create(WizardEntity::new, EntityClassification.MONSTER)
-			.immuneToFire().size(0.6F, 1.95F)
+			.size(0.6F, 1.95F)
 			.build(ProgressiveTechnicalities.MOD_ID + ":wizard");
 
 	@SubscribeEvent

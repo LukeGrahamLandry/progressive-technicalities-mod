@@ -38,6 +38,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.*;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+import net.minecraft.world.raid.Raid;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -54,6 +55,8 @@ public class FremanEntity extends VindicatorEntity implements BreathesInSpace, I
         super(type, worldIn);
         this.lootInventory = NonNullList.create();
         this.offers = getOffers();
+
+        super.func_213644_t(false); // canJoinRaid = false
     }
 
     protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
@@ -73,7 +76,6 @@ public class FremanEntity extends VindicatorEntity implements BreathesInSpace, I
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new SwimGoal(this));
-        this.goalSelector.addGoal(3, new AbstractRaiderEntity.FindTargetGoal(this, 10.0F));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AnimalEntity.class, true));
@@ -276,5 +278,11 @@ public class FremanEntity extends VindicatorEntity implements BreathesInSpace, I
             }
         }
 
+    }
+
+    @Nullable
+    @Override // make it not join raids
+    public Raid getRaid() {
+        return null;
     }
 }

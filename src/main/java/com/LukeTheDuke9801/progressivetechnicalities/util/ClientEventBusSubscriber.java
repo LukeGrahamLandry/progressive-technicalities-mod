@@ -40,7 +40,7 @@ public class ClientEventBusSubscriber {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FEY_FOX, FeyFoxRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FREMAN, FremanRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.FEY_COW, FeyCowRenderer::new);
-		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WIZARD, EvokerRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.WIZARD, WizardRenderer::new);
 
 		RenderTypeLookup.setRenderLayer(BlockInit.CHERRY_SAPLING.get(), RenderType.getCutout());
 	}
