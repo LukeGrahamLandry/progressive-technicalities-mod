@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.server.ServerWorld;
 
-public class LightningStaff extends Item{
+public class LightningStaff extends Staff{
 	public LightningStaff(Properties properties) {
 		super(properties);
 	}
@@ -39,7 +39,7 @@ public class LightningStaff extends Item{
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Rightclick to summon lightning"));
+			tooltip.add(new StringTextComponent("Right click to summon lightning"));
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -47,17 +47,25 @@ public class LightningStaff extends Item{
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
-		playerIn.getCooldownTracker().setCooldown(this, 20);
+		ItemStack stack = playerIn.getHeldItem(handIn);
+		doDurabilityAndCooldown(stack, playerIn);
 
 		if (!worldIn.isRemote()) {
 			BlockPos pos = new BlockPos(rayTrace(worldIn, playerIn).getHitVec());
-			ServerWorld serverWorld = (ServerWorld)worldIn;
-			LightningBoltEntity lightning = new LightningBoltEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), false);
-			serverWorld.addLightningBolt(lightning);
+			if (worldIn.canBlockSeeSky(pos)){  // no lightning underground
+				ServerWorld serverWorld = (ServerWorld)worldIn;
+				LightningBoltEntity lightning = new LightningBoltEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), false);
+				serverWorld.addLightningBolt(lightning);
+			}
 		}
 
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 
+	}
+
+	@Override
+	public int getBaseCooldown(ItemStack stack) {
+		return 30;
 	}
 
 	private static RayTraceResult rayTrace(World worldIn, PlayerEntity player) {

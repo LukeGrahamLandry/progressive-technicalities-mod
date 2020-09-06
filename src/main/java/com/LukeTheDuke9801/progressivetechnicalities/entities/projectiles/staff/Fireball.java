@@ -17,7 +17,7 @@ public class Fireball implements ProjectileHitAction{
 
         if (result.getType() == RayTraceResult.Type.ENTITY){
             Entity entity = ((EntityRayTraceResult)result).getEntity();
-            entity.attackEntityFrom(DamageSource.IN_FIRE, 3 + force);
+            entity.attackEntityFrom(DamageSource.IN_FIRE, 2 + force);
             entity.setFire(projectile.force + 1);
         }
 

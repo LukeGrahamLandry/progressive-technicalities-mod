@@ -8,11 +8,13 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -41,8 +43,9 @@ public class WizardEntity extends EvokerEntity {
     @Override
     public void livingTick() {
         super.livingTick();
-        
-        // doing this in the constructer only sets it on the client
+
+        // give it a random staff to attack with
+        // doing this in the constructor only sets it on the client
         if (!this.world.isRemote && this.attackType == null){
             List<AttackType> types = new ArrayList<AttackType>(AttackType.TYPES_BY_NAME.values());
             int i = rand.nextInt(types.size());
@@ -58,15 +61,10 @@ public class WizardEntity extends EvokerEntity {
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, PlayerEntity.class, 8.0F, 0.6D, 1.0D));
         this.goalSelector.addGoal(3, new WizardEntity.AttackSpellGoal());
         this.goalSelector.addGoal(4, new WizardEntity.RemoveEffectsSpellGoal());
-        this.goalSelector.addGoal(2, new WizardEntity.AntiWitherSpellGoal());
         this.goalSelector.addGoal(8, new RandomWalkingGoal(this, 0.6D));
         this.goalSelector.addGoal(9, new LookAtGoal(this, PlayerEntity.class, 32.0F, 1.0F));
-        this.goalSelector.addGoal(9, new LookAtGoal(this, AbstractVillagerEntity.class, 32.0F, 1.0F));
-        this.goalSelector.addGoal(8, new LookAtGoal(this, WitherEntity.class, 32.0F, 1.0F));
-        this.targetSelector.addGoal(2, (new NearestAttackableTargetGoal<>(this, WitherEntity.class, true)).setUnseenMemoryTicks(300));
         this.targetSelector.addGoal(3, (new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true)).setUnseenMemoryTicks(300));
-        this.targetSelector.addGoal(3, (new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, true)).setUnseenMemoryTicks(300));
-    }
+      }
 
     protected void registerAttributes() {
         super.registerAttributes();
@@ -77,6 +75,20 @@ public class WizardEntity extends EvokerEntity {
     public boolean attackEntityFrom(DamageSource source, float amount) {
         if (source.getTrueSource() instanceof WizardEntity)  return false;  // immune to damage from wizards
         return super.attackEntityFrom(source, amount);
+    }
+
+    @Override
+    public void dropSpecialItems(DamageSource cause, int looting, boolean recentlyHitIn) {
+        // drop its staff with random durability (up to 50% of max)
+        ItemStack stack = this.attackType.getHeldItem().copy();
+        int durability = rand.nextInt(stack.getMaxDamage() / 2);
+        stack.setDamage(stack.getMaxDamage() - durability);
+        this.entityDropItem(stack);
+
+        // drop a thing for crafting combat staffs 1/3 of the time
+        if (rand.nextInt(2) == 0){
+            this.entityDropItem(new ItemStack(ItemInit.ARCANE_FOCUS.get()));
+        }
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -123,58 +135,6 @@ public class WizardEntity extends EvokerEntity {
         }
     }
 
-    class AntiWitherSpellGoal extends SpellcastingIllagerEntity.UseSpellGoal {
-        private AntiWitherSpellGoal() {
-        }
-
-        @Override
-        public boolean shouldExecute() {
-            WizardEntity wizard = WizardEntity.this;
-            LivingEntity target = wizard.getAttackTarget();
-
-            if (target instanceof WitherEntity && target.isAlive()) {
-                if (wizard.isSpellcasting()) {
-                    return false;
-                } else {
-                    return wizard.ticksExisted >= this.spellCooldown;
-                }
-            } else {
-                return false;
-            }
-        }
-
-        // ticks it takes to cast
-        protected int getCastingTime() {
-            return 20;
-        }
-
-        // ticks between casts
-        protected int getCastingInterval() {
-            return 60;
-        }
-
-        protected void castSpell() {
-            WizardEntity wizard = WizardEntity.this;
-            LivingEntity target = wizard.getAttackTarget();
-
-            wizard.heal(10);
-
-            SimpleProjectile projectile = new SimpleProjectile(world, wizard, new AntiWitherBall(), 0);
-            projectile.shootTowardEntity(target);
-            projectile.addVelocity(projectile.getMotion().x, projectile.getMotion().y, projectile.getMotion().z);  // make it faster
-            world.addEntity(projectile);
-        }
-
-        protected SoundEvent getSpellPrepareSound() {
-            return SoundEvents.ENTITY_EVOKER_PREPARE_ATTACK;
-        }
-
-        // what type of particles
-        protected SpellcastingIllagerEntity.SpellType getSpellType() {
-            return SpellcastingIllagerEntity.SpellType.FANGS;
-        }
-    }
-
     class RemoveEffectsSpellGoal extends SpellcastingIllagerEntity.UseSpellGoal {
         private RemoveEffectsSpellGoal() {
         }
@@ -193,7 +153,7 @@ public class WizardEntity extends EvokerEntity {
 
         // ticks it takes to cast
         protected int getCastingTime() {
-            return 20;
+            return 10;
         }
 
         // ticks between casts
@@ -243,8 +203,8 @@ public class WizardEntity extends EvokerEntity {
 
     public static enum AttackType {
         FIRE("fire", Fireball::new, 60, ItemInit.FIREBALL_STAFF.get()),
-        SLOW("slow", Slowball::new, 1, ItemInit.SLOWBALL_STAFF.get()),
-        DRAGON("dragon", DragonBreathBall::new, 100, ItemInit.DRAGONBREATH_STAFF.get()),
+        DRAGON("dragon", DragonBreathBall::new, 80, ItemInit.DRAGONBREATH_STAFF.get()),
+        LIGHTNING("lightning", LightningBall::new, 60, ItemInit.LIGHTNING_STAFF.get()),
         TNT("tnt", TNTBall::new, 100, ItemInit.TNT_STAFF.get());
 
         private final String name;
@@ -289,5 +249,10 @@ public class WizardEntity extends EvokerEntity {
     @Override  // make it not be part of raids
     public Raid getRaid() {
         return null;
+    }
+
+    @Override  // no banner and dont give bad omen
+    public boolean isLeader() {
+        return false;
     }
 }

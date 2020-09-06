@@ -39,7 +39,7 @@ public class ProjectileStaff extends Staff{
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("Right click to shoot a  " + this.projectileHitActionSupplier.get().getName()));
+			tooltip.add(new StringTextComponent("Right click to shoot a " + this.projectileHitActionSupplier.get().getName()));
 		}
 		
 		super.addInformation(stack, worldIn, tooltip, flagIn);

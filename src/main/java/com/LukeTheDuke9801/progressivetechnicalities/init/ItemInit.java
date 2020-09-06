@@ -41,6 +41,8 @@ public class ItemInit {
 	public static final RegistryObject<Item> FLIGHT_COMPONENT = createSimpleItem("flight_component");
 	public static final RegistryObject<Item> BASIC_ROCKET_CASING = createSimpleItem("basic_rocket_casing");
 	public static final RegistryObject<Item> ADVANCED_ROCKET_CASING = createSimpleItem("advanced_rocket_casing");
+	public static final RegistryObject<Item> STAFF = createSimpleItem("staff");
+	public static final RegistryObject<Item> ARCANE_FOCUS = createSimpleItem("arcane_focus");
 	public static final RegistryObject<Item> AIR_GEM = createSimpleItem("air_gem");
 	public static final RegistryObject<Item> FIRE_GEM = createSimpleItem("fire_gem");
 	public static final RegistryObject<Item> WATER_GEM = createSimpleItem("water_gem");
@@ -144,8 +146,6 @@ public class ItemInit {
 			() -> new PreWrittenBook(new RocketHelp(), new Item.Properties().group(ProgtechItemGroup.instance)));
 
 	// Staffs
-	public static final RegistryObject<Item> STAFF = createSimpleItem("staff");
-	
 	public static final RegistryObject<Item> WEATHER_STAFF = ITEMS.register("weather_staff",
 			() -> new WeatherStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
@@ -170,9 +170,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> MOMENTUM_STAFF = ITEMS.register("momentum_staff",
 			() -> new MomentumStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
-	public static final RegistryObject<Item> LIGHTNING_STAFF = ITEMS.register("lightning_staff",
-			() -> new LightningStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
-	
 	public static final RegistryObject<Item> SHULKING_STAFF = ITEMS.register("shulking_staff",
 			() -> new ShulkingStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 	
@@ -188,18 +185,21 @@ public class ItemInit {
 	public static final RegistryObject<Item> UNDO_STAFF = ITEMS.register("undo_staff",
 			() -> new UndoStaff(new Item.Properties().group(ProgtechItemGroup.instance).maxStackSize(1)));
 
+	public static final RegistryObject<Item> SLOWBALL_STAFF = ITEMS.register("snow_staff",
+			() -> new ProjectileStaff(Slowball::new, 2000, 0));
+
 	// Wizard Staffs
 	public static final RegistryObject<Item> FIREBALL_STAFF = ITEMS.register("blaze_staff",
 			() -> new ProjectileStaff(Fireball::new, 500, 10));
 
-	public static final RegistryObject<Item> SLOWBALL_STAFF = ITEMS.register("snow_staff",
-			() -> new ProjectileStaff(Slowball::new, 2000, 0));
-
 	public static final RegistryObject<Item> DRAGONBREATH_STAFF = ITEMS.register("dragonbreath_staff",
-			() -> new ProjectileStaff(DragonBreathBall::new, 200, 100));
+			() -> new ProjectileStaff(DragonBreathBall::new, 500, 100));
 
 	public static final RegistryObject<Item> TNT_STAFF = ITEMS.register("tnt_staff",
 			() -> new ProjectileStaff(TNTBall::new, 500, 15));
+
+	public static final RegistryObject<Item> LIGHTNING_STAFF = ITEMS.register("lightning_staff",
+			() -> new LightningStaff(new Item.Properties().maxDamage(500).group(ProgtechItemGroup.instance)));
 
 	// Charms
 	public static final RegistryObject<Item> BOOST_CHARM = ITEMS.register("boost_charm",

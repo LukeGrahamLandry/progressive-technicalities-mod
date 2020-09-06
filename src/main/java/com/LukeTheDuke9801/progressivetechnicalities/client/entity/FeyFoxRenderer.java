@@ -17,7 +17,6 @@ import net.minecraft.util.math.MathHelper;
 
 public class FeyFoxRenderer extends MobRenderer<FeyFoxEntity, FeyFoxModel<FeyFoxEntity>> {
     private static final ResourceLocation FOX = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "textures/entity/fey_fox.png");
-    private static final ResourceLocation SLEEPING_FOX = new ResourceLocation(ProgressiveTechnicalities.MOD_ID, "textures/entity/fey_fox_sleep.png");
 
     public FeyFoxRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new FeyFoxModel<>(), 0.4F);
@@ -36,6 +35,6 @@ public class FeyFoxRenderer extends MobRenderer<FeyFoxEntity, FeyFoxModel<FeyFox
      * Returns the location of an entity's texture.
      */
     public ResourceLocation getEntityTexture(FeyFoxEntity entity) {
-        return entity.isSleeping() ? SLEEPING_FOX : FOX;
+        return FOX;
     }
 }
