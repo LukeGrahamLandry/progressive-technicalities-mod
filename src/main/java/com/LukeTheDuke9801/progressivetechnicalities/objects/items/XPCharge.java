@@ -44,8 +44,8 @@ public class XPCharge extends Item {
        super(builder);
        this.amount = amount;  // level 10 is 160, level 30 is 1400
     }
-   
-    @Override
+
+	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 		if (KeyboardHelper.isHoldingShift()) {
 			tooltip.add(new StringTextComponent("Rightclick to get a bunch of xp"));

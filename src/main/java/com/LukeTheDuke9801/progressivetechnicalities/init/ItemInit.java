@@ -91,10 +91,10 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().group(ProgtechItemGroup.instance).food(
 					new Food.Builder().hunger(20).saturation(20.0F).build())));
 	
-	public static final RegistryObject<Item> XP_CHARGE = ITEMS.register("xp_charge",
+	public static final RegistryObject<Item> XP_CHARGE = ITEMS.register("xp_charge",  // 0 -> level 10
 			() -> new XPCharge(160, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
-	public static final RegistryObject<Item> GREATER_XP_CHARGE = ITEMS.register("greater_xp_charge",
+	public static final RegistryObject<Item> GREATER_XP_CHARGE = ITEMS.register("greater_xp_charge",  // 0 -> level 30
 			() -> new XPCharge(1400, new Item.Properties().group(ProgtechItemGroup.instance)));
 	
 	public static final RegistryObject<Item> OVERWORLD_ROCKET = ITEMS.register("overworld_rocket",
