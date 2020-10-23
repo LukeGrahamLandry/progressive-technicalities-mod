@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "gag",
-    "bmb",
-    "ded"
+    "tgt",
+    "sms",
+    "eda"
   ],
   "key": {
     "g": {
@@ -20,6 +20,12 @@
     },
     "d": {
       "item": "minecraft:diamond"
+    },
+    "t": {
+      "item": "progressivetechnicalities:titanium_ingot"
+    },
+    "s": {
+      "item": "minecraft:slime_block"
     }
   },
   "result": {

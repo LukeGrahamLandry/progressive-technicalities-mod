@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "iei",
-    "bmb",
-    "fff"
+    "isi",
+    "fmf",
+    "ddd"
   ],
   "key": {
     "i": {
-      "item": "progressivetechnicalities:titanium_ingot"
+      "item": "progressivetechnicalities:titanium"
     },
     "m": {
       "item": "progressivetechnicalities:machine_base"
@@ -15,10 +15,10 @@
     "f": {
       "item": "minecraft:egg"
     },
-    "b": {
-      "item": "progressivetechnicalities:chromium_block"
+    "d": {
+      "item": "minecraft:diamond"
     },
-    "e": {
+    "s": {
       "item": "minecraft:experience_bottle"
     }
   },

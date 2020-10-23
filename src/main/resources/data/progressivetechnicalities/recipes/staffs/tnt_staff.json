@@ -6,6 +6,9 @@
     },
     {
       "item": "minecraft:tnt"
+    },
+    {
+    	"item": "progressivetechnicalities:arcane_focus"
     }
   ],
   "result": {

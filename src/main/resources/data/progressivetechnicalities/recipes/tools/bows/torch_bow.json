@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " is",
+    "d s",
+    " is"
+  ],
+  "key": {
+    "d": {
+      "item": "progressivetechnicalities:fire_gem"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item":"minecraft:torch"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:torch_bow"
+  }
+}

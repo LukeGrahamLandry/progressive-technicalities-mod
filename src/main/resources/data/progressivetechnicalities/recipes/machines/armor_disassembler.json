@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "iai",
-    "imi",
-    "ili"
+    "tgt",
+    "fmf",
+    "adl"
   ],
   "key": {
-    "i": {
-      "item": "progressivetechnicalities:chromium_ingot"
+    "g": {
+      "item": "minecraft:gold_block"
     },
     "a": {
       "item": "minecraft:anvil"
@@ -17,6 +17,15 @@
     },
     "l": {
       "item": "minecraft:lava_bucket"
+    },
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "t": {
+      "item": "progressivetechnicalities:titanium_ingot"
+    },
+    "f": {
+      "item": "progressivetechnicalities:feysteel"
     }
   },
   "result": {

@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "igi",
+    "ini",
     "bmb",
-    "igi"
+    "ini"
   ],
   "key": {
     "i": {
-      "item": "minecraft:redstone"
+      "item": "minecraft:redstone_block"
     },
     "m": {
       "item": "progressivetechnicalities:machine_base"
     },
-    "g": {
-      "item": "minecraft:glowstone_dust"
+    "n": {
+      "item": "minecraft:endstone"
     },
     "b": {
       "item": "progressivetechnicalities:chromium_block"

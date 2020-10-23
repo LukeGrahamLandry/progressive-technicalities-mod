@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "rir",
-    "gbg",
-    "rir"
+    "rcr",
+    "gig",
+    "rcr"
   ],
   "key": {
-    "b": {
+    "c": {
       "item": "progressivetechnicalities:chromium_block"
     },
     "r": {
       "item": "minecraft:redstone"
     },
     "i": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:iron_block"
     },
     "g": {
       "item": "minecraft:gold_ingot"

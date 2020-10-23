@@ -5,13 +5,10 @@
     	"item": "progressivetechnicalities:staff"
     },
     {
-    	"item": "progressivetechnicalities:arcane_focus"
-    },
-    {
-      "item": "minecraft:blaze_rod"
+      "item": "minecraft:bed"
     }
   ],
   "result": {
-    "item": "progressivetechnicalities:blaze_staff"
+    "item": "progressivetechnicalities:recall_staff"
   }
 }

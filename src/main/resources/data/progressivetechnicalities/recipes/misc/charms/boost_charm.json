@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    	"item": "progressivetechnicalities:charm"
+    },
+    {
+    	"item": "progressivetechnicalities:potion_core"
+    },
+    {
+    	"item": "minecraft:rabbit_foot"
+    }
+  ],
+  "result": {
+    "item": "progressivetechnicalities:boost_charm"
+  }
+}

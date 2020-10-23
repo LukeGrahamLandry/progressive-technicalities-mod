@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "gcg",
+    "c c",
+    "gcg"
+  ],
+  "key": {
+    "c": {
+      "item": "progressivetechnicalities:chromium_ingot"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "progressivetechnicalities:charm"
+  }
+}

@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "isi",
-    "bmb",
-    "fff"
+    "fmf",
+    "ddd"
   ],
   "key": {
     "i": {
@@ -15,8 +15,8 @@
     "f": {
       "item": "minecraft:flint"
     },
-    "b": {
-      "item": "progressivetechnicalities:chromium_block"
+    "d": {
+      "item": "minecraft:diamond"
     },
     "s": {
       "item": "progressivetechnicalities:carbide_sword"

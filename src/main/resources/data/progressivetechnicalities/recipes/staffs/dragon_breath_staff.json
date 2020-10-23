@@ -5,13 +5,13 @@
     	"item": "progressivetechnicalities:staff"
     },
     {
-    	"item": "progressivetechnicalities:arcane_focus"
+      "item": "minecraft:dragon_head"
     },
     {
-    	"item": "progressivetechnicalities:lightning_bottle"
+    	"item": "progressivetechnicalities:arcane_focus"
     }
   ],
   "result": {
-    "item": "progressivetechnicalities:lightning_staff"
+    "item": "progressivetechnicalities:dragonbreath_staff"
   }
 }

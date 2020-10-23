@@ -6,6 +6,9 @@
     },
     {
     	"item": "minecraft:shulker_shell"
+    },
+    {
+    	"item": "progressivetechnicalities:arcane_focus"
     }
   ],
   "result": {
