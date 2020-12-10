@@ -49,7 +49,7 @@ public class ModularArmor extends ArmorItem {
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 		this.tick++;
-		if (this.tick == 300) {
+		if (this.tick == 20) {
 			this.tick = 0;
 			
 			if (!hasFullSet(player)) {

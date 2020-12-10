@@ -87,6 +87,7 @@ public class HandHeldRocket extends Item{
 	}
 
 	private DimensionType getDestination() {
+		ProgressiveTechnicalities.LOGGER.debug(this.destination);
 		switch (this.destination) {
 		case "overworld":
 			return DimensionType.OVERWORLD;

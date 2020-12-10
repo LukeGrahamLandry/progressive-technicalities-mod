@@ -52,8 +52,8 @@ public class InductionSmelterBlock extends SimpleMachineBlock{
 	   Item item = stack.getItem();
 	   
 	   Item result = getOutput(item, worldIn);
-	   if (result == item) {
-		   boolean success = expendExperience(worldIn, pos, player, this.cost);
+	   if (result != item) {
+		   boolean success = expendExperience(worldIn, pos, player, cost);
 		   if (!success) return ActionResultType.FAIL;
 		   
 		   stack.shrink(1);
